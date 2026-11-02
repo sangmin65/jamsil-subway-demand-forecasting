@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "team_review": {"approved": false, "reviewer": "", "reviewed_at": ""},
+  "seed": 42,
+  "windows": [3, 7, 14],
+  "models": ["rf", "mlp", "lstm"],
+  "excluded_test_dates": ["2025-09-25", "2025-09-26", "2025-09-27", "2025-09-28", "2025-09-30", "2025-10-01"],
+  "training": {"epochs": 200, "batch_size": 16, "patience": 20, "min_delta": 0.0, "shuffle": true},
+  "adam": {"learning_rate": 0.001, "beta_1": 0.9, "beta_2": 0.999, "epsilon": 1e-7, "amsgrad": false, "weight_decay": null},
+  "mlp": {"hidden_units": [64, 32]},
+  "lstm": {"units": 32, "dense_units": 32},
+  "rf": {"n_estimators": 200, "max_depth": 10, "min_samples_leaf": 3, "min_samples_split": 2, "criterion": "squared_error", "max_features": 1.0, "bootstrap": true, "max_samples": null, "max_leaf_nodes": null, "min_impurity_decrease": 0.0, "ccp_alpha": 0.0, "warm_start": false, "oob_score": false, "n_jobs": 1}
+}
