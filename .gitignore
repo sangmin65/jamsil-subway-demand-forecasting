@@ -218,3 +218,22 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project local data and outputs
+/data/raw/*
+!/data/raw/.gitkeep
+/data/processed/*
+!/data/processed/.gitkeep
+/data/external/*
+!/data/external/.gitkeep
+/outputs/*
+!/outputs/.gitkeep
+*.keras
+*.h5
+*.joblib
+*.pkl
+*.zip
+*.downloading
+.env
+.env.*
+!.env.example
