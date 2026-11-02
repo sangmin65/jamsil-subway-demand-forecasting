@@ -1,0 +1,200 @@
+{
+  "scope": "2024-2025; both supplied lines inspected, model line selection pending",
+  "inventory": {
+    "subway": {
+      "file": "종합운동장역_2·9호선_2024-2025_1-12월_시간대별.csv",
+      "sha256": "2acff62dd9b11442b1e4d6bbec7f4ab51c56c7c8cec24aeaf81c017dbccaa2fe",
+      "encoding": "utf-8-sig",
+      "rows": 26316,
+      "columns": [
+        "날짜",
+        "호선",
+        "역명",
+        "시간대",
+        "승차인원",
+        "하차인원"
+      ],
+      "empty_cells": {
+        "날짜": 0,
+        "호선": 0,
+        "역명": 0,
+        "시간대": 0,
+        "승차인원": 0,
+        "하차인원": 0
+      }
+    },
+    "joined": {
+      "file": "종합운동장역_2024-2025_모델입력_경기결합.csv",
+      "sha256": "97ff11187e84af09e6ca6e58ad38c4f58b1311a93424f99264960cee6577ad51",
+      "encoding": "utf-8-sig",
+      "rows": 26316,
+      "columns": [
+        "날짜",
+        "호선",
+        "역명",
+        "시간대",
+        "승차인원",
+        "하차인원",
+        "year",
+        "month",
+        "day",
+        "hour",
+        "weekday",
+        "weekday_name",
+        "is_weekend",
+        "has_kbo_record",
+        "listed_game_count",
+        "has_multiple_listed_games",
+        "scheduled_start_time_1",
+        "scheduled_start_minutes_1",
+        "minutes_until_scheduled_start_1",
+        "home_team_1",
+        "away_team_1",
+        "scheduled_start_time_2",
+        "scheduled_start_minutes_2",
+        "minutes_until_scheduled_start_2",
+        "home_team_2",
+        "away_team_2",
+        "schedule_record_status",
+        "schedule_completeness_verified",
+        "schedule_snapshot_verified",
+        "board_lag_1d",
+        "alight_lag_1d",
+        "board_lag_7d",
+        "alight_lag_7d"
+      ],
+      "empty_cells": {
+        "날짜": 0,
+        "호선": 0,
+        "역명": 0,
+        "시간대": 0,
+        "승차인원": 0,
+        "하차인원": 0,
+        "year": 0,
+        "month": 0,
+        "day": 0,
+        "hour": 0,
+        "weekday": 0,
+        "weekday_name": 0,
+        "is_weekend": 0,
+        "has_kbo_record": 0,
+        "listed_game_count": 0,
+        "has_multiple_listed_games": 0,
+        "scheduled_start_time_1": 14832,
+        "scheduled_start_minutes_1": 14832,
+        "minutes_until_scheduled_start_1": 14832,
+        "home_team_1": 0,
+        "away_team_1": 0,
+        "scheduled_start_time_2": 26064,
+        "scheduled_start_minutes_2": 26064,
+        "minutes_until_scheduled_start_2": 26064,
+        "home_team_2": 0,
+        "away_team_2": 0,
+        "schedule_record_status": 0,
+        "schedule_completeness_verified": 0,
+        "schedule_snapshot_verified": 0,
+        "board_lag_1d": 36,
+        "alight_lag_1d": 36,
+        "board_lag_7d": 252,
+        "alight_lag_7d": 252
+      }
+    },
+    "kbo": {
+      "file": "KBO원천데이터_정리.csv",
+      "sha256": "38cdb2d11d2af6eddcf31995c2f12f10efe0baec03a9e871b800a12a7df81660",
+      "encoding": "utf-8-sig",
+      "rows": 484,
+      "columns": [
+        "season_year",
+        "season_month",
+        "date",
+        "date_text",
+        "scheduled_start_time",
+        "stadium",
+        "note",
+        "away_team",
+        "home_team",
+        "away_score",
+        "home_score",
+        "score_difference",
+        "attendance",
+        "actual_start_time",
+        "actual_end_time",
+        "game_duration"
+      ],
+      "empty_cells": {
+        "season_year": 0,
+        "season_month": 0,
+        "date": 0,
+        "date_text": 0,
+        "scheduled_start_time": 0,
+        "stadium": 0,
+        "note": 0,
+        "away_team": 0,
+        "home_team": 0,
+        "away_score": 43,
+        "home_score": 43,
+        "score_difference": 43,
+        "attendance": 43,
+        "actual_start_time": 43,
+        "actual_end_time": 43,
+        "game_duration": 43
+      }
+    }
+  },
+  "structural_errors": {
+    "raw_duplicate_keys": 0,
+    "raw_missing_expected_keys": 0,
+    "raw_unexpected_keys": 0,
+    "invalid_passenger_counts": 0,
+    "joined_duplicate_keys": 0,
+    "joined_missing_keys": 0,
+    "joined_extra_keys": 0,
+    "joined_count_mismatches": 0,
+    "lag_mismatches": 0
+  },
+  "kbo": {
+    "rows_by_year": {
+      "2024": 168,
+      "2025": 158,
+      "2026": 158
+    },
+    "in_scope_rows": 326,
+    "out_of_scope_rows": 158,
+    "in_scope_notes": {
+      "-": 297,
+      "우천취소": 26,
+      "폭염취소": 1,
+      "기타": 1,
+      "그라운드사정": 1
+    },
+    "multiple_record_dates": {
+      "2024-04-21": 2,
+      "2024-05-12": 2,
+      "2024-06-23": 2,
+      "2024-09-21": 2,
+      "2025-05-10": 2,
+      "2025-05-11": 2,
+      "2025-05-17": 2
+    }
+  },
+  "schedule_flags": {
+    "schedule_record_status": {
+      "outside_collected_months": 8676,
+      "no_record_in_collected_month": 6156,
+      "listed": 11484
+    },
+    "schedule_completeness_verified": {
+      "0": 26316
+    },
+    "schedule_snapshot_verified": {
+      "0": 26316
+    }
+  },
+  "limitations": [
+    "Structural checks do not verify values against official sources.",
+    "No listed game is not proof of a non-game day.",
+    "Schedule completeness and prediction-time availability require verification.",
+    "No cleaning, model choice, split selection or training performed."
+  ]
+}
