@@ -1,0 +1,182 @@
+{
+  "source_sha256": "38cdb2d11d2af6eddcf31995c2f12f10efe0baec03a9e871b800a12a7df81660",
+  "status": "proposal_only",
+  "splits": {
+    "train": {
+      "start": "2024-01-01",
+      "end": "2024-12-31",
+      "calendar": {
+        "days": 366,
+        "no_record_unknown": 202,
+        "winter_months_proxy": 121,
+        "march_transition": 31,
+        "played_only": 147,
+        "apr_oct_proxy": 214,
+        "other_only": 17
+      },
+      "common_dates_proposal": {
+        "days": 352,
+        "no_record_unknown": 188,
+        "winter_months_proxy": 107,
+        "march_transition": 31,
+        "played_only": 147,
+        "apr_oct_proxy": 214,
+        "other_only": 17
+      }
+    },
+    "validation": {
+      "start": "2025-01-01",
+      "end": "2025-06-30",
+      "calendar": {
+        "days": 181,
+        "no_record_unknown": 95,
+        "winter_months_proxy": 59,
+        "march_transition": 31,
+        "played_only": 78,
+        "other_only": 7,
+        "apr_oct_proxy": 91,
+        "played_and_other": 1
+      },
+      "common_dates_proposal": {
+        "days": 181,
+        "no_record_unknown": 95,
+        "winter_months_proxy": 59,
+        "march_transition": 31,
+        "played_only": 78,
+        "other_only": 7,
+        "apr_oct_proxy": 91,
+        "played_and_other": 1
+      }
+    },
+    "test": {
+      "start": "2025-07-01",
+      "end": "2025-12-31",
+      "calendar": {
+        "days": 184,
+        "played_only": 65,
+        "apr_oct_proxy": 123,
+        "no_record_unknown": 115,
+        "other_only": 4,
+        "winter_months_proxy": 61
+      },
+      "common_dates_proposal": {
+        "days": 178,
+        "played_only": 59,
+        "apr_oct_proxy": 117,
+        "no_record_unknown": 115,
+        "other_only": 4,
+        "winter_months_proxy": 61
+      }
+    }
+  },
+  "monthly": {
+    "2024-01": {
+      "no_record_unknown": 31
+    },
+    "2024-02": {
+      "no_record_unknown": 29
+    },
+    "2024-03": {
+      "no_record_unknown": 23,
+      "played_only": 8
+    },
+    "2024-04": {
+      "no_record_unknown": 5,
+      "played_only": 24,
+      "other_only": 1
+    },
+    "2024-05": {
+      "played_only": 24,
+      "other_only": 3,
+      "no_record_unknown": 4
+    },
+    "2024-06": {
+      "played_only": 25,
+      "no_record_unknown": 4,
+      "other_only": 1
+    },
+    "2024-07": {
+      "no_record_unknown": 8,
+      "other_only": 6,
+      "played_only": 17
+    },
+    "2024-08": {
+      "played_only": 24,
+      "other_only": 2,
+      "no_record_unknown": 5
+    },
+    "2024-09": {
+      "played_only": 18,
+      "no_record_unknown": 9,
+      "other_only": 3
+    },
+    "2024-10": {
+      "no_record_unknown": 23,
+      "played_only": 7,
+      "other_only": 1
+    },
+    "2024-11": {
+      "no_record_unknown": 30
+    },
+    "2024-12": {
+      "no_record_unknown": 31
+    },
+    "2025-01": {
+      "no_record_unknown": 31
+    },
+    "2025-02": {
+      "no_record_unknown": 28
+    },
+    "2025-03": {
+      "no_record_unknown": 23,
+      "played_only": 8
+    },
+    "2025-04": {
+      "other_only": 2,
+      "played_only": 24,
+      "no_record_unknown": 4
+    },
+    "2025-05": {
+      "played_only": 24,
+      "no_record_unknown": 4,
+      "other_only": 2,
+      "played_and_other": 1
+    },
+    "2025-06": {
+      "played_only": 22,
+      "no_record_unknown": 5,
+      "other_only": 3
+    },
+    "2025-07": {
+      "played_only": 21,
+      "no_record_unknown": 9,
+      "other_only": 1
+    },
+    "2025-08": {
+      "played_only": 26,
+      "no_record_unknown": 4,
+      "other_only": 1
+    },
+    "2025-09": {
+      "no_record_unknown": 13,
+      "played_only": 15,
+      "other_only": 2
+    },
+    "2025-10": {
+      "played_only": 3,
+      "no_record_unknown": 28
+    },
+    "2025-11": {
+      "no_record_unknown": 30
+    },
+    "2025-12": {
+      "no_record_unknown": 31
+    }
+  },
+  "limitations": [
+    "Score/start fields indicate played records in supplied CSV, not independent official verification.",
+    "Other-only days include cancellation or other statuses; no-record days remain unknown.",
+    "Calendar month proxies are not verified season/offseason labels or model features.",
+    "Common-date counts assume complete subway history, no additional filtering, and six explored dates excluded."
+  ]
+}
