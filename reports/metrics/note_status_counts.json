@@ -1,0 +1,44 @@
+{
+  "basis": "note only; gamecenter_status excluded; dash does not prove completion",
+  "splits": {
+    "train": {
+      "daily_status": {
+        "no_record_unknown": 202,
+        "no_special_note": 147,
+        "explicit_cancellation": 17
+      },
+      "record_notes": {
+        "-": 151,
+        "우천취소": 16,
+        "폭염취소": 1
+      }
+    },
+    "validation": {
+      "daily_status": {
+        "no_record_unknown": 95,
+        "no_special_note": 78,
+        "other_note_unknown": 1,
+        "explicit_cancellation": 6,
+        "explicit_cancellation + no_special_note": 1
+      },
+      "record_notes": {
+        "-": 81,
+        "기타": 1,
+        "우천취소": 7
+      }
+    },
+    "test": {
+      "daily_status": {
+        "no_special_note": 65,
+        "no_record_unknown": 115,
+        "other_note_unknown": 1,
+        "explicit_cancellation": 3
+      },
+      "record_notes": {
+        "-": 65,
+        "그라운드사정": 1,
+        "우천취소": 3
+      }
+    }
+  }
+}
