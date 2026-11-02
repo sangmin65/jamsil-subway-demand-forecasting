@@ -43,6 +43,7 @@ docs/                운영 원칙·양식·점검 결과
 
 ## 문서
 
+- [팀원 제공 데이터 사전](docs/DATA_DICTIONARY.md)
 - [현재 상태와 할 일](docs/PROJECT_STATUS.md)
 - [커밋·브랜치·PR 규칙](CONTRIBUTING.md)
 - [AI 작업 지침](AGENTS.md)
