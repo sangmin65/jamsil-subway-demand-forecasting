@@ -1,0 +1,119 @@
+{
+  "archive_sha256": "57ada2dcaa7ad7ab5c4a7e8dbbfd22732561ec903da36c55fae45f1184334a5f",
+  "csv_sha256": "38cdb2d11d2af6eddcf31995c2f12f10efe0baec03a9e871b800a12a7df81660",
+  "corrupt_member": null,
+  "missing_month_files": [],
+  "error_logs": {
+    "schedule_errors.csv": "",
+    "detail_errors.csv": ""
+  },
+  "months": [
+    {
+      "file": "raw_schedule_json/2024_03.json",
+      "response_rows": 40,
+      "jamsil_rows": 8,
+      "short_rows": 0
+    },
+    {
+      "file": "raw_schedule_json/2024_04.json",
+      "response_rows": 128,
+      "jamsil_rows": 26,
+      "short_rows": 0
+    },
+    {
+      "file": "raw_schedule_json/2024_05.json",
+      "response_rows": 137,
+      "jamsil_rows": 28,
+      "short_rows": 0
+    },
+    {
+      "file": "raw_schedule_json/2024_06.json",
+      "response_rows": 138,
+      "jamsil_rows": 27,
+      "short_rows": 0
+    },
+    {
+      "file": "raw_schedule_json/2024_07.json",
+      "response_rows": 116,
+      "jamsil_rows": 23,
+      "short_rows": 0
+    },
+    {
+      "file": "raw_schedule_json/2024_08.json",
+      "response_rows": 131,
+      "jamsil_rows": 26,
+      "short_rows": 0
+    },
+    {
+      "file": "raw_schedule_json/2024_09.json",
+      "response_rows": 108,
+      "jamsil_rows": 22,
+      "short_rows": 0
+    },
+    {
+      "file": "raw_schedule_json/2024_10.json",
+      "response_rows": 21,
+      "jamsil_rows": 8,
+      "short_rows": 0
+    },
+    {
+      "file": "raw_schedule_json/2025_03.json",
+      "response_rows": 40,
+      "jamsil_rows": 8,
+      "short_rows": 0
+    },
+    {
+      "file": "raw_schedule_json/2025_04.json",
+      "response_rows": 130,
+      "jamsil_rows": 26,
+      "short_rows": 0
+    },
+    {
+      "file": "raw_schedule_json/2025_05.json",
+      "response_rows": 147,
+      "jamsil_rows": 30,
+      "short_rows": 0
+    },
+    {
+      "file": "raw_schedule_json/2025_06.json",
+      "response_rows": 125,
+      "jamsil_rows": 25,
+      "short_rows": 0
+    },
+    {
+      "file": "raw_schedule_json/2025_07.json",
+      "response_rows": 111,
+      "jamsil_rows": 22,
+      "short_rows": 0
+    },
+    {
+      "file": "raw_schedule_json/2025_08.json",
+      "response_rows": 135,
+      "jamsil_rows": 27,
+      "short_rows": 0
+    },
+    {
+      "file": "raw_schedule_json/2025_09.json",
+      "response_rows": 108,
+      "jamsil_rows": 17,
+      "short_rows": 0
+    },
+    {
+      "file": "raw_schedule_json/2025_10.json",
+      "response_rows": 27,
+      "jamsil_rows": 3,
+      "short_rows": 0
+    }
+  ],
+  "raw_schedule_rows": 326,
+  "delivered_rows": 326,
+  "raw_only_records": [],
+  "csv_only_records": [],
+  "archive_vs_delivered_shared_column_difference": 0,
+  "limitations": [
+    "Archived-response consistency is not proof of official schedule completeness.",
+    "Blank logs may cover only the last run because notebook overwrites logs.",
+    "No preseason, pre-prediction snapshot or rescheduling linkage verified.",
+    "gamecenter_status excluded from evidence."
+  ]
+}
