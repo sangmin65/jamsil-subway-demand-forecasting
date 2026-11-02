@@ -1,0 +1,235 @@
+{
+  "definition": "Project feature: named holidays, substitute holidays, temporary holidays and national election holidays; ordinary weekends excluded. Not the complete legal definition of public holidays.",
+  "verified_on": "2026-11-02",
+  "team_review": "pending",
+  "dates": [
+    {
+      "date": "2024-01-01",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-02-09",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-02-10",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-02-11",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-02-12",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-03-01",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-04-10",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-05-05",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-05-06",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-05-15",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-06-06",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-08-15",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-09-16",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-09-17",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-09-18",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-10-01",
+      "is_holiday": 1,
+      "source_url": "https://openminister.mpm.go.kr/mpm/comm/newsPress/newsPressRelease/?boardId=bbs_0000000000000029&cntId=3940&mode=view",
+      "announcement_evidence_date": "2024-09-03"
+    },
+    {
+      "date": "2024-10-03",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-10-09",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2024-12-25",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2024",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-01-01",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-01-27",
+      "is_holiday": 1,
+      "source_url": "https://www.mpm.go.kr/mpm/comm/noti/mpmNotice/?boardId=bbs_0000000000000205&cntId=904&mode=view",
+      "announcement_evidence_date": "2025-01-15"
+    },
+    {
+      "date": "2025-01-28",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-01-29",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-01-30",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-03-01",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-03-03",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-05-05",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-05-06",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-06-03",
+      "is_holiday": 1,
+      "source_url": "https://www.korea.kr/news/policyNewsView.do?newsId=148941443",
+      "announcement_evidence_date": "2025-04-08"
+    },
+    {
+      "date": "2025-06-06",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-08-15",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-10-03",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-10-05",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-10-06",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-10-07",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-10-08",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-10-09",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    },
+    {
+      "date": "2025-12-25",
+      "is_holiday": 1,
+      "source_url": "https://astro.kasi.re.kr/kor/life/post/calendarData?search_year=2025",
+      "availability_note": "Annual calendar; exact initial publication date not recorded here"
+    }
+  ]
+}
