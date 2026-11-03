@@ -49,6 +49,7 @@ docs/                운영 원칙·양식·점검 결과
 
 - [초기 설정 팀 검토표](docs/INITIAL_SETTINGS_REVIEW.md)
 - [팀원 제공 데이터 사전](docs/DATA_DICTIONARY.md)
+- [데이터 수집·검증 보고서](reports/data_review.md)
 - [1차 실험 결과](reports/experiments/EXP-001_first-run.md)
 - [커밋·브랜치·PR 규칙](CONTRIBUTING.md)
 - [AI 작업 지침](AGENTS.md)
