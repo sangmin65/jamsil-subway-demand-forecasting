@@ -1,6 +1,6 @@
 # AI 작업 지침
 
-사용자의 최신 지시가 우선합니다. 합의와 제안을 구분합니다. `CONTRIBUTING.md`와 `docs/EXPERIMENT_POLICY.md`를 따릅니다.
+사용자의 최신 지시가 우선합니다. 합의와 제안을 구분합니다. `CONTRIBUTING.md`와 `docs/EXPERIMENT_GUIDE.md#policy`를 따릅니다.
 
 ## 자율 진행
 

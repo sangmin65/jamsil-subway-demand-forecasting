@@ -111,7 +111,7 @@ table([
     ("회신 예시", "‘현재 설정으로 1차 진행 동의’ 또는 ‘수정 요청: 항목 / 이유’. 실제 회신 후 검토 완료로 기록."),
     ("목표 일정", "11/3(화) 팀 확인 후 1차 실행·검증 / 11/4(수) 결과·문제점 정리 및 보완 논의. 완료를 보장하는 일정은 아님."),
 ])
-p("기준: configs/initial.json, DEC-001~022, reports/setup_verification.md<br/>코드 기준: 1d9a6b5 / 브랜치: feat/initial-experiment-setup<br/><link href='https://github.com/sangmin65/jamsil-subway-demand-forecasting'>github.com/sangmin65/jamsil-subway-demand-forecasting</link>", "small")
+p("기준: configs/initial.json, DEC-001~022, docs/RUNBOOK.md#setup-verification<br/>코드 기준: 1d9a6b5 / 브랜치: feat/initial-experiment-setup<br/><link href='https://github.com/sangmin65/jamsil-subway-demand-forecasting'>github.com/sangmin65/jamsil-subway-demand-forecasting</link>", "small")
 
 
 def footer(c, doc):

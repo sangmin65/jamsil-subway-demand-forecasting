@@ -39,15 +39,18 @@ docs/                운영 원칙·양식·점검 결과
 
 ## 시작 순서
 
-1. [협업 규칙](CONTRIBUTING.md)과 [실험 원칙](docs/EXPERIMENT_POLICY.md)을 읽습니다.
-2. [데이터 안내](data/README.md)에 따라 원본을 준비합니다. 아직 이 저장소에 복사하지 않았습니다.
+1. [협업 규칙](CONTRIBUTING.md)과 [실험 원칙](docs/EXPERIMENT_GUIDE.md#policy)을 읽습니다.
+2. [데이터 안내](docs/DATA_DICTIONARY.md#data-preparation)에 따라 원본을 준비합니다. 아직 이 저장소에 복사하지 않았습니다.
 3. [실행 안내](docs/RUNBOOK.md)에 따라 Python 3.12 가상환경과 고정된 의존성을 설치합니다. 사전 점검은 학습 없이 수행할 수 있습니다.
-4. 모델·분할·지표·설정을 협의하고 [결정 양식](docs/templates/DECISION_TEMPLATE.md)에 남깁니다.
-5. 승인된 조건으로 구현·실행하고 [실험 양식](docs/templates/EXPERIMENT_TEMPLATE.md)에 실제 결과를 기록합니다.
+4. 모델·분할·지표·설정을 협의하고 [결정 양식](docs/EXPERIMENT_GUIDE.md#decision-template)에 남깁니다.
+5. 승인된 조건으로 구현·실행하고 [실험 양식](docs/EXPERIMENT_GUIDE.md#experiment-template)에 실제 결과를 기록합니다.
 
 ## 문서
 
-- [초기 설정 팀 검토표](docs/INITIAL_SETTINGS_REVIEW.md)
+- [실험 가이드: 원칙·초기 설정·기록 양식](docs/EXPERIMENT_GUIDE.md)
+- [결정 기록: 범위·분할·평가](reports/decisions/scope.md)
+- [결정 기록: 입력 변수·전처리](reports/decisions/features.md)
+- [결정 기록: 학습 설정·실행 승인](reports/decisions/training.md)
 - [팀원 제공 데이터 사전](docs/DATA_DICTIONARY.md)
 - [데이터 수집·검증 보고서](reports/data_review.md)
 - [1차 실험 결과](reports/experiments/EXP-001_first-run.md)
