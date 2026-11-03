@@ -101,3 +101,14 @@ python -m venv .venv
 설치 완료 전에 수행한 TensorFlow import는 설치 중인 파일 때문에 실패했습니다. 설치 완료 후 사전 점검에서는 정상 로드되었습니다. 합성 테스트의 NumPy 문자열을 pandas Timestamp에 전달하던 타입 오류도 수정 후 전체 테스트 통과를 확인했습니다. 실제 성능 실패나 데이터 보정으로 기록하지 않습니다.
 
 예측일 일정의 당시 가용성, 공식 목록 완전성, 실제 지하철 자료 공개 시점은 여전히 미검증입니다. 팀 확인과 모델 선택 후 최종 평가 절차도 남아 있습니다.
+
+## EXP-002: 최대 1,000에포크·patience 50
+
+DEC-024에 따라 MLP 3일과 LSTM 3·7·14일을 같은 시드로 처음부터 실행합니다. 두 명령을 순서대로 실행하며 각 출력 디렉터리는 새 경로여야 합니다. 기존 EXP-001은 보존합니다.
+
+```powershell
+./.venv/Scripts/python.exe -m src.experiment train --config configs/epoch1000_mlp3.json --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv' --kbo-source '../인공지능공학 과제용/KBO원천데이터_정리.csv' --output outputs/epoch1000-2026-11-03/mlp3
+./.venv/Scripts/python.exe -m src.experiment train --config configs/epoch1000_lstm.json --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv' --kbo-source '../인공지능공학 과제용/KBO원천데이터_정리.csv' --output outputs/epoch1000-2026-11-03/lstm
+```
+
+로컬 순차 실행기의 `status.json`과 `mlp3.log`·`lstm.log`는 `outputs/epoch1000-2026-11-03/`에 저장합니다. 종료 상태와 개별 실행의 `report.json`·`failure.json`을 함께 확인합니다. 9개 조건을 전제로 한 EXP-001 요약 스크립트를 이 4개 조건에 그대로 적용하지 않습니다.

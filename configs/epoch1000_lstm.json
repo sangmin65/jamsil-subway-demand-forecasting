@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "team_review": {
+    "approved": true,
+    "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+    "reviewed_at": "2026-11-03",
+    "evidence": "팀 확인 완료, 실행해줘"
+  },
+  "seed": 42,
+  "windows": [
+    3,
+    7,
+    14
+  ],
+  "models": [
+    "lstm"
+  ],
+  "excluded_test_dates": [
+    "2025-09-25",
+    "2025-09-26",
+    "2025-09-27",
+    "2025-09-28",
+    "2025-09-30",
+    "2025-10-01"
+  ],
+  "training": {
+    "epochs": 1000,
+    "batch_size": 16,
+    "patience": 50,
+    "min_delta": 0.0,
+    "shuffle": true
+  },
+  "adam": {
+    "learning_rate": 0.001,
+    "beta_1": 0.9,
+    "beta_2": 0.999,
+    "epsilon": 1e-07,
+    "amsgrad": false,
+    "weight_decay": null
+  },
+  "mlp": {
+    "hidden_units": [
+      64,
+      32
+    ]
+  },
+  "lstm": {
+    "units": 32,
+    "dense_units": 32
+  },
+  "rf": {
+    "n_estimators": 200,
+    "max_depth": 10,
+    "min_samples_leaf": 3,
+    "min_samples_split": 2,
+    "criterion": "squared_error",
+    "max_features": 1.0,
+    "bootstrap": true,
+    "max_samples": null,
+    "max_leaf_nodes": null,
+    "min_impurity_decrease": 0.0,
+    "ccp_alpha": 0.0,
+    "warm_start": false,
+    "oob_score": false,
+    "n_jobs": 1
+  },
+  "followup_approval": {
+    "date": "2026-11-03",
+    "reviewer": "사용자",
+    "evidence": "그럼 이제 에포크 각각 최대치 1,000으로 늘려서 진행해줘. / 조기 종료의 경우 50으로 늘려도 될거 같아",
+    "baseline": "EXP-001",
+    "scope": "MLP 3일 및 LSTM 3·7·14일, 동일 시드로 처음부터 학습"
+  }
+}
