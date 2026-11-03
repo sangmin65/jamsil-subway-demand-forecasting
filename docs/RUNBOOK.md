@@ -27,7 +27,7 @@ python -m venv .venv
 
 ## 팀 검토 후 1차 학습
 
-실제 팀 검토가 완료되면 `configs/initial.json`의 `team_review`에 `approved: true`, 검토자, 확인 시점을 기록합니다. 단순 실행을 위해 허위로 승인 표시하지 않습니다. 현재 값은 미승인입니다.
+실제 팀 검토가 완료되면 `configs/initial.json`의 `team_review`에 `approved: true`, 검토자, 확인 시점을 기록합니다. 단순 실행을 위해 허위로 승인 표시하지 않습니다. 2026-11-03 사용자 전달에 따른 팀 확인 완료를 기록하고 EXP-001을 실행했습니다.
 
 ```powershell
 ./.venv/Scripts/python.exe -m src.experiment train --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv' --kbo-source '../인공지능공학 과제용/KBO원천데이터_정리.csv' --output outputs/first-run-001
@@ -46,3 +46,13 @@ python -m venv .venv
 - [scikit-learn RandomForestRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html)
 
 학습 중 검증 지표는 명시적인 콜백에서 계산합니다. 최선 모델 복원·동점 유지·20회 기다림은 단위 테스트로 별도 확인합니다.
+
+## EXP-001 결과 재검증과 그래프
+
+```powershell
+./.venv/Scripts/python.exe tools/summarize_first_run.py --run outputs/first-run-2026-11-03 --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv'
+```
+
+모든 저장 모델을 재로딩하고 검증 예측·지표·최선 에포크를 확인한 뒤 공유용 집계를 생성합니다. 최종 평가는 하지 않습니다. `--verify-partial`은 완료된 조건만 확인하고 최종 보고서를 만들지 않습니다.
+
+그래프는 학습 환경과 분리된 `outputs/plot-env`에 matplotlib 3.10.7을 설치해 `tools/plot_first_run.py`로 생성했습니다. Windows 맑은 고딕 글꼴을 사용합니다. 이 보조 환경은 Git에 포함하지 않으며 학습 의존성을 변경하지 않았습니다.

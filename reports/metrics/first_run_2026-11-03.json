@@ -1,0 +1,1430 @@
+{
+  "date": "2026-11-03",
+  "run": "first-run-2026-11-03",
+  "training_commit": "1d841ad9c2385db7eba189ce61d8b7c1a4f78f3b",
+  "source_hashes": {
+    "joined_sha256": "97ff11187e84af09e6ca6e58ad38c4f58b1311a93424f99264960cee6577ad51",
+    "kbo_sha256": "38cdb2d11d2af6eddcf31995c2f12f10efe0baec03a9e871b800a12a7df81660",
+    "holidays_sha256": "2c2d01262a756f172096579ec5057d9765e0cd5415bd2a7e1dc8920a0dd86c14",
+    "config_sha256": "df1c9eb79dac9159ca3c2edf1a45d354d5e31ab60e2c8a6fc51fde15f75aaa24"
+  },
+  "code_hashes": {
+    "src\\__init__.py": "91ec51f1f0441db68d75775e850f186a0b1d539a3304c60c52a22ee8f0e7423e",
+    "src\\audit_crawl_archive.py": "d8ad49396d2164f4245feb9f8d762394d56eb07f5f0dd49e8ec6162bb3fbf7ec",
+    "src\\dataset.py": "6bc46391b41af886821c4819f763ce2570a54839fe808746c535354e4bcdd08a",
+    "src\\evaluation.py": "d8ed97aaf94ea93114e87453964e5ec22cf6da3e0808548940bd5b171e246034",
+    "src\\experiment.py": "7ab7504082b75455d8a78e70c1b88e653500d4323843b7338bcfc852c02262a3",
+    "src\\extract_source_urls.py": "12de99de91098c7d6b82bf4c4f55e5dbfa964bd29e232df0af56d04715cdf093",
+    "src\\models.py": "d2d658fffffeb3c9887bd369c6538bb90b487a53fa787b668e6731fb66e74e0f",
+    "src\\review_split.py": "74c478a8f171b3f075726d12cc035d07d7f29019412c1322e2eced1fcea64e19",
+    "src\\summarize_note_status.py": "0a5187a812907f7abf24e1b52de545f7b24829f7f66745c3900cf8fa15036e96"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "devices": [
+      {
+        "name": "/physical_device:CPU:0",
+        "type": "CPU"
+      }
+    ],
+    "packages": {
+      "tensorflow": "2.20.0",
+      "keras": "3.15.1",
+      "scikit-learn": "1.7.2",
+      "pandas": "2.3.3",
+      "numpy": "2.5.4"
+    },
+    "git_commit": "1d841ad9c2385db7eba189ce61d8b7c1a4f78f3b",
+    "git_dirty": false
+  },
+  "validation_days": 181,
+  "seed": 42,
+  "final_test_evaluated": false,
+  "all_saved_models_reloaded_and_verified": true,
+  "ranking": [
+    {
+      "model": "rf",
+      "window": 3,
+      "counts": {
+        "train": 352,
+        "validation": 181,
+        "test": 178
+      },
+      "context_features": 51,
+      "validation_mae": 255.8696692127673,
+      "seconds": 5.124325000040699,
+      "days": 181,
+      "hourly_records": 3258,
+      "mae": 255.8696692127673,
+      "board_mae": 309.4264029540358,
+      "alight_mae": 202.31293547149878,
+      "board_rmse": 963.3107376440506,
+      "alight_rmse": 503.0130181060278,
+      "raw_mae": 255.8696692127675,
+      "negative_fraction": 0.0,
+      "reload_max_absolute_difference": 0.0,
+      "monthly": {
+        "2025-01": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 111.80350335953227,
+          "board_mae": 107.98974727282435,
+          "alight_mae": 115.61725944624021,
+          "board_rmse": 211.65828230653108,
+          "alight_rmse": 198.0224015063999,
+          "raw_mae": 111.8035033595323,
+          "negative_fraction": 0.0
+        },
+        "2025-02": {
+          "days": 28,
+          "hourly_records": 504,
+          "mae": 105.69510110878211,
+          "board_mae": 101.8004388230832,
+          "alight_mae": 109.58976339448103,
+          "board_rmse": 209.70348451305443,
+          "alight_rmse": 207.50626791688487,
+          "raw_mae": 105.6951011087821,
+          "negative_fraction": 0.0
+        },
+        "2025-03": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 263.7824300206827,
+          "board_mae": 310.4685166121163,
+          "alight_mae": 217.09634342924912,
+          "board_rmse": 968.4285784874,
+          "alight_rmse": 513.536579440536,
+          "raw_mae": 263.78243002068257,
+          "negative_fraction": 0.0
+        },
+        "2025-04": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 355.8115680797677,
+          "board_mae": 435.54201994650236,
+          "alight_mae": 276.08111621303306,
+          "board_rmse": 1194.353180842014,
+          "alight_rmse": 653.0988704382736,
+          "raw_mae": 355.81156807976777,
+          "negative_fraction": 0.0
+        },
+        "2025-05": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 378.8856556002671,
+          "board_mae": 483.37502990818615,
+          "alight_mae": 274.39628129234814,
+          "board_rmse": 1328.4190078217343,
+          "alight_rmse": 692.0224792866953,
+          "raw_mae": 378.88565560026683,
+          "negative_fraction": 0.0
+        },
+        "2025-06": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 309.6660331892352,
+          "board_mae": 404.42246472173974,
+          "alight_mae": 214.90960165673062,
+          "board_rmse": 1136.7874942590804,
+          "alight_rmse": 501.94773033465174,
+          "raw_mae": 309.6660331892353,
+          "negative_fraction": 0.0
+        }
+      },
+      "note_status": {
+        "explicit_cancellation": {
+          "days": 6,
+          "hourly_records": 108,
+          "mae": 566.7519685921582,
+          "board_mae": 603.8634183319357,
+          "alight_mae": 529.6405188523806,
+          "board_rmse": 1451.7582933950637,
+          "alight_rmse": 1183.8932532367262,
+          "raw_mae": 566.7519685921582,
+          "negative_fraction": 0.0
+        },
+        "explicit_cancellation + no_special_note": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 1095.757352969176,
+          "board_mae": 990.0450971921598,
+          "alight_mae": 1201.4696087461923,
+          "board_rmse": 2545.36147421334,
+          "alight_rmse": 2245.13008397211,
+          "raw_mae": 1095.7573529691763,
+          "negative_fraction": 0.0
+        },
+        "no_record_unknown": {
+          "days": 95,
+          "hourly_records": 1710,
+          "mae": 123.40674929804202,
+          "board_mae": 125.41596972908519,
+          "alight_mae": 121.39752886699884,
+          "board_rmse": 348.73659495404587,
+          "alight_rmse": 274.31243692190276,
+          "raw_mae": 123.40674929804204,
+          "negative_fraction": 0.0
+        },
+        "no_special_note": {
+          "days": 78,
+          "hourly_records": 1404,
+          "mae": 379.6113145879653,
+          "board_mae": 500.23710304228354,
+          "alight_mae": 258.98552613364706,
+          "board_rmse": 1319.777770910278,
+          "alight_rmse": 553.9019448553183,
+          "raw_mae": 379.6113145879657,
+          "negative_fraction": 0.0
+        },
+        "other_note_unknown": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 482.8172418134847,
+          "board_mae": 459.94216593551363,
+          "alight_mae": 505.6923176914558,
+          "board_rmse": 1192.717885509105,
+          "alight_rmse": 1125.7449841464115,
+          "raw_mae": 482.8172418134848,
+          "negative_fraction": 0.0
+        }
+      }
+    },
+    {
+      "model": "rf",
+      "window": 14,
+      "counts": {
+        "train": 352,
+        "validation": 181,
+        "test": 178
+      },
+      "context_features": 51,
+      "validation_mae": 267.50576228900616,
+      "seconds": 21.10267340001883,
+      "days": 181,
+      "hourly_records": 3258,
+      "mae": 267.50576228900616,
+      "board_mae": 320.89229875360144,
+      "alight_mae": 214.11922582441085,
+      "board_rmse": 988.9411654162157,
+      "alight_rmse": 525.3914698009426,
+      "raw_mae": 267.50576228900616,
+      "negative_fraction": 0.0,
+      "reload_max_absolute_difference": 0.0,
+      "monthly": {
+        "2025-01": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 136.22765108649784,
+          "board_mae": 134.94948983793105,
+          "alight_mae": 137.50581233506463,
+          "board_rmse": 220.856915147845,
+          "alight_rmse": 210.6626560283695,
+          "raw_mae": 136.2276510864979,
+          "negative_fraction": 0.0
+        },
+        "2025-02": {
+          "days": 28,
+          "hourly_records": 504,
+          "mae": 121.50235959673668,
+          "board_mae": 116.2500414525831,
+          "alight_mae": 126.75467774089027,
+          "board_rmse": 207.87881898560116,
+          "alight_rmse": 216.14141380627257,
+          "raw_mae": 121.50235959673668,
+          "negative_fraction": 0.0
+        },
+        "2025-03": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 260.7078223784073,
+          "board_mae": 313.1045978132298,
+          "alight_mae": 208.31104694358478,
+          "board_rmse": 992.5166117421059,
+          "alight_rmse": 500.7908334878824,
+          "raw_mae": 260.70782237840746,
+          "negative_fraction": 0.0
+        },
+        "2025-04": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 367.4421257091917,
+          "board_mae": 457.453383252397,
+          "alight_mae": 277.4308681659865,
+          "board_rmse": 1273.3081893275348,
+          "alight_rmse": 661.9545181561981,
+          "raw_mae": 367.4421257091922,
+          "negative_fraction": 0.0
+        },
+        "2025-05": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 398.1074909851146,
+          "board_mae": 493.3738567733544,
+          "alight_mae": 302.84112519687477,
+          "board_rmse": 1382.2013928264325,
+          "alight_rmse": 757.8687897536217,
+          "raw_mae": 398.10749098511445,
+          "negative_fraction": 0.0
+        },
+        "2025-06": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 311.5627078791704,
+          "board_mae": 397.2879046332568,
+          "alight_mae": 225.8375111250839,
+          "board_rmse": 1093.84133665317,
+          "alight_rmse": 533.9589295092429,
+          "raw_mae": 311.5627078791705,
+          "negative_fraction": 0.0
+        }
+      },
+      "note_status": {
+        "explicit_cancellation": {
+          "days": 6,
+          "hourly_records": 108,
+          "mae": 602.2125551498585,
+          "board_mae": 638.6851712342495,
+          "alight_mae": 565.7399390654675,
+          "board_rmse": 1509.080500739516,
+          "alight_rmse": 1247.4386986465909,
+          "raw_mae": 602.2125551498585,
+          "negative_fraction": 0.0
+        },
+        "explicit_cancellation + no_special_note": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 1177.3118743586656,
+          "board_mae": 1068.8283301166423,
+          "alight_mae": 1285.7954186006891,
+          "board_rmse": 2730.2382035437986,
+          "alight_rmse": 2402.184647222916,
+          "raw_mae": 1177.311874358666,
+          "negative_fraction": 0.0
+        },
+        "no_record_unknown": {
+          "days": 95,
+          "hourly_records": 1710,
+          "mae": 136.30960116666665,
+          "board_mae": 137.71860651428725,
+          "alight_mae": 134.9005958190461,
+          "board_rmse": 350.6203287187851,
+          "alight_rmse": 279.49338469243446,
+          "raw_mae": 136.3096011666665,
+          "negative_fraction": 0.0
+        },
+        "no_special_note": {
+          "days": 78,
+          "hourly_records": 1404,
+          "mae": 388.5669972056798,
+          "board_mae": 509.43341767862785,
+          "alight_mae": 267.70057673273175,
+          "board_rmse": 1356.2921022411285,
+          "alight_rmse": 585.4927732768167,
+          "raw_mae": 388.56699720568054,
+          "negative_fraction": 0.0
+        },
+        "other_note_unknown": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 370.31787617590464,
+          "board_mae": 361.4925190894896,
+          "alight_mae": 379.1432332623197,
+          "board_rmse": 859.4766900216199,
+          "alight_rmse": 834.1635182301322,
+          "raw_mae": 370.3178761759047,
+          "negative_fraction": 0.0
+        }
+      }
+    },
+    {
+      "model": "rf",
+      "window": 7,
+      "counts": {
+        "train": 352,
+        "validation": 181,
+        "test": 178
+      },
+      "context_features": 51,
+      "validation_mae": 268.2268612974113,
+      "seconds": 11.002802600036375,
+      "days": 181,
+      "hourly_records": 3258,
+      "mae": 268.2268612974113,
+      "board_mae": 319.6670442985514,
+      "alight_mae": 216.78667829627116,
+      "board_rmse": 979.816848314146,
+      "alight_rmse": 527.4554654498272,
+      "raw_mae": 268.2268612974111,
+      "negative_fraction": 0.0,
+      "reload_max_absolute_difference": 0.0,
+      "monthly": {
+        "2025-01": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 136.4616859117566,
+          "board_mae": 134.25459713892766,
+          "alight_mae": 138.66877468458557,
+          "board_rmse": 225.41028391750316,
+          "alight_rmse": 216.75096009341704,
+          "raw_mae": 136.46168591175658,
+          "negative_fraction": 0.0
+        },
+        "2025-02": {
+          "days": 28,
+          "hourly_records": 504,
+          "mae": 120.34894031269553,
+          "board_mae": 113.44266097250107,
+          "alight_mae": 127.25521965289,
+          "board_rmse": 209.67559563026296,
+          "alight_rmse": 222.25069898101106,
+          "raw_mae": 120.34894031269558,
+          "negative_fraction": 0.0
+        },
+        "2025-03": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 261.81556240109194,
+          "board_mae": 311.22764866058725,
+          "alight_mae": 212.40347614159668,
+          "board_rmse": 960.2267335305821,
+          "alight_rmse": 484.9312766444747,
+          "raw_mae": 261.81556240109194,
+          "negative_fraction": 0.0
+        },
+        "2025-04": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 366.8078426696025,
+          "board_mae": 457.1010238116072,
+          "alight_mae": 276.5146615275978,
+          "board_rmse": 1274.5056742567601,
+          "alight_rmse": 658.6089742716028,
+          "raw_mae": 366.8078426696023,
+          "negative_fraction": 0.0
+        },
+        "2025-05": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 407.9257150679877,
+          "board_mae": 500.9785230211949,
+          "alight_mae": 314.8729071147805,
+          "board_rmse": 1390.3157287775884,
+          "alight_rmse": 776.8151547923777,
+          "raw_mae": 407.9257150679876,
+          "negative_fraction": 0.0
+        },
+        "2025-06": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 306.0921473727316,
+          "board_mae": 387.66753210058573,
+          "alight_mae": 224.51676264487745,
+          "board_rmse": 1060.2670853483066,
+          "alight_rmse": 532.5041262334066,
+          "raw_mae": 306.09214737273146,
+          "negative_fraction": 0.0
+        }
+      },
+      "note_status": {
+        "explicit_cancellation": {
+          "days": 6,
+          "hourly_records": 108,
+          "mae": 592.8429245297802,
+          "board_mae": 628.4636048903548,
+          "alight_mae": 557.2222441692057,
+          "board_rmse": 1533.57999081608,
+          "alight_rmse": 1254.5848129696335,
+          "raw_mae": 592.8429245297801,
+          "negative_fraction": 0.0
+        },
+        "explicit_cancellation + no_special_note": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 1202.2551952210597,
+          "board_mae": 1102.782442690797,
+          "alight_mae": 1301.7279477513225,
+          "board_rmse": 2806.5929135495808,
+          "alight_rmse": 2440.1217077089696,
+          "raw_mae": 1202.2551952210595,
+          "negative_fraction": 0.0
+        },
+        "no_record_unknown": {
+          "days": 95,
+          "hourly_records": 1710,
+          "mae": 140.97924878814456,
+          "board_mae": 140.66181100439564,
+          "alight_mae": 141.29668657189347,
+          "board_rmse": 353.9749804604141,
+          "alight_rmse": 286.7009070124658,
+          "raw_mae": 140.9792487881445,
+          "negative_fraction": 0.0
+        },
+        "no_special_note": {
+          "days": 78,
+          "hourly_records": 1404,
+          "mae": 384.6278938493136,
+          "board_mae": 503.06022863423067,
+          "alight_mae": 266.1955590643965,
+          "board_rmse": 1335.0644454868768,
+          "alight_rmse": 581.099868187549,
+          "raw_mae": 384.62789384931364,
+          "negative_fraction": 0.0
+        },
+        "other_note_unknown": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 395.7447973114847,
+          "board_mae": 384.6010671172961,
+          "alight_mae": 406.8885275056733,
+          "board_rmse": 921.3863909508979,
+          "alight_rmse": 900.1226911687634,
+          "raw_mae": 395.7447973114847,
+          "negative_fraction": 0.0
+        }
+      }
+    },
+    {
+      "model": "mlp",
+      "window": 3,
+      "counts": {
+        "train": 352,
+        "validation": 181,
+        "test": 178
+      },
+      "context_features": 51,
+      "parameters": 13508,
+      "best_epoch": 200,
+      "stopped_epoch": 200,
+      "stop_reason": "maximum_epochs",
+      "validation_mae": 312.63643636668365,
+      "seconds": 22.313080899999477,
+      "days": 181,
+      "hourly_records": 3258,
+      "mae": 312.63643636668365,
+      "board_mae": 326.38103062598674,
+      "alight_mae": 298.89184210738057,
+      "board_rmse": 1175.4887547886933,
+      "alight_rmse": 872.6751664477331,
+      "raw_mae": 312.69975624617217,
+      "negative_fraction": 0.001074278698588091,
+      "reload_max_absolute_difference": 0.0,
+      "monthly": {
+        "2025-01": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 101.87548824023176,
+          "board_mae": 91.06673592734936,
+          "alight_mae": 112.68424055311415,
+          "board_rmse": 197.1635867354113,
+          "alight_rmse": 202.52490626541942,
+          "raw_mae": 101.89634411992992,
+          "negative_fraction": 0.0017921146953405018
+        },
+        "2025-02": {
+          "days": 28,
+          "hourly_records": 504,
+          "mae": 92.44403623020838,
+          "board_mae": 84.21477719715664,
+          "alight_mae": 100.67329526326013,
+          "board_rmse": 194.68375587233137,
+          "alight_rmse": 195.58643906258985,
+          "raw_mae": 92.44403623020838,
+          "negative_fraction": 0.0
+        },
+        "2025-03": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 313.6671129879559,
+          "board_mae": 331.5171249382812,
+          "alight_mae": 295.8171010376305,
+          "board_rmse": 1141.719788478208,
+          "alight_rmse": 834.2116428397811,
+          "raw_mae": 313.90389990550216,
+          "negative_fraction": 0.002688172043010753
+        },
+        "2025-04": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 442.3197552998861,
+          "board_mae": 467.1873757538972,
+          "alight_mae": 417.4521348458749,
+          "board_rmse": 1429.3076389541654,
+          "alight_rmse": 1087.3945770276628,
+          "raw_mae": 442.3571672439575,
+          "negative_fraction": 0.000925925925925926
+        },
+        "2025-05": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 486.97296878513896,
+          "board_mae": 518.8033614551722,
+          "alight_mae": 455.1425761151057,
+          "board_rmse": 1605.4941401799301,
+          "alight_rmse": 1165.6118658206035,
+          "raw_mae": 487.0488272738713,
+          "negative_fraction": 0.0008960573476702509
+        },
+        "2025-06": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 425.03955461714,
+          "board_mae": 450.61092057404693,
+          "alight_mae": 399.4681886602331,
+          "board_rmse": 1485.843443919006,
+          "alight_rmse": 1100.5441163942123,
+          "raw_mae": 425.03955461714,
+          "negative_fraction": 0.0
+        }
+      },
+      "note_status": {
+        "explicit_cancellation": {
+          "days": 6,
+          "hourly_records": 108,
+          "mae": 451.6997724109226,
+          "board_mae": 450.4346107906765,
+          "alight_mae": 452.96493403116864,
+          "board_rmse": 1047.8519083796577,
+          "alight_rmse": 973.4775955152704,
+          "raw_mae": 451.6997724109226,
+          "negative_fraction": 0.0
+        },
+        "explicit_cancellation + no_special_note": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 696.7026083204481,
+          "board_mae": 678.944940355089,
+          "alight_mae": 714.4602762858073,
+          "board_rmse": 2405.2298611355423,
+          "alight_rmse": 1671.2030357031153,
+          "raw_mae": 696.7026083204481,
+          "negative_fraction": 0.0
+        },
+        "no_record_unknown": {
+          "days": 95,
+          "hourly_records": 1710,
+          "mae": 119.10750642910338,
+          "board_mae": 113.33366201858074,
+          "alight_mae": 124.88135083962602,
+          "board_rmse": 367.52425700115845,
+          "alight_rmse": 299.2617147046926,
+          "raw_mae": 119.22814746265523,
+          "negative_fraction": 0.0020467836257309943
+        },
+        "no_special_note": {
+          "days": 78,
+          "hourly_records": 1404,
+          "mae": 533.4530453192882,
+          "board_mae": 573.2292026427397,
+          "alight_mae": 493.67688799583675,
+          "board_rmse": 1696.7168691047375,
+          "alight_rmse": 1242.3183336709876,
+          "raw_mae": 533.4530453192882,
+          "negative_fraction": 0.0
+        },
+        "other_note_unknown": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 255.7430939144558,
+          "board_mae": 214.83824030558267,
+          "alight_mae": 296.647947523329,
+          "board_rmse": 588.0269339466653,
+          "alight_rmse": 688.6172238480738,
+          "raw_mae": 255.74309391445584,
+          "negative_fraction": 0.0
+        }
+      },
+      "curve_summary": {
+        "first_validation_mae": 790.7431642419022,
+        "last_validation_mae": 312.63643636668365,
+        "last_train_mae": 253.99522399902344,
+        "last_20_validation_change": -3.0184130841343517
+      }
+    },
+    {
+      "model": "mlp",
+      "window": 14,
+      "counts": {
+        "train": 352,
+        "validation": 181,
+        "test": 178
+      },
+      "context_features": 51,
+      "parameters": 38852,
+      "best_epoch": 188,
+      "stopped_epoch": 200,
+      "stop_reason": "maximum_epochs",
+      "validation_mae": 319.8454824031826,
+      "seconds": 19.76878610003041,
+      "days": 181,
+      "hourly_records": 3258,
+      "mae": 319.8454824031826,
+      "board_mae": 336.203922492584,
+      "alight_mae": 303.4870423137812,
+      "board_rmse": 1174.972557315271,
+      "alight_rmse": 862.8666683558363,
+      "raw_mae": 320.43350388800314,
+      "negative_fraction": 0.003376304481276857,
+      "reload_max_absolute_difference": 0.0,
+      "monthly": {
+        "2025-01": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 111.6654627331696,
+          "board_mae": 103.97218798565608,
+          "alight_mae": 119.35873748068313,
+          "board_rmse": 212.84222052183543,
+          "alight_rmse": 205.6491438275525,
+          "raw_mae": 112.00781341949244,
+          "negative_fraction": 0.0035842293906810036
+        },
+        "2025-02": {
+          "days": 28,
+          "hourly_records": 504,
+          "mae": 97.8621140018342,
+          "board_mae": 90.51177152754768,
+          "alight_mae": 105.21245647612072,
+          "board_rmse": 200.21143968980428,
+          "alight_rmse": 197.74389018602938,
+          "raw_mae": 98.08280802719177,
+          "negative_fraction": 0.005952380952380952
+        },
+        "2025-03": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 302.408419831252,
+          "board_mae": 328.23723125115947,
+          "alight_mae": 276.57960841134457,
+          "board_rmse": 1129.650000904628,
+          "alight_rmse": 785.030419709302,
+          "raw_mae": 302.89029086875234,
+          "negative_fraction": 0.002688172043010753
+        },
+        "2025-04": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 446.8592163262544,
+          "board_mae": 469.59401891496447,
+          "alight_mae": 424.12441373754433,
+          "board_rmse": 1441.5638511874292,
+          "alight_rmse": 1091.267945013999,
+          "raw_mae": 447.87611638175116,
+          "negative_fraction": 0.004629629629629629
+        },
+        "2025-05": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 517.7078007758732,
+          "board_mae": 544.5433023727923,
+          "alight_mae": 490.8722991789541,
+          "board_rmse": 1579.1666974422885,
+          "alight_rmse": 1214.4885244195561,
+          "raw_mae": 519.1334324190693,
+          "negative_fraction": 0.0035842293906810036
+        },
+        "2025-06": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 428.69614831959757,
+          "board_mae": 465.0475143679866,
+          "alight_mae": 392.3447822712086,
+          "board_rmse": 1507.1536384645422,
+          "alight_rmse": 1029.5750708471312,
+          "raw_mae": 428.6961483195976,
+          "negative_fraction": 0.0
+        }
+      },
+      "note_status": {
+        "explicit_cancellation": {
+          "days": 6,
+          "hourly_records": 108,
+          "mae": 597.8743579652574,
+          "board_mae": 600.9970301168936,
+          "alight_mae": 594.7516858136213,
+          "board_rmse": 1623.0588728449002,
+          "alight_rmse": 1360.793298510132,
+          "raw_mae": 597.8743579652574,
+          "negative_fraction": 0.0
+        },
+        "explicit_cancellation + no_special_note": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 724.1380038791233,
+          "board_mae": 835.1683519151476,
+          "alight_mae": 613.107655843099,
+          "board_rmse": 2238.2973215111206,
+          "alight_rmse": 1241.5739509849886,
+          "raw_mae": 724.1380038791233,
+          "negative_fraction": 0.0
+        },
+        "no_record_unknown": {
+          "days": 95,
+          "hourly_records": 1710,
+          "mae": 133.67638757242793,
+          "board_mae": 127.70220661721034,
+          "alight_mae": 139.65056852764553,
+          "board_rmse": 406.1218630457289,
+          "alight_rmse": 347.86942502162896,
+          "raw_mae": 134.4533012627161,
+          "negative_fraction": 0.004970760233918129
+        },
+        "no_special_note": {
+          "days": 78,
+          "hourly_records": 1404,
+          "mae": 521.236101039964,
+          "board_mae": 565.1033419710279,
+          "alight_mae": 477.3688601088999,
+          "board_rmse": 1653.1975869335909,
+          "alight_rmse": 1189.4385402380217,
+          "raw_mae": 521.6543714011837,
+          "negative_fraction": 0.0017806267806267807
+        },
+        "other_note_unknown": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 224.97546280754938,
+          "board_mae": 201.98913616604275,
+          "alight_mae": 247.961789449056,
+          "board_rmse": 466.77461782112255,
+          "alight_rmse": 511.50672355670025,
+          "raw_mae": 224.97546280754938,
+          "negative_fraction": 0.0
+        }
+      },
+      "curve_summary": {
+        "first_validation_mae": 787.2704514122322,
+        "last_validation_mae": 321.2606114006394,
+        "last_train_mae": 215.7336883544922,
+        "last_20_validation_change": 0.739570482659758
+      }
+    },
+    {
+      "model": "mlp",
+      "window": 7,
+      "counts": {
+        "train": 352,
+        "validation": 181,
+        "test": 178
+      },
+      "context_features": 51,
+      "parameters": 22724,
+      "best_epoch": 184,
+      "stopped_epoch": 200,
+      "stop_reason": "maximum_epochs",
+      "validation_mae": 324.8985782220658,
+      "seconds": 20.011123900010716,
+      "days": 181,
+      "hourly_records": 3258,
+      "mae": 324.8985782220658,
+      "board_mae": 335.8451716779858,
+      "alight_mae": 313.9519847661458,
+      "board_rmse": 1183.9186492567849,
+      "alight_rmse": 886.0315878212957,
+      "raw_mae": 325.06987114718095,
+      "negative_fraction": 0.001534683855125844,
+      "reload_max_absolute_difference": 0.0,
+      "monthly": {
+        "2025-01": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 114.03636086371637,
+          "board_mae": 103.74714099378141,
+          "alight_mae": 124.32558073365134,
+          "board_rmse": 209.08973172148998,
+          "alight_rmse": 213.13578008071963,
+          "raw_mae": 114.23250357139068,
+          "negative_fraction": 0.002688172043010753
+        },
+        "2025-02": {
+          "days": 28,
+          "hourly_records": 504,
+          "mae": 101.715222406955,
+          "board_mae": 95.34383187029097,
+          "alight_mae": 108.08661294361902,
+          "board_rmse": 201.26614520925077,
+          "alight_rmse": 201.38974919956007,
+          "raw_mae": 101.715222406955,
+          "negative_fraction": 0.0
+        },
+        "2025-03": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 319.3399995236414,
+          "board_mae": 335.1142901212084,
+          "alight_mae": 303.5657089260744,
+          "board_rmse": 1128.9289906345573,
+          "alight_rmse": 827.6335171922192,
+          "raw_mae": 319.601036485378,
+          "negative_fraction": 0.002688172043010753
+        },
+        "2025-04": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 477.52741334173413,
+          "board_mae": 491.4485278977288,
+          "alight_mae": 463.60629878573945,
+          "board_rmse": 1517.9998273923366,
+          "alight_rmse": 1189.976453818065,
+          "raw_mae": 477.91953412691754,
+          "negative_fraction": 0.001851851851851852
+        },
+        "2025-05": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 495.5020399960993,
+          "board_mae": 520.123323162824,
+          "alight_mae": 470.8807568293746,
+          "board_rmse": 1563.9030738330844,
+          "alight_rmse": 1162.2547707575632,
+          "raw_mae": 495.5020399960993,
+          "negative_fraction": 0.0
+        },
+        "2025-06": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 427.9187872886657,
+          "board_mae": 454.87885206010606,
+          "alight_mae": 400.95872251722545,
+          "board_rmse": 1491.681237565113,
+          "alight_rmse": 1063.939558340988,
+          "raw_mae": 428.08771482661916,
+          "negative_fraction": 0.001851851851851852
+        }
+      },
+      "note_status": {
+        "explicit_cancellation": {
+          "days": 6,
+          "hourly_records": 108,
+          "mae": 464.83811254854555,
+          "board_mae": 461.40799677813493,
+          "alight_mae": 468.2682283189562,
+          "board_rmse": 1037.3327150077978,
+          "alight_rmse": 963.3505091759648,
+          "raw_mae": 464.83811254854555,
+          "negative_fraction": 0.0
+        },
+        "explicit_cancellation + no_special_note": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 685.2954495747883,
+          "board_mae": 708.631588406033,
+          "alight_mae": 661.9593107435438,
+          "board_rmse": 2299.260905935253,
+          "alight_rmse": 1479.7152605642657,
+          "raw_mae": 685.2954495747884,
+          "negative_fraction": 0.0
+        },
+        "no_record_unknown": {
+          "days": 95,
+          "hourly_records": 1710,
+          "mae": 133.35448867410247,
+          "board_mae": 126.8611679347635,
+          "alight_mae": 139.84780941344144,
+          "board_rmse": 386.33950150607745,
+          "alight_rmse": 326.53625350282954,
+          "raw_mae": 133.67662801756495,
+          "negative_fraction": 0.002631578947368421
+        },
+        "no_special_note": {
+          "days": 78,
+          "hourly_records": 1404,
+          "mae": 544.3207457174263,
+          "board_mae": 577.8937394109547,
+          "alight_mae": 510.74775202389793,
+          "board_rmse": 1708.0377360859209,
+          "alight_rmse": 1260.5455103546635,
+          "raw_mae": 544.3258839458482,
+          "negative_fraction": 0.00035612535612535614
+        },
+        "other_note_unknown": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 206.62394332885742,
+          "board_mae": 183.3738767835829,
+          "alight_mae": 229.87400987413196,
+          "board_rmse": 471.1020369451965,
+          "alight_rmse": 516.7913936919933,
+          "raw_mae": 206.62394332885742,
+          "negative_fraction": 0.0
+        }
+      },
+      "curve_summary": {
+        "first_validation_mae": 789.5598835602466,
+        "last_validation_mae": 326.3154841242135,
+        "last_train_mae": 240.03302001953125,
+        "last_20_validation_change": 0.9849098902527658
+      }
+    },
+    {
+      "model": "lstm",
+      "window": 3,
+      "counts": {
+        "train": 352,
+        "validation": 181,
+        "test": 178
+      },
+      "context_features": 51,
+      "parameters": 8356,
+      "best_epoch": 200,
+      "stopped_epoch": 200,
+      "stop_reason": "maximum_epochs",
+      "validation_mae": 410.01508736829953,
+      "seconds": 285.1114714999567,
+      "days": 181,
+      "hourly_records": 3258,
+      "mae": 410.01508736829953,
+      "board_mae": 395.81789214483723,
+      "alight_mae": 424.2122825917618,
+      "board_rmse": 1405.6683762854884,
+      "alight_rmse": 1197.2157071049342,
+      "raw_mae": 410.01508736829953,
+      "negative_fraction": 0.0,
+      "reload_max_absolute_difference": 0.0,
+      "monthly": {
+        "2025-01": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 130.91812867673923,
+          "board_mae": 126.51392306392765,
+          "alight_mae": 135.32233428955078,
+          "board_rmse": 226.40209576375582,
+          "alight_rmse": 231.74297213063437,
+          "raw_mae": 130.91812867673923,
+          "negative_fraction": 0.0
+        },
+        "2025-02": {
+          "days": 28,
+          "hourly_records": 504,
+          "mae": 109.50534640039717,
+          "board_mae": 112.32490245122759,
+          "alight_mae": 106.68579034956674,
+          "board_rmse": 214.1833435665895,
+          "alight_rmse": 210.8388584846734,
+          "raw_mae": 109.50534640039716,
+          "negative_fraction": 0.0
+        },
+        "2025-03": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 395.5097665855107,
+          "board_mae": 382.42608624119913,
+          "alight_mae": 408.5934469298223,
+          "board_rmse": 1327.7086919374315,
+          "alight_rmse": 1135.2304320978662,
+          "raw_mae": 395.5097665855107,
+          "negative_fraction": 0.0
+        },
+        "2025-04": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 612.7506644425569,
+          "board_mae": 587.4698604866311,
+          "alight_mae": 638.0314683984827,
+          "board_rmse": 1876.6054987375167,
+          "alight_rmse": 1622.9752931216647,
+          "raw_mae": 612.7506644425569,
+          "negative_fraction": 0.0
+        },
+        "2025-05": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 636.954157525066,
+          "board_mae": 612.2629622319266,
+          "alight_mae": 661.6453528182053,
+          "board_rmse": 1869.7754106980954,
+          "alight_rmse": 1588.1637280575371,
+          "raw_mae": 636.954157525066,
+          "negative_fraction": 0.0
+        },
+        "2025-06": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 556.6405848255864,
+          "board_mae": 537.2184425777859,
+          "alight_mae": 576.0627270733869,
+          "board_rmse": 1694.0153217023978,
+          "alight_rmse": 1406.6453193842203,
+          "raw_mae": 556.6405848255864,
+          "negative_fraction": 0.0
+        }
+      },
+      "note_status": {
+        "explicit_cancellation": {
+          "days": 6,
+          "hourly_records": 108,
+          "mae": 266.8757528375696,
+          "board_mae": 275.56793848673504,
+          "alight_mae": 258.1835671884042,
+          "board_rmse": 630.4542888227824,
+          "alight_rmse": 512.4843507953336,
+          "raw_mae": 266.8757528375696,
+          "negative_fraction": 0.0
+        },
+        "explicit_cancellation + no_special_note": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 822.894812266032,
+          "board_mae": 797.2470202975803,
+          "alight_mae": 848.5426042344835,
+          "board_rmse": 2493.645337548546,
+          "alight_rmse": 1848.9947026316092,
+          "raw_mae": 822.8948122660319,
+          "negative_fraction": 0.0
+        },
+        "no_record_unknown": {
+          "days": 95,
+          "hourly_records": 1710,
+          "mae": 139.78042785577605,
+          "board_mae": 139.63898067585907,
+          "alight_mae": 139.92187503569306,
+          "board_rmse": 377.08445287489735,
+          "alight_rmse": 313.39898969472705,
+          "raw_mae": 139.78042785577605,
+          "negative_fraction": 0.0
+        },
+        "no_special_note": {
+          "days": 78,
+          "hourly_records": 1404,
+          "mae": 748.869491797227,
+          "board_mae": 715.8048210524425,
+          "alight_mae": 781.9341625420117,
+          "board_rmse": 2073.997649845682,
+          "alight_rmse": 1772.6104618709671,
+          "raw_mae": 748.8694917972272,
+          "negative_fraction": 0.0
+        },
+        "other_note_unknown": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 97.62047788831923,
+          "board_mae": 93.90462070041232,
+          "alight_mae": 101.33633507622613,
+          "board_rmse": 113.0191566795904,
+          "alight_rmse": 137.6711914439193,
+          "raw_mae": 97.62047788831923,
+          "negative_fraction": 0.0
+        }
+      },
+      "curve_summary": {
+        "first_validation_mae": 791.995453235385,
+        "last_validation_mae": 410.01508736829953,
+        "last_train_mae": 368.1737976074219,
+        "last_20_validation_change": -5.840464683893288
+      }
+    },
+    {
+      "model": "lstm",
+      "window": 14,
+      "counts": {
+        "train": 352,
+        "validation": 181,
+        "test": 178
+      },
+      "context_features": 51,
+      "parameters": 8356,
+      "best_epoch": 200,
+      "stopped_epoch": 200,
+      "stop_reason": "maximum_epochs",
+      "validation_mae": 410.41526666691584,
+      "seconds": 1181.375970699999,
+      "days": 181,
+      "hourly_records": 3258,
+      "mae": 410.41526666691584,
+      "board_mae": 396.37400504311876,
+      "alight_mae": 424.45652829071287,
+      "board_rmse": 1405.2991978120408,
+      "alight_rmse": 1196.6353280916635,
+      "raw_mae": 410.41526666691584,
+      "negative_fraction": 0.0,
+      "reload_max_absolute_difference": 0.0,
+      "monthly": {
+        "2025-01": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 133.5138373597121,
+          "board_mae": 129.21053372318173,
+          "alight_mae": 137.8171409962425,
+          "board_rmse": 228.69179377161774,
+          "alight_rmse": 234.77471604390095,
+          "raw_mae": 133.5138373597121,
+          "negative_fraction": 0.0
+        },
+        "2025-02": {
+          "days": 28,
+          "hourly_records": 504,
+          "mae": 110.63952751386734,
+          "board_mae": 113.69019065584455,
+          "alight_mae": 107.58886437189011,
+          "board_rmse": 215.73929187279538,
+          "alight_rmse": 212.36109261305887,
+          "raw_mae": 110.63952751386734,
+          "negative_fraction": 0.0
+        },
+        "2025-03": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 395.60429332076865,
+          "board_mae": 382.78151626997095,
+          "alight_mae": 408.4270703715663,
+          "board_rmse": 1327.6518218998212,
+          "alight_rmse": 1134.6382799757112,
+          "raw_mae": 395.60429332076865,
+          "negative_fraction": 0.0
+        },
+        "2025-04": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 612.3041064227069,
+          "board_mae": 587.2871011522082,
+          "alight_mae": 637.3211116932057,
+          "board_rmse": 1875.9520813571307,
+          "alight_rmse": 1622.0085014201259,
+          "raw_mae": 612.3041064227069,
+          "negative_fraction": 0.0
+        },
+        "2025-05": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 636.5717744280361,
+          "board_mae": 611.9928415428353,
+          "alight_mae": 661.1507073132368,
+          "board_rmse": 1869.1547340971829,
+          "alight_rmse": 1587.3334966671985,
+          "raw_mae": 636.5717744280361,
+          "negative_fraction": 0.0
+        },
+        "2025-06": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 556.0582081759417,
+          "board_mae": 536.607496741966,
+          "alight_mae": 575.5089196099175,
+          "board_rmse": 1693.142573830081,
+          "alight_rmse": 1405.5092813805022,
+          "raw_mae": 556.0582081759418,
+          "negative_fraction": 0.0
+        }
+      },
+      "note_status": {
+        "explicit_cancellation": {
+          "days": 6,
+          "hourly_records": 108,
+          "mae": 266.88992634526005,
+          "board_mae": 275.2794390077944,
+          "alight_mae": 258.5004136827257,
+          "board_rmse": 630.3446961311148,
+          "alight_rmse": 512.0367347668401,
+          "raw_mae": 266.88992634526005,
+          "negative_fraction": 0.0
+        },
+        "explicit_cancellation + no_special_note": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 821.7821023729111,
+          "board_mae": 795.2751854790581,
+          "alight_mae": 848.2890192667643,
+          "board_rmse": 2492.9313381488732,
+          "alight_rmse": 1847.9571252495398,
+          "raw_mae": 821.7821023729113,
+          "negative_fraction": 0.0
+        },
+        "no_record_unknown": {
+          "days": 95,
+          "hourly_records": 1710,
+          "mae": 141.16372285140187,
+          "board_mae": 141.18160916601704,
+          "alight_mae": 141.1458365367867,
+          "board_rmse": 378.2233317711029,
+          "alight_rmse": 314.8380615180624,
+          "raw_mae": 141.16372285140187,
+          "negative_fraction": 0.0
+        },
+        "no_special_note": {
+          "days": 78,
+          "hourly_records": 1404,
+          "mae": 748.1326566625524,
+          "board_mae": 715.2660946533551,
+          "alight_mae": 780.9992186717498,
+          "board_rmse": 2073.1782984639312,
+          "alight_rmse": 1771.4139171028896,
+          "raw_mae": 748.1326566625524,
+          "negative_fraction": 0.0
+        },
+        "other_note_unknown": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 97.14071570502387,
+          "board_mae": 93.7348395453559,
+          "alight_mae": 100.54659186469183,
+          "board_rmse": 112.49195699467526,
+          "alight_rmse": 137.6524087867973,
+          "raw_mae": 97.14071570502387,
+          "negative_fraction": 0.0
+        }
+      },
+      "curve_summary": {
+        "first_validation_mae": 791.9954431098707,
+        "last_validation_mae": 410.41526666691584,
+        "last_train_mae": 367.87188720703125,
+        "last_20_validation_change": -5.033801020838268
+      }
+    },
+    {
+      "model": "lstm",
+      "window": 7,
+      "counts": {
+        "train": 352,
+        "validation": 181,
+        "test": 178
+      },
+      "context_features": 51,
+      "parameters": 8356,
+      "best_epoch": 200,
+      "stopped_epoch": 200,
+      "stop_reason": "maximum_epochs",
+      "validation_mae": 411.2269204112194,
+      "seconds": 612.6010753000155,
+      "days": 181,
+      "hourly_records": 3258,
+      "mae": 411.2269204112194,
+      "board_mae": 397.15213697303506,
+      "alight_mae": 425.30170384940374,
+      "board_rmse": 1407.6762183102535,
+      "alight_rmse": 1199.2396068441942,
+      "raw_mae": 411.2269204112194,
+      "negative_fraction": 0.0,
+      "reload_max_absolute_difference": 0.0,
+      "monthly": {
+        "2025-01": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 131.99497479606273,
+          "board_mae": 127.88404946686119,
+          "alight_mae": 136.10590012526427,
+          "board_rmse": 227.03026621156582,
+          "alight_rmse": 232.4948435791247,
+          "raw_mae": 131.99497479606273,
+          "negative_fraction": 0.0
+        },
+        "2025-02": {
+          "days": 28,
+          "hourly_records": 504,
+          "mae": 111.28498046738761,
+          "board_mae": 114.27251248889499,
+          "alight_mae": 108.29744844588022,
+          "board_rmse": 215.93825407336473,
+          "alight_rmse": 212.6226350182196,
+          "raw_mae": 111.28498046738761,
+          "negative_fraction": 0.0
+        },
+        "2025-03": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 396.0546159915172,
+          "board_mae": 382.9277817100607,
+          "alight_mae": 409.18145027297373,
+          "board_rmse": 1328.848041833972,
+          "alight_rmse": 1136.1931289470058,
+          "raw_mae": 396.0546159915172,
+          "negative_fraction": 0.0
+        },
+        "2025-04": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 613.6324428734956,
+          "board_mae": 588.5727523309213,
+          "alight_mae": 638.6921334160699,
+          "board_rmse": 1879.0702860245142,
+          "alight_rmse": 1625.2497535749133,
+          "raw_mae": 613.6324428734956,
+          "negative_fraction": 0.0
+        },
+        "2025-05": {
+          "days": 31,
+          "hourly_records": 558,
+          "mae": 638.3209856915217,
+          "board_mae": 613.7434551553487,
+          "alight_mae": 662.8985162276948,
+          "board_rmse": 1872.5597921728784,
+          "alight_rmse": 1591.0480700233745,
+          "raw_mae": 638.3209856915217,
+          "negative_fraction": 0.0
+        },
+        "2025-06": {
+          "days": 30,
+          "hourly_records": 540,
+          "mae": 558.3210661428946,
+          "board_mae": 538.8836665400752,
+          "alight_mae": 577.7584657457139,
+          "board_rmse": 1696.9436862118555,
+          "alight_rmse": 1409.867019900323,
+          "raw_mae": 558.3210661428946,
+          "negative_fraction": 0.0
+        }
+      },
+      "note_status": {
+        "explicit_cancellation": {
+          "days": 6,
+          "hourly_records": 108,
+          "mae": 266.6545160434864,
+          "board_mae": 274.97217425593624,
+          "alight_mae": 258.3368578310366,
+          "board_rmse": 630.8518603749284,
+          "alight_rmse": 513.5381338381895,
+          "raw_mae": 266.6545160434864,
+          "negative_fraction": 0.0
+        },
+        "explicit_cancellation + no_special_note": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 826.1887321472168,
+          "board_mae": 800.1653679741753,
+          "alight_mae": 852.2120963202583,
+          "board_rmse": 2498.032370824551,
+          "alight_rmse": 1854.4707827649515,
+          "raw_mae": 826.1887321472168,
+          "negative_fraction": 0.0
+        },
+        "no_record_unknown": {
+          "days": 95,
+          "hourly_records": 1710,
+          "mae": 141.04562983484993,
+          "board_mae": 141.01381274886995,
+          "alight_mae": 141.0774469208299,
+          "board_rmse": 377.7979806151995,
+          "alight_rmse": 314.28513534457016,
+          "raw_mae": 141.04562983484993,
+          "negative_fraction": 0.0
+        },
+        "no_special_note": {
+          "days": 78,
+          "hourly_records": 1404,
+          "mae": 750.1448035715653,
+          "board_mae": 717.2601361831709,
+          "alight_mae": 783.0294709599596,
+          "board_rmse": 2076.9221373796063,
+          "alight_rmse": 1775.4999817059531,
+          "raw_mae": 750.1448035715651,
+          "negative_fraction": 0.0
+        },
+        "other_note_unknown": {
+          "days": 1,
+          "hourly_records": 18,
+          "mae": 95.32725312974718,
+          "board_mae": 91.935545179579,
+          "alight_mae": 98.71896107991536,
+          "board_rmse": 110.69645149557826,
+          "alight_rmse": 132.46192672333223,
+          "raw_mae": 95.32725312974718,
+          "negative_fraction": 0.0
+        }
+      },
+      "curve_summary": {
+        "first_validation_mae": 791.9954431100791,
+        "last_validation_mae": 411.2269204112194,
+        "last_train_mae": 369.2200927734375,
+        "last_20_validation_change": -6.695183878665034
+      }
+    }
+  ]
+}

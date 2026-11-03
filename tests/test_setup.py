@@ -86,8 +86,10 @@ class SetupTests(unittest.TestCase):
         self.assertEqual(stop.best_epoch, 3)
 
     def test_review_guard(self):
+        pending = copy.deepcopy(self.config)
+        pending["team_review"] = {"approved": False, "reviewer": "", "reviewed_at": ""}
         with self.assertRaises(ValueError):
-            require_review(self.config)
+            require_review(pending)
         approved = copy.deepcopy(self.config)
         approved["team_review"] = {"approved": True, "reviewer": "test fixture", "reviewed_at": "test fixture"}
         require_review(approved)
