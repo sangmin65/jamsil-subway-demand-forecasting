@@ -192,3 +192,15 @@ RTX 5060에 대한 네이티브 커널 대신 PTX 컴파일을 사용한다는 �
 실행기는 GPU 가중치 배치·원본 및 코드 해시·동일 날짜·Dropout 외 설정 일치를 확인하고 저장 모델을 복원해 검증합니다. 실패하면 중단합니다. 상태·조건별 로그·전체 설정은 출력 경로에 남기며, 6개 완료 후 `reports/metrics/dropout_gpu_2026-11-04.json`을 생성합니다. 이 공유 JSON 경로는 EXP-005 전용이므로 다른 날짜의 새 실험에는 별도 결과 경로를 지정하도록 실행기를 수정해야 합니다. 자동 커밋·push는 하지 않습니다.
 
 이번 실행 원본은 `outputs/dropout-gpu-2026-11-04`입니다. 완료된 공유 JSON으로 `./.venv/Scripts/python.exe tools/summarize_dropout_gpu.py`를 실행하면 [EXP-005](../reports/experiments/EXP-005_dropout-gpu.md)의 수치 표를 재생성합니다. 이는 EXP-005 전용이며 후속 해석을 문서에 추가했다면 재생성 시 해당 해석을 덮어쓰므로 주의합니다. 모델 재학습이나 최종 평가는 수행하지 않습니다.
+
+## LSTM GPU 학습 상한 비교 (EXP-006)
+
+명세 `configs/lstm_gpu_epochs.json`에 따라 LSTM 14일을 최대 1000회·2000회로 각각 처음부터 학습합니다. 학습률 0.003, patience 50, batch 16, seed 42, Dropout 없음입니다.
+
+```powershell
+./tools/run_wsl_python.ps1 tools/run_lstm_gpu_epochs.py --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv' --kbo-source '../인공지능공학 과제용/KBO원천데이터_정리.csv' --output outputs/lstm-gpu-epochs-new
+```
+
+출력 경로는 새 경로여야 합니다. 이번 출력은 `outputs/lstm-gpu-epochs-2026-11-04`입니다. 실행기는 기존 EXP-004의 `outputs/tuning-round1-2026-11-04/lstm_14d_lr003` 기록을 읽어 원본·대상 날짜를 비교하므로 해당 로컬 결과가 필요합니다. GPU 가중치 배치와 저장 모델 복원을 검증하고, 두 실행의 최대 에포크 외 설정 일치 및 공통 에포크 구간의 검증 MAE 차이를 확인합니다. 실패 시 status.json에 이유를 기록하고 중단합니다.
+
+완료 시 EXP-006 전용 `reports/metrics/lstm_gpu_epochs_2026-11-04.json`을 생성합니다. 다른 실험에서 재사용하면 이 경로가 덮어써지므로 먼저 결과 경로를 변경해야 합니다. 자동 커밋·push는 하지 않습니다. 완료 후 `./.venv/Scripts/python.exe tools/summarize_lstm_gpu_epochs.py`로 [EXP-006](../reports/experiments/EXP-006_lstm-gpu-epochs.md)의 수치 표를 생성할 수 있습니다. 재생성 시 문서의 수동 해석은 덮어쓰므로 보존해야 합니다.
