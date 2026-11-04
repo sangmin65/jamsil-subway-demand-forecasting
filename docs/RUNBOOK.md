@@ -180,3 +180,15 @@ RTX 5060에 대한 네이티브 커널 대신 PTX 컴파일을 사용한다는 �
 측정 원본: `outputs/benchmark-windows-cpu-2026-11-04`, `outputs/benchmark-wsl-cpu-tf221-2026-11-04`, `outputs/benchmark-wsl-gpu-tf221-2026-11-04`. 실패·설치 로그: `outputs/gpu-setup/`. 공유 결과: [장치 비교 JSON](../reports/metrics/device_benchmark_comparison_2026-11-04.json).
 
 공식 근거: [WSL 설치](https://learn.microsoft.com/en-us/windows/wsl/install), [NVIDIA WSL 안내](https://docs.nvidia.com/cuda/wsl-user-guide/index.html), [TensorFlow Blackwell 수정 이슈](https://github.com/tensorflow/tensorflow/issues/97387).
+
+## GPU Dropout 비교 (EXP-005)
+
+명세는 `configs/dropout_gpu.json`입니다. MLP 3일과 CNN 7일 각각 Dropout 0.0·0.1·0.2를 동일 GPU 환경에서 처음부터 학습합니다. 학습률 0.003, 최대 1000회, patience 50, batch 16, seed 42이며 마지막 Dense 32 뒤에 적용합니다. 새 출력 경로가 필요합니다.
+
+```powershell
+./tools/run_wsl_python.ps1 tools/run_dropout_gpu.py --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv' --kbo-source '../인공지능공학 과제용/KBO원천데이터_정리.csv' --output outputs/dropout-gpu-new
+```
+
+실행기는 GPU 가중치 배치·원본 및 코드 해시·동일 날짜·Dropout 외 설정 일치를 확인하고 저장 모델을 복원해 검증합니다. 실패하면 중단합니다. 상태·조건별 로그·전체 설정은 출력 경로에 남기며, 6개 완료 후 `reports/metrics/dropout_gpu_2026-11-04.json`을 생성합니다. 이 공유 JSON 경로는 EXP-005 전용이므로 다른 날짜의 새 실험에는 별도 결과 경로를 지정하도록 실행기를 수정해야 합니다. 자동 커밋·push는 하지 않습니다.
+
+이번 실행 원본은 `outputs/dropout-gpu-2026-11-04`입니다. 완료된 공유 JSON으로 `./.venv/Scripts/python.exe tools/summarize_dropout_gpu.py`를 실행하면 [EXP-005](../reports/experiments/EXP-005_dropout-gpu.md)의 수치 표를 재생성합니다. 이는 EXP-005 전용이며 후속 해석을 문서에 추가했다면 재생성 시 해당 해석을 덮어쓰므로 주의합니다. 모델 재학습이나 최종 평가는 수행하지 않습니다.
