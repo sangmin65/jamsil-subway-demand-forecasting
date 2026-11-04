@@ -51,6 +51,11 @@ def build_neural(name, window, context_size, config):
         model_input = {"history": history, "context": context}
     else:
         raise ValueError(name)
+    rate = float(config.get("head_dropout", 0.0))
+    if not 0.0 <= rate < 1.0:
+        raise ValueError("head_dropout must be in [0, 1)")
+    if rate:
+        x = keras.layers.Dropout(rate, seed=config["seed"], name="head_dropout")(x)
     output = keras.layers.Dense(36, activation="linear", kernel_initializer="glorot_uniform", bias_initializer="zeros")(x)
     model = keras.Model(model_input, output, name=name)
     model.compile(optimizer=keras.optimizers.Adam(**config["adam"]), loss="mean_absolute_error", jit_compile=False)

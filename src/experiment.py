@@ -146,6 +146,9 @@ def run(args, config):
             else:
                 (out / "model_config.json").write_text(model.to_json(), encoding="utf-8")
                 entry["parameters"] = model.count_params()
+                entry["weight_devices"] = sorted({str(v.value.device) for v in model.trainable_weights})
+                if config.get("require_gpu") and not all("GPU:" in d for d in entry["weight_devices"]):
+                    raise RuntimeError("GPU required, but neural weights are not all on GPU")
             if args.mode == "preflight":
                 # Only synthetic zero inputs, no fit, no real validation/test predictions.
                 if name != "rf":

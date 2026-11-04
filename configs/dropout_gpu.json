@@ -1,0 +1,52 @@
+{
+  "experiment": "EXP-005",
+  "approval": {
+    "date": "2026-11-04",
+    "reviewer": "사용자",
+    "evidence": "GPU MLP 3일·CNN 7일 Dropout 0.0·0.1·0.2 총 6개 비교 제안에 응 그럼 진행해줘"
+  },
+  "trials": [
+    {
+      "id": "mlp_3d_dropout0",
+      "base_config": "configs/epoch1000_mlp3.json",
+      "model": "mlp",
+      "window": 3,
+      "dropout": 0.0
+    },
+    {
+      "id": "mlp_3d_dropout1",
+      "base_config": "configs/epoch1000_mlp3.json",
+      "model": "mlp",
+      "window": 3,
+      "dropout": 0.1
+    },
+    {
+      "id": "mlp_3d_dropout2",
+      "base_config": "configs/epoch1000_mlp3.json",
+      "model": "mlp",
+      "window": 3,
+      "dropout": 0.2
+    },
+    {
+      "id": "cnn_7d_dropout0",
+      "base_config": "configs/cnn_daily.json",
+      "model": "cnn",
+      "window": 7,
+      "dropout": 0.0
+    },
+    {
+      "id": "cnn_7d_dropout1",
+      "base_config": "configs/cnn_daily.json",
+      "model": "cnn",
+      "window": 7,
+      "dropout": 0.1
+    },
+    {
+      "id": "cnn_7d_dropout2",
+      "base_config": "configs/cnn_daily.json",
+      "model": "cnn",
+      "window": 7,
+      "dropout": 0.2
+    }
+  ]
+}
