@@ -131,27 +131,52 @@ DEC-024에 따라 MLP 3일과 LSTM 3·7·14일을 같은 시드로 처음부터 
 
 출력은 새 경로여야 합니다. 명세와 기준 전체 설정의 일치를 검사하고, 각 조건의 전체 설정을 로컬에 기록합니다. 기준 모델과 신규 모델을 재로딩해 검증하며 기준 대비 전체·월별·note 상태별 오차를 비교합니다. `status.json`은 완료된 검증 결과와 현재 조건을 담고, 조건별 로그도 출력 디렉터리에 저장합니다. 9개 완료 후 EXP-004와 공유 JSON을 생성합니다. `--commit-results`는 이 두 결과 파일만 커밋하고 시작한 브랜치에 push하며 브랜치가 바뀌면 자동 커밋을 중단합니다. 코드·원본 변경 또는 학습·검증 오류 시 중단합니다.
 
-## GPU 전환 준비 (2026-11-04)
+## GPU 실행 환경 (2026-11-04 검증 완료)
 
-사용자가 GPU 환경 구성·짧은 속도 비교를 먼저 하고 Dropout·LSTM 후속 실험은 그다음 진행하도록 요청했습니다. Windows CPU 가상환경은 보존합니다. GPU는 RTX 5060 8GB, 드라이버 595.71이며 현재 Windows TensorFlow 2.20.0은 CUDA 빌드가 아니고 GPU 목록은 비어 있습니다. WSL은 미설치입니다.
+사용자 요청에 따라 GPU 환경 구성을 먼저 완료했습니다. WSL 3.0.3 / Ubuntu 24.04 / Linux 사용자 `aienge` / Python 3.12.3 / TensorFlow 2.21.0 / Keras 3.15.1 / RTX 5060 8GB / Windows NVIDIA 드라이버 595.71 조합입니다. 기존 Windows `.venv`의 TensorFlow 2.20.0 및 CPU 실험은 보존합니다. Linux venv는 `/home/aienge/.venvs/jamsil-tf`에 있으며 Windows venv를 재사용하지 않습니다. `aienge`는 프로젝트용 일반 계정으로 암호를 임의 설정하지 않았습니다. WSL 호출 시 계정을 명시하며 OS 패키지 관리만 `-u root`로 수행했습니다.
 
-관리자 PowerShell 설치 도우미: `tools/install_wsl.ps1`. Ubuntu-24.04를 지정하고 자동 재부팅은 하지 않습니다. UAC 승인은 사용자가 직접 수행해야 합니다. 로그는 `outputs/gpu-setup/`입니다. 설치·재부팅 후 `wsl --list --verbose`에서 버전 2를 확인하고 Ubuntu 초기 계정 설정 및 WSL 안의 `nvidia-smi`를 확인합니다. Windows 드라이버를 사용하며 WSL 안에 Linux NVIDIA 디스플레이 드라이버를 별도로 덮어 설치하지 않습니다.
+### Windows PowerShell에서 실행
 
-GPU Python 환경은 WSL Linux 파일시스템의 별도 venv에 구성합니다. 기존 Windows `.venv`를 Linux에서 재사용하지 않습니다. RTX 5060은 Blackwell이므로 TensorFlow wheel·CUDA/cuDNN 호환성을 실제 연산으로 확인한 뒤 GPU 환경 버전을 고정합니다. 설치 성공이나 GPU 목록 인식만으로 학습 성공을 주장하지 않습니다. 아직 GPU 환경 설치와 속도 측정은 완료되지 않았습니다.
+저장소 루트에서 Python 대신 다음 실행 도우미를 사용합니다. `run_wsl_python.ps1`은 WSL 경로를 변환하고, `run_wsl.sh`는 venv와 NVIDIA 라이브러리·컴파일러 경로를 지정합니다. 학습은 새 설정·출력 경로로 별도 실행해야 하며 이 환경 구성만으로 후속 실험을 자동 시작하지 않습니다.
 
-준비한 `tools/benchmark_device.py`는 LSTM 14일·batch 16·학습률 0.003·seed 42에서 2회 준비 학습 후 5회를 측정합니다. 실제 2024년 학습 자료와 2025년 상반기 검증 입력을 사용하며 최종 평가·성능 순위 선택은 하지 않습니다. GPU 요청 시 GPU 미인식 또는 모델 가중치의 CPU 배치면 실패시킵니다. 체크포인트 디스크 저장 시간은 측정에서 제외하며 학습 및 학습+검증 시간을 각각 기록합니다. 같은 WSL 환경에서 `--device cpu`와 `--device gpu`를 별도 프로세스로 비교하고, 필요하면 기존 Windows CPU 환경도 별도 측정합니다. 환경 변경과 순수 장치 효과를 구분합니다.
-
-```bash
-python tools/benchmark_device.py --device cpu --source '/path/to/input.csv' --output outputs/benchmark-wsl-cpu
-python tools/benchmark_device.py --device gpu --source '/path/to/input.csv' --output outputs/benchmark-wsl-gpu
+```powershell
+./tools/run_wsl_python.ps1 -m pip check
+./tools/run_wsl_python.ps1 -m unittest discover -s tests -v
+./tools/run_wsl_python.ps1 tools/benchmark_device.py --device gpu --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv' --output outputs/benchmark-gpu-new
 ```
 
-공식 근거: https://learn.microsoft.com/en-us/windows/wsl/install 및 https://www.tensorflow.org/install/pip . 설치 결과와 실제 GPU 벤치마크 확인 후 이 절을 갱신합니다.
+`--device cpu`로 바꾸면 동일 Linux 환경의 CPU를 비교합니다. CPU/GPU는 별도 프로세스로 순서대로 측정합니다. 출력 디렉터리는 매번 새 경로를 사용합니다. 모델 학습 CLI도 같은 도우미로 `-m src.experiment train ...`을 실행할 수 있습니다.
 
-### 실제 설치·측정 결과
+### 설치 이력 및 재현
 
-2026-11-04 사용자 UAC 승인 후 WSL 3.0.3 및 VirtualMachinePlatform 활성화가 종료 코드 0으로 완료됐습니다. 설치 로그에서 Windows 재시작이 필요하다고 안내했습니다. 자동 재부팅은 하지 않았습니다. Ubuntu 초기 설치·계정 설정, GPU Python 환경, RTX 5060의 TensorFlow GPU 연산 검증은 재부팅 후 이어서 수행해야 합니다.
+`tools/install_wsl.ps1`을 관리자 권한으로 실행해 WSL과 VirtualMachinePlatform을 활성화했고 사용자 재부팅 후 Ubuntu-24.04를 설치했습니다. WSL 내부에서도 Windows NVIDIA 드라이버로 GPU를 인식했습니다. Linux 디스플레이 드라이버는 설치하지 않았습니다.
 
-재개 순서: `wsl --list --verbose` 확인 → Ubuntu-24.04가 없으면 `wsl --install -d Ubuntu-24.04 --no-launch` → Ubuntu 최초 실행·사용자 계정 생성 → WSL 내부 `nvidia-smi` → 별도 Linux venv 및 호환 라이브러리 구성 → GPU 실제 학습 확인 → 동일 Linux 환경 CPU/GPU 벤치마크 비교. 재부팅 후에는 저장소와 이 절을 기준으로 진행합니다.
+Ubuntu에 python3-venv와 python3-pip을 설치하고, 일반 사용자 aienge로 venv를 만들었습니다. 재현 시 같은 Python 3.12 환경에서 `requirements-gpu-wsl-lock.txt`를 설치합니다. 이 파일은 pip freeze로 추출한 실제 GPU 환경 전체 버전이며 기존 CPU lock과 구분합니다.
 
-Windows CPU 기준 측정은 실제 LSTM 14일 구조로 준비 2회+측정 5회 완료했습니다. 측정 중앙값은 학습 0.620초/에포크, 학습+검증 6.659초/에포크입니다. 체크포인트 저장은 제외했습니다. 이 짧은 측정에서는 검증 예측 시간의 비중이 크므로 GPU 결과와 함께 검증 경로도 점검할 가치가 있습니다. GPU 성능 향상 수치는 아직 측정되지 않았습니다. 공유 결과는 `reports/metrics/device_benchmark_windows_cpu_2026-11-04.json`입니다.
+```bash
+python3 -m venv "$HOME/.venvs/jamsil-tf"
+"$HOME/.venvs/jamsil-tf/bin/python" -m pip install -r requirements-gpu-wsl-lock.txt
+```
+
+처음에는 기존 CPU와 같은 TensorFlow 2.20.0에 CUDA 추가 패키지를 설치했습니다. GPU 인식·행렬 곱은 통과했지만 LSTM 생성 중 Cast 연산에서 INVALID_PTX/INVALID_HANDLE 오류가 발생했습니다. 공식 이슈의 수정 안내에 따라 Linux 환경만 TensorFlow 2.21.0으로 올린 뒤 실제 LSTM 학습이 성공했습니다. CUDA 라이브러리·cuDNN 등의 실제 버전은 GPU lock에 기록했습니다. `nvidia-smi`의 CUDA 표기는 설치한 Python CUDA 라이브러리 버전과 구분합니다.
+
+RTX 5060에 대한 네이티브 커널 대신 PTX 컴파일을 사용한다는 경고가 남습니다. 이 때문에 최초 실행 준비 시간이 생길 수 있습니다. 성공 범위는 아래 실제 검사이며 모든 GPU 모델·연산의 호환성을 일반화하지 않습니다.
+
+### 실제 검증 및 속도
+
+- `pip check` 통과.
+- 기존 테스트 7개 통과: 누수·날짜 경계·지표·조기 종료·승인 및 GPU CNN 날짜별 격리·공유 특징 검사.
+- LSTM 14일·batch 16·학습률 0.003·seed 42로 GPU 역전파와 유한한 검증 예측 확인. 모델 가중치 장치는 GPU:0.
+- 준비 2회 후 5회 측정한 에포크 중앙값. 2024년 학습 352일과 2025년 상반기 검증 181일 사용. 모델 선택 실험이 아니며 하반기 평가는 미사용. 체크포인트 디스크 저장 시간 제외.
+
+| 환경 | TensorFlow | 학습만(초) | 학습+검증(초) |
+|---|---|---:|---:|
+| 기존 Windows CPU | 2.20.0 | 0.620 | 6.659 |
+| WSL CPU | 2.21.0 | 0.870 | 5.836 |
+| WSL RTX 5060 GPU | 2.21.0 | 0.428 | 0.618 |
+
+같은 WSL 환경의 CPU 대비 GPU는 학습+검증 기준 약 9.44배 빨랐습니다. 기존 Windows 실행과는 약 10.77배 차이지만 OS·Python·TensorFlow 변경도 포함된 비교입니다. 학습만의 차이보다 검증 경로의 차이가 컸습니다. 5회 단기 측정이므로 1000회 실험 시간을 보장하지 않으며 실제 장기 학습 시간은 별도 기록합니다. CPU/GPU의 난수·연산 경로가 달라질 수 있으므로 향후 Dropout 등 효과를 비교할 때 GPU의 기준 조건도 다시 실행해야 합니다.
+
+측정 원본: `outputs/benchmark-windows-cpu-2026-11-04`, `outputs/benchmark-wsl-cpu-tf221-2026-11-04`, `outputs/benchmark-wsl-gpu-tf221-2026-11-04`. 실패·설치 로그: `outputs/gpu-setup/`. 공유 결과: [장치 비교 JSON](../reports/metrics/device_benchmark_comparison_2026-11-04.json).
+
+공식 근거: [WSL 설치](https://learn.microsoft.com/en-us/windows/wsl/install), [NVIDIA WSL 안내](https://docs.nvidia.com/cuda/wsl-user-guide/index.html), [TensorFlow Blackwell 수정 이슈](https://github.com/tensorflow/tensorflow/issues/97387).

@@ -74,4 +74,4 @@ docs/                운영 원칙·양식·점검 결과
 
 2026-11-04 사용자 승인으로 RF 최소 잎 크기와 신경망 학습률의 9개 조건 튜닝을 진행합니다. [EXP-004](reports/experiments/EXP-004_tuning-round1.md)에 설정·상태·완료 결과를 기록합니다.
 
-GPU 환경 준비: 2026-11-04 WSL 3.0.3 설치와 VirtualMachinePlatform 활성화 완료, Windows 재부팅 대기. Ubuntu·GPU Python 환경·GPU 속도 측정은 재부팅 후 이어서 진행합니다. Windows CPU 기준 벤치마크는 완료했으며 상세 재개 절차는 RUNBOOK의 GPU 전환 준비 절을 참고합니다.
+GPU 환경: 2026-11-04 WSL2·Ubuntu 24.04·TensorFlow 2.21.0에서 RTX 5060 실제 LSTM 학습과 테스트 7개를 확인했습니다. 같은 WSL CPU 대비 학습+검증의 에포크 중앙값이 5.836초→0.618초(약 9.44배)로 줄었습니다. 단기 측정이며 기존 CPU 실험과 환경이 달라 GPU 기준 조건 재실행이 필요합니다. 실행은 `tools/run_wsl_python.ps1`, 재현 버전은 `requirements-gpu-wsl-lock.txt`, 상세 비교·설치 이력은 [RUNBOOK](docs/RUNBOOK.md)의 GPU 절을 참고합니다. Dropout·LSTM 장기 후속 실험은 아직 시작하지 않았습니다.

@@ -1,0 +1,294 @@
+{
+  "date": "2026-11-04",
+  "purpose": "GPU environment readiness and short timing benchmark, not model selection",
+  "gpu": "NVIDIA GeForce RTX 5060 8 GB",
+  "driver": "595.71",
+  "wsl": "3.0.3",
+  "distribution": "Ubuntu-24.04",
+  "python_linux": "3.12.3",
+  "linux_user": "aienge",
+  "linux_venv": "/home/aienge/.venvs/jamsil-tf",
+  "comparisons": {
+    "windows_cpu": {
+      "purpose": "Device timing only; not a selected model or predictive score",
+      "device_requested": "cpu",
+      "tensorflow": "2.20.0",
+      "keras": "3.15.1",
+      "build_info": {
+        "is_cuda_build": false,
+        "is_rocm_build": false,
+        "is_tensorrt_build": false,
+        "msvcp_dll_names": "msvcp140.dll,msvcp140_1.dll"
+      },
+      "gpu_details": [],
+      "weight_devices": [
+        "/job:localhost/replica:0/task:0/device:CPU:0"
+      ],
+      "model": "lstm",
+      "window": 14,
+      "batch_size": 16,
+      "learning_rate": 0.003,
+      "seed": 42,
+      "joined_sha256": "97ff11187e84af09e6ca6e58ad38c4f58b1311a93424f99264960cee6577ad51",
+      "code_sha256": {
+        "src\\audit_crawl_archive.py": "d8ad49396d2164f4245feb9f8d762394d56eb07f5f0dd49e8ec6162bb3fbf7ec",
+        "src\\dataset.py": "d6d30543476d69d20c6fb20dab32929f4542faa03a6af7422c59d79c3f635f7d",
+        "src\\evaluation.py": "d8ed97aaf94ea93114e87453964e5ec22cf6da3e0808548940bd5b171e246034",
+        "src\\experiment.py": "2adc490dc34a1b20a8f68e16117806e8f26cabf2ce1f628a148c7c9f993711fe",
+        "src\\extract_source_urls.py": "12de99de91098c7d6b82bf4c4f55e5dbfa964bd29e232df0af56d04715cdf093",
+        "src\\models.py": "17564f8ae80199351bd780cfd7a1079daaa7d42cb508b8402b1f7bfe399e3e2e",
+        "src\\review_split.py": "74c478a8f171b3f075726d12cc035d07d7f29019412c1322e2eced1fcea64e19",
+        "src\\summarize_note_status.py": "0a5187a812907f7abf24e1b52de545f7b24829f7f66745c3900cf8fa15036e96",
+        "src\\__init__.py": "91ec51f1f0441db68d75775e850f186a0b1d539a3304c60c52a22ee8f0e7423e"
+      },
+      "rows": [
+        {
+          "epoch": 1,
+          "train_seconds": 1.7039440999506041,
+          "train_and_validation_seconds": 8.712828299961984,
+          "warmup": true
+        },
+        {
+          "epoch": 2,
+          "train_seconds": 0.6390744000673294,
+          "train_and_validation_seconds": 6.405586399952881,
+          "warmup": true
+        },
+        {
+          "epoch": 3,
+          "train_seconds": 0.6150863999500871,
+          "train_and_validation_seconds": 6.765369800035842,
+          "warmup": false
+        },
+        {
+          "epoch": 4,
+          "train_seconds": 0.7948296999093145,
+          "train_and_validation_seconds": 7.6907610999187455,
+          "warmup": false
+        },
+        {
+          "epoch": 5,
+          "train_seconds": 0.6204217999475077,
+          "train_and_validation_seconds": 6.467143699992448,
+          "warmup": false
+        },
+        {
+          "epoch": 6,
+          "train_seconds": 0.6025357999606058,
+          "train_and_validation_seconds": 6.367003099992871,
+          "warmup": false
+        },
+        {
+          "epoch": 7,
+          "train_seconds": 0.6354413999943063,
+          "train_and_validation_seconds": 6.659077599993907,
+          "warmup": false
+        }
+      ],
+      "median_train_seconds": 0.6204217999475077,
+      "median_train_and_validation_seconds": 6.659077599993907,
+      "final_test_evaluated": false,
+      "checkpoint_io_included": false
+    },
+    "wsl_cpu": {
+      "purpose": "Device timing only; not a selected model or predictive score",
+      "device_requested": "cpu",
+      "tensorflow": "2.21.0",
+      "keras": "3.15.1",
+      "build_info": {
+        "cpu_compiler": "clang",
+        "cuda_compute_capabilities": [
+          "sm_60",
+          "sm_70",
+          "sm_80",
+          "sm_89",
+          "compute_90"
+        ],
+        "cuda_version": "12.5.1",
+        "cudnn_version": "9",
+        "is_cuda_build": true,
+        "is_rocm_build": false,
+        "is_tensorrt_build": false
+      },
+      "gpu_details": [],
+      "weight_devices": [
+        "/job:localhost/replica:0/task:0/device:CPU:0"
+      ],
+      "model": "lstm",
+      "window": 14,
+      "batch_size": 16,
+      "learning_rate": 0.003,
+      "seed": 42,
+      "joined_sha256": "97ff11187e84af09e6ca6e58ad38c4f58b1311a93424f99264960cee6577ad51",
+      "code_sha256": {
+        "src/audit_crawl_archive.py": "d8ad49396d2164f4245feb9f8d762394d56eb07f5f0dd49e8ec6162bb3fbf7ec",
+        "src/dataset.py": "d6d30543476d69d20c6fb20dab32929f4542faa03a6af7422c59d79c3f635f7d",
+        "src/evaluation.py": "d8ed97aaf94ea93114e87453964e5ec22cf6da3e0808548940bd5b171e246034",
+        "src/experiment.py": "2adc490dc34a1b20a8f68e16117806e8f26cabf2ce1f628a148c7c9f993711fe",
+        "src/extract_source_urls.py": "12de99de91098c7d6b82bf4c4f55e5dbfa964bd29e232df0af56d04715cdf093",
+        "src/models.py": "17564f8ae80199351bd780cfd7a1079daaa7d42cb508b8402b1f7bfe399e3e2e",
+        "src/review_split.py": "74c478a8f171b3f075726d12cc035d07d7f29019412c1322e2eced1fcea64e19",
+        "src/summarize_note_status.py": "0a5187a812907f7abf24e1b52de545f7b24829f7f66745c3900cf8fa15036e96",
+        "src/__init__.py": "91ec51f1f0441db68d75775e850f186a0b1d539a3304c60c52a22ee8f0e7423e"
+      },
+      "rows": [
+        {
+          "epoch": 1,
+          "train_seconds": 1.7441090730000042,
+          "train_and_validation_seconds": 6.4855440460000295,
+          "warmup": true
+        },
+        {
+          "epoch": 2,
+          "train_seconds": 0.8703604020000171,
+          "train_and_validation_seconds": 5.633170832000019,
+          "warmup": true
+        },
+        {
+          "epoch": 3,
+          "train_seconds": 0.8767068199999812,
+          "train_and_validation_seconds": 5.962121372999945,
+          "warmup": false
+        },
+        {
+          "epoch": 4,
+          "train_seconds": 0.8695820959999878,
+          "train_and_validation_seconds": 5.495549643999993,
+          "warmup": false
+        },
+        {
+          "epoch": 5,
+          "train_seconds": 0.8660371429999714,
+          "train_and_validation_seconds": 5.574990803999981,
+          "warmup": false
+        },
+        {
+          "epoch": 6,
+          "train_seconds": 0.8544375310000305,
+          "train_and_validation_seconds": 5.836358781999991,
+          "warmup": false
+        },
+        {
+          "epoch": 7,
+          "train_seconds": 1.0219816829999786,
+          "train_and_validation_seconds": 6.511097350999989,
+          "warmup": false
+        }
+      ],
+      "median_train_seconds": 0.8695820959999878,
+      "median_train_and_validation_seconds": 5.836358781999991,
+      "final_test_evaluated": false,
+      "checkpoint_io_included": false
+    },
+    "wsl_gpu": {
+      "purpose": "Device timing only; not a selected model or predictive score",
+      "device_requested": "gpu",
+      "tensorflow": "2.21.0",
+      "keras": "3.15.1",
+      "build_info": {
+        "cpu_compiler": "clang",
+        "cuda_compute_capabilities": [
+          "sm_60",
+          "sm_70",
+          "sm_80",
+          "sm_89",
+          "compute_90"
+        ],
+        "cuda_version": "12.5.1",
+        "cudnn_version": "9",
+        "is_cuda_build": true,
+        "is_rocm_build": false,
+        "is_tensorrt_build": false
+      },
+      "gpu_details": [
+        {
+          "compute_capability": [
+            12,
+            0
+          ],
+          "device_name": "NVIDIA GeForce RTX 5060"
+        }
+      ],
+      "weight_devices": [
+        "/job:localhost/replica:0/task:0/device:GPU:0"
+      ],
+      "model": "lstm",
+      "window": 14,
+      "batch_size": 16,
+      "learning_rate": 0.003,
+      "seed": 42,
+      "joined_sha256": "97ff11187e84af09e6ca6e58ad38c4f58b1311a93424f99264960cee6577ad51",
+      "code_sha256": {
+        "src/audit_crawl_archive.py": "d8ad49396d2164f4245feb9f8d762394d56eb07f5f0dd49e8ec6162bb3fbf7ec",
+        "src/dataset.py": "d6d30543476d69d20c6fb20dab32929f4542faa03a6af7422c59d79c3f635f7d",
+        "src/evaluation.py": "d8ed97aaf94ea93114e87453964e5ec22cf6da3e0808548940bd5b171e246034",
+        "src/experiment.py": "2adc490dc34a1b20a8f68e16117806e8f26cabf2ce1f628a148c7c9f993711fe",
+        "src/extract_source_urls.py": "12de99de91098c7d6b82bf4c4f55e5dbfa964bd29e232df0af56d04715cdf093",
+        "src/models.py": "17564f8ae80199351bd780cfd7a1079daaa7d42cb508b8402b1f7bfe399e3e2e",
+        "src/review_split.py": "74c478a8f171b3f075726d12cc035d07d7f29019412c1322e2eced1fcea64e19",
+        "src/summarize_note_status.py": "0a5187a812907f7abf24e1b52de545f7b24829f7f66745c3900cf8fa15036e96",
+        "src/__init__.py": "91ec51f1f0441db68d75775e850f186a0b1d539a3304c60c52a22ee8f0e7423e"
+      },
+      "rows": [
+        {
+          "epoch": 1,
+          "train_seconds": 11.19993832099999,
+          "train_and_validation_seconds": 11.458299559000011,
+          "warmup": true
+        },
+        {
+          "epoch": 2,
+          "train_seconds": 0.43198463999999603,
+          "train_and_validation_seconds": 0.6383975730000202,
+          "warmup": true
+        },
+        {
+          "epoch": 3,
+          "train_seconds": 0.47810304199998654,
+          "train_and_validation_seconds": 0.6833314410000071,
+          "warmup": false
+        },
+        {
+          "epoch": 4,
+          "train_seconds": 0.42828848200002767,
+          "train_and_validation_seconds": 0.61815550700004,
+          "warmup": false
+        },
+        {
+          "epoch": 5,
+          "train_seconds": 0.4347912530000144,
+          "train_and_validation_seconds": 0.6234330139999997,
+          "warmup": false
+        },
+        {
+          "epoch": 6,
+          "train_seconds": 0.4256250399999999,
+          "train_and_validation_seconds": 0.6128587150000158,
+          "warmup": false
+        },
+        {
+          "epoch": 7,
+          "train_seconds": 0.42101482200001783,
+          "train_and_validation_seconds": 0.6123207020000336,
+          "warmup": false
+        }
+      ],
+      "median_train_seconds": 0.42828848200002767,
+      "median_train_and_validation_seconds": 0.61815550700004,
+      "final_test_evaluated": false,
+      "checkpoint_io_included": false
+    }
+  },
+  "same_wsl_cpu_gpu_speedup": 9.441570472006834,
+  "old_windows_cpu_to_new_gpu_speedup": 10.772495795291,
+  "tests_passed": 7,
+  "pip_check_passed": true,
+  "failed_attempt": "TF 2.20.0 Linux GPU matmul passed but LSTM model construction Cast failed with CUDA_ERROR_INVALID_PTX / INVALID_HANDLE. Upgrading isolated Linux TensorFlow to 2.21.0 resolved this in the tested training workload.",
+  "limits": [
+    "Warmup 2 + measured 5 epochs; checkpoint disk I/O excluded",
+    "GPU device variables and actual LSTM training/finite validation verified, not just device discovery",
+    "Same-Windows-versus-WSL comparison includes OS/Python/TensorFlow changes; same-WSL comparison controls these",
+    "Initial PTX compilation warning remains; no native sm_120 binary in tested TensorFlow wheel",
+    "Full-length model quality and checkpoint parity not evaluated; no final test scores used"
+  ]
+}
