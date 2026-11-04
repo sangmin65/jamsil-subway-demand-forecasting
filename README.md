@@ -73,3 +73,5 @@ docs/                운영 원칙·양식·점검 결과
 2026-11-04 단독 1D CNN의 3·7·14일 비교를 완료했습니다. CNN 최저는 7일 MAE 328.95명이며, 기존 RF 3일(255.87명)이 여전히 전체 검증 최저입니다. 상세 설정·결과·검증은 EXP-003에 기록했습니다.
 
 2026-11-04 사용자 승인으로 RF 최소 잎 크기와 신경망 학습률의 9개 조건 튜닝을 진행합니다. [EXP-004](reports/experiments/EXP-004_tuning-round1.md)에 설정·상태·완료 결과를 기록합니다.
+
+GPU 환경 준비: 2026-11-04 WSL 3.0.3 설치와 VirtualMachinePlatform 활성화 완료, Windows 재부팅 대기. Ubuntu·GPU Python 환경·GPU 속도 측정은 재부팅 후 이어서 진행합니다. Windows CPU 기준 벤치마크는 완료했으며 상세 재개 절차는 RUNBOOK의 GPU 전환 준비 절을 참고합니다.

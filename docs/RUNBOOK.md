@@ -130,3 +130,28 @@ DEC-024에 따라 MLP 3일과 LSTM 3·7·14일을 같은 시드로 처음부터 
 ```
 
 출력은 새 경로여야 합니다. 명세와 기준 전체 설정의 일치를 검사하고, 각 조건의 전체 설정을 로컬에 기록합니다. 기준 모델과 신규 모델을 재로딩해 검증하며 기준 대비 전체·월별·note 상태별 오차를 비교합니다. `status.json`은 완료된 검증 결과와 현재 조건을 담고, 조건별 로그도 출력 디렉터리에 저장합니다. 9개 완료 후 EXP-004와 공유 JSON을 생성합니다. `--commit-results`는 이 두 결과 파일만 커밋하고 시작한 브랜치에 push하며 브랜치가 바뀌면 자동 커밋을 중단합니다. 코드·원본 변경 또는 학습·검증 오류 시 중단합니다.
+
+## GPU 전환 준비 (2026-11-04)
+
+사용자가 GPU 환경 구성·짧은 속도 비교를 먼저 하고 Dropout·LSTM 후속 실험은 그다음 진행하도록 요청했습니다. Windows CPU 가상환경은 보존합니다. GPU는 RTX 5060 8GB, 드라이버 595.71이며 현재 Windows TensorFlow 2.20.0은 CUDA 빌드가 아니고 GPU 목록은 비어 있습니다. WSL은 미설치입니다.
+
+관리자 PowerShell 설치 도우미: `tools/install_wsl.ps1`. Ubuntu-24.04를 지정하고 자동 재부팅은 하지 않습니다. UAC 승인은 사용자가 직접 수행해야 합니다. 로그는 `outputs/gpu-setup/`입니다. 설치·재부팅 후 `wsl --list --verbose`에서 버전 2를 확인하고 Ubuntu 초기 계정 설정 및 WSL 안의 `nvidia-smi`를 확인합니다. Windows 드라이버를 사용하며 WSL 안에 Linux NVIDIA 디스플레이 드라이버를 별도로 덮어 설치하지 않습니다.
+
+GPU Python 환경은 WSL Linux 파일시스템의 별도 venv에 구성합니다. 기존 Windows `.venv`를 Linux에서 재사용하지 않습니다. RTX 5060은 Blackwell이므로 TensorFlow wheel·CUDA/cuDNN 호환성을 실제 연산으로 확인한 뒤 GPU 환경 버전을 고정합니다. 설치 성공이나 GPU 목록 인식만으로 학습 성공을 주장하지 않습니다. 아직 GPU 환경 설치와 속도 측정은 완료되지 않았습니다.
+
+준비한 `tools/benchmark_device.py`는 LSTM 14일·batch 16·학습률 0.003·seed 42에서 2회 준비 학습 후 5회를 측정합니다. 실제 2024년 학습 자료와 2025년 상반기 검증 입력을 사용하며 최종 평가·성능 순위 선택은 하지 않습니다. GPU 요청 시 GPU 미인식 또는 모델 가중치의 CPU 배치면 실패시킵니다. 체크포인트 디스크 저장 시간은 측정에서 제외하며 학습 및 학습+검증 시간을 각각 기록합니다. 같은 WSL 환경에서 `--device cpu`와 `--device gpu`를 별도 프로세스로 비교하고, 필요하면 기존 Windows CPU 환경도 별도 측정합니다. 환경 변경과 순수 장치 효과를 구분합니다.
+
+```bash
+python tools/benchmark_device.py --device cpu --source '/path/to/input.csv' --output outputs/benchmark-wsl-cpu
+python tools/benchmark_device.py --device gpu --source '/path/to/input.csv' --output outputs/benchmark-wsl-gpu
+```
+
+공식 근거: https://learn.microsoft.com/en-us/windows/wsl/install 및 https://www.tensorflow.org/install/pip . 설치 결과와 실제 GPU 벤치마크 확인 후 이 절을 갱신합니다.
+
+### 실제 설치·측정 결과
+
+2026-11-04 사용자 UAC 승인 후 WSL 3.0.3 및 VirtualMachinePlatform 활성화가 종료 코드 0으로 완료됐습니다. 설치 로그에서 Windows 재시작이 필요하다고 안내했습니다. 자동 재부팅은 하지 않았습니다. Ubuntu 초기 설치·계정 설정, GPU Python 환경, RTX 5060의 TensorFlow GPU 연산 검증은 재부팅 후 이어서 수행해야 합니다.
+
+재개 순서: `wsl --list --verbose` 확인 → Ubuntu-24.04가 없으면 `wsl --install -d Ubuntu-24.04 --no-launch` → Ubuntu 최초 실행·사용자 계정 생성 → WSL 내부 `nvidia-smi` → 별도 Linux venv 및 호환 라이브러리 구성 → GPU 실제 학습 확인 → 동일 Linux 환경 CPU/GPU 벤치마크 비교. 재부팅 후에는 저장소와 이 절을 기준으로 진행합니다.
+
+Windows CPU 기준 측정은 실제 LSTM 14일 구조로 준비 2회+측정 5회 완료했습니다. 측정 중앙값은 학습 0.620초/에포크, 학습+검증 6.659초/에포크입니다. 체크포인트 저장은 제외했습니다. 이 짧은 측정에서는 검증 예측 시간의 비중이 크므로 GPU 결과와 함께 검증 경로도 점검할 가치가 있습니다. GPU 성능 향상 수치는 아직 측정되지 않았습니다. 공유 결과는 `reports/metrics/device_benchmark_windows_cpu_2026-11-04.json`입니다.

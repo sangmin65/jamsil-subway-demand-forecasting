@@ -1,0 +1,81 @@
+{
+  "purpose": "Device timing only; not a selected model or predictive score",
+  "device_requested": "cpu",
+  "tensorflow": "2.20.0",
+  "keras": "3.15.1",
+  "build_info": {
+    "is_cuda_build": false,
+    "is_rocm_build": false,
+    "is_tensorrt_build": false,
+    "msvcp_dll_names": "msvcp140.dll,msvcp140_1.dll"
+  },
+  "gpu_details": [],
+  "weight_devices": [
+    "/job:localhost/replica:0/task:0/device:CPU:0"
+  ],
+  "model": "lstm",
+  "window": 14,
+  "batch_size": 16,
+  "learning_rate": 0.003,
+  "seed": 42,
+  "joined_sha256": "97ff11187e84af09e6ca6e58ad38c4f58b1311a93424f99264960cee6577ad51",
+  "code_sha256": {
+    "src\\audit_crawl_archive.py": "d8ad49396d2164f4245feb9f8d762394d56eb07f5f0dd49e8ec6162bb3fbf7ec",
+    "src\\dataset.py": "d6d30543476d69d20c6fb20dab32929f4542faa03a6af7422c59d79c3f635f7d",
+    "src\\evaluation.py": "d8ed97aaf94ea93114e87453964e5ec22cf6da3e0808548940bd5b171e246034",
+    "src\\experiment.py": "2adc490dc34a1b20a8f68e16117806e8f26cabf2ce1f628a148c7c9f993711fe",
+    "src\\extract_source_urls.py": "12de99de91098c7d6b82bf4c4f55e5dbfa964bd29e232df0af56d04715cdf093",
+    "src\\models.py": "17564f8ae80199351bd780cfd7a1079daaa7d42cb508b8402b1f7bfe399e3e2e",
+    "src\\review_split.py": "74c478a8f171b3f075726d12cc035d07d7f29019412c1322e2eced1fcea64e19",
+    "src\\summarize_note_status.py": "0a5187a812907f7abf24e1b52de545f7b24829f7f66745c3900cf8fa15036e96",
+    "src\\__init__.py": "91ec51f1f0441db68d75775e850f186a0b1d539a3304c60c52a22ee8f0e7423e"
+  },
+  "rows": [
+    {
+      "epoch": 1,
+      "train_seconds": 1.7039440999506041,
+      "train_and_validation_seconds": 8.712828299961984,
+      "warmup": true
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 0.6390744000673294,
+      "train_and_validation_seconds": 6.405586399952881,
+      "warmup": true
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 0.6150863999500871,
+      "train_and_validation_seconds": 6.765369800035842,
+      "warmup": false
+    },
+    {
+      "epoch": 4,
+      "train_seconds": 0.7948296999093145,
+      "train_and_validation_seconds": 7.6907610999187455,
+      "warmup": false
+    },
+    {
+      "epoch": 5,
+      "train_seconds": 0.6204217999475077,
+      "train_and_validation_seconds": 6.467143699992448,
+      "warmup": false
+    },
+    {
+      "epoch": 6,
+      "train_seconds": 0.6025357999606058,
+      "train_and_validation_seconds": 6.367003099992871,
+      "warmup": false
+    },
+    {
+      "epoch": 7,
+      "train_seconds": 0.6354413999943063,
+      "train_and_validation_seconds": 6.659077599993907,
+      "warmup": false
+    }
+  ],
+  "median_train_seconds": 0.6204217999475077,
+  "median_train_and_validation_seconds": 6.659077599993907,
+  "final_test_evaluated": false,
+  "checkpoint_io_included": false
+}
