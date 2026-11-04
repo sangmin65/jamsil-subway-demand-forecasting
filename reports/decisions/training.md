@@ -290,3 +290,17 @@ MLP는 과거 기간이 길어지면 첫 층의 파라미터 수가 증가합니
 ### DEC-024 추가 승인: MLP 7·14일
 
 2026-11-03 사용자 요청 “MLP 7일과 14일도 동일하게 진행한 후에 비교해줘”에 따라 MLP 7·14일도 최대 1,000에포크·patience 50으로 추가 실행합니다. 나머지 설정은 동일하며 시드 42로 처음부터 학습하고 EXP-002에 결과를 합칩니다. 설정은 `configs/epoch1000_mlp7_14.json`, 출력은 `outputs/epoch1000-2026-11-03/mlp7_14`입니다.
+
+<a id="dec-025"></a>
+
+## DEC-025: 단독 1D CNN 추가
+
+- 날짜: 2026-11-04
+- 승인 근거: 사용자 “그럼 단일 CNN도 진행해줄래? 1d로”. 단독 CNN 추가·실행 승인. 하루별 처리(A안)는 직전 추천과 이번 실행 안내에 따른 구현 선택이며 A/B 명시 선택 답변으로 기록하지 않습니다.
+- 초기 세부값은 DEC-022 위임 범위에서 선정합니다. 기존 3·7·14일, 전처리, 날짜 분할, 부가 입력, 출력·평가 원칙은 유지합니다.
+- 구조: 하루 18시간×2채널 → 공유 Conv1D 1층(filters=8, kernel_size=3, stride=1, padding=same, ReLU) → 날짜·시간대 순서대로 Flatten → 예측일 부가 입력 결합 → Dense 32 ReLU → Dense 36 Linear.
+- 이유: 3시간 관측 패턴을 8개 필터로 추출하는 작은 첫 CNN입니다. TimeDistributed로 같은 필터를 매일 공유하여 밤사이 빈 구간을 가로지르지 않습니다. Flatten으로 날짜·시간대 위치를 보존합니다. 풀링·Dropout·LSTM은 사용하지 않습니다.
+- 한계: Flatten 뒤 Dense의 파라미터 수는 입력 일수에 비례해 증가합니다. 하루 안의 CNN 수용 범위는 3시간이며 멀리 떨어진 시간·날짜 간 결합은 Dense에서 학습합니다. CNN 순위가 모든 CNN 구조의 우열을 의미하지 않습니다.
+- 초기화: Conv1D/Dense 은닉층 he_normal, 출력 glorot_uniform, bias 0. seed 42. Adam 0.001 및 나머지 Adam 설정은 기존과 동일합니다.
+- 학습: 최대 1000회, patience 50, batch 16, min_delta 0, MAE. 음수 0 보정한 검증 MAE로 선택하고 최선 가중치 복원. 원래 인원 단위 정답. 최종 평가 미사용.
+- 설정: `configs/cnn_daily.json`, 실험: EXP-003. 공식 근거: https://keras.io/api/layers/convolution_layers/convolution1d/ 및 https://keras.io/api/layers/recurrent_layers/time_distributed/

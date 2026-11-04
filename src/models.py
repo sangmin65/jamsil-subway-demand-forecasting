@@ -35,6 +35,20 @@ def build_neural(name, window, context_size, config):
                               go_backwards=False, unroll=False)(history)
         x = hidden(keras.layers.Concatenate()([x, context]), config["lstm"]["dense_units"])
         model_input = {"history": history, "context": context}
+    elif name == "cnn":
+        settings = config["cnn"]
+        history = keras.Input(shape=(window * 18, 2), name="history")
+        context = keras.Input(shape=(context_size,), name="context")
+        days = keras.layers.Reshape((window, 18, 2), name="split_days")(history)
+        # The same filters operate independently within each day; never across nights.
+        daily = keras.layers.TimeDistributed(keras.layers.Conv1D(
+            settings["filters"], settings["kernel_size"], padding="same",
+            activation="relu", kernel_initializer="he_normal", bias_initializer="zeros"),
+            name="daily_convolution")(days)
+        # Retain both day order and hour position rather than averaging away timing.
+        x = keras.layers.Flatten(name="ordered_day_hour_features")(daily)
+        x = hidden(keras.layers.Concatenate()([x, context]), settings["dense_units"])
+        model_input = {"history": history, "context": context}
     else:
         raise ValueError(name)
     output = keras.layers.Dense(36, activation="linear", kernel_initializer="glorot_uniform", bias_initializer="zeros")(x)

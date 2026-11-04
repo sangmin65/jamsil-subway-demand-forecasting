@@ -122,7 +122,7 @@ def build_window(frame, config, preprocessor, holidays, window):
 
 
 def inputs(data, model):
-    if model == "lstm":
+    if model in ("lstm", "cnn"):
         return {"history": data["history"], "context": data["context"]}
     raw = model == "rf"
     history = data["history_raw" if raw else "history"]

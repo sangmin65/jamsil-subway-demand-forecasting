@@ -149,7 +149,7 @@ def run(args, config):
             if args.mode == "preflight":
                 # Only synthetic zero inputs, no fit, no real validation/test predictions.
                 if name != "rf":
-                    x = {"history": np.zeros((2, window*18, 2), "float32"), "context": np.zeros((2, len(context_names)), "float32")} if name == "lstm" else np.zeros((2, window*36+len(context_names)), "float32")
+                    x = {"history": np.zeros((2, window*18, 2), "float32"), "context": np.zeros((2, len(context_names)), "float32")} if name in ("lstm", "cnn") else np.zeros((2, window*36+len(context_names)), "float32")
                     prediction = predict_neural(model, x, 16)
                     if prediction.shape != (2, 36) or not np.isfinite(prediction).all():
                         raise ValueError("Forward shape or finite check failed")
