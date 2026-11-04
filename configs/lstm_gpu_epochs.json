@@ -1,0 +1,15 @@
+{
+  "experiment": "EXP-006",
+  "base_config": "configs/epoch1000_lstm.json",
+  "approval": {
+    "date": "2026-11-04",
+    "reviewer": "사용자",
+    "evidence": "LSTM 14일도 GPU에서 최대 1000회랑 2000회로 비교해줘. 조기 종료는 50으로 유지하고 결과 기록이랑 커밋도 해줘."
+  },
+  "epochs": [1000, 2000],
+  "learning_rate": 0.003,
+  "window": 14,
+  "patience": 50,
+  "seed": 42,
+  "batch_size": 16
+}
