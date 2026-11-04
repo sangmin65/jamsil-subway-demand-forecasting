@@ -112,3 +112,13 @@ DEC-024에 따라 MLP 3일과 LSTM 3·7·14일을 같은 시드로 처음부터 
 ```
 
 로컬 순차 실행기의 `status.json`과 `mlp3.log`·`lstm.log`는 `outputs/epoch1000-2026-11-03/`에 저장합니다. 종료 상태와 개별 실행의 `report.json`·`failure.json`을 함께 확인합니다. 9개 조건을 전제로 한 EXP-001 요약 스크립트를 이 4개 조건에 그대로 적용하지 않습니다.
+
+## EXP-003: 하루별 단독 1D CNN
+
+```powershell
+./.venv/Scripts/python.exe -m src.experiment preflight --config configs/cnn_daily.json --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv' --kbo-source '../인공지능공학 과제용/KBO원천데이터_정리.csv' --output outputs/cnn-preflight-2026-11-04
+./.venv/Scripts/python.exe -m src.experiment train --config configs/cnn_daily.json --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv' --kbo-source '../인공지능공학 과제용/KBO원천데이터_정리.csv' --output outputs/cnn-daily-2026-11-04
+./.venv/Scripts/python.exe tools/summarize_first_run.py --run outputs/cnn-daily-2026-11-04 --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv' --verify-partial
+```
+
+재실행 시 출력은 새 경로를 사용합니다. 마지막 명령은 완료된 조건의 모델 복원·검증 예측을 확인하며 EXP-001 보고서를 덮어쓰지 않습니다. CNN 결과는 EXP-003에 기록합니다.
