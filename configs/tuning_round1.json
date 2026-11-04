@@ -1,0 +1,91 @@
+{
+  "experiment": "EXP-004",
+  "approval": {
+    "date": "2026-11-04",
+    "reviewer": "사용자",
+    "evidence": "응 그럼 추천한 9개 조건으로 진행하고 기존 결과랑 비교해줘. 설정이랑 결과도 기록하고 커밋해줘."
+  },
+  "trials": [
+    {
+      "id": "rf_3d_leaf1",
+      "base_config": "configs/initial.json",
+      "model": "rf",
+      "window": 3,
+      "parameter": "rf.min_samples_leaf",
+      "value": 1,
+      "baseline_run": "outputs/first-run-2026-11-03"
+    },
+    {
+      "id": "rf_3d_leaf5",
+      "base_config": "configs/initial.json",
+      "model": "rf",
+      "window": 3,
+      "parameter": "rf.min_samples_leaf",
+      "value": 5,
+      "baseline_run": "outputs/first-run-2026-11-03"
+    },
+    {
+      "id": "rf_3d_leaf10",
+      "base_config": "configs/initial.json",
+      "model": "rf",
+      "window": 3,
+      "parameter": "rf.min_samples_leaf",
+      "value": 10,
+      "baseline_run": "outputs/first-run-2026-11-03"
+    },
+    {
+      "id": "mlp_3d_lr0003",
+      "base_config": "configs/epoch1000_mlp3.json",
+      "model": "mlp",
+      "window": 3,
+      "parameter": "adam.learning_rate",
+      "value": 0.0003,
+      "baseline_run": "outputs/epoch1000-2026-11-03/mlp3"
+    },
+    {
+      "id": "mlp_3d_lr003",
+      "base_config": "configs/epoch1000_mlp3.json",
+      "model": "mlp",
+      "window": 3,
+      "parameter": "adam.learning_rate",
+      "value": 0.003,
+      "baseline_run": "outputs/epoch1000-2026-11-03/mlp3"
+    },
+    {
+      "id": "cnn_7d_lr0003",
+      "base_config": "configs/cnn_daily.json",
+      "model": "cnn",
+      "window": 7,
+      "parameter": "adam.learning_rate",
+      "value": 0.0003,
+      "baseline_run": "outputs/cnn-daily-2026-11-04"
+    },
+    {
+      "id": "cnn_7d_lr003",
+      "base_config": "configs/cnn_daily.json",
+      "model": "cnn",
+      "window": 7,
+      "parameter": "adam.learning_rate",
+      "value": 0.003,
+      "baseline_run": "outputs/cnn-daily-2026-11-04"
+    },
+    {
+      "id": "lstm_14d_lr0003",
+      "base_config": "configs/epoch1000_lstm.json",
+      "model": "lstm",
+      "window": 14,
+      "parameter": "adam.learning_rate",
+      "value": 0.0003,
+      "baseline_run": "outputs/epoch1000-2026-11-03/lstm"
+    },
+    {
+      "id": "lstm_14d_lr003",
+      "base_config": "configs/epoch1000_lstm.json",
+      "model": "lstm",
+      "window": 14,
+      "parameter": "adam.learning_rate",
+      "value": 0.003,
+      "baseline_run": "outputs/epoch1000-2026-11-03/lstm"
+    }
+  ]
+}
