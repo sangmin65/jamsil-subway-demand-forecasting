@@ -1,0 +1,1336 @@
+{
+  "status": "completed",
+  "manifest": {
+    "experiment": "EXP-007",
+    "approval": {
+      "date": "2026-11-06",
+      "reviewer": "사용자",
+      "evidence": "로컬 GPU에서 두 방식 모두, 각각 별도 조건으로 비교"
+    },
+    "rf_approval": "랜덤포레스트의 경우도 조건을 다 달리해서 하나씩 실험하고 결과 남겨줘",
+    "models": {
+      "rf": {
+        "baseline": "outputs/first-run-2026-11-03",
+        "trees": {
+          "n_estimators": 400
+        },
+        "depth": {
+          "max_depth": 14
+        },
+        "leaf": {
+          "min_samples_leaf": 2
+        }
+      },
+      "mlp": {
+        "baseline": "outputs/dropout-gpu-2026-11-04/mlp_3d_dropout0",
+        "width": {
+          "hidden_units": [
+            128,
+            32
+          ]
+        },
+        "depth": {
+          "hidden_units": [
+            64,
+            32,
+            32
+          ]
+        }
+      },
+      "cnn": {
+        "baseline": "outputs/dropout-gpu-2026-11-04/cnn_7d_dropout1",
+        "width": {
+          "filters": 16
+        },
+        "depth": {
+          "layers": 2
+        }
+      },
+      "lstm": {
+        "baseline": "outputs/lstm-gpu-epochs-2026-11-04/lstm_14d_epochs2000",
+        "width": {
+          "units": 64
+        },
+        "depth": {
+          "layers": 2
+        }
+      }
+    }
+  },
+  "final_test_evaluated": false,
+  "results": [
+    {
+      "trial": "mlp_width",
+      "baseline": {
+        "model": "mlp",
+        "window": 3,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 13508,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 273,
+        "stopped_epoch": 323,
+        "stop_reason": "early_stopping",
+        "validation_mae": 290.31250808537555,
+        "seconds": 90.70448649899998
+      },
+      "condition": {
+        "model": "mlp",
+        "window": 3,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 25796,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 195,
+        "stopped_epoch": 245,
+        "stop_reason": "early_stopping",
+        "validation_mae": 298.0322918488688,
+        "seconds": 69.167283699
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 298.0322918488688,
+          "board_mae": 317.7309136008689,
+          "alight_mae": 278.3336700968687,
+          "board_rmse": 1130.937132627598,
+          "alight_rmse": 819.0812804205043,
+          "raw_mae": 298.22381166287767,
+          "negative_fraction": 0.0013812154696132596
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 91.87133586705798,
+            "board_mae": 83.5102187262641,
+            "alight_mae": 100.23245300785187,
+            "board_rmse": 204.10470083392693,
+            "alight_rmse": 197.19075031847757,
+            "raw_mae": 91.92105148513684,
+            "negative_fraction": 0.0017921146953405018
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 82.06803470944601,
+            "board_mae": 73.55436131310842,
+            "alight_mae": 90.58170810578362,
+            "board_rmse": 193.05139298876946,
+            "alight_rmse": 188.45801004934063,
+            "raw_mae": 82.06803470944601,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 299.2200705530823,
+            "board_mae": 322.3527159425947,
+            "alight_mae": 276.08742516356983,
+            "board_rmse": 1108.1940450339985,
+            "alight_rmse": 783.7069771085469,
+            "raw_mae": 299.28795232738645,
+            "negative_fraction": 0.002688172043010753
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 423.33597265879314,
+            "board_mae": 450.2714119381375,
+            "alight_mae": 396.4005333794488,
+            "board_rmse": 1340.5414480454313,
+            "alight_rmse": 1037.856763022842,
+            "raw_mae": 423.7506355603536,
+            "negative_fraction": 0.001851851851851852
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 460.9930177136562,
+            "board_mae": 510.4778057170171,
+            "alight_mae": 411.5082297102952,
+            "board_rmse": 1502.3687377364595,
+            "alight_rmse": 1087.5547695403295,
+            "raw_mae": 461.5923622338148,
+            "negative_fraction": 0.0017921146953405018
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 417.7081174956428,
+            "board_mae": 451.16893116279886,
+            "alight_mae": 384.2473038284867,
+            "board_rmse": 1496.824764336829,
+            "alight_rmse": 1019.9908234170576,
+            "raw_mae": 417.7081174956428,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 524.4208652708265,
+            "board_mae": 543.0117531529179,
+            "alight_mae": 505.8299773887352,
+            "board_rmse": 1441.0215504012367,
+            "alight_rmse": 1157.6534353850625,
+            "raw_mae": 524.4208652708265,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 701.2807284461128,
+            "board_mae": 757.145309024387,
+            "alight_mae": 645.4161478678385,
+            "board_rmse": 2327.0273218994053,
+            "alight_rmse": 1426.2040250267357,
+            "raw_mae": 701.2807284461128,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 116.75093071906888,
+            "board_mae": 111.67098784390946,
+            "alight_mae": 121.8308735942283,
+            "board_rmse": 370.4367653124543,
+            "alight_rmse": 297.96994803454743,
+            "raw_mae": 116.92025078444453,
+            "negative_fraction": 0.0020467836257309943
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 496.50462166026784,
+            "board_mae": 546.4971736509915,
+            "alight_mae": 446.5120696695442,
+            "board_rmse": 1601.675649625472,
+            "alight_rmse": 1146.5099781360066,
+            "raw_mae": 496.7428226875104,
+            "negative_fraction": 0.0007122507122507123
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 277.33999676174585,
+            "board_mae": 258.55614386664496,
+            "alight_mae": 296.1238496568468,
+            "board_rmse": 702.4270365992065,
+            "alight_rmse": 626.3342491964793,
+            "raw_mae": 277.33999676174585,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "gain": -7.71978376349324,
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "7972b9d24b9b910b47adb4f3711984ba4d5422e3",
+        "git_dirty": true
+      },
+      "sources": {
+        "joined_sha256": "97ff11187e84af09e6ca6e58ad38c4f58b1311a93424f99264960cee6577ad51",
+        "kbo_sha256": "38cdb2d11d2af6eddcf31995c2f12f10efe0baec03a9e871b800a12a7df81660",
+        "holidays_sha256": "2c2d01262a756f172096579ec5057d9765e0cd5415bd2a7e1dc8920a0dd86c14",
+        "config_sha256": "6d3d7a581dda162791599390f54615a955bec2983aaacd932f94466adc968ea7"
+      },
+      "reload_verified": true
+    },
+    {
+      "trial": "mlp_depth",
+      "baseline": {
+        "model": "mlp",
+        "window": 3,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 13508,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 273,
+        "stopped_epoch": 323,
+        "stop_reason": "early_stopping",
+        "validation_mae": 290.31250808537555,
+        "seconds": 90.70448649899998
+      },
+      "condition": {
+        "model": "mlp",
+        "window": 3,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 14564,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 70,
+        "stopped_epoch": 120,
+        "stop_reason": "early_stopping",
+        "validation_mae": 307.3432886850768,
+        "seconds": 42.711521717
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 307.3432886850768,
+          "board_mae": 322.8529703036051,
+          "alight_mae": 291.8336070665485,
+          "board_rmse": 1152.6245483458497,
+          "alight_rmse": 862.7537547380097,
+          "raw_mae": 307.3432886850768,
+          "negative_fraction": 0.0
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 101.1328575893115,
+            "board_mae": 89.43512305393014,
+            "alight_mae": 112.83059212469286,
+            "board_rmse": 194.71954819085494,
+            "alight_rmse": 204.80551467338142,
+            "raw_mae": 101.1328575893115,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 94.65428999492102,
+            "board_mae": 85.41799038175553,
+            "alight_mae": 103.89058960808649,
+            "board_rmse": 189.14267238829976,
+            "alight_rmse": 197.73546459043672,
+            "raw_mae": 94.654289994921,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 312.4045112637209,
+            "board_mae": 332.91932172330905,
+            "alight_mae": 291.8897008041327,
+            "board_rmse": 1132.3351430891187,
+            "alight_rmse": 833.5295445722846,
+            "raw_mae": 312.4045112637209,
+            "negative_fraction": 0.0
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 408.7236167695787,
+            "board_mae": 438.2051537831624,
+            "alight_mae": 379.242079755995,
+            "board_rmse": 1333.907690112388,
+            "alight_rmse": 1038.9101906606597,
+            "raw_mae": 408.7236167695787,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 486.2430285860561,
+            "board_mae": 516.1392523789491,
+            "alight_mae": 456.346804793163,
+            "board_rmse": 1568.582712697009,
+            "alight_rmse": 1168.8201869245258,
+            "raw_mae": 486.2430285860561,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 427.46381028140036,
+            "board_mae": 460.1741556308888,
+            "alight_mae": 394.7534649319119,
+            "board_rmse": 1515.3470053587887,
+            "alight_rmse": 1096.4013686172184,
+            "raw_mae": 427.4638102814003,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 484.8521474555687,
+            "board_mae": 503.8412377392804,
+            "alight_mae": 465.8630571718569,
+            "board_rmse": 1285.7587598437801,
+            "alight_rmse": 1057.1886496062014,
+            "raw_mae": 484.8521474555687,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 692.3536894056533,
+            "board_mae": 674.9139777289497,
+            "alight_mae": 709.7934010823568,
+            "board_rmse": 2377.7276508458754,
+            "alight_rmse": 1602.4083360051404,
+            "raw_mae": 692.3536894056532,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 118.11746319107145,
+            "board_mae": 113.04660741794876,
+            "alight_mae": 123.18831896419414,
+            "board_rmse": 364.53425554370654,
+            "alight_rmse": 294.609016007915,
+            "raw_mae": 118.11746319107145,
+            "negative_fraction": 0.0
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 522.0776719775295,
+            "board_mae": 562.8003242633961,
+            "alight_mae": 481.3550196916629,
+            "board_rmse": 1649.5618033912353,
+            "alight_rmse": 1225.7436023070698,
+            "raw_mae": 522.0776719775295,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 84.45126046074762,
+            "board_mae": 100.57322353786893,
+            "alight_mae": 68.3292973836263,
+            "board_rmse": 165.48274332401903,
+            "alight_rmse": 127.67755167411777,
+            "raw_mae": 84.45126046074762,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "gain": -17.030780599701245,
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "7972b9d24b9b910b47adb4f3711984ba4d5422e3",
+        "git_dirty": true
+      },
+      "sources": {
+        "joined_sha256": "97ff11187e84af09e6ca6e58ad38c4f58b1311a93424f99264960cee6577ad51",
+        "kbo_sha256": "38cdb2d11d2af6eddcf31995c2f12f10efe0baec03a9e871b800a12a7df81660",
+        "holidays_sha256": "2c2d01262a756f172096579ec5057d9765e0cd5415bd2a7e1dc8920a0dd86c14",
+        "config_sha256": "6d11821a2e772fb1acae271a5be075f6baef13f91e006129dceae09a9d4e7335"
+      },
+      "reload_verified": true
+    },
+    {
+      "trial": "cnn_width",
+      "baseline": {
+        "model": "cnn",
+        "window": 7,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 35164,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 194,
+        "stopped_epoch": 244,
+        "stop_reason": "early_stopping",
+        "validation_mae": 325.91410484630103,
+        "seconds": 122.705335445
+      },
+      "condition": {
+        "model": "cnn",
+        "window": 7,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 67476,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 102,
+        "stopped_epoch": 152,
+        "stop_reason": "early_stopping",
+        "validation_mae": 336.56856477703326,
+        "seconds": 74.37677082900001
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 336.56856477703326,
+          "board_mae": 346.5700120012624,
+          "alight_mae": 326.5671175528041,
+          "board_rmse": 1216.8216229473126,
+          "alight_rmse": 932.3234334443694,
+          "raw_mae": 336.56856477703326,
+          "negative_fraction": 0.0
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 120.23219930997459,
+            "board_mae": 112.82610423590548,
+            "alight_mae": 127.6382943840437,
+            "board_rmse": 219.2847209425677,
+            "alight_rmse": 217.11325560204747,
+            "raw_mae": 120.23219930997459,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 94.02484304942782,
+            "board_mae": 91.19195250859336,
+            "alight_mae": 96.85773359026227,
+            "board_rmse": 201.0038597379893,
+            "alight_rmse": 200.04965769344113,
+            "raw_mae": 94.02484304942782,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 322.4582757129464,
+            "board_mae": 331.3075080584454,
+            "alight_mae": 313.6090433674474,
+            "board_rmse": 1176.046797344242,
+            "alight_rmse": 879.4663616875969,
+            "raw_mae": 322.45827571294643,
+            "negative_fraction": 0.0
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 488.6525824052316,
+            "board_mae": 504.97097066949914,
+            "alight_mae": 472.3341941409641,
+            "board_rmse": 1525.165767956636,
+            "alight_rmse": 1202.4052856844462,
+            "raw_mae": 488.6525824052316,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 515.2671681236623,
+            "board_mae": 539.6220235448584,
+            "alight_mae": 490.91231270246607,
+            "board_rmse": 1621.9434122713856,
+            "alight_rmse": 1243.2290041556573,
+            "raw_mae": 515.2671681236623,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 464.33167365193367,
+            "board_mae": 484.34145569624724,
+            "alight_mae": 444.3218916076201,
+            "board_rmse": 1540.1872069788608,
+            "alight_rmse": 1147.2202362952282,
+            "raw_mae": 464.33167365193367,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 471.09174834357367,
+            "board_mae": 479.1958233868634,
+            "alight_mae": 462.9876733002839,
+            "board_rmse": 1062.126693012678,
+            "alight_rmse": 968.514034318916,
+            "raw_mae": 471.09174834357367,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 648.2199261983235,
+            "board_mae": 655.7129745483398,
+            "alight_mae": 640.7268778483073,
+            "board_rmse": 2395.6884664466334,
+            "alight_rmse": 1604.49817064819,
+            "raw_mae": 648.2199261983236,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 137.1149835731551,
+            "board_mae": 131.06158593607228,
+            "alight_mae": 143.16838121023792,
+            "board_rmse": 420.34967933692025,
+            "alight_rmse": 387.0038445632632,
+            "raw_mae": 137.1149835731551,
+            "negative_fraction": 0.0
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 564.7244504312334,
+            "board_mae": 595.6479275545843,
+            "alight_mae": 533.8009733078826,
+            "board_rmse": 1746.8275583882432,
+            "alight_rmse": 1309.278477229065,
+            "raw_mae": 564.7244504312334,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 369.7092352973091,
+            "board_mae": 286.89524417453345,
+            "alight_mae": 452.52322642008465,
+            "board_rmse": 833.6088083609076,
+            "alight_rmse": 1091.2494264457407,
+            "raw_mae": 369.709235297309,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "gain": -10.65445993073223,
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "7972b9d24b9b910b47adb4f3711984ba4d5422e3",
+        "git_dirty": true
+      },
+      "sources": {
+        "joined_sha256": "97ff11187e84af09e6ca6e58ad38c4f58b1311a93424f99264960cee6577ad51",
+        "kbo_sha256": "38cdb2d11d2af6eddcf31995c2f12f10efe0baec03a9e871b800a12a7df81660",
+        "holidays_sha256": "2c2d01262a756f172096579ec5057d9765e0cd5415bd2a7e1dc8920a0dd86c14",
+        "config_sha256": "0d0d841c2833de2c3019a18db75d41b6668c040143f636988aa0d0b18bf1d2dd"
+      },
+      "reload_verified": true
+    },
+    {
+      "trial": "cnn_depth",
+      "baseline": {
+        "model": "cnn",
+        "window": 7,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 35164,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 194,
+        "stopped_epoch": 244,
+        "stop_reason": "early_stopping",
+        "validation_mae": 325.91410484630103,
+        "seconds": 122.705335445
+      },
+      "condition": {
+        "model": "cnn",
+        "window": 7,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 35364,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 106,
+        "stopped_epoch": 156,
+        "stop_reason": "early_stopping",
+        "validation_mae": 330.38299468984775,
+        "seconds": 111.42691419300002
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 330.38299468984775,
+          "board_mae": 345.4829204950397,
+          "alight_mae": 315.2830688846558,
+          "board_rmse": 1192.8436748862198,
+          "alight_rmse": 905.4150380429426,
+          "raw_mae": 330.3867169717399,
+          "negative_fraction": 0.0001534683855125844
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 119.50048388887905,
+            "board_mae": 112.99164705037217,
+            "alight_mae": 126.00932072738593,
+            "board_rmse": 221.3161242220291,
+            "alight_rmse": 215.22361606495562,
+            "raw_mae": 119.50048388887905,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 103.59417197439404,
+            "board_mae": 99.10161597388131,
+            "alight_mae": 108.0867279749068,
+            "board_rmse": 202.60787269376888,
+            "alight_rmse": 204.63308745780412,
+            "raw_mae": 103.59417197439406,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 315.35864067761275,
+            "board_mae": 330.36757540959184,
+            "alight_mae": 300.3497059456337,
+            "board_rmse": 1139.625285518721,
+            "alight_rmse": 830.6608610673908,
+            "raw_mae": 315.35864067761275,
+            "negative_fraction": 0.0
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 461.62873595555624,
+            "board_mae": 484.2901307494552,
+            "alight_mae": 438.96734116165726,
+            "board_rmse": 1450.0037523793267,
+            "alight_rmse": 1142.5023087670809,
+            "raw_mae": 461.65119372297215,
+            "negative_fraction": 0.000925925925925926
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 515.2748171761899,
+            "board_mae": 548.8956633537047,
+            "alight_mae": 481.65397099867516,
+            "board_rmse": 1628.3282493330842,
+            "alight_rmse": 1279.6077353098153,
+            "raw_mae": 515.2748171761899,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 453.1890316963196,
+            "board_mae": 482.29859932087084,
+            "alight_mae": 424.0794640717683,
+            "board_rmse": 1520.3209330257591,
+            "alight_rmse": 1071.7981147922812,
+            "raw_mae": 453.1890316963196,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 510.6956589663471,
+            "board_mae": 501.6404545395463,
+            "alight_mae": 519.7508633931478,
+            "board_rmse": 1195.9633108961384,
+            "alight_rmse": 1175.961384676595,
+            "raw_mae": 510.695658966347,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 600.6713269551595,
+            "board_mae": 667.5216267903646,
+            "alight_mae": 533.8210271199545,
+            "board_rmse": 2246.4985725065585,
+            "alight_rmse": 1317.3671361770312,
+            "raw_mae": 600.6713269551595,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 144.180558745624,
+            "board_mae": 137.31115484851145,
+            "alight_mae": 151.0499626427366,
+            "board_rmse": 453.9504380874693,
+            "alight_rmse": 440.46167343412145,
+            "raw_mae": 144.18765067217643,
+            "negative_fraction": 0.00029239766081871346
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 538.3928899656333,
+            "board_mae": 582.9324684849491,
+            "alight_mae": 493.8533114463176,
+            "board_rmse": 1692.656409940514,
+            "alight_rmse": 1231.4703780501657,
+            "raw_mae": 538.3928899656333,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 442.67825995551215,
+            "board_mae": 341.7520031399197,
+            "alight_mae": 543.6045167711046,
+            "board_rmse": 926.5016414999635,
+            "alight_rmse": 1275.7894128414985,
+            "raw_mae": 442.67825995551215,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "gain": -4.4688898435467195,
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "7972b9d24b9b910b47adb4f3711984ba4d5422e3",
+        "git_dirty": true
+      },
+      "sources": {
+        "joined_sha256": "97ff11187e84af09e6ca6e58ad38c4f58b1311a93424f99264960cee6577ad51",
+        "kbo_sha256": "38cdb2d11d2af6eddcf31995c2f12f10efe0baec03a9e871b800a12a7df81660",
+        "holidays_sha256": "2c2d01262a756f172096579ec5057d9765e0cd5415bd2a7e1dc8920a0dd86c14",
+        "config_sha256": "adecfea5dcc822ba8b009cf3be1a72f1b8413a1274058dd14e507127771e7f80"
+      },
+      "reload_verified": true
+    },
+    {
+      "trial": "lstm_width",
+      "baseline": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1283,
+        "stopped_epoch": 1333,
+        "stop_reason": "early_stopping",
+        "validation_mae": 275.65140211223604,
+        "seconds": 944.919730007
+      },
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 22052,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1458,
+        "stopped_epoch": 1508,
+        "stop_reason": "early_stopping",
+        "validation_mae": 276.63335813592005,
+        "seconds": 989.995525865
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 276.63335813592005,
+          "board_mae": 302.5006909821208,
+          "alight_mae": 250.76602528971935,
+          "board_rmse": 1104.1923421060462,
+          "alight_rmse": 772.1208215032107,
+          "raw_mae": 276.63335813592005,
+          "negative_fraction": 0.0
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 83.72694652653082,
+            "board_mae": 78.82097370051996,
+            "alight_mae": 88.63291935254169,
+            "board_rmse": 194.21983052752392,
+            "alight_rmse": 183.10964650748224,
+            "raw_mae": 83.72694652653082,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 76.50075325890194,
+            "board_mae": 69.35860829126267,
+            "alight_mae": 83.64289822654119,
+            "board_rmse": 189.62783798233355,
+            "alight_rmse": 186.98683842761025,
+            "raw_mae": 76.50075325890192,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 290.6692306687755,
+            "board_mae": 311.83786816238074,
+            "alight_mae": 269.50059317517025,
+            "board_rmse": 1121.0470269376333,
+            "alight_rmse": 787.1067161000497,
+            "raw_mae": 290.66923066877547,
+            "negative_fraction": 0.0
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 390.4068213286223,
+            "board_mae": 430.7266155949345,
+            "alight_mae": 350.0870270623101,
+            "board_rmse": 1314.7518092633456,
+            "alight_rmse": 971.213100784748,
+            "raw_mae": 390.4068213286223,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 431.7409966410702,
+            "board_mae": 488.5537398758755,
+            "alight_mae": 374.9282534062649,
+            "board_rmse": 1493.2049500166243,
+            "alight_rmse": 1024.4417935402491,
+            "raw_mae": 431.7409966410702,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 374.2053234188645,
+            "board_mae": 421.1065177952802,
+            "alight_mae": 327.30412904244884,
+            "board_rmse": 1397.2659649144898,
+            "alight_rmse": 928.2828339203764,
+            "raw_mae": 374.2053234188645,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 480.21629919829195,
+            "board_mae": 491.1903956377948,
+            "alight_mae": 469.24220275878906,
+            "board_rmse": 1205.779868309779,
+            "alight_rmse": 1072.6682437636887,
+            "raw_mae": 480.2162991982919,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 645.3501974741617,
+            "board_mae": 647.3781895107693,
+            "alight_mae": 643.3222054375542,
+            "board_rmse": 2117.8672469193275,
+            "alight_rmse": 1355.6125252065924,
+            "raw_mae": 645.3501974741617,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 99.05032876081634,
+            "board_mae": 97.28104425452607,
+            "alight_mae": 100.81961326710662,
+            "board_rmse": 360.039298063689,
+            "alight_rmse": 285.66148305694463,
+            "raw_mae": 99.05032876081634,
+            "negative_fraction": 0.0
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 472.28152803613926,
+            "board_mae": 534.0164740432022,
+            "alight_mae": 410.5465820290764,
+            "board_rmse": 1579.9707188279165,
+            "alight_rmse": 1079.471798927464,
+            "raw_mae": 472.28152803613926,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 296.2494108412001,
+            "board_mae": 263.12032487657336,
+            "alight_mae": 329.37849680582684,
+            "board_rmse": 668.661824714177,
+            "alight_rmse": 723.1993476737572,
+            "raw_mae": 296.2494108412001,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "gain": -0.9819560236840061,
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "7972b9d24b9b910b47adb4f3711984ba4d5422e3",
+        "git_dirty": true
+      },
+      "sources": {
+        "joined_sha256": "97ff11187e84af09e6ca6e58ad38c4f58b1311a93424f99264960cee6577ad51",
+        "kbo_sha256": "38cdb2d11d2af6eddcf31995c2f12f10efe0baec03a9e871b800a12a7df81660",
+        "holidays_sha256": "2c2d01262a756f172096579ec5057d9765e0cd5415bd2a7e1dc8920a0dd86c14",
+        "config_sha256": "e4de9613ac64875bf496aa1ff03d0ca922f4de2169b5384b32c6f33338b08a6d"
+      },
+      "reload_verified": true
+    },
+    {
+      "trial": "lstm_depth",
+      "baseline": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1283,
+        "stopped_epoch": 1333,
+        "stop_reason": "early_stopping",
+        "validation_mae": 275.65140211223604,
+        "seconds": 944.919730007
+      },
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 16676,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 649,
+        "stopped_epoch": 699,
+        "stop_reason": "early_stopping",
+        "validation_mae": 286.5831508498897,
+        "seconds": 792.2298400089999
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 286.5831508498897,
+          "board_mae": 309.4288008679928,
+          "alight_mae": 263.73750083178663,
+          "board_rmse": 1123.2398864763868,
+          "alight_rmse": 806.9854879297244,
+          "raw_mae": 286.58420243564746,
+          "negative_fraction": 0.0001534683855125844
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 84.93955555953433,
+            "board_mae": 77.09288544125027,
+            "alight_mae": 92.78622567781838,
+            "board_rmse": 195.870361057521,
+            "alight_rmse": 186.16019523892703,
+            "raw_mae": 84.93955555953433,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 76.53738455923778,
+            "board_mae": 68.86741962886992,
+            "alight_mae": 84.20734948960562,
+            "board_rmse": 190.25779652015743,
+            "alight_rmse": 184.1798536950342,
+            "raw_mae": 76.53738455923776,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 296.53886403661477,
+            "board_mae": 320.5149508035311,
+            "alight_mae": 272.56277726969836,
+            "board_rmse": 1141.0305754179083,
+            "alight_rmse": 804.8435397634097,
+            "raw_mae": 296.5450039405549,
+            "negative_fraction": 0.0008960573476702509
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 394.22886577182345,
+            "board_mae": 436.3512607291893,
+            "alight_mae": 352.1064708144576,
+            "board_rmse": 1320.041452784361,
+            "alight_rmse": 983.6517514741179,
+            "raw_mae": 394.22886577182345,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 448.4929444131885,
+            "board_mae": 499.81256880811463,
+            "alight_mae": 397.1733200182624,
+            "board_rmse": 1518.5321988547344,
+            "alight_rmse": 1073.5144141743629,
+            "raw_mae": 448.4929444131885,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 405.7508426242405,
+            "board_mae": 438.9251609660961,
+            "alight_mae": 372.5765242823848,
+            "board_rmse": 1438.0439866483448,
+            "alight_rmse": 1016.7622516153118,
+            "raw_mae": 405.7508426242405,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 446.1685392238476,
+            "board_mae": 458.13403920774107,
+            "alight_mae": 434.2030392399541,
+            "board_rmse": 1103.5884957114463,
+            "alight_rmse": 951.2664956253803,
+            "raw_mae": 446.1685392238476,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 661.0053619808621,
+            "board_mae": 654.2313482496473,
+            "alight_mae": 667.7793757120768,
+            "board_rmse": 2269.696243194304,
+            "alight_rmse": 1556.640226528845,
+            "raw_mae": 661.0053619808621,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 101.22934673655104,
+            "board_mae": 97.23750555585002,
+            "alight_mae": 105.22118791725204,
+            "board_rmse": 358.4708873574355,
+            "alight_rmse": 282.8096719249404,
+            "raw_mae": 101.23135028415255,
+            "negative_fraction": 0.00029239766081871346
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 494.3993344755254,
+            "board_mae": 552.0415381624488,
+            "alight_mae": 436.75713078860207,
+            "board_rmse": 1613.0349845226515,
+            "alight_rmse": 1141.2220621835265,
+            "raw_mae": 494.39933447552545,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 353.5976774427626,
+            "board_mae": 306.7743691338433,
+            "alight_mae": 400.4209857516819,
+            "board_rmse": 865.1572447068936,
+            "alight_rmse": 913.6632708246183,
+            "raw_mae": 353.5976774427626,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "gain": -10.931748737653663,
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "7972b9d24b9b910b47adb4f3711984ba4d5422e3",
+        "git_dirty": true
+      },
+      "sources": {
+        "joined_sha256": "97ff11187e84af09e6ca6e58ad38c4f58b1311a93424f99264960cee6577ad51",
+        "kbo_sha256": "38cdb2d11d2af6eddcf31995c2f12f10efe0baec03a9e871b800a12a7df81660",
+        "holidays_sha256": "2c2d01262a756f172096579ec5057d9765e0cd5415bd2a7e1dc8920a0dd86c14",
+        "config_sha256": "20c1909e576007b3a192a7f1d0bb8ed858a60b5e47f3de47fd970b3f6e471ccc"
+      },
+      "reload_verified": true
+    }
+  ],
+  "started": "2026-11-06T06:38:57.366197+00:00",
+  "code_sha256": {
+    "src/audit_crawl_archive.py": "d8ad49396d2164f4245feb9f8d762394d56eb07f5f0dd49e8ec6162bb3fbf7ec",
+    "src/dataset.py": "d6d30543476d69d20c6fb20dab32929f4542faa03a6af7422c59d79c3f635f7d",
+    "src/evaluation.py": "d8ed97aaf94ea93114e87453964e5ec22cf6da3e0808548940bd5b171e246034",
+    "src/experiment.py": "5f355c29c0184cc6e0e20933d5165bb351a3c6e92cdd2699d353e0185978a3a9",
+    "src/extract_source_urls.py": "12de99de91098c7d6b82bf4c4f55e5dbfa964bd29e232df0af56d04715cdf093",
+    "src/models.py": "c21aa3ce0dd0db971c01aed81b4da6d9a131e768aefae340e246bb268eadbd16",
+    "src/review_split.py": "74c478a8f171b3f075726d12cc035d07d7f29019412c1322e2eced1fcea64e19",
+    "src/summarize_note_status.py": "0a5187a812907f7abf24e1b52de545f7b24829f7f66745c3900cf8fa15036e96",
+    "src/__init__.py": "91ec51f1f0441db68d75775e850f186a0b1d539a3304c60c52a22ee8f0e7423e"
+  },
+  "finished": "2026-11-06T07:17:09.437204+00:00"
+}
