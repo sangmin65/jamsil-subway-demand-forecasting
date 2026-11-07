@@ -1,0 +1,33 @@
+{
+  "experiment": "EXP-008",
+  "approval": {
+    "date": "2026-11-07",
+    "reviewer": "사용자",
+    "evidence": "무작위 시드로 실험 시작해주고"
+  },
+  "seed_selection": "SystemRandom, unique integers from 1..999999 excluding 42, drawn before outcomes",
+  "new_seeds": [
+    907394,
+    892611,
+    659988,
+    622763
+  ],
+  "reused_seed": 42,
+  "conditions": {
+    "rf_leaf2": {
+      "model": "rf",
+      "window": 3,
+      "baseline": "outputs/capacity-rf-2026-11-06/rf_leaf"
+    },
+    "rf_leaf3": {
+      "model": "rf",
+      "window": 3,
+      "baseline": "outputs/first-run-2026-11-03"
+    },
+    "lstm": {
+      "model": "lstm",
+      "window": 14,
+      "baseline": "outputs/lstm-gpu-epochs-2026-11-04/lstm_14d_epochs2000"
+    }
+  }
+}
