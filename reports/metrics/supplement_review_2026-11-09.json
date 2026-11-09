@@ -1,0 +1,394 @@
+{
+  "collection_date": "2026-11-09",
+  "original_sha256": "38cdb2d11d2af6eddcf31995c2f12f10efe0baec03a9e871b800a12a7df81660",
+  "verified_source_hashes": 341,
+  "kbo_request_count": 72,
+  "kbo_current_records": 333,
+  "kbo_original_records": 326,
+  "kbo_by_year_series": [
+    {
+      "group": [
+        "2024",
+        "postseason"
+      ],
+      "count": 7
+    },
+    {
+      "group": [
+        "2024",
+        "preseason"
+      ],
+      "count": 4
+    },
+    {
+      "group": [
+        "2024",
+        "regular"
+      ],
+      "count": 160
+    },
+    {
+      "group": [
+        "2025",
+        "postseason"
+      ],
+      "count": 2
+    },
+    {
+      "group": [
+        "2025",
+        "preseason"
+      ],
+      "count": 4
+    },
+    {
+      "group": [
+        "2025",
+        "regular"
+      ],
+      "count": 156
+    }
+  ],
+  "matching_keys": 325,
+  "additions": [
+    {
+      "date": "2024-03-14",
+      "series": "preseason",
+      "scheduled_start_time": "13:00",
+      "stadium": "잠실",
+      "away_team": "KIA",
+      "home_team": "두산",
+      "note": "-",
+      "gamecenter_url": "https://www.koreabaseball.com/Schedule/GameCenter/Main.aspx?gameDate=20240314&gameId=20240314HTOB0&section=REVIEW",
+      "source_url": "https://www.koreabaseball.com/ws/Schedule.asmx/GetScheduleList",
+      "raw_file": "kbo/2024_03_preseason.json",
+      "row_index": 21,
+      "preforecast_availability_verified": false,
+      "year": "2024"
+    },
+    {
+      "date": "2024-03-15",
+      "series": "preseason",
+      "scheduled_start_time": "13:00",
+      "stadium": "잠실",
+      "away_team": "KIA",
+      "home_team": "두산",
+      "note": "-",
+      "gamecenter_url": "https://www.koreabaseball.com/Schedule/GameCenter/Main.aspx?gameDate=20240315&gameId=20240315HTOB0&section=REVIEW",
+      "source_url": "https://www.koreabaseball.com/ws/Schedule.asmx/GetScheduleList",
+      "raw_file": "kbo/2024_03_preseason.json",
+      "row_index": 26,
+      "preforecast_availability_verified": false,
+      "year": "2024"
+    },
+    {
+      "date": "2024-03-16",
+      "series": "preseason",
+      "scheduled_start_time": "13:00",
+      "stadium": "잠실",
+      "away_team": "키움",
+      "home_team": "LG",
+      "note": "-",
+      "gamecenter_url": "https://www.koreabaseball.com/Schedule/GameCenter/Main.aspx?gameDate=20240316&gameId=20240316WOLG0&section=REVIEW",
+      "source_url": "https://www.koreabaseball.com/ws/Schedule.asmx/GetScheduleList",
+      "raw_file": "kbo/2024_03_preseason.json",
+      "row_index": 30,
+      "preforecast_availability_verified": false,
+      "year": "2024"
+    },
+    {
+      "date": "2024-03-19",
+      "series": "preseason",
+      "scheduled_start_time": "13:00",
+      "stadium": "잠실",
+      "away_team": "키움",
+      "home_team": "LG",
+      "note": "-",
+      "gamecenter_url": "https://www.koreabaseball.com/Schedule/GameCenter/Main.aspx?gameDate=20240319&gameId=20240319WOLG0&section=REVIEW",
+      "source_url": "https://www.koreabaseball.com/ws/Schedule.asmx/GetScheduleList",
+      "raw_file": "kbo/2024_03_preseason.json",
+      "row_index": 44,
+      "preforecast_availability_verified": false,
+      "year": "2024"
+    },
+    {
+      "date": "2025-03-13",
+      "series": "preseason",
+      "scheduled_start_time": "13:00",
+      "stadium": "잠실",
+      "away_team": "KIA",
+      "home_team": "두산",
+      "note": "-",
+      "gamecenter_url": "https://www.koreabaseball.com/Schedule/GameCenter/Main.aspx?gameDate=20250313&gameId=20250313HTOB0&section=REVIEW",
+      "source_url": "https://www.koreabaseball.com/ws/Schedule.asmx/GetScheduleList",
+      "raw_file": "kbo/2025_03_preseason.json",
+      "row_index": 20,
+      "preforecast_availability_verified": false,
+      "year": "2025"
+    },
+    {
+      "date": "2025-03-14",
+      "series": "preseason",
+      "scheduled_start_time": "13:00",
+      "stadium": "잠실",
+      "away_team": "KIA",
+      "home_team": "두산",
+      "note": "-",
+      "gamecenter_url": "https://www.koreabaseball.com/Schedule/GameCenter/Main.aspx?gameDate=20250314&gameId=20250314HTOB0&section=REVIEW",
+      "source_url": "https://www.koreabaseball.com/ws/Schedule.asmx/GetScheduleList",
+      "raw_file": "kbo/2025_03_preseason.json",
+      "row_index": 25,
+      "preforecast_availability_verified": false,
+      "year": "2025"
+    },
+    {
+      "date": "2025-03-17",
+      "series": "preseason",
+      "scheduled_start_time": "13:00",
+      "stadium": "잠실",
+      "away_team": "NC",
+      "home_team": "LG",
+      "note": "-",
+      "gamecenter_url": "https://www.koreabaseball.com/Schedule/GameCenter/Main.aspx?gameDate=20250317&gameId=20250317NCLG0&section=REVIEW",
+      "source_url": "https://www.koreabaseball.com/ws/Schedule.asmx/GetScheduleList",
+      "raw_file": "kbo/2025_03_preseason.json",
+      "row_index": 40,
+      "preforecast_availability_verified": false,
+      "year": "2025"
+    },
+    {
+      "date": "2025-03-18",
+      "series": "preseason",
+      "scheduled_start_time": "13:00",
+      "stadium": "잠실",
+      "away_team": "NC",
+      "home_team": "LG",
+      "note": "강설취소",
+      "gamecenter_url": null,
+      "source_url": "https://www.koreabaseball.com/ws/Schedule.asmx/GetScheduleList",
+      "raw_file": "kbo/2025_03_preseason.json",
+      "row_index": 45,
+      "preforecast_availability_verified": false,
+      "year": "2025"
+    }
+  ],
+  "original_only_preserve": [
+    {
+      "date": "2024-10-18",
+      "scheduled_start_time": "18:30",
+      "stadium": "잠실",
+      "away_team": "삼성",
+      "home_team": "LG",
+      "note": "우천취소"
+    }
+  ],
+  "changed_notes_review": [
+    {
+      "key": {
+        "date": "2024-10-02",
+        "scheduled_start_time": "18:30",
+        "stadium": "잠실",
+        "away_team": "KT",
+        "home_team": "두산"
+      },
+      "old_note": "-",
+      "current_note": "WC 1차전"
+    },
+    {
+      "key": {
+        "date": "2024-10-03",
+        "scheduled_start_time": "14:00",
+        "stadium": "잠실",
+        "away_team": "KT",
+        "home_team": "두산"
+      },
+      "old_note": "-",
+      "current_note": "WC 2차전"
+    },
+    {
+      "key": {
+        "date": "2024-10-05",
+        "scheduled_start_time": "14:00",
+        "stadium": "잠실",
+        "away_team": "KT",
+        "home_team": "LG"
+      },
+      "old_note": "-",
+      "current_note": "준PO 1차전"
+    },
+    {
+      "key": {
+        "date": "2024-10-06",
+        "scheduled_start_time": "14:00",
+        "stadium": "잠실",
+        "away_team": "KT",
+        "home_team": "LG"
+      },
+      "old_note": "-",
+      "current_note": "준PO 2차전"
+    },
+    {
+      "key": {
+        "date": "2024-10-11",
+        "scheduled_start_time": "18:30",
+        "stadium": "잠실",
+        "away_team": "KT",
+        "home_team": "LG"
+      },
+      "old_note": "-",
+      "current_note": "준PO 5차전"
+    },
+    {
+      "key": {
+        "date": "2024-10-17",
+        "scheduled_start_time": "18:30",
+        "stadium": "잠실",
+        "away_team": "삼성",
+        "home_team": "LG"
+      },
+      "old_note": "-",
+      "current_note": "PO 3차전"
+    },
+    {
+      "key": {
+        "date": "2024-10-19",
+        "scheduled_start_time": "14:00",
+        "stadium": "잠실",
+        "away_team": "삼성",
+        "home_team": "LG"
+      },
+      "old_note": "-",
+      "current_note": "PO 4차전"
+    },
+    {
+      "key": {
+        "date": "2025-10-26",
+        "scheduled_start_time": "14:00",
+        "stadium": "잠실",
+        "away_team": "한화",
+        "home_team": "LG"
+      },
+      "old_note": "-",
+      "current_note": "KS 1차전"
+    },
+    {
+      "key": {
+        "date": "2025-10-27",
+        "scheduled_start_time": "18:30",
+        "stadium": "잠실",
+        "away_team": "한화",
+        "home_team": "LG"
+      },
+      "old_note": "-",
+      "current_note": "KS 2차전"
+    }
+  ],
+  "seoul_month_count": 24,
+  "seoul_page_count": 36,
+  "seoul_unique_listings": 231,
+  "seoul_by_year_venue": [
+    {
+      "group": [
+        "2024",
+        "잠실실내체육관"
+      ],
+      "count": 55
+    },
+    {
+      "group": [
+        "2024",
+        "잠실야구장"
+      ],
+      "count": 61
+    },
+    {
+      "group": [
+        "2024",
+        "잠실종합운동장"
+      ],
+      "count": 2
+    },
+    {
+      "group": [
+        "2025",
+        "잠실실내체육관"
+      ],
+      "count": 56
+    },
+    {
+      "group": [
+        "2025",
+        "잠실야구장"
+      ],
+      "count": 55
+    },
+    {
+      "group": [
+        "2025",
+        "잠실종합운동장"
+      ],
+      "count": 2
+    }
+  ],
+  "non_baseball_venue_listings": 115,
+  "non_baseball_venue_by_year_category": [
+    {
+      "group": [
+        "2024",
+        "공연"
+      ],
+      "count": 23
+    },
+    {
+      "group": [
+        "2024",
+        "기타"
+      ],
+      "count": 1
+    },
+    {
+      "group": [
+        "2024",
+        "스포츠경기"
+      ],
+      "count": 31
+    },
+    {
+      "group": [
+        "2024",
+        "이벤트"
+      ],
+      "count": 2
+    },
+    {
+      "group": [
+        "2025",
+        "공연"
+      ],
+      "count": 23
+    },
+    {
+      "group": [
+        "2025",
+        "기타"
+      ],
+      "count": 3
+    },
+    {
+      "group": [
+        "2025",
+        "스포츠경기"
+      ],
+      "count": 32
+    }
+  ],
+  "multi_date_listings": 141,
+  "limitations": [
+    "Current official pages are retrospective; prediction-time availability remains unverified.",
+    "All monthly responses were collected; this does not prove historical event completeness.",
+    "Absent records do not imply no event. Preserve original-only cancellation records.",
+    "Venue-filtered listing counts are not performance counts or distinct event dates.",
+    "Date ranges and time text need review before daily expansion; setup days may be included.",
+    "No original training inputs, note labels, split, model, or final evaluation were changed."
+  ]
+}
