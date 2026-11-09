@@ -103,6 +103,14 @@ def build_window(frame, config, preprocessor, holidays, window):
         raise ValueError("Unconfigured history window")
     daily = frame[TARGETS].to_numpy(dtype="float32").reshape(731, 18, 2)
     raw_context, context, names = make_context(frame, preprocessor, holidays)
+    context_mode = config.get("context_mode", "calendar_game")
+    if context_mode == "calendar_only":
+        selected = [i for i, name in enumerate(names)
+                    if name.startswith(("weekday_", "month_")) or name == "is_holiday"]
+        raw_context, context = raw_context[:, selected], context[:, selected]
+        names = [names[i] for i in selected]
+    elif context_mode != "calendar_game":
+        raise ValueError(f"Unknown context mode: {context_mode}")
     dates = pd.date_range("2024-01-01", "2025-12-31")
     target_positions = np.arange(14, len(dates))
     histories = np.stack([daily[i-window:i].reshape(window*18, 2) for i in target_positions])

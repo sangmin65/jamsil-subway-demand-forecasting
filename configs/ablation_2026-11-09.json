@@ -1,0 +1,12 @@
+{
+  "experiment": "EXP-009",
+  "approval": {"date": "2026-11-09", "reviewer": "사용자", "evidence": "추천한 순서대로 단순 기준이랑 먼저 비교하고, RF랑 LSTM에서 경기 정보 유무에 따른 차이도 실험해줘"},
+  "seeds": [42, 907394, 892611, 659988, 622763],
+  "groups": {"rf": "rf_leaf3", "lstm": "lstm"},
+  "baseline_training_dates": "2024-01-15..2024-12-31 (352 days)",
+  "validation_dates": "2025-01-01..2025-06-30 (181 days)",
+  "context_modes": ["calendar_game", "calendar_only"],
+  "reuse_game_included": "EXP-008: source/environment/date/prediction and saved model verification required",
+  "new_supplement_used": false,
+  "final_test_evaluated": false
+}
