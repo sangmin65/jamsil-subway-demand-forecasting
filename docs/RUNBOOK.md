@@ -204,3 +204,20 @@ RTX 5060에 대한 네이티브 커널 대신 PTX 컴파일을 사용한다는 �
 출력 경로는 새 경로여야 합니다. 이번 출력은 `outputs/lstm-gpu-epochs-2026-11-04`입니다. 실행기는 기존 EXP-004의 `outputs/tuning-round1-2026-11-04/lstm_14d_lr003` 기록을 읽어 원본·대상 날짜를 비교하므로 해당 로컬 결과가 필요합니다. GPU 가중치 배치와 저장 모델 복원을 검증하고, 두 실행의 최대 에포크 외 설정 일치 및 공통 에포크 구간의 검증 MAE 차이를 확인합니다. 실패 시 status.json에 이유를 기록하고 중단합니다.
 
 완료 시 EXP-006 전용 `reports/metrics/lstm_gpu_epochs_2026-11-04.json`을 생성합니다. 다른 실험에서 재사용하면 이 경로가 덮어써지므로 먼저 결과 경로를 변경해야 합니다. 자동 커밋·push는 하지 않습니다. 완료 후 `./.venv/Scripts/python.exe tools/summarize_lstm_gpu_epochs.py`로 [EXP-006](../reports/experiments/EXP-006_lstm-gpu-epochs.md)의 수치 표를 생성할 수 있습니다. 재생성 시 문서의 수동 해석은 덮어쓰므로 보존해야 합니다.
+
+## 단순 기준 및 경기 정보 제거 (EXP-009)
+
+`configs/ablation_2026-11-09.json`, DEC-031의 승인 조건입니다. 기존 EXP-008 공유 JSON과 해당 로컬 모델/예측이 필요합니다. 기존 패키지 환경과 원본 해시가 다르면 중단합니다. Windows CPU로 기준·RF, WSL GPU로 LSTM을 순서대로 실행합니다.
+
+```powershell
+./.venv/Scripts/python.exe tools/run_ablation.py --phase baselines --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv' --kbo-source '../인공지능공학 과제용/KBO원천데이터_정리.csv'
+./.venv/Scripts/python.exe tools/run_ablation.py --phase rf --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv' --kbo-source '../인공지능공학 과제용/KBO원천데이터_정리.csv'
+./tools/run_wsl_python.ps1 tools/run_ablation.py --phase lstm --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv' --kbo-source '../인공지능공학 과제용/KBO원천데이터_정리.csv'
+./.venv/Scripts/python.exe -m venv outputs/report-env
+./outputs/report-env/Scripts/python.exe -m pip install matplotlib==3.10.7
+./outputs/report-env/Scripts/python.exe tools/summarize_ablation.py
+```
+
+EXP-009 전용 고정 경로 `outputs/ablation-2026-11-09/{baselines,rf,lstm}`를 사용하며 기존 폴더는 덮어쓰지 않습니다. 다른 실험은 출력/공유 경로와 명세를 새로 지정해야 합니다. 단계별 status.json에 완료·실패를 기록합니다. 마지막 요약 명령은 세 단계 완료 및 모든 모델 복원 확인을 요구하며 보고서·공유 요약·비교 그림·학습곡선을 생성합니다. 자동 커밋/최종 평가/새 자료 결합은 하지 않습니다.
+
+그림 생성은 별도 보고서 환경의 matplotlib 3.10.7을 사용합니다. 학습 환경의 패키지를 변경하지 않으며 요약 스크립트는 저장된 결과 JSON만 읽습니다. 이번 실행의 보고서 환경은 `--system-site-packages`로 생성해 기존 시스템 수치/이미지 라이브러리를 재사용했습니다. 새 환경에서는 위 명령으로 필요한 의존성을 설치할 수 있습니다.
