@@ -221,3 +221,14 @@ RTX 5060에 대한 네이티브 커널 대신 PTX 컴파일을 사용한다는 �
 EXP-009 전용 고정 경로 `outputs/ablation-2026-11-09/{baselines,rf,lstm}`를 사용하며 기존 폴더는 덮어쓰지 않습니다. 다른 실험은 출력/공유 경로와 명세를 새로 지정해야 합니다. 단계별 status.json에 완료·실패를 기록합니다. 마지막 요약 명령은 세 단계 완료 및 모든 모델 복원 확인을 요구하며 보고서·공유 요약·비교 그림·학습곡선을 생성합니다. 자동 커밋/최종 평가/새 자료 결합은 하지 않습니다.
 
 그림 생성은 별도 보고서 환경의 matplotlib 3.10.7을 사용합니다. 학습 환경의 패키지를 변경하지 않으며 요약 스크립트는 저장된 결과 JSON만 읽습니다. 이번 실행의 보고서 환경은 `--system-site-packages`로 생성해 기존 시스템 수치/이미지 라이브러리를 재사용했습니다. 새 환경에서는 위 명령으로 필요한 의존성을 설치할 수 있습니다.
+
+## 더 큰 너비·두 층 추가 (EXP-010)
+
+DEC-032와 `configs/capacity_round2.json`에 따라 기존 기준/더 넓은 구조/두 층 추가를 첫3시드에서 비교합니다. 기존 EXP-005·006·007·008 로컬 모델과 공유 JSON이 필요합니다. 출력은 새 폴더여야 하며 자동 덮어쓰기나 자동 이어 학습을 하지 않습니다.
+
+```powershell
+./tools/run_wsl_python.ps1 tools/run_capacity_round2.py --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv' --kbo-source '../인공지능공학 과제용/KBO원천데이터_정리.csv' --output outputs/capacity-round2-2026-11-09
+./outputs/report-env/Scripts/python.exe tools/summarize_capacity_round2.py
+```
+
+사전 순전파 검사6개 및 이전 중간 확장 모델 복원6개 후 MLP→CNN→LSTM 순서로 진행합니다. 기준5개 재사용·신규22회 학습, 비교27개 모두 복원 검증한 뒤 `reports/metrics/capacity_round2.json`을 생성합니다. 출력 status.json·조건별 로그·모델·예측·학습곡선을 보존하며 실패하면 중단합니다. 요약기는 완료 상태만 받아 EXP-010 보고서·요약 JSON·그림을 생성합니다. 보고서용 matplotlib 환경은 EXP-009 절을 참고하세요. 자동 커밋·최종 평가·다른 튜닝 실행은 하지 않습니다.
