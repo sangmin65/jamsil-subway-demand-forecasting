@@ -1,0 +1,14 @@
+{
+  "experiment": "EXP-010",
+  "approval": {"date": "2026-11-09", "reviewer": "사용자", "evidence": "저번 실험보다 층이랑 너비를 좀 더 넓혀서 실험해줄래? 그래도 의미가 없다면 다른 실험으로 넘어가면 될 것 같아"},
+  "seeds": [42, 907394, 892611],
+  "models": {
+    "mlp": {"window": 3, "baseline": "outputs/dropout-gpu-2026-11-04/mlp_3d_dropout0", "width": {"hidden_units": [256, 32]}, "depth": {"hidden_units": [64, 32, 32, 32]}},
+    "cnn": {"window": 7, "baseline": "outputs/dropout-gpu-2026-11-04/cnn_7d_dropout1", "width": {"filters": 32}, "depth": {"layers": 3}},
+    "lstm": {"window": 14, "baseline": "outputs/lstm-gpu-epochs-2026-11-04/lstm_14d_epochs2000", "width": {"units": 128}, "depth": {"layers": 3}}
+  },
+  "comparison": "baseline/width/depth paired by three fixed seeds; EXP-007 intermediate capacity compared separately at seed 42",
+  "interpretation": "report mean/std, all paired differences, monthly/direction/note metrics and training cost; do not declare universal futility from this fixed-setting comparison",
+  "new_supplement_used": false,
+  "final_test_evaluated": false
+}
