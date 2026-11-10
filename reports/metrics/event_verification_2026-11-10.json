@@ -1,0 +1,3134 @@
+{
+  "review_date": "2026-11-10",
+  "scope": "2024-2025 non-baseball Seoul venue listings; source audit, not a complete event census",
+  "counts": {
+    "total": 115,
+    "by_status": {
+      "corroborated": 43,
+      "source_only_unconfirmed": 55,
+      "discrepancy": 8,
+      "partial_corroboration": 6,
+      "internal_conflict": 2,
+      "type_correction": 1
+    },
+    "kbl_requests": 24,
+    "actual_occurrence_supported": 40,
+    "missing_indoor_basketball_records": 15
+  },
+  "records": [
+    {
+      "id": "3178",
+      "title": "프로농구(삼성:DB)",
+      "original_date_range": [
+        "2024-01-30",
+        "2024-01-30"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3178",
+      "raw_sha256": "83ac7b8f3ad5384a525dd72ec66650ec0b184a334b654b6e1c2427ce039aaaea",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20240130",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "원주 DB",
+          "ended": 1,
+          "game_key": "S43G01N179",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240101&toDate=20240131&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3177",
+      "title": "프로농구(삼성:KCC)",
+      "original_date_range": [
+        "2024-01-21",
+        "2024-01-21"
+      ],
+      "original_time": "14시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3177",
+      "raw_sha256": "3a5a11058776cc6f0cdc0e1a37bb89d426b7ec8de5d6c2a9641041ad52344f46",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20240121",
+          "time": "1400",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "부산 KCC",
+          "ended": 1,
+          "game_key": "S43G01N162",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240101&toDate=20240131&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3176",
+      "title": "프로농구(삼성:DB)",
+      "original_date_range": [
+        "2024-01-06",
+        "2024-01-06"
+      ],
+      "original_time": "16시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3176",
+      "raw_sha256": "4d18b6e25053690be16d74b293926e01aecda1e141a0b88d46a33c426654d898",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20240106",
+          "time": "1600",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "원주 DB",
+          "ended": 1,
+          "game_key": "S43G01N143",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240101&toDate=20240131&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3175",
+      "title": "프로농구(삼성:KT)",
+      "original_date_range": [
+        "2024-01-04",
+        "2024-01-04"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3175",
+      "raw_sha256": "6c6b8ff307ff42eae1474d539aad04d7aa055e0740e9ea07075611033cdb89d2",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20240104",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "수원 KT",
+          "ended": 1,
+          "game_key": "S43G01N139",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240101&toDate=20240131&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3174",
+      "title": "프로농구(삼성:SK)",
+      "original_date_range": [
+        "2024-01-01",
+        "2024-01-01"
+      ],
+      "original_time": "16시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3174",
+      "raw_sha256": "089fc20bf478ae1faecc8b1b7e5a75e22125311145ef2aecd03cc8b53da07d09",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20240101",
+          "time": "1600",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "서울 SK",
+          "ended": 1,
+          "game_key": "S43G01N134",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240101&toDate=20240131&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3173",
+      "title": "ATEEZ 월드 투어 인 서울",
+      "original_date_range": [
+        "2024-01-27",
+        "2024-01-28"
+      ],
+      "original_time": "2024년 1월 27일(토) 오후 5시, 2024년 1월 28일(일) 오후 5시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3173",
+      "raw_sha256": "1262bc8cb4f6b9b7018e0bbba921ae3b5bfd536eebac6a565b5134fc11e72ed3",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3172",
+      "title": "우즈 콘서트",
+      "original_date_range": [
+        "2024-01-19",
+        "2024-01-19"
+      ],
+      "original_time": "2024년 1월 19일(금) 오후 8시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3172",
+      "raw_sha256": "29114c713d7001211f1731722315019b4f6cc19e27723a898e6ac806ccb42813",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3171",
+      "title": "2024 준호 콘서트",
+      "original_date_range": [
+        "2024-01-13",
+        "2024-01-14"
+      ],
+      "original_time": "2024년 1월 13일(토) 6PM(KST), 2024년 1월 14일(일) 5PM(KST)",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3171",
+      "raw_sha256": "3307dd3042735ca4ca4c747fa961c9395c0a435b7c8569ffe09d6afc2353e711",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3195",
+      "title": "프로농구 (삼성:KCC)",
+      "original_date_range": [
+        "2024-02-24",
+        "2024-02-24"
+      ],
+      "original_time": "16시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3195",
+      "raw_sha256": "f59e41a55b79c91215a89453142ae6cd5e3427c6e1a21a7df84cd519639229bd",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "kbl_no_unique_match"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3194",
+      "title": "프로농구 (삼성:모비스)",
+      "original_date_range": [
+        "2024-02-18",
+        "2024-02-18"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3194",
+      "raw_sha256": "754e96917a6e4346d579a20ec19aa40d5cafececb9d6f609a7487935accea6b6",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "kbl_no_unique_match"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3193",
+      "title": "2024 서울마라톤",
+      "original_date_range": [
+        "2024-02-17",
+        "2024-02-17"
+      ],
+      "original_time": "10시~",
+      "original_venue": "잠실종합운동장",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3193",
+      "raw_sha256": "5d5c05c1013b5f3ddea0dafe7acfd31406c5e314d46ea6162aa8a018409cd5d3",
+      "extraction_verified": true,
+      "status": "discrepancy",
+      "flags": [],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "discrepancy",
+        "finding": "서울마라톤의 목록 날짜 2024-02-17은 공식 대회 안내 2024-03-17과 불일치. 공식 안내의 08:00~14:00은 전체 대회 시간이며 잠실 유입 시각과 동일하지 않음.",
+        "supported_dates": [
+          "2024-03-17"
+        ],
+        "sources": [
+          "https://news.seoul.go.kr/culture/archives/523101"
+        ],
+        "publication_date_evidence": "2024-03-13 수정일; 당시 원문 스냅샷은 없음"
+      }
+    },
+    {
+      "id": "3192",
+      "title": "프로농구(삼성:소노)",
+      "original_date_range": [
+        "2024-02-09",
+        "2024-02-09"
+      ],
+      "original_time": "16시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3192",
+      "raw_sha256": "f7c3435b7bb1274cfd58cad25a95deb5e530155ecd77c9aea1ac81f47b0bc652",
+      "extraction_verified": true,
+      "status": "discrepancy",
+      "flags": [
+        "kbl_date_time_or_venue_mismatch"
+      ],
+      "corroboration": [
+        {
+          "date": "20240209",
+          "time": "1600",
+          "venue": "고양 소노 아레나",
+          "home": "고양 소노",
+          "away": "서울 삼성",
+          "ended": 1,
+          "game_key": "S43G01N196",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240201&toDate=20240229&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3191",
+      "title": "프로농구(삼성:DB)",
+      "original_date_range": [
+        "2024-02-07",
+        "2024-02-07"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3191",
+      "raw_sha256": "2b0957f5ffdf6680ba32e0350251da49a9863b0b24d61e3167a271f121857a24",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "kbl_no_unique_match"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3190",
+      "title": "프로농구(삼성:가스공사)",
+      "original_date_range": [
+        "2024-02-04",
+        "2024-02-04"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3190",
+      "raw_sha256": "7c78ec2df6b1578e1e3cf8dc1ad23d781e45ec82a7f6f050c0f22c57021380c1",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "kbl_no_unique_match"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3189",
+      "title": "프로농구(삼성:모비스)",
+      "original_date_range": [
+        "2024-02-02",
+        "2024-02-02"
+      ],
+      "original_time": "16시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3189",
+      "raw_sha256": "ddd07b49da6d9079c5c606e078d5008e4fb29087ecaf60491fd544f466a7b502",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "kbl_no_unique_match"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3188",
+      "title": "2024 ITZY 콘서트",
+      "original_date_range": [
+        "2024-02-24",
+        "2024-02-25"
+      ],
+      "original_time": "2024년 02월 24일(토) 오후 6시 / 2024년 02월 25일(일) 오후 5시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3188",
+      "raw_sha256": "7775f18a801a4cf461f81a6752231daf21901308f9766e0b39f24ea078677276",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3186",
+      "title": "차은우 팬미팅",
+      "original_date_range": [
+        "2024-02-17",
+        "2024-02-17"
+      ],
+      "original_time": "2024년 2월 17일 (토) 오후 6시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3186",
+      "raw_sha256": "2a544c277a23f828f3977f3fbb4f8002911d5702428a5b44e59d33f94a5a9755",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3185",
+      "title": "프로농구(삼성:KT)",
+      "original_date_range": [
+        "2024-02-29",
+        "2024-02-29"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3185",
+      "raw_sha256": "58e2c3fed7c7a86c8ea3fe18fba1b1a73ece8e130c8cc7b1445a191cb317a821",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20240229",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "수원 KT",
+          "ended": 1,
+          "game_key": "S43G01N214",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240201&toDate=20240229&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3184",
+      "title": "프로농구(삼성:정관장)",
+      "original_date_range": [
+        "2024-02-13",
+        "2024-02-13"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3184",
+      "raw_sha256": "f3d18b66a0e52dfe6e4df8fd2a822ca079c6cb3c2632b4a2c972159c26b089a1",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [
+        "duplicate_listing_candidate"
+      ],
+      "corroboration": [
+        {
+          "date": "20240213",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "안양 정관장",
+          "ended": 1,
+          "game_key": "S43G01N206",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240201&toDate=20240229&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "duplicate_ids": [
+        "3183"
+      ]
+    },
+    {
+      "id": "3183",
+      "title": "프로농구(삼성:정관장)",
+      "original_date_range": [
+        "2024-02-13",
+        "2024-02-13"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3183",
+      "raw_sha256": "5df2836b7d9a1f8dfe48c91a8f87dd32d63140512b935a9245ce3c91d62d3f65",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [
+        "duplicate_listing_candidate"
+      ],
+      "corroboration": [
+        {
+          "date": "20240213",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "안양 정관장",
+          "ended": 1,
+          "game_key": "S43G01N206",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240201&toDate=20240229&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "duplicate_ids": [
+        "3184"
+      ]
+    },
+    {
+      "id": "3182",
+      "title": "프로농구(삼성:SK)",
+      "original_date_range": [
+        "2024-02-11",
+        "2024-02-11"
+      ],
+      "original_time": "14시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3182",
+      "raw_sha256": "17ef780a092a8f001bfcc8e0f9c7aa345a159aaaa160f860f0526f013da89632",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20240211",
+          "time": "1400",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "서울 SK",
+          "ended": 1,
+          "game_key": "S43G01N200",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240201&toDate=20240229&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3181",
+      "title": "프로농구(KCC:삼성)",
+      "original_date_range": [
+        "2024-02-04",
+        "2024-02-04"
+      ],
+      "original_time": "16시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3181",
+      "raw_sha256": "0a577839eb147a5a1e330c17f7b4774e8d75519bd80567684248de3087378ce9",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20240204",
+          "time": "1600",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "부산 KCC",
+          "ended": 1,
+          "game_key": "S43G01N189",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240201&toDate=20240229&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3180",
+      "title": "프로농구(LG:삼성)",
+      "original_date_range": [
+        "2024-02-03",
+        "2024-02-03"
+      ],
+      "original_time": "16시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3180",
+      "raw_sha256": "85096f2a1dc95f788b68733cadfc8293011983e62e412f0d7f7c35611b4bf548",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20240203",
+          "time": "1600",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "창원 LG",
+          "ended": 1,
+          "game_key": "S43G01N186",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240201&toDate=20240229&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3222",
+      "title": "XIA 2024 ENCORE CONCERT Chapter 1 : Recreation",
+      "original_date_range": [
+        "2024-04-27",
+        "2024-04-28"
+      ],
+      "original_time": "2024년 04월 27일(토) ~ 2024년 04월 28일(일) 토 18시 / 일 18시？",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3222",
+      "raw_sha256": "34d478b820b332853e8878d2ef4e7773655adefbe6d5d95f48fb8e91c3f96436",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3221",
+      "title": "서울특별시장기 배드민턴대회",
+      "original_date_range": [
+        "2024-04-20",
+        "2024-04-21"
+      ],
+      "original_time": "08:00~21:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3221",
+      "raw_sha256": "04e7efe8123e469b351f4a2dda84e8861fb351e9a0494517e4cac6b7222da772",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3220",
+      "title": "DAY6 단독 콘서트",
+      "original_date_range": [
+        "2024-04-12",
+        "2024-04-14"
+      ],
+      "original_time": "2024년 4월 12일(금) 오후 8시 2024년 /4월 13일(토) 오후 6시 2024년 /4월 14일(일) 오후 5시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3220",
+      "raw_sha256": "86cb2a22d1516f3ffd71dd9c29620e7dfe74ca71179cf33ddb2be1191815f182",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3219",
+      "title": "서울특별시장기 펜싱선수권대회",
+      "original_date_range": [
+        "2024-04-26",
+        "2024-04-28"
+      ],
+      "original_time": "08:00~18:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3219",
+      "raw_sha256": "fadf3dd85249a1268a5781bcaed1696d5c6cca96560f432bf5f30b7b94b0f001",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3271",
+      "title": "그라시아스합창단 공연",
+      "original_date_range": [
+        "2024-05-23",
+        "2024-05-26"
+      ],
+      "original_time": "23일(목)~25일(토) 10:30, 19:30 / 26일(일) 10:30, 18:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3271",
+      "raw_sha256": "cfaa6409920885eb20b6182d3061e4752eb6ff7418175ce89d71edeb353fa869",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3270",
+      "title": "2024 서울시민 체육대축전",
+      "original_date_range": [
+        "2024-05-17",
+        "2024-05-19"
+      ],
+      "original_time": "17일(금) 13시~16시, 18일(토)~19일(일) 09시 30분~15시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3270",
+      "raw_sha256": "b40e1d85524e6c372e097f5c514d285083e523f3af8492e90d1fbc7f0f825997",
+      "extraction_verified": true,
+      "status": "partial_corroboration",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "partial_corroboration",
+        "finding": "서울시 연중 행사계획의 2024년 주요일지는 시민체육대축전을 5/18~19로 기록. 목록의 5/17 추가 일정은 같은 본행사일로 확정하지 않음.",
+        "sources": [
+          "https://opengov.seoul.go.kr/og/com/download.php?dname=2025%EB%85%84+%EC%97%B0%EC%A4%91+%EC%A3%BC%EC%9A%94%EC%97%85%EB%AC%B4+%EB%B0%8F+%ED%96%89%EC%82%AC%EA%B3%84%ED%9A%8D.pdf&dtype=basic&nid=32572703&rid=F0000109384469&uri=%2Ffiles%2Fdcdata%2F100001%2F20250101%2FF0000109384469.pdf"
+        ]
+      }
+    },
+    {
+      "id": "3269",
+      "title": "2024 르세라핌 팬미팅",
+      "original_date_range": [
+        "2024-05-11",
+        "2024-05-12"
+      ],
+      "original_time": "2024년 5월 11일(토) 6PM (KST) / 2024년 5월 12일(일) 5PM (KST)",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3269",
+      "raw_sha256": "556efdeda7c0523515eae5eb994ecba1af6852929ae67587da7166f34b0cb108",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3268",
+      "title": "2024 RIIZE FAN－CON",
+      "original_date_range": [
+        "2024-05-04",
+        "2024-05-05"
+      ],
+      "original_time": "5월 4일(토) 18시, 5월 5일(일) 16시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3268",
+      "raw_sha256": "bd4a6865730cf19ab9aa5de83c47551a61e4f13d147b33c8898a7eab1eca1761",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3223",
+      "title": "2024 RIIZE FAN－CON ‘RIIZING DAY’ in SEOUL",
+      "original_date_range": [
+        "2024-05-04",
+        "2024-05-05"
+      ],
+      "original_time": "2024년 05월 04일 토요일 / 2024년 05월 05일 일요일",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3223",
+      "raw_sha256": "0757da935e6ac960364ee4902d040858a591693667f2db78ef48ea8399fb7057",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3299",
+      "title": "BTS 2024 FESTA 미니 팬미팅",
+      "original_date_range": [
+        "2024-06-13",
+        "2024-06-13"
+      ],
+      "original_time": "6월 13일(목) 11:00 ~ 21:00",
+      "original_venue": "잠실종합운동장",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3299",
+      "raw_sha256": "8609e4ca79bf5a0dde5d47090a81d573e447df4f8183b9eb5fe92e49d248d01c",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3298",
+      "title": "김연경 국가대표 은퇴경기 및 세계올스타전",
+      "original_date_range": [
+        "2024-06-08",
+        "2024-06-09"
+      ],
+      "original_time": "김연경 국가대표 은퇴경기/6월8일(토) 14시, 세계올스타전/6월9일(일) 14시 30분",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3298",
+      "raw_sha256": "4d9ebe9f98dca46bf945967b876ca0350c9b18214a2dc80b70d0d5e52c6eb30c",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3343",
+      "title": "그라시아스 콘서트",
+      "original_date_range": [
+        "2024-07-20",
+        "2024-07-20"
+      ],
+      "original_time": "08:00 ~ 20:30",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3343",
+      "raw_sha256": "87ea74f6a625e3a54e23ae95d0e5878dd9f4ba4f69885de8680fbe64bc065725",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3342",
+      "title": "NH농협은행 3대3 농구대회",
+      "original_date_range": [
+        "2024-07-20",
+        "2024-07-20"
+      ],
+      "original_time": "08:00 ~ 18:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3342",
+      "raw_sha256": "33970ee36f1935061ed0f376bdeeeeca687e92e3dbc0f5edd1fe0816d8097480",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3341",
+      "title": "2024 INFINITE FAN MEETING",
+      "original_date_range": [
+        "2024-07-06",
+        "2024-07-07"
+      ],
+      "original_time": "7월 13일(토) 18시 / 14일(일) 16시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3341",
+      "raw_sha256": "304b5389b31295fa3af9684c53475c3d5c2572f6ffcff31061bbbcc4cb5ae3c7",
+      "extraction_verified": true,
+      "status": "internal_conflict",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "internal_conflict",
+        "finding": "같은 서울시 상세 페이지에서 이용기간은 7/6~7/7, 시간 설명은 7/13 18시·7/14 16시. 날짜 자동 확장 금지. 원 예매처 위메프 공지의 현재 접근 가능성은 미확인.",
+        "sources": [
+          "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3341"
+        ]
+      }
+    },
+    {
+      "id": "3340",
+      "title": "2024 ATEEZE 팬미팅",
+      "original_date_range": [
+        "2024-07-06",
+        "2024-07-07"
+      ],
+      "original_time": "7월 6일(토) 18시 / 7일(일) 16시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3340",
+      "raw_sha256": "0572184fbddda58aa2177f6fac15656a226d00d3d8357c1268ba07ff494e27b9",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3398",
+      "title": "2024 잔나비 콘서트",
+      "original_date_range": [
+        "2024-08-31",
+        "2024-09-01"
+      ],
+      "original_time": "17:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3398",
+      "raw_sha256": "ed7331f0c5c995ff27e6a7ecb3a2c9cc0003b2e47cbf295d441eccfaad896289",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "corroborated",
+        "finding": "공식 예매처에서 2024-08-31·09-01 각17시, 잠실실내체육관 확인. 예정 일정 교차 확인이며 실제 개최/과거 공개 시점은 별도.",
+        "supported_dates": [
+          "2024-08-31",
+          "2024-09-01"
+        ],
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/59878"
+        ]
+      }
+    },
+    {
+      "id": "3397",
+      "title": "크리스토퍼 내한공연",
+      "original_date_range": [
+        "2024-08-24",
+        "2024-08-25"
+      ],
+      "original_time": "8월 24일(토) 19:00 / 25일(일) 18:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3397",
+      "raw_sha256": "4d3da573a674cc3b376ba26eb7295b087eca2604e6cb943b154686e952d6cd71",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3396",
+      "title": "2024 케이 월드 드림 어워즈",
+      "original_date_range": [
+        "2024-08-22",
+        "2024-08-22"
+      ],
+      "original_time": "18:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3396",
+      "raw_sha256": "49651542a84e8efbaaad7c5a31b5d551cee6dd37a0998827754a83df6cb700ef",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3395",
+      "title": "AJR 내한공연",
+      "original_date_range": [
+        "2024-08-20",
+        "2024-08-20"
+      ],
+      "original_time": "8월 20일(화) 20:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3395",
+      "raw_sha256": "dfe389d70a99d9afc6c226f529ac5631a7b4e8539a22615bf85a5278a0426689",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3394",
+      "title": "nct127 팬미팅",
+      "original_date_range": [
+        "2024-08-03",
+        "2024-08-04"
+      ],
+      "original_time": "8월 3일(토) 18:00 / 4일(일) 16:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3394",
+      "raw_sha256": "b31a06adb719a967948baa05db816cf3f870fea2b82c178da108608522763523",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3461",
+      "title": "서울생활 예술 페스티벌",
+      "original_date_range": [
+        "2024-09-28",
+        "2024-09-28"
+      ],
+      "original_time": "11:00 ~ 18:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3461",
+      "raw_sha256": "cdcc4cb1831857e9faf514b0df1dadbf6aa37aac497a6d8292272c5f3c42d7b3",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "duplicate_listing_candidate"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "duplicate_ids": [
+        "3415"
+      ]
+    },
+    {
+      "id": "3415",
+      "title": "서울생활 예술 페스티벌",
+      "original_date_range": [
+        "2024-09-28",
+        "2024-09-28"
+      ],
+      "original_time": "13:00 ~ 19:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3415",
+      "raw_sha256": "09765b3ed6388e8e08fc13c448927339d885a71f1e4dbcb51b3ad1779d6046d1",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "duplicate_listing_candidate"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "duplicate_ids": [
+        "3461"
+      ]
+    },
+    {
+      "id": "3414",
+      "title": "올리비아 로드리고 내한공연",
+      "original_date_range": [
+        "2024-09-20",
+        "2024-09-21"
+      ],
+      "original_time": "9월 20일(금) 20시 / 21일(토) 19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3414",
+      "raw_sha256": "074a1d705021cfa481a2c4377287419a00c6a189735461211125e2be0d32f515",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3413",
+      "title": "협회장기 펜싱 선수권대회",
+      "original_date_range": [
+        "2024-09-13",
+        "2024-09-14"
+      ],
+      "original_time": "09:00 ~ 18:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3413",
+      "raw_sha256": "3c6b73bdd1c4315744c7e5b9e372c24312b4819533ccaabbb2d7e17e409134da",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3412",
+      "title": "2024 서울시장애인 생활 체육대회",
+      "original_date_range": [
+        "2024-09-11",
+        "2024-09-11"
+      ],
+      "original_time": "07:00 ~ 19:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3412",
+      "raw_sha256": "02e73078d7a255f7c43449df2ae0e1ed2ca528e57941494e38293dc7e0cacad0",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3411",
+      "title": "2024 잔나비 콘서트",
+      "original_date_range": [
+        "2024-09-07",
+        "2024-09-08"
+      ],
+      "original_time": "9월 7일(토) 17시 / 8일(일) 17시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3411",
+      "raw_sha256": "04b583e0ec6338bb27e78cdf29ddfea679cb37125eba4471b394452fe3ba3406",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3528",
+      "title": "프로농구(삼성:KT)",
+      "original_date_range": [
+        "2024-10-29",
+        "2024-11-28"
+      ],
+      "original_time": "19:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3528",
+      "raw_sha256": "14e7f78c79298dc5dbc4465e7a49b0eb2e7f8ea47cce695ec4dd748cba2043cc",
+      "extraction_verified": true,
+      "status": "discrepancy",
+      "flags": [
+        "range_is_not_daily_occurrence",
+        "kbl_date_time_or_venue_mismatch"
+      ],
+      "corroboration": [
+        {
+          "date": "20241128",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "수원 KT",
+          "ended": 1,
+          "game_key": "S45G01N53",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20241101&toDate=20241130&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3460",
+      "title": "도경수 아시아 팬 콘서트 투어",
+      "original_date_range": [
+        "2024-10-11",
+        "2024-10-13"
+      ],
+      "original_time": "2024년 10월 11일 (금) 7:00 PM 2024년 10월 12일 (토) 6:00 PM 2024년 10월 13일 (일) 4:00 PM",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3460",
+      "raw_sha256": "de8d579ba938ca5e8f1121b9303abc07a3b9228742bf8aee88dfba1f6613fe62",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3459",
+      "title": "2024 플레이브 콘서트",
+      "original_date_range": [
+        "2024-10-05",
+        "2024-10-06"
+      ],
+      "original_time": "2024년 10월 5일(토) 6PM, 10월 6일(일) 5PM / 2일 2회",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3459",
+      "raw_sha256": "66cfb398df09f5aeb27c184a71e2e6f4792304a4cddc985361f62a64e0a051b1",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3529",
+      "title": "프로농구(삼성:DB)",
+      "original_date_range": [
+        "2024-11-30",
+        "2024-11-30"
+      ],
+      "original_time": "16:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3529",
+      "raw_sha256": "3c95fe023f3f4548fe083f3b4130f1888ef8650666c5e6006d09dc039fed9d15",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20241130",
+          "time": "1600",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "원주 DB",
+          "ended": 1,
+          "game_key": "S45G01N59",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20241101&toDate=20241130&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3527",
+      "title": "프로농구(삼성:LG)",
+      "original_date_range": [
+        "2024-11-07",
+        "2024-11-07"
+      ],
+      "original_time": "19:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3527",
+      "raw_sha256": "998cf3684627276574010db477d992b9e3523793e71ee3c20a0f38301206e428",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20241107",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "창원 LG",
+          "ended": 1,
+          "game_key": "S45G01N36",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20241101&toDate=20241130&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3526",
+      "title": "프로농구(삼성:소노)",
+      "original_date_range": [
+        "2024-11-02",
+        "2024-11-02"
+      ],
+      "original_time": "16:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3526",
+      "raw_sha256": "48fd3eb4f42e6b0e15c8657efa05b3be86ad010c5ccea5041cbeb1b5e4528935",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20241102",
+          "time": "1600",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "고양 소노",
+          "ended": 1,
+          "game_key": "S45G01N29",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20241101&toDate=20241130&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3576",
+      "title": "프로농구(삼성:KCC)",
+      "original_date_range": [
+        "2024-12-07",
+        "2024-12-07"
+      ],
+      "original_time": "14시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3576",
+      "raw_sha256": "3f0ef471644040011c4a513808c8743f06e6a8d484a14821f77cec9854430876",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20241207",
+          "time": "1400",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "부산 KCC",
+          "ended": 1,
+          "game_key": "S45G01N71",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20241201&toDate=20241231&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3575",
+      "title": "프로농구(삼성:모비스)",
+      "original_date_range": [
+        "2024-12-02",
+        "2024-12-02"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3575",
+      "raw_sha256": "fe05503104eecc8ad28f3d29fbb8d804c8d9a77d24bdfc5d2b2afa15e2197024",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20241202",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "울산 현대모비스",
+          "ended": 1,
+          "game_key": "S45G01N63",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20241201&toDate=20241231&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3590",
+      "title": "2025 하나금융그룹 출발",
+      "original_date_range": [
+        "2025-01-18",
+        "2025-01-18"
+      ],
+      "original_time": "13시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3590",
+      "raw_sha256": "87ac01d8c7ed2cba0248da8f6bcd523bbb408252d301bd31d24bbf0d5e2c5c76",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "source_only_unconfirmed",
+        "finding": "서울시 등록 내용은 확인했으나 하나금융그룹 출발·2025-01-18·잠실 조합으로 주최 측 공개 자료를 찾지 못함. 미개최로 판정하지 않고 단일 출처 상태로 보류.",
+        "sources": [
+          "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3590"
+        ]
+      }
+    },
+    {
+      "id": "3589",
+      "title": "프로농구(삼성:SK)",
+      "original_date_range": [
+        "2025-01-29",
+        "2025-01-29"
+      ],
+      "original_time": "14시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3589",
+      "raw_sha256": "2a622fac2ee11a7e55e3d06a8ecad734fc4e625b01675be7f55db3d8d60fcaa9",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20250129",
+          "time": "1400",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "서울 SK",
+          "ended": 1,
+          "game_key": "S45G01N163",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250101&toDate=20250131&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3588",
+      "title": "프로농구(삼성:정관장)",
+      "original_date_range": [
+        "2025-01-26",
+        "2025-01-26"
+      ],
+      "original_time": "14시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3588",
+      "raw_sha256": "1a93e6befaab0752364203b077c4c3513d3647d2e5f573b086c840e6c7d0270e",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20250126",
+          "time": "1400",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "안양 정관장",
+          "ended": 1,
+          "game_key": "S45G01N159",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250101&toDate=20250131&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3587",
+      "title": "프로농구(삼성:LG)",
+      "original_date_range": [
+        "2025-01-09",
+        "2025-01-09"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3587",
+      "raw_sha256": "008e04f46c5203d982b316fa03765d029e46824404754c96706d676f076558b4",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20250109",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "창원 LG",
+          "ended": 1,
+          "game_key": "S45G01N131",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250101&toDate=20250131&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3586",
+      "title": "프로농구(삼성:KCC)",
+      "original_date_range": [
+        "2025-01-06",
+        "2025-01-06"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3586",
+      "raw_sha256": "f39b454f532d8e0522d2cadb1f82d16ab9958c5ae0e173e48555327f6d65c0db",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20250106",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "부산 KCC",
+          "ended": 1,
+          "game_key": "S45G01N128",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250101&toDate=20250131&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3585",
+      "title": "프로농구(삼성:가스공사)",
+      "original_date_range": [
+        "2025-01-04",
+        "2025-01-04"
+      ],
+      "original_time": "14시",
+      "original_venue": "잠실종합운동장",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3585",
+      "raw_sha256": "decac228ce72fcd5ee943a484828e1ecbf8dd078f7d4baba82ae36d9b9ca42f2",
+      "extraction_verified": true,
+      "status": "discrepancy",
+      "flags": [
+        "kbl_date_time_or_venue_mismatch"
+      ],
+      "corroboration": [
+        {
+          "date": "20250104",
+          "time": "1400",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "대구 한국가스공사",
+          "ended": 1,
+          "game_key": "S45G01N123",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250101&toDate=20250131&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3584",
+      "title": "프로농구(삼성:DB)",
+      "original_date_range": [
+        "2025-01-02",
+        "2025-01-02"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3584",
+      "raw_sha256": "29335797b55c7b8023eea3a236e9ac4f8a1bd765aaf9224a583dfb0d3359bb50",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20250102",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "원주 DB",
+          "ended": 1,
+          "game_key": "S45G01N119",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250101&toDate=20250131&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3594",
+      "title": "프로농구(삼성:소노)",
+      "original_date_range": [
+        "2025-02-09",
+        "2025-02-09"
+      ],
+      "original_time": "14시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3594",
+      "raw_sha256": "636d6799ffdc84fe260449ebd0d04a4ef46e8c436553fa860a5541438bed2d99",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20250209",
+          "time": "1400",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "고양 소노",
+          "ended": 1,
+          "game_key": "S45G01N185",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250201&toDate=20250228&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3593",
+      "title": "프로농구(삼성:소노)",
+      "original_date_range": [
+        "2025-02-07",
+        "2025-02-07"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3593",
+      "raw_sha256": "13f053366ed71ca100b79c4f15e41815868ea57c7aab5c8770e7fb036ff51b87",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20250207",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "고양 소노",
+          "ended": 1,
+          "game_key": "S45G01N180",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250201&toDate=20250228&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3592",
+      "title": "프로농구(삼성:모비스)",
+      "original_date_range": [
+        "2025-02-05",
+        "2025-02-05"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3592",
+      "raw_sha256": "5d6eb4244ef9904d89f643d28a62cb138e2bc680bdc6e9fbab321aec820ff4b8",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20250205",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "울산 현대모비스",
+          "ended": 1,
+          "game_key": "S45G01N176",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250201&toDate=20250228&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3603",
+      "title": "프로농구(삼성:DB)",
+      "original_date_range": [
+        "2025-03-30",
+        "2025-03-30"
+      ],
+      "original_time": "16시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3603",
+      "raw_sha256": "59b892cfcd54ee73b8f88350330a41b1d29e9a46ed38dd9bea90b43f6bf30ce8",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20250330",
+          "time": "1600",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "원주 DB",
+          "ended": 1,
+          "game_key": "S45G01N252",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250301&toDate=20250331&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3602",
+      "title": "프로농구(삼성:정관장)",
+      "original_date_range": [
+        "2025-03-29",
+        "2025-03-29"
+      ],
+      "original_time": "14시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3602",
+      "raw_sha256": "04f02bdd931d14918dbdfe3f4608916d04476d7964bd5b3fa50d61f098d1ee2f",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20250329",
+          "time": "1400",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "안양 정관장",
+          "ended": 1,
+          "game_key": "S45G01N248",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250301&toDate=20250331&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3601",
+      "title": "프로농구(삼성:LG)",
+      "original_date_range": [
+        "2025-03-26",
+        "2025-03-26"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3601",
+      "raw_sha256": "d7e4911c3a691502987ace3847935f4adea99ea0ec798cc593e3d0d75fdccb23",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20250326",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "창원 LG",
+          "ended": 1,
+          "game_key": "S45G01N242",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250301&toDate=20250331&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3600",
+      "title": "프로농구(삼성:KT)",
+      "original_date_range": [
+        "2025-03-24",
+        "2025-03-24"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3600",
+      "raw_sha256": "3449ed3c55f930223ec43806610c41d51a7586df4f232ca7212d0b26618e91b5",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20250324",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "수원 KT",
+          "ended": 1,
+          "game_key": "S45G01N240",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250301&toDate=20250331&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3596",
+      "title": "프로농구(삼성:정관장)",
+      "original_date_range": [
+        "2025-03-03",
+        "2025-03-03"
+      ],
+      "original_time": "16시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3596",
+      "raw_sha256": "49663dfbe6a559bd7a16261dc26d9528cbe523e0e24bfcbf3101cbcdf2b5882b",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20250303",
+          "time": "1600",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "안양 정관장",
+          "ended": 1,
+          "game_key": "S45G01N204",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250301&toDate=20250331&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3595",
+      "title": "프로농구(삼성:가스공사)",
+      "original_date_range": [
+        "2025-03-01",
+        "2025-03-01"
+      ],
+      "original_time": "14시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3595",
+      "raw_sha256": "f804c8089ae3877eca96c140dcb0db0405be2337c9d2d6c7cccee998e78cdb71",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20250301",
+          "time": "1400",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "대구 한국가스공사",
+          "ended": 1,
+          "game_key": "S45G01N198",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250301&toDate=20250331&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3619",
+      "title": "2025 잔나비 콘서트",
+      "original_date_range": [
+        "2025-04-26",
+        "2025-04-27"
+      ],
+      "original_time": "서울 공연 - THE 1ST WEEK : 2025년 04월 26일(토) ~ 2025년 04월 27일(일)",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3619",
+      "raw_sha256": "ff3e136c2f9914275a59860c50010a28bd1146b5e118b30746a4c94637428707",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "corroborated",
+        "finding": "공식 예매처에서 2025-04-26·27 각17시, 잠실실내체육관 확인. 원본 시간 필드에는 날짜만 들어 있어 시작시각은 별도 근거로 보충 가능.",
+        "supported_dates": [
+          "2025-04-26",
+          "2025-04-27"
+        ],
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/61736"
+        ]
+      }
+    },
+    {
+      "id": "3618",
+      "title": "2025 현역가왕2 전국투어 콘서트",
+      "original_date_range": [
+        "2025-04-18",
+        "2025-04-20"
+      ],
+      "original_time": "2025년 4월 18일 금요일 오후 7시 30분 2025년 4월 19일 토요일 오후 1시 / 오후 7시 30분 2025년 4월 20일 일요일 오후 1시 / 오후 6시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3618",
+      "raw_sha256": "80f92f6e89d754d07e78d6d58e8e6d55da967662f83a33ab0b0451222d0a3f49",
+      "extraction_verified": true,
+      "status": "partial_corroboration",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "partial_corroboration",
+        "finding": "공식 예매처에서 2025-04-18~20 및 잠실실내체육관 확인. 열람한 텍스트의 120분은 공연 길이이며 시작시각이 아님. 회차별 시작시각은 서울시 단일 출처 상태.",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/25003285"
+        ]
+      }
+    },
+    {
+      "id": "3608",
+      "title": "서울특별시장기 배드민턴대회",
+      "original_date_range": [
+        "2025-04-12",
+        "2025-04-12"
+      ],
+      "original_time": "07:00~21:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3608",
+      "raw_sha256": "e467126bcd79624e20e627f222fb76a9664367133bada930723dbeef8715ed26",
+      "extraction_verified": true,
+      "status": "discrepancy",
+      "flags": [],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "discrepancy",
+        "finding": "경기장 목록은 4/12 하루이나 서울시 종목별 대회 안내는 4/12~13 이틀. 실제 개최 결과와 일자별 시각은 미확인. 한쪽을 임의 채택하지 않음.",
+        "sources": [
+          "https://sports.seoul.go.kr/main/SP02050000_user/program_view.do"
+        ]
+      }
+    },
+    {
+      "id": "3607",
+      "title": "서울시장기 펜싱선수권대회",
+      "original_date_range": [
+        "2025-04-04",
+        "2025-04-06"
+      ],
+      "original_time": "07:00~19:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3607",
+      "raw_sha256": "138059773708a543a58f53fa9e7698c4f6386f273ccbebac3f38900577102fff",
+      "extraction_verified": true,
+      "status": "partial_corroboration",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "partial_corroboration",
+        "finding": "서울시 종목별 대회 안내에서 2025-04-04~06, 잠실실내체육관 확인. 일자별 경기 시작·종료는 별도 확인 필요.",
+        "sources": [
+          "https://sports.seoul.go.kr/main/SP02050000_user/program_view.do"
+        ]
+      }
+    },
+    {
+      "id": "3606",
+      "title": "프로농구(삼성:가스공사)",
+      "original_date_range": [
+        "2025-04-01",
+        "2025-04-01"
+      ],
+      "original_time": "19시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3606",
+      "raw_sha256": "a02b46e0e65e1d7ae102adb0c1a75df5bc7bcf6e144e26af2196734ae2acda3a",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20250401",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "대구 한국가스공사",
+          "ended": 1,
+          "game_key": "S45G01N254",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250401&toDate=20250430&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3662",
+      "title": "2025 서울시민체육축전",
+      "original_date_range": [
+        "2025-05-17",
+        "2025-05-18"
+      ],
+      "original_time": "09:00 ~",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3662",
+      "raw_sha256": "55d207243f434f5a180aabbba930110851abbc82c54c5116f868598f6d0a7ff0",
+      "extraction_verified": true,
+      "status": "partial_corroboration",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "partial_corroboration",
+        "finding": "서울시 보도자료에서 2025-05-17~18, 잠실실내체육관 일대 개최 예정 확인. 여러 종목·여러 경기장 행사이므로 전체 참가인원을 잠실실내체육관 인원으로 사용하지 않음. 일자별 시작시각은 미확인.",
+        "supported_dates": [
+          "2025-05-17",
+          "2025-05-18"
+        ],
+        "sources": [
+          "https://sports.seoul.go.kr/main/board/6/7828/board_view.do"
+        ]
+      }
+    },
+    {
+      "id": "3661",
+      "title": "2025 권진아 콘서트",
+      "original_date_range": [
+        "2025-05-10",
+        "2025-05-11"
+      ],
+      "original_time": "5월 10일(토) 18시 / 11일(일) 17시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3661",
+      "raw_sha256": "6cae66128d12d0a3168a37e075c8bd366e481fbf17d04f110835435ec42a5205",
+      "extraction_verified": true,
+      "status": "partial_corroboration",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "partial_corroboration",
+        "finding": "공식 예매처에서 2025-05-10~11, 잠실실내체육관 확인. 열람한 텍스트의 120분은 공연 길이이며 시작시각이 아님. 시작시각18/17시는 서울시 단일 출처 상태.",
+        "supported_dates": [
+          "2025-05-10",
+          "2025-05-11"
+        ],
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/25004937"
+        ]
+      }
+    },
+    {
+      "id": "3679",
+      "title": "방탄소년단 진 팬콘서트",
+      "original_date_range": [
+        "2025-06-28",
+        "2025-06-29"
+      ],
+      "original_time": "2025년 6월 28일(토) 7PM / 2025년 6월 29일(일) 7PM",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3679",
+      "raw_sha256": "af0e97ab52ddb929f8d8127a06a55f022d6912b043b7e74312a74801bea896b0",
+      "extraction_verified": true,
+      "status": "type_correction",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "type_correction",
+        "finding": "6/28~29 잠실실내체육관은 고양 본공연의 LIVE PLAY 현장 중계 관람 행사. 본공연은 고양이지만 잠실 행사 자체를 삭제해서는 안 됨. 공식 투어 리포트가 잠실 동시 진행을 사후 확인. 19시 시작은 현재 서울시 출처만 확인.",
+        "supported_dates": [
+          "2025-06-28",
+          "2025-06-29"
+        ],
+        "actual_occurrence_verified": true,
+        "sources": [
+          "https://weverse.io/bts/notice/28095?hl=ko",
+          "https://magazine.weverse.io/article/view/1586?artist=BTS&lang=ko"
+        ]
+      }
+    },
+    {
+      "id": "3678",
+      "title": "투어스 2025 콘서트",
+      "original_date_range": [
+        "2025-06-20",
+        "2025-06-22"
+      ],
+      "original_time": "6월 20일(금) 19시 / 21일(토) 18시 / 22일(일) 17시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3678",
+      "raw_sha256": "e6c9b7a3b262ed081198cd3c1ab518be94879668dee045e3cf763adcfbf94562",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "corroborated",
+        "finding": "PLEDIS 공식 공지에서 6/20 19시·6/21 18시·6/22 17시, 잠실실내체육관 확인.",
+        "supported_dates": [
+          "2025-06-20",
+          "2025-06-21",
+          "2025-06-22"
+        ],
+        "sources": [
+          "https://weverse.io/tws/notice/26785"
+        ],
+        "access_method": "공식 공지의 검색 색인 본문; open은 동적 셸만 반환"
+      }
+    },
+    {
+      "id": "3677",
+      "title": "2025 NCT 도영 솔로 콘서트",
+      "original_date_range": [
+        "2025-06-13",
+        "2025-06-15"
+      ],
+      "original_time": "6월 13일(금) 20시 / 14일(토) 18시 / 15일(일) 16시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3677",
+      "raw_sha256": "1817b820d3668dd346ef83cc59f6feaf9f4d8a3e7a1d1c7b3744c40454c71dec",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "corroborated",
+        "finding": "SM 공식 위버스 추가 회차 공지에서 6/13 20시·6/14 18시·6/15 16시, 잠실실내체육관 확인. 원 공지가 아니라 금요일 회차 추가 공지인 점 기록.",
+        "supported_dates": [
+          "2025-06-13",
+          "2025-06-14",
+          "2025-06-15"
+        ],
+        "sources": [
+          "https://weverse.io/nct127/notice/26866?hl=ko"
+        ],
+        "access_method": "공식 공지의 검색 색인 본문; open은 동적 셸만 반환"
+      }
+    },
+    {
+      "id": "3676",
+      "title": "2025 앤팀 콘서트",
+      "original_date_range": [
+        "2025-06-07",
+        "2025-06-08"
+      ],
+      "original_time": "6월 7일(토) 18시 / 8일(일) 13시, 18시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3676",
+      "raw_sha256": "f5be5cd0b68ce116edca88375faf0b82aa70e63d044ffabe7a8e113b2808f904",
+      "extraction_verified": true,
+      "status": "discrepancy",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "discrepancy",
+        "finding": "서울관광재단 공식 안내 포스터의 alt에는 6/7 17시, 6/8 13·18시로 표기. 서울시 경기장 목록의 6/7 18시와 충돌. 날짜·잠실실내체육관은 공식 예매처도 일치. 최종 변경 공지를 확인하기 전 6/7 시각을 확정하지 않음.",
+        "supported_dates": [
+          "2025-06-07",
+          "2025-06-08"
+        ],
+        "sources": [
+          "https://english.visitseoul.net/exhibition/2025-%EF%BC%86TEAM-CONCERT/ENPzeh3y8",
+          "https://nol.yanolja.com/ticket/products/25004476"
+        ],
+        "publication_date_evidence": "VisitSeoul published 2025-04-18, edited 2025-04-23; historical snapshot absent"
+      }
+    },
+    {
+      "id": "3725",
+      "title": "2025 DAY6 팬 콘서트",
+      "original_date_range": [
+        "2025-07-25",
+        "2025-07-27"
+      ],
+      "original_time": "25일(금) 19시, 26일(토) 18시, 27일(일) 17시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3725",
+      "raw_sha256": "4908344999c9d84accaaaa8745b75deb7786a85df6e2a397102d42fd116b7c98",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3724",
+      "title": "2025 DAY6 팬 콘서트",
+      "original_date_range": [
+        "2025-07-18",
+        "2025-07-20"
+      ],
+      "original_time": "18일(금) 19시, 19일(토) 18시, 20일(일) 17시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3724",
+      "raw_sha256": "d783254222f7c1b7993bc38491cb411737782425f0927ce7e02257c5e09f9ce5",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3723",
+      "title": "2025 호시X우지(세븐틴) 팬콘서트",
+      "original_date_range": [
+        "2025-07-11",
+        "2025-07-13"
+      ],
+      "original_time": "11일(금) 19시, 12일(토) 18시, 13일(일) 17시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3723",
+      "raw_sha256": "4eed6f4d4e9c0469447a51fc9a35c8a2c335e50f41fa299ad2d649eb62d40195",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3722",
+      "title": "2025 kwbl 휠체어농구리그 개회식",
+      "original_date_range": [
+        "2025-07-04",
+        "2025-07-06"
+      ],
+      "original_time": "13:00 (개막식)",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3722",
+      "raw_sha256": "a127776d7e4be9521263763c4fa045d6fb3c79dbc9eb155d2f45cade2eddeda7",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3757",
+      "title": "2025 K 월드 드림 어워즈",
+      "original_date_range": [
+        "2025-08-21",
+        "2025-08-21"
+      ],
+      "original_time": "2025년 8월 21일(목) 오후 6시 30분",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3757",
+      "raw_sha256": "3d048907af17a5e8834bfb36c607be22120e304691a41f680b1c3d29c70e9a7c",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3756",
+      "title": "7 락 프라임 2025",
+      "original_date_range": [
+        "2025-08-15",
+        "2025-08-16"
+      ],
+      "original_time": "◎ 공연 기간 : 2025. 08. 15(금) ~ 08. 16(토) ◎ 공연 시간 : 15:00~21:50",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3756",
+      "raw_sha256": "621430aacd96cd4181f3814d34c384dcde0a5d248c7d679582ac30bcc3f311f8",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3755",
+      "title": "2025 영탁 단독콘서트",
+      "original_date_range": [
+        "2025-08-08",
+        "2025-08-10"
+      ],
+      "original_time": "2025년 8월 8일(금) 오후 7시 | 8월 9일(토) 오후 3시 | 8월 10일(일) 오후 3시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3755",
+      "raw_sha256": "ce13e042424e36044100f36740066b352137642f3a30e37ca475c2cd67596176",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3793",
+      "title": "2025 서울시 장애인 생활체육대회",
+      "original_date_range": [
+        "2025-09-17",
+        "2025-09-17"
+      ],
+      "original_time": "09:00~17:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3793",
+      "raw_sha256": "e28b1929d98e94602c5ecaa9cc3ef14dde3c2d37a391d59425c6d4139cb04e79",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3792",
+      "title": "블루웨이브 뮤직 페스티벌 2025",
+      "original_date_range": [
+        "2025-09-12",
+        "2025-09-13"
+      ],
+      "original_time": "12일(금) 19:30 / 13일(토) 13:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3792",
+      "raw_sha256": "6cc71e63408606e5bf49a944256eac5bdd903bb5195ebb5854a9926d3245cdae",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3791",
+      "title": "제10차 전국적십자 봉사원 대축제",
+      "original_date_range": [
+        "2025-09-09",
+        "2025-09-09"
+      ],
+      "original_time": "13:00~17:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3791",
+      "raw_sha256": "6b77b39bad62e1d96a4d4e6f3bc04bc3747dbecf038400a1a5b7747b2b2e4dfd",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3790",
+      "title": "월드 오브 스트릿 우먼 파이터 투어-서울",
+      "original_date_range": [
+        "2025-09-06",
+        "2025-09-07"
+      ],
+      "original_time": "9월 6일(토) ~ 7일(일) 14:00 / 19:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3790",
+      "raw_sha256": "842d4f59a03eec10103a03b71c6a8e0d7ec7175a64e9041b2b159672a8d6b3bb",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3843",
+      "title": "프로농구(삼성:SK)",
+      "original_date_range": [
+        "2025-10-28",
+        "2025-10-28"
+      ],
+      "original_time": "19:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3843",
+      "raw_sha256": "ef571d4a0f15489f480f3c9c50b2f8f37b4cddede5c1a330b67dc4246cffaaf5",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20251028",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "서울 SK",
+          "ended": 1,
+          "game_key": "S47G01N45",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20251001&toDate=20251031&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3842",
+      "title": "제15회 송파구민 체육대회",
+      "original_date_range": [
+        "2025-10-22",
+        "2025-10-22"
+      ],
+      "original_time": "09:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3842",
+      "raw_sha256": "a4f3b32713462b054c200f3abaaa1cfebd807747e4b759fa18e2f7856eb99c47",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3841",
+      "title": "태양의 써커스 (쿠자)",
+      "original_date_range": [
+        "2025-10-11",
+        "2025-12-28"
+      ],
+      "original_time": "수, 목 19:30 ㅣ 금 15:00, 19:30ㅣ 토 12:00, 15:30, 19:00 ㅣ 일, 공휴일 14:00, 17:30 (월, 화 공연 없음) ※ 단, 10/11(토)19시 공연 10/17(금)19시30분 공연 10/18(토)15시30분, 19시 공연 10/",
+      "original_venue": "잠실종합운동장",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3841",
+      "raw_sha256": "65119f0df067d522920f44bf2b4b762d9ba6a8bc6522135f45f270109a35dcf7",
+      "extraction_verified": true,
+      "status": "internal_conflict",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "internal_conflict",
+        "finding": "10/11~12/28 전체 기간을 매일 행사로 확장하면 안 됨. 원문에 월·화 공연 없음과 예외 회차가 있고 마지막 예외 설명이 '10/'에서 잘림. 회차별 예매 일정 없이 일별 시간 생성 금지.",
+        "sources": [
+          "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3841"
+        ]
+      }
+    },
+    {
+      "id": "3840",
+      "title": "2025 dingo music CONCERT 〈Killing Voice〉",
+      "original_date_range": [
+        "2025-10-18",
+        "2025-10-19"
+      ],
+      "original_time": "- 2025년 10월 18일 (토) 6PM - 2025년 10월 19일 (일) 5PM",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3840",
+      "raw_sha256": "9d3117dd32d0334fb6f3d4e023c0571e44e9cc0edc3c0f8e4255a152f9d350a4",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3839",
+      "title": "XIA 2025 콘서트 Chapter 2",
+      "original_date_range": [
+        "2025-10-09",
+        "2025-10-12"
+      ],
+      "original_time": "2025년 10월 09일(목) ~ 2025년 10월 12일(일) 목, 금 18시 30분 / 토, 일 17시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3839",
+      "raw_sha256": "e017db88dd7a686fb4bf52e1b980bd4a420e454a96767abf6091d9ae45d48ae7",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3838",
+      "title": "프로농구(삼성:소노)",
+      "original_date_range": [
+        "2025-10-26",
+        "2025-10-26"
+      ],
+      "original_time": "14:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3838",
+      "raw_sha256": "c6c142513e940ad30217a5a8967e040f4a96d14131c8d540da9ed2b76d11fc1a",
+      "extraction_verified": true,
+      "status": "discrepancy",
+      "flags": [
+        "kbl_date_time_or_venue_mismatch"
+      ],
+      "corroboration": [
+        {
+          "date": "20251026",
+          "time": "1630",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "고양 소노",
+          "ended": 1,
+          "game_key": "S47G01N43",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20251001&toDate=20251031&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3837",
+      "title": "프로농구(삼성:DB)",
+      "original_date_range": [
+        "2025-10-25",
+        "2025-10-25"
+      ],
+      "original_time": "16:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3837",
+      "raw_sha256": "ee45818d34a8a9fbb97f3b357a28d09dbb48c5f636bcf610af390dbb01be8cb6",
+      "extraction_verified": true,
+      "status": "discrepancy",
+      "flags": [
+        "kbl_date_time_or_venue_mismatch"
+      ],
+      "corroboration": [
+        {
+          "date": "20251025",
+          "time": "1630",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "원주 DB",
+          "ended": 1,
+          "game_key": "S47G01N40",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20251001&toDate=20251031&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3836",
+      "title": "프로농구(삼성:모비스)",
+      "original_date_range": [
+        "2025-10-23",
+        "2025-10-23"
+      ],
+      "original_time": "19:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3836",
+      "raw_sha256": "8e35f52047bbe5a87123b01b81f6847756780bb4971b5f561b946da686a6fb4c",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20251023",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "울산 현대모비스",
+          "ended": 1,
+          "game_key": "S47G01N36",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20251001&toDate=20251031&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3835",
+      "title": "프로농구(삼성:LG)",
+      "original_date_range": [
+        "2025-10-03",
+        "2025-10-03"
+      ],
+      "original_time": "19:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3835",
+      "raw_sha256": "abc8a216994e597915304e5d76679d2fe07e2153789836f26e4268daaaaa6603",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "kbl_no_unique_match"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3870",
+      "title": "엑스디너리 히어로즈 콘서트",
+      "original_date_range": [
+        "2025-11-21",
+        "2025-11-23"
+      ],
+      "original_time": "21일(금) 19:00 / 22일(토) 18:00 / 23일(일) 17:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3870",
+      "raw_sha256": "3bb28f3393b9496c14c9d5267c7d1da1b7e72a591bb5f1309f27242e67ff2171",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3869",
+      "title": "우즈 콘서트",
+      "original_date_range": [
+        "2025-11-29",
+        "2025-11-30"
+      ],
+      "original_time": "29일(토) 18:00 / 30일(일) 17:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3869",
+      "raw_sha256": "09bce118f6f63bdc1ebf96556611d2294f4b531d7d24abc804a6a1c1236ddf29",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3868",
+      "title": "프로농구(삼성:LG)",
+      "original_date_range": [
+        "2025-11-12",
+        "2025-11-12"
+      ],
+      "original_time": "19:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3868",
+      "raw_sha256": "2baa449c89d7a129396318596925c98e532db30cafcd8c364cf5497cecae1a28",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20251112",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "창원 LG",
+          "ended": 1,
+          "game_key": "S47G01N68",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20251101&toDate=20251130&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3867",
+      "title": "프로농구(삼성:SK)",
+      "original_date_range": [
+        "2025-11-09",
+        "2025-11-09"
+      ],
+      "original_time": "16:30",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3867",
+      "raw_sha256": "7e68f3d34131fb6c1c21ab853e352af5cbcae2482f592e686e633ca2c7535444",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20251109",
+          "time": "1630",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "서울 SK",
+          "ended": 1,
+          "game_key": "S47G01N65",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20251101&toDate=20251130&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3866",
+      "title": "프로농구(삼성:가스공사)",
+      "original_date_range": [
+        "2025-11-08",
+        "2025-11-08"
+      ],
+      "original_time": "16:30",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3866",
+      "raw_sha256": "f936387c375c6cd030f96147a2e07d227c50d5ec1e1441fa021fcc8a72c7d950",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20251108",
+          "time": "1630",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "대구 한국가스공사",
+          "ended": 1,
+          "game_key": "S47G01N62",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20251101&toDate=20251130&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3865",
+      "title": "프로농구(삼성:정관장)",
+      "original_date_range": [
+        "2025-11-05",
+        "2025-11-05"
+      ],
+      "original_time": "19:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3865",
+      "raw_sha256": "65a27504fb629d0680d38d8939fb7aec0bba5e9ad2e2a95f398ec8ead5d76803",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20251105",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "안양 정관장",
+          "ended": 1,
+          "game_key": "S47G01N57",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20251101&toDate=20251130&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3864",
+      "title": "프로농구(삼성:모비스)",
+      "original_date_range": [
+        "2025-11-03",
+        "2025-11-03"
+      ],
+      "original_time": "19:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3864",
+      "raw_sha256": "bf6b50b7e942c2db06f30a58bb262e94d8be8407c43a034b8425eb8728642135",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20251103",
+          "time": "1900",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "울산 현대모비스",
+          "ended": 1,
+          "game_key": "S47G01N55",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20251101&toDate=20251130&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3863",
+      "title": "프로농구(삼성:KCC)",
+      "original_date_range": [
+        "2025-11-01",
+        "2025-11-01"
+      ],
+      "original_time": "14:00",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3863",
+      "raw_sha256": "c46fa92eeecc5f3ed72ea6686e02b6fe3bcd78c349ebedf9b5559ea7dc1d21e3",
+      "extraction_verified": true,
+      "status": "corroborated",
+      "flags": [],
+      "corroboration": [
+        {
+          "date": "20251101",
+          "time": "1400",
+          "venue": "잠실실내",
+          "home": "서울 삼성",
+          "away": "부산 KCC",
+          "ended": 1,
+          "game_key": "S47G01N50",
+          "source_url": "https://api.kbl.or.kr/match/list?fromDate=20251101&toDate=20251130&tcodeList=all"
+        }
+      ],
+      "actual_occurrence_verified": true,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3902",
+      "title": "2025 잔나비 콘서트",
+      "original_date_range": [
+        "2025-12-27",
+        "2025-12-28"
+      ],
+      "original_time": "2025년 12월 27일(토) - 12월 28일(일) 17시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3902",
+      "raw_sha256": "16a1f93d50b6ebd054ec9b37fef4bdfbb0520d97cfb5095357a702a9135e0ddf",
+      "extraction_verified": true,
+      "status": "partial_corroboration",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false,
+      "manual_review": {
+        "status": "partial_corroboration",
+        "finding": "공식 티켓링크 투어 안내에서 2025-12-27~28 잠실실내체육관 확인. 공연명은 합창의 밤 2026이며 제목의 연도를 개최 연도로 오인하면 안 됨. 시작시각은 별도 확인 필요.",
+        "sources": [
+          "https://www.ticketlink.co.kr/bridge/1419"
+        ]
+      }
+    },
+    {
+      "id": "3901",
+      "title": "2025 크러쉬 콘서트",
+      "original_date_range": [
+        "2025-12-19",
+        "2025-12-21"
+      ],
+      "original_time": "2025년 12월 19일(금) 19:30 [KST] 2025년 12월 20일(토) 19:00 [KST] 2025년 12월 21일(일) 18:00 [KST]",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3901",
+      "raw_sha256": "ba4ba2c42b3da17109ecaaca77004fdd25bffd6cd466e0c4f6eae506b169a40d",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    },
+    {
+      "id": "3900",
+      "title": "2025 이찬원 연말 콘서트",
+      "original_date_range": [
+        "2025-12-12",
+        "2025-12-14"
+      ],
+      "original_time": "2025년 12월 12일(금) 오후 7시 2025년 12월 13일(토) 오후 5시 2025년 12월 14일(일) 오후 3시",
+      "original_venue": "잠실실내체육관",
+      "source_url": "https://func.seoul.go.kr/stadium/stadiumView.do?month=Y&schSeq=3900",
+      "raw_sha256": "94ddfc4d9cf62b178fa21fec1a7798111cfd254eae4184da8376254bbfaf5829",
+      "extraction_verified": true,
+      "status": "source_only_unconfirmed",
+      "flags": [
+        "range_is_not_daily_occurrence"
+      ],
+      "corroboration": [],
+      "actual_occurrence_verified": false,
+      "preforecast_availability_verified": false,
+      "usable_as_training_input": false
+    }
+  ],
+  "missing_indoor_basketball_records": [
+    {
+      "date": "20240302",
+      "time": "1600",
+      "venue": "잠실실내",
+      "home": "서울 삼성",
+      "away": "울산 현대모비스",
+      "game_key": "S43G01N220",
+      "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240301&toDate=20240331&tcodeList=all"
+    },
+    {
+      "date": "20240304",
+      "time": "1900",
+      "venue": "잠실실내",
+      "home": "서울 삼성",
+      "away": "대구 한국가스공사",
+      "game_key": "S43G01N224",
+      "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240301&toDate=20240331&tcodeList=all"
+    },
+    {
+      "date": "20240307",
+      "time": "1900",
+      "venue": "잠실실내",
+      "home": "서울 삼성",
+      "away": "원주 DB",
+      "game_key": "S43G01N228",
+      "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240301&toDate=20240331&tcodeList=all"
+    },
+    {
+      "date": "20240309",
+      "time": "1700",
+      "venue": "잠실실내",
+      "home": "서울 삼성",
+      "away": "고양 소노",
+      "game_key": "S43G01N232",
+      "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240301&toDate=20240331&tcodeList=all"
+    },
+    {
+      "date": "20240318",
+      "time": "1900",
+      "venue": "잠실실내",
+      "home": "서울 삼성",
+      "away": "울산 현대모비스",
+      "game_key": "S43G01N246",
+      "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240301&toDate=20240331&tcodeList=all"
+    },
+    {
+      "date": "20240324",
+      "time": "1800",
+      "venue": "잠실실내",
+      "home": "서울 삼성",
+      "away": "부산 KCC",
+      "game_key": "S43G01N259",
+      "source_url": "https://api.kbl.or.kr/match/list?fromDate=20240301&toDate=20240331&tcodeList=all"
+    },
+    {
+      "date": "20241027",
+      "time": "1400",
+      "venue": "잠실실내",
+      "home": "서울 삼성",
+      "away": "서울 SK",
+      "game_key": "S45G01N17",
+      "source_url": "https://api.kbl.or.kr/match/list?fromDate=20241001&toDate=20241031&tcodeList=all"
+    },
+    {
+      "date": "20241029",
+      "time": "1900",
+      "venue": "잠실실내",
+      "home": "서울 삼성",
+      "away": "부산 KCC",
+      "game_key": "S45G01N21",
+      "source_url": "https://api.kbl.or.kr/match/list?fromDate=20241001&toDate=20241031&tcodeList=all"
+    },
+    {
+      "date": "20241031",
+      "time": "1900",
+      "venue": "잠실실내",
+      "home": "서울 삼성",
+      "away": "울산 현대모비스",
+      "game_key": "S45G01N24",
+      "source_url": "https://api.kbl.or.kr/match/list?fromDate=20241001&toDate=20241031&tcodeList=all"
+    },
+    {
+      "date": "20250305",
+      "time": "1900",
+      "venue": "잠실실내",
+      "home": "서울 삼성",
+      "away": "서울 SK",
+      "game_key": "S45G01N206",
+      "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250301&toDate=20250331&tcodeList=all"
+    },
+    {
+      "date": "20250315",
+      "time": "1400",
+      "venue": "잠실실내",
+      "home": "서울 삼성",
+      "away": "수원 KT",
+      "game_key": "S45G01N222",
+      "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250301&toDate=20250331&tcodeList=all"
+    },
+    {
+      "date": "20250928",
+      "time": "1630",
+      "venue": "잠실실내",
+      "home": "서울 삼성",
+      "away": "원주 DB",
+      "game_key": "S47G14N10",
+      "source_url": "https://api.kbl.or.kr/match/list?fromDate=20250901&toDate=20250930&tcodeList=all"
+    },
+    {
+      "date": "20251003",
+      "time": "1400",
+      "venue": "잠실실내",
+      "home": "서울 삼성",
+      "away": "부산 KCC",
+      "game_key": "S47G01N2",
+      "source_url": "https://api.kbl.or.kr/match/list?fromDate=20251001&toDate=20251031&tcodeList=all"
+    },
+    {
+      "date": "20251205",
+      "time": "1900",
+      "venue": "잠실실내",
+      "home": "서울 삼성",
+      "away": "수원 KT",
+      "game_key": "S47G01N87",
+      "source_url": "https://api.kbl.or.kr/match/list?fromDate=20251201&toDate=20251231&tcodeList=all"
+    },
+    {
+      "date": "20251207",
+      "time": "1400",
+      "venue": "잠실실내",
+      "home": "서울 삼성",
+      "away": "고양 소노",
+      "game_key": "S47G01N92",
+      "source_url": "https://api.kbl.or.kr/match/list?fromDate=20251201&toDate=20251231&tcodeList=all"
+    }
+  ],
+  "limits": [
+    "Source agreement is not proof of historical publication time.",
+    "Unconfirmed rows are quarantined, not converted to no-event days.",
+    "No training inputs, model settings, targets or held-out evaluation were changed.",
+    "Listing IDs are not unique events; duplicates and ranges require resolution."
+  ]
+}

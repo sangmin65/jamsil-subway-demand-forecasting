@@ -1,0 +1,32 @@
+{
+  "review_date": "2026-11-10",
+  "records": [
+    {
+      "title": "2025 서울마라톤",
+      "dates": [
+        "2025-03-16"
+      ],
+      "venue": "광화문 출발~잠실종합운동장 도착",
+      "source_url": "https://news.seoul.go.kr/culture/archives/526915",
+      "status": "official_schedule_missing_from_collected_list",
+      "note": "잠실 도착 시각/실제 참가자 수/전날 원문 스냅샷은 미확인. 도로 통제 시간을 행사 시작시각으로 쓰지 않음."
+    },
+    {
+      "title": "잔나비 모든소년소녀들 서울 THE 2ND WEEK",
+      "dates": [
+        "2025-05-03",
+        "2025-05-04"
+      ],
+      "start_times": [
+        "17:00",
+        "17:00"
+      ],
+      "venue": "잠실실내체육관",
+      "source_url": "https://www.ticketlink.co.kr/help/notice/61737",
+      "status": "official_schedule_missing_from_collected_list",
+      "note": "공식 예매 예정 회차 확인. 실제 개최/당시 공지 스냅샷 별도."
+    }
+  ],
+  "used_for_training": false,
+  "complete_event_census": false
+}

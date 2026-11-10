@@ -1,8 +1,8 @@
 {
-  "captured_at": "2026-11-10 18:58 KST",
-  "status": "running",
-  "current": "rmsprop_lr003_seed907394",
-  "completed": 16,
+  "captured_at": "2026-11-10 21:36 KST",
+  "status": "completed",
+  "current": null,
+  "completed": 21,
   "total_unique": 21,
   "new_total": 18,
   "stages": [
@@ -43,6 +43,34 @@
         "batch32": {
           "mean_mae": 275.9681610701907,
           "sample_std": 2.0750267630053685
+        }
+      },
+      "winner": "batch8"
+    },
+    {
+      "stage": "3_optimizer",
+      "candidates": [
+        "batch8",
+        "adam_lr001",
+        "rmsprop_lr003",
+        "rmsprop_lr001"
+      ],
+      "summary": {
+        "batch8": {
+          "mean_mae": 270.45657526436867,
+          "sample_std": 1.2112419386030504
+        },
+        "adam_lr001": {
+          "mean_mae": 287.9678801691115,
+          "sample_std": 9.879198998205743
+        },
+        "rmsprop_lr003": {
+          "mean_mae": 280.1128446167373,
+          "sample_std": 3.6570954791193975
+        },
+        "rmsprop_lr001": {
+          "mean_mae": 297.7770001093303,
+          "sample_std": 5.421286060155736
         }
       },
       "winner": "batch8"
@@ -100,12 +128,24 @@
       "complete": true
     },
     "rmsprop_lr003": {
-      "completed_seeds": 1,
-      "mean_mae": 282.9518693156307,
+      "completed_seeds": 3,
+      "mean_mae": 280.1128446167373,
       "seeds": [
-        42
+        42,
+        907394,
+        892611
       ],
-      "complete": false
+      "complete": true
+    },
+    "rmsprop_lr001": {
+      "completed_seeds": 3,
+      "mean_mae": 297.7770001093303,
+      "seeds": [
+        42,
+        907394,
+        892611
+      ],
+      "complete": true
     }
   },
   "final_test_evaluated": false

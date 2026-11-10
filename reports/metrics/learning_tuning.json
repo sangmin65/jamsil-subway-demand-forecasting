@@ -1,0 +1,5951 @@
+{
+  "status": "completed",
+  "started_utc": "2026-11-10T04:33:36.697275+00:00",
+  "manifest": {
+    "experiment": "EXP-011",
+    "approval": {
+      "date": "2026-11-10",
+      "reviewer": "사용자",
+      "evidence": "그럼 추천 순서대로 진행해줄래?"
+    },
+    "seeds": [
+      42,
+      907394,
+      892611
+    ],
+    "baseline_results": "reports/metrics/capacity_round2.json",
+    "baseline_run": "outputs/lstm-gpu-epochs-2026-11-04/lstm_14d_epochs2000",
+    "lr_plateau": {
+      "factor": 0.5,
+      "patience": 20,
+      "min_delta": 0.1,
+      "cooldown": 0,
+      "min_lr": 1e-05
+    },
+    "batch_sizes": [
+      16,
+      8,
+      32
+    ],
+    "optimizer_rates": [
+      0.003,
+      0.001
+    ],
+    "rmsprop": {
+      "rho": 0.9,
+      "momentum": 0.0,
+      "epsilon": 1e-07,
+      "centered": false,
+      "weight_decay": null
+    },
+    "selection": "lowest three-seed mean validation MAE; within 1e-6 retain earlier incumbent; fresh initialization each trial; next stage inherits winner; report selection bias and paired differences",
+    "final_test_evaluated": false,
+    "new_supplement_used": false
+  },
+  "output": "outputs/learning-tuning-2026-11-10-retry1",
+  "manifest_sha256": "0ff003f7675c2df9b9fdbb04657ceceddb118508100f42aa6d58a5d73c6c460b",
+  "sources": {
+    "joined_sha256": "97ff11187e84af09e6ca6e58ad38c4f58b1311a93424f99264960cee6577ad51",
+    "kbo_sha256": "38cdb2d11d2af6eddcf31995c2f12f10efe0baec03a9e871b800a12a7df81660",
+    "holidays_sha256": "2c2d01262a756f172096579ec5057d9765e0cd5415bd2a7e1dc8920a0dd86c14"
+  },
+  "code_sha256": {
+    "src/audit_crawl_archive.py": "d8ad49396d2164f4245feb9f8d762394d56eb07f5f0dd49e8ec6162bb3fbf7ec",
+    "src/baselines.py": "a9215fb60097149495d70b9a5f138866e465b4c4fdd04f12d2238da9ade4f35e",
+    "src/dataset.py": "b407a3a7b9400a0e0a253f5f79f91abe6a1d93bb8003b74b0d474fb613d719c4",
+    "src/evaluation.py": "d8ed97aaf94ea93114e87453964e5ec22cf6da3e0808548940bd5b171e246034",
+    "src/experiment.py": "890e3758d0c9d0b5bac7b45be2452c4604cbde4b5be772d4f485f7ccfbf978c4",
+    "src/extract_source_urls.py": "12de99de91098c7d6b82bf4c4f55e5dbfa964bd29e232df0af56d04715cdf093",
+    "src/models.py": "57b8c6d40422f752b234edf0e5b62131ab56e7df80099c0a61391dbd8cc94448",
+    "src/review_split.py": "74c478a8f171b3f075726d12cc035d07d7f29019412c1322e2eced1fcea64e19",
+    "src/summarize_note_status.py": "0a5187a812907f7abf24e1b52de545f7b24829f7f66745c3900cf8fa15036e96",
+    "src/__init__.py": "91ec51f1f0441db68d75775e850f186a0b1d539a3304c60c52a22ee8f0e7423e"
+  },
+  "runner_sha256": "e25f9c7e6857a95887e04249029f603940e1e03dd247b7a4f44442949ec9daf2",
+  "results": [
+    {
+      "variant": "baseline",
+      "seed": 42,
+      "reused": true,
+      "run": "outputs/lstm-gpu-epochs-2026-11-04/lstm_14d_epochs2000",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 42,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 16,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-04",
+          "reviewer": "사용자",
+          "evidence": "LSTM 14일도 GPU에서 최대 1000회랑 2000회로 비교해줘. 조기 종료는 50으로 유지하고 결과 기록이랑 커밋도 해줘."
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0
+      },
+      "config_sha256": "8ff604c90496ec8177ef200b214818602b5e98ad44c0437f4db2e11c3fcf3508",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1283,
+        "stopped_epoch": 1333,
+        "stop_reason": "early_stopping",
+        "validation_mae": 275.65140211223604,
+        "seconds": 944.919730007
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 275.65140211223604,
+          "board_mae": 301.2692218005401,
+          "alight_mae": 250.033582423932,
+          "board_rmse": 1099.4594122681808,
+          "alight_rmse": 768.1097856082736,
+          "raw_mae": 275.65454649734966,
+          "negative_fraction": 0.0001534683855125844
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 81.94411509865928,
+            "board_mae": 76.51454502365495,
+            "alight_mae": 87.37368517366362,
+            "board_rmse": 192.5855881774499,
+            "alight_rmse": 183.83054262149366,
+            "raw_mae": 81.94411509865928,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 74.58596356709799,
+            "board_mae": 67.50570986005995,
+            "alight_mae": 81.66621727413602,
+            "board_rmse": 187.61809449641706,
+            "alight_rmse": 185.2556463193006,
+            "raw_mae": 74.58596356709798,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 290.9075780444675,
+            "board_mae": 310.82360985458536,
+            "alight_mae": 270.99154623434964,
+            "board_rmse": 1120.1856576287387,
+            "alight_rmse": 787.2091117799863,
+            "raw_mae": 290.92593719625984,
+            "negative_fraction": 0.0008960573476702509
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 386.67380563241466,
+            "board_mae": 426.7525185055203,
+            "alight_mae": 346.595092759309,
+            "board_rmse": 1309.5103560838302,
+            "alight_rmse": 962.9627278206627,
+            "raw_mae": 386.67380563241466,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 429.97148705896086,
+            "board_mae": 487.1098241498393,
+            "alight_mae": 372.83314996808235,
+            "board_rmse": 1476.3782105835164,
+            "alight_rmse": 1014.658723752674,
+            "raw_mae": 429.97148705896086,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 377.22546823996083,
+            "board_mae": 424.30354549266673,
+            "alight_mae": 330.14739098725494,
+            "board_rmse": 1399.3465671376157,
+            "alight_rmse": 927.9915944985576,
+            "raw_mae": 377.22546823996083,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 482.1981950689245,
+            "board_mae": 491.08529846756545,
+            "alight_mae": 473.3110916702836,
+            "board_rmse": 1227.666574550059,
+            "alight_rmse": 1078.2356433885063,
+            "raw_mae": 482.1981950689245,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 656.5552402072483,
+            "board_mae": 637.1315595838759,
+            "alight_mae": 675.9789208306206,
+            "board_rmse": 2078.9456681874967,
+            "alight_rmse": 1416.8363598117473,
+            "raw_mae": 656.5552402072483,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 98.35725855687906,
+            "board_mae": 96.25355552093328,
+            "alight_mae": 100.46096159282483,
+            "board_rmse": 359.4375046052743,
+            "alight_rmse": 286.3459175334019,
+            "raw_mae": 98.36324943799025,
+            "negative_fraction": 0.00029239766081871346
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 470.81214787953263,
+            "board_mae": 532.7034512326928,
+            "alight_mae": 408.9208445263724,
+            "board_rmse": 1572.0195145970938,
+            "alight_rmse": 1071.706236423733,
+            "raw_mae": 470.8121478795326,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 275.8722741868761,
+            "board_mae": 251.12882486979166,
+            "alight_mae": 300.6157235039605,
+            "board_rmse": 631.7368537456177,
+            "alight_rmse": 655.0037126373302,
+            "raw_mae": 275.8722741868761,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "28d14a2a28e4d3f6c46dec8dc214ffb384b6f63e",
+        "git_dirty": true
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 225.61727905273438,
+      "last_validation_mae": 276.1191932044928,
+      "last50_best_improvement": 0.0
+    },
+    {
+      "variant": "baseline",
+      "seed": 907394,
+      "reused": true,
+      "run": "outputs/seeds-lstm-2026-11-07/lstm_seed907394",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 907394,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 16,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-07",
+          "reviewer": "사용자",
+          "evidence": "무작위 시드로 실험 시작해주고"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0
+      },
+      "config_sha256": "1da86768c0320eb51531b0ef856441bd3dd418809612526c8b5d24237ea54d05",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 2000,
+        "stopped_epoch": 2000,
+        "stop_reason": "maximum_epochs",
+        "validation_mae": 272.14142732088953,
+        "seconds": 1285.618830833
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 272.14142732088953,
+          "board_mae": 299.89483965928747,
+          "alight_mae": 244.38801498249165,
+          "board_rmse": 1086.9293227268954,
+          "alight_rmse": 745.7172430201347,
+          "raw_mae": 272.1454406880103,
+          "negative_fraction": 0.0003069367710251688
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 81.21346102478684,
+            "board_mae": 75.98005227119693,
+            "alight_mae": 86.44686977837675,
+            "board_rmse": 189.397093130898,
+            "alight_rmse": 182.33081362128996,
+            "raw_mae": 81.21346102478684,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 74.36258656638009,
+            "board_mae": 68.02841035146562,
+            "alight_mae": 80.69676278129457,
+            "board_rmse": 187.79960258600107,
+            "alight_rmse": 185.15291272009887,
+            "raw_mae": 74.36258656638009,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 286.045319335435,
+            "board_mae": 307.27890876117146,
+            "alight_mae": 264.8117299096986,
+            "board_rmse": 1106.5502617613424,
+            "alight_rmse": 764.2382282513498,
+            "raw_mae": 286.0687522208819,
+            "negative_fraction": 0.0017921146953405018
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 385.9854364924961,
+            "board_mae": 434.2078060785929,
+            "alight_mae": 337.7630669063992,
+            "board_rmse": 1311.625015447762,
+            "alight_rmse": 931.7365137043871,
+            "raw_mae": 385.9854364924961,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 424.45499160554675,
+            "board_mae": 485.5224944665013,
+            "alight_mae": 363.38748874459213,
+            "board_rmse": 1472.4476046442396,
+            "alight_rmse": 985.0336052734613,
+            "raw_mae": 424.45499160554675,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 368.42519651695534,
+            "board_mae": 413.92370618890834,
+            "alight_mae": 322.92668684500234,
+            "board_rmse": 1353.4723576022861,
+            "alight_rmse": 902.4726933272262,
+            "raw_mae": 368.42519651695534,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 477.1111481984456,
+            "board_mae": 474.24238600554287,
+            "alight_mae": 479.97991039134837,
+            "board_rmse": 1102.4033719475428,
+            "alight_rmse": 1105.0528886031877,
+            "raw_mae": 477.1111481984456,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 679.0554580688477,
+            "board_mae": 640.3077265421549,
+            "alight_mae": 717.8031895955404,
+            "board_rmse": 2017.5004598381918,
+            "alight_rmse": 1451.3511863634196,
+            "raw_mae": 679.0554580688477,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 98.2841260208721,
+            "board_mae": 96.43129293681585,
+            "alight_mae": 100.13695910492835,
+            "board_rmse": 357.9153494494602,
+            "alight_rmse": 285.35434494087025,
+            "raw_mae": 98.28838293691825,
+            "negative_fraction": 0.00029239766081871346
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 462.810850298982,
+            "board_mae": 530.4983422654307,
+            "alight_mae": 395.1233583325334,
+            "board_rmse": 1560.023838332507,
+            "alight_rmse": 1031.7069028071733,
+            "raw_mae": 462.81497866339834,
+            "negative_fraction": 0.00035612535612535614
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 279.6377025180393,
+            "board_mae": 255.36041005452475,
+            "alight_mae": 303.91499498155383,
+            "board_rmse": 691.1493743668476,
+            "alight_rmse": 677.8736558522883,
+            "raw_mae": 279.6377025180393,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "8745b5c7a9c5146b4ff77382507214f60a457aba",
+        "git_dirty": true
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 222.89910888671875,
+      "last_validation_mae": 272.14142732088953,
+      "last50_best_improvement": 0.229476508002449
+    },
+    {
+      "variant": "baseline",
+      "seed": 892611,
+      "reused": true,
+      "run": "outputs/seeds-lstm-2026-11-07/lstm_seed892611",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 892611,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 16,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-07",
+          "reviewer": "사용자",
+          "evidence": "무작위 시드로 실험 시작해주고"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0
+      },
+      "config_sha256": "bd5f4b772a84609e0267bb1cfa1059b6a8417cd028b7241a78e558b8db3c0628",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1677,
+        "stopped_epoch": 1727,
+        "stop_reason": "early_stopping",
+        "validation_mae": 273.7578705871962,
+        "seconds": 1080.2702073319997
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 273.7578705871962,
+          "board_mae": 299.59460132673814,
+          "alight_mae": 247.92113984765416,
+          "board_rmse": 1099.1518217848986,
+          "alight_rmse": 755.7909633708157,
+          "raw_mae": 273.75801970525214,
+          "negative_fraction": 0.0003069367710251688
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 81.51788107212299,
+            "board_mae": 75.91890220231907,
+            "alight_mae": 87.1168599419269,
+            "board_rmse": 192.5408637910292,
+            "alight_rmse": 182.88636438806154,
+            "raw_mae": 81.51859316593003,
+            "negative_fraction": 0.0008960573476702509
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 71.78851818281507,
+            "board_mae": 63.85938846497309,
+            "alight_mae": 79.71764790065704,
+            "board_rmse": 184.83761273043973,
+            "alight_rmse": 183.16503191997606,
+            "raw_mae": 71.78851818281507,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 285.4847409135552,
+            "board_mae": 303.63195830177665,
+            "alight_mae": 267.3375235253337,
+            "board_rmse": 1113.5476707665794,
+            "alight_rmse": 779.6464629087817,
+            "raw_mae": 285.48489947678473,
+            "negative_fraction": 0.0008960573476702509
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 390.41034116744993,
+            "board_mae": 430.5651845790722,
+            "alight_mae": 350.2554977558277,
+            "board_rmse": 1317.298405217387,
+            "alight_rmse": 962.9576072850446,
+            "raw_mae": 390.41034116744993,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 428.48547551281564,
+            "board_mae": 487.75490996658164,
+            "alight_mae": 369.21604105904964,
+            "board_rmse": 1471.569685391839,
+            "alight_rmse": 991.8250894966085,
+            "raw_mae": 428.48547551281564,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 372.25516032289573,
+            "board_mae": 421.1708513719064,
+            "alight_mae": 323.3394692738851,
+            "board_rmse": 1401.637193941865,
+            "alight_rmse": 899.2109070314285,
+            "raw_mae": 372.25516032289573,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 483.32423259593827,
+            "board_mae": 490.7753083970812,
+            "alight_mae": 475.8731567947953,
+            "board_rmse": 1198.6903207726223,
+            "alight_rmse": 1085.775134954927,
+            "raw_mae": 483.3242325959382,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 683.0046986473931,
+            "board_mae": 680.3091570536295,
+            "alight_mae": 685.7002402411567,
+            "board_rmse": 2130.823250271933,
+            "alight_rmse": 1425.084072996628,
+            "raw_mae": 683.0046986473931,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 96.59693025957074,
+            "board_mae": 94.15879658035368,
+            "alight_mae": 99.0350639387878,
+            "board_rmse": 357.8000742366331,
+            "alight_rmse": 284.7196836447709,
+            "raw_mae": 96.597214368709,
+            "negative_fraction": 0.0005847953216374269
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 468.2117891997693,
+            "board_mae": 530.992044303492,
+            "alight_mae": 405.43153409604673,
+            "board_rmse": 1573.0204206884107,
+            "alight_rmse": 1051.075035910956,
+            "raw_mae": 468.2117891997693,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 269.99654981825086,
+            "board_mae": 239.1967018975152,
+            "alight_mae": 300.79639773898657,
+            "board_rmse": 588.3614038424633,
+            "alight_rmse": 643.5228031952869,
+            "raw_mae": 269.99654981825086,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "77698ec7e0aaadebba2e71405bf565455ced461c",
+        "git_dirty": true
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 223.44952392578125,
+      "last_validation_mae": 274.1411064656519,
+      "last50_best_improvement": 0.0
+    },
+    {
+      "variant": "plateau",
+      "seed": 42,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/plateau_seed42",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 42,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 16,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0,
+        "lr_plateau": {
+          "factor": 0.5,
+          "patience": 20,
+          "min_delta": 0.1,
+          "cooldown": 0,
+          "min_lr": 1e-05
+        }
+      },
+      "config_sha256": "be5e719a4e6387b7ce493eafb97fa567058c784c8eba46fd4c581a29f799724b",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1171,
+        "stopped_epoch": 1221,
+        "stop_reason": "early_stopping",
+        "optimizer": "adam",
+        "lr_reductions": 9,
+        "best_learning_rate": 1.1718750101863407e-05,
+        "total_optimizer_steps": 26862,
+        "validation_mae": 277.4215069854823,
+        "seconds": 852.416150928
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 277.4215069854823,
+          "board_mae": 303.4597871934365,
+          "alight_mae": 251.38322677752808,
+          "board_rmse": 1105.274408071909,
+          "alight_rmse": 781.375895865177,
+          "raw_mae": 277.4247631255361,
+          "negative_fraction": 0.0001534683855125844
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 81.93531106278888,
+            "board_mae": 76.36976119352498,
+            "alight_mae": 87.50086093205277,
+            "board_rmse": 191.75113646945337,
+            "alight_rmse": 183.57713337410263,
+            "raw_mae": 81.93531106278888,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 74.44717564658512,
+            "board_mae": 67.13343556722005,
+            "alight_mae": 81.76091572595021,
+            "board_rmse": 186.82509925941125,
+            "alight_rmse": 184.671019411695,
+            "raw_mae": 74.44717564658514,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 292.13510990399186,
+            "board_mae": 313.94770630969794,
+            "alight_mae": 270.3225134982858,
+            "board_rmse": 1123.2473230678086,
+            "alight_rmse": 794.9427208061591,
+            "raw_mae": 292.15412156043516,
+            "negative_fraction": 0.0008960573476702509
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 390.986635794463,
+            "board_mae": 431.64416902330186,
+            "alight_mae": 350.3291025656241,
+            "board_rmse": 1318.7582247677062,
+            "alight_rmse": 977.1140409597192,
+            "raw_mae": 390.986635794463,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 435.6441540290805,
+            "board_mae": 493.44857461990847,
+            "alight_mae": 377.83973343825255,
+            "board_rmse": 1495.1001325351453,
+            "alight_rmse": 1043.3284004202558,
+            "raw_mae": 435.64415402908054,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 376.60069825207745,
+            "board_mae": 423.34709698712385,
+            "alight_mae": 329.85429951703105,
+            "board_rmse": 1395.4354707193131,
+            "alight_rmse": 940.4354021242586,
+            "raw_mae": 376.60069825207745,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 484.4967566596137,
+            "board_mae": 489.6578193947121,
+            "alight_mae": 479.33569392451534,
+            "board_rmse": 1206.751046234207,
+            "alight_rmse": 1085.2673339724188,
+            "raw_mae": 484.4967566596137,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 638.3091074625652,
+            "board_mae": 652.9699079725477,
+            "alight_mae": 623.6483069525825,
+            "board_rmse": 2144.4771311999307,
+            "alight_rmse": 1381.1108476056854,
+            "raw_mae": 638.3091074625651,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 98.0673552242636,
+            "board_mae": 95.91633448517113,
+            "alight_mae": 100.21837596335607,
+            "board_rmse": 358.9680770786521,
+            "alight_rmse": 286.16244355383185,
+            "raw_mae": 98.0735590279451,
+            "negative_fraction": 0.00029239766081871346
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 475.1261855299316,
+            "board_mae": 537.9632609141858,
+            "alight_mae": 412.2891101456775,
+            "board_rmse": 1581.4363115378603,
+            "alight_rmse": 1093.400225090279,
+            "raw_mae": 475.12618552993166,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 291.7618993123373,
+            "board_mae": 262.1185302734375,
+            "alight_mae": 321.405268351237,
+            "board_rmse": 681.2732894066585,
+            "alight_rmse": 710.3636757811537,
+            "raw_mae": 291.7618993123372,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "93112cabba26866ef3cb9307840ec07fcbe3127d",
+        "git_dirty": false
+      },
+      "reload_verified": true,
+      "lr_events": [
+        {
+          "epoch": 1005,
+          "old": 0.003000000026077032,
+          "new": 0.001500000013038516
+        },
+        {
+          "epoch": 1040,
+          "old": 0.001500000013038516,
+          "new": 0.000750000006519258
+        },
+        {
+          "epoch": 1061,
+          "old": 0.000750000006519258,
+          "new": 0.000375000003259629
+        },
+        {
+          "epoch": 1081,
+          "old": 0.000375000003259629,
+          "new": 0.0001875000016298145
+        },
+        {
+          "epoch": 1102,
+          "old": 0.0001875000016298145,
+          "new": 9.375000081490725e-05
+        },
+        {
+          "epoch": 1122,
+          "old": 9.375000081490725e-05,
+          "new": 4.6875000407453626e-05
+        },
+        {
+          "epoch": 1142,
+          "old": 4.6875000407453626e-05,
+          "new": 2.3437500203726813e-05
+        },
+        {
+          "epoch": 1162,
+          "old": 2.3437500203726813e-05,
+          "new": 1.1718750101863407e-05
+        },
+        {
+          "epoch": 1182,
+          "old": 1.1718750101863407e-05,
+          "new": 9.999999747378752e-06
+        }
+      ],
+      "last_train_mae": 231.02334594726562,
+      "last_validation_mae": 277.42347866454105,
+      "last50_best_improvement": 0.0
+    },
+    {
+      "variant": "plateau",
+      "seed": 907394,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/plateau_seed907394",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 907394,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 16,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0,
+        "lr_plateau": {
+          "factor": 0.5,
+          "patience": 20,
+          "min_delta": 0.1,
+          "cooldown": 0,
+          "min_lr": 1e-05
+        }
+      },
+      "config_sha256": "58d9d4ae98fc6beb16c874a437f894991300665afcf12daf2d112b43df535c9e",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1326,
+        "stopped_epoch": 1376,
+        "stop_reason": "early_stopping",
+        "optimizer": "adam",
+        "lr_reductions": 9,
+        "best_learning_rate": 9.999999747378752e-06,
+        "total_optimizer_steps": 30272,
+        "validation_mae": 279.68926705459353,
+        "seconds": 955.243522479
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 279.68926705459353,
+          "board_mae": 306.9647819543631,
+          "alight_mae": 252.4137521548239,
+          "board_rmse": 1114.5022181370202,
+          "alight_rmse": 783.584207609115,
+          "raw_mae": 279.6944124672203,
+          "negative_fraction": 0.0003069367710251688
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 83.15887033127541,
+            "board_mae": 78.49243851801828,
+            "alight_mae": 87.82530214453256,
+            "board_rmse": 192.14680715932755,
+            "alight_rmse": 181.79443580139892,
+            "raw_mae": 83.15887033127542,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 74.61788220632644,
+            "board_mae": 68.46033564068023,
+            "alight_mae": 80.77542877197266,
+            "board_rmse": 187.66266100207142,
+            "alight_rmse": 184.17222330581907,
+            "raw_mae": 74.61788220632644,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 293.54072478680627,
+            "board_mae": 317.80533881853984,
+            "alight_mae": 269.2761107550727,
+            "board_rmse": 1133.2915781359807,
+            "alight_rmse": 791.7062420874665,
+            "raw_mae": 293.57076735730453,
+            "negative_fraction": 0.0017921146953405018
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 394.9817249792593,
+            "board_mae": 440.04986391420715,
+            "alight_mae": 349.9135860443115,
+            "board_rmse": 1342.8288931904885,
+            "alight_rmse": 967.9084915168168,
+            "raw_mae": 394.98172497925935,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 440.3444847770062,
+            "board_mae": 499.326932442231,
+            "alight_mae": 381.3620371117814,
+            "board_rmse": 1510.249859145087,
+            "alight_rmse": 1051.0800324482225,
+            "raw_mae": 440.3444847770062,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 378.554613632626,
+            "board_mae": 422.5958071744,
+            "alight_mae": 334.513420090852,
+            "board_rmse": 1391.3448355308926,
+            "alight_rmse": 955.2744674348783,
+            "raw_mae": 378.554613632626,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 484.5809463571619,
+            "board_mae": 481.88655365837946,
+            "alight_mae": 487.27533905594436,
+            "board_rmse": 1159.86532175428,
+            "alight_rmse": 1107.7139605646692,
+            "raw_mae": 484.5809463571619,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 639.4110825856527,
+            "board_mae": 657.0337554083931,
+            "alight_mae": 621.7884097629124,
+            "board_rmse": 2193.929660899618,
+            "alight_rmse": 1414.6172906201687,
+            "raw_mae": 639.4110825856527,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 98.28667663384599,
+            "board_mae": 96.83664496460854,
+            "alight_mae": 99.73670830308345,
+            "board_rmse": 358.877344437509,
+            "alight_rmse": 284.78739031300523,
+            "raw_mae": 98.29647999895595,
+            "negative_fraction": 0.0005847953216374269
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 480.2026004302196,
+            "board_mae": 545.7463576814048,
+            "alight_mae": 414.65884317903436,
+            "board_rmse": 1598.3440471319955,
+            "alight_rmse": 1095.047320824883,
+            "raw_mae": 480.2026004302196,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 283.8234623803033,
+            "board_mae": 244.5752855936686,
+            "alight_mae": 323.0716391669379,
+            "board_rmse": 659.9842906853223,
+            "alight_rmse": 731.121534230013,
+            "raw_mae": 283.8234623803033,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "93112cabba26866ef3cb9307840ec07fcbe3127d",
+        "git_dirty": false
+      },
+      "reload_verified": true,
+      "lr_events": [
+        {
+          "epoch": 1069,
+          "old": 0.003000000026077032,
+          "new": 0.001500000013038516
+        },
+        {
+          "epoch": 1090,
+          "old": 0.001500000013038516,
+          "new": 0.000750000006519258
+        },
+        {
+          "epoch": 1110,
+          "old": 0.000750000006519258,
+          "new": 0.000375000003259629
+        },
+        {
+          "epoch": 1143,
+          "old": 0.000375000003259629,
+          "new": 0.0001875000016298145
+        },
+        {
+          "epoch": 1163,
+          "old": 0.0001875000016298145,
+          "new": 9.375000081490725e-05
+        },
+        {
+          "epoch": 1183,
+          "old": 9.375000081490725e-05,
+          "new": 4.6875000407453626e-05
+        },
+        {
+          "epoch": 1203,
+          "old": 4.6875000407453626e-05,
+          "new": 2.3437500203726813e-05
+        },
+        {
+          "epoch": 1223,
+          "old": 2.3437500203726813e-05,
+          "new": 1.1718750101863407e-05
+        },
+        {
+          "epoch": 1243,
+          "old": 1.1718750101863407e-05,
+          "new": 9.999999747378752e-06
+        }
+      ],
+      "last_train_mae": 233.30201721191406,
+      "last_validation_mae": 279.69235453435874,
+      "last50_best_improvement": 0.0
+    },
+    {
+      "variant": "plateau",
+      "seed": 892611,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/plateau_seed892611",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 892611,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 16,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0,
+        "lr_plateau": {
+          "factor": 0.5,
+          "patience": 20,
+          "min_delta": 0.1,
+          "cooldown": 0,
+          "min_lr": 1e-05
+        }
+      },
+      "config_sha256": "47096a20bb0f07fb71d306065f794532d2de4852511765b179d310e9f93b94b7",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1279,
+        "stopped_epoch": 1329,
+        "stop_reason": "early_stopping",
+        "optimizer": "adam",
+        "lr_reductions": 4,
+        "best_learning_rate": 0.001500000013038516,
+        "total_optimizer_steps": 29238,
+        "validation_mae": 276.3509546601019,
+        "seconds": 916.4181217390001
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 276.3509546601019,
+          "board_mae": 303.55308535554207,
+          "alight_mae": 249.14882396466166,
+          "board_rmse": 1103.5285241645183,
+          "alight_rmse": 772.25052972308,
+          "raw_mae": 276.3509546601019,
+          "negative_fraction": 0.0
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 82.68942138413803,
+            "board_mae": 77.38302697161193,
+            "alight_mae": 87.99581579666412,
+            "board_rmse": 193.472802755246,
+            "alight_rmse": 183.6902133755759,
+            "raw_mae": 82.68942138413802,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 72.36161712237767,
+            "board_mae": 64.85525819233486,
+            "alight_mae": 79.86797605242047,
+            "board_rmse": 186.32266761364107,
+            "alight_rmse": 183.31333721860378,
+            "raw_mae": 72.36161712237767,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 288.2006746949261,
+            "board_mae": 310.153993262185,
+            "alight_mae": 266.24735612766716,
+            "board_rmse": 1120.020061138921,
+            "alight_rmse": 786.5825955797751,
+            "raw_mae": 288.2006746949261,
+            "negative_fraction": 0.0
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 392.4378152423435,
+            "board_mae": 433.93092336301453,
+            "alight_mae": 350.9447071216725,
+            "board_rmse": 1321.6452348725297,
+            "alight_rmse": 978.0876591737479,
+            "raw_mae": 392.4378152423435,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 435.10473506681376,
+            "board_mae": 496.34415947835504,
+            "alight_mae": 373.86531065527254,
+            "board_rmse": 1487.8341629567035,
+            "alight_rmse": 1026.831209549385,
+            "raw_mae": 435.1047350668138,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 374.4807763753114,
+            "board_mae": 423.630564933353,
+            "alight_mae": 325.3309878172698,
+            "board_rmse": 1394.8898916754215,
+            "alight_rmse": 919.975084451512,
+            "raw_mae": 374.4807763753114,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 484.0322361698857,
+            "board_mae": 488.77874162462024,
+            "alight_mae": 479.2857307151512,
+            "board_rmse": 1182.4644385991771,
+            "alight_rmse": 1089.1861006161278,
+            "raw_mae": 484.0322361698857,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 647.2220787472195,
+            "board_mae": 680.9752345614963,
+            "alight_mae": 613.4689229329427,
+            "board_rmse": 2188.2833536800704,
+            "alight_rmse": 1373.23387290851,
+            "raw_mae": 647.2220787472195,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 97.07845402851439,
+            "board_mae": 94.87221411710594,
+            "alight_mae": 99.28469393992285,
+            "board_rmse": 358.50919187646167,
+            "alight_rmse": 284.8805552012182,
+            "raw_mae": 97.0784540285144,
+            "negative_fraction": 0.0
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 473.78958162962545,
+            "board_mae": 539.2670163958841,
+            "alight_mae": 408.3121468633668,
+            "board_rmse": 1579.514059548756,
+            "alight_rmse": 1078.503299209719,
+            "raw_mae": 473.7895816296254,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 290.0667978922526,
+            "board_mae": 253.7731450398763,
+            "alight_mae": 326.3604507446289,
+            "board_rmse": 655.5236481989065,
+            "alight_rmse": 708.7178278143219,
+            "raw_mae": 290.0667978922526,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "93112cabba26866ef3cb9307840ec07fcbe3127d",
+        "git_dirty": false
+      },
+      "reload_verified": true,
+      "lr_events": [
+        {
+          "epoch": 1261,
+          "old": 0.003000000026077032,
+          "new": 0.001500000013038516
+        },
+        {
+          "epoch": 1289,
+          "old": 0.001500000013038516,
+          "new": 0.000750000006519258
+        },
+        {
+          "epoch": 1309,
+          "old": 0.000750000006519258,
+          "new": 0.000375000003259629
+        },
+        {
+          "epoch": 1329,
+          "old": 0.000375000003259629,
+          "new": 0.0001875000016298145
+        }
+      ],
+      "last_train_mae": 229.73500061035156,
+      "last_validation_mae": 276.5223459144488,
+      "last50_best_improvement": 0.0
+    },
+    {
+      "variant": "batch8",
+      "seed": 42,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/batch8_seed42",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 42,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 8,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0
+      },
+      "config_sha256": "4c7613a1f0d19fe8a5bba99004aa3c8007614f75a3f2a318e82fb64f9f68c298",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1710,
+        "stopped_epoch": 1760,
+        "stop_reason": "early_stopping",
+        "optimizer": "adam",
+        "lr_reductions": 0,
+        "best_learning_rate": 0.003000000026077032,
+        "total_optimizer_steps": 77440,
+        "validation_mae": 269.26424472371514,
+        "seconds": 2216.7946938980003
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 269.26424472371514,
+          "board_mae": 299.14773665212135,
+          "alight_mae": 239.38075279530898,
+          "board_rmse": 1078.3957999290728,
+          "alight_rmse": 720.0618706492317,
+          "raw_mae": 269.29332625902526,
+          "negative_fraction": 0.0006138735420503376
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 84.44182217078398,
+            "board_mae": 78.25562033943805,
+            "alight_mae": 90.62802400212989,
+            "board_rmse": 192.85986547659303,
+            "alight_rmse": 184.4796336671275,
+            "raw_mae": 84.44182217078396,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 75.4043133675106,
+            "board_mae": 67.17190825749957,
+            "alight_mae": 83.63671847752163,
+            "board_rmse": 188.2507917664454,
+            "alight_rmse": 189.80813621169966,
+            "raw_mae": 75.4043133675106,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 276.1534787130185,
+            "board_mae": 296.57149095774554,
+            "alight_mae": 255.73546646829146,
+            "board_rmse": 1094.3295879393088,
+            "alight_rmse": 746.1078783239861,
+            "raw_mae": 276.28330531000665,
+            "negative_fraction": 0.0017921146953405018
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 387.00439777374265,
+            "board_mae": 439.27335575245047,
+            "alight_mae": 334.7354397950349,
+            "board_rmse": 1301.3150477646034,
+            "alight_rmse": 914.5534457746911,
+            "raw_mae": 387.00439777374265,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 418.7776932084005,
+            "board_mae": 482.51859266356325,
+            "alight_mae": 355.0367937532377,
+            "board_rmse": 1443.5325725954317,
+            "alight_rmse": 944.6570038325676,
+            "raw_mae": 418.7911070179341,
+            "negative_fraction": 0.0008960573476702509
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 361.82709235438597,
+            "board_mae": 416.96698024891043,
+            "alight_mae": 306.68720445986145,
+            "board_rmse": 1364.0881653253514,
+            "alight_rmse": 851.8576496992315,
+            "raw_mae": 361.85453586401763,
+            "negative_fraction": 0.000925925925925926
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 485.0103642852218,
+            "board_mae": 487.41660541958277,
+            "alight_mae": 482.6041231508608,
+            "board_rmse": 1143.8724600373614,
+            "alight_rmse": 1119.2315437188868,
+            "raw_mae": 485.0103642852218,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 770.7269509633383,
+            "board_mae": 698.9978557162815,
+            "alight_mae": 842.456046210395,
+            "board_rmse": 1920.5761654648945,
+            "alight_rmse": 1618.8876065280488,
+            "raw_mae": 770.7269509633383,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 98.64859944421646,
+            "board_mae": 96.44194043310065,
+            "alight_mae": 100.85525845533226,
+            "board_rmse": 358.5911435625848,
+            "alight_rmse": 285.9945402875003,
+            "raw_mae": 98.65485278179771,
+            "negative_fraction": 0.0005847953216374269
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 454.0828006505287,
+            "board_mae": 526.9867616691481,
+            "alight_mae": 381.17883963190934,
+            "board_rmse": 1545.7713191707992,
+            "alight_rmse": 984.4720760393919,
+            "raw_mae": 454.1426684815659,
+            "negative_fraction": 0.0007122507122507123
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 265.96376037597656,
+            "board_mae": 255.2910944620768,
+            "alight_mae": 276.6364262898763,
+            "board_rmse": 602.2351413822165,
+            "alight_rmse": 585.559408105061,
+            "raw_mae": 265.96376037597656,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "93112cabba26866ef3cb9307840ec07fcbe3127d",
+        "git_dirty": false
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 214.68858337402344,
+      "last_validation_mae": 269.4575243736792,
+      "last50_best_improvement": 0.0
+    },
+    {
+      "variant": "batch8",
+      "seed": 907394,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/batch8_seed907394",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 907394,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 8,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0
+      },
+      "config_sha256": "c561d930ce6509fabd7929bd485c5f925c50eebce91a70adac07db09823199d3",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1563,
+        "stopped_epoch": 1613,
+        "stop_reason": "early_stopping",
+        "optimizer": "adam",
+        "lr_reductions": 0,
+        "best_learning_rate": 0.003000000026077032,
+        "total_optimizer_steps": 70972,
+        "validation_mae": 271.68588186583685,
+        "seconds": 2031.5553330450002
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 271.68588186583685,
+          "board_mae": 300.60733098263677,
+          "alight_mae": 242.76443274903693,
+          "board_rmse": 1086.1419144718227,
+          "alight_rmse": 729.6229183886079,
+          "raw_mae": 271.690360698618,
+          "negative_fraction": 0.0003069367710251688
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 80.80256451500787,
+            "board_mae": 75.70474193258525,
+            "alight_mae": 85.90038709743048,
+            "board_rmse": 190.9639858055055,
+            "alight_rmse": 181.94013430672467,
+            "raw_mae": 80.80256451500787,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 74.85895551197113,
+            "board_mae": 67.34598554883685,
+            "alight_mae": 82.37192547510541,
+            "board_rmse": 187.97143859767863,
+            "alight_rmse": 186.4240905086798,
+            "raw_mae": 74.85895551197113,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 283.0209525323683,
+            "board_mae": 306.21969923067263,
+            "alight_mae": 259.822205834064,
+            "board_rmse": 1109.011584581864,
+            "alight_rmse": 746.4682309479823,
+            "raw_mae": 283.04710313667107,
+            "negative_fraction": 0.0017921146953405018
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 387.1364077568054,
+            "board_mae": 437.76342803813793,
+            "alight_mae": 336.5093874754729,
+            "board_rmse": 1316.0717725842592,
+            "alight_rmse": 920.1208208595593,
+            "raw_mae": 387.1364077568054,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 422.96510662912897,
+            "board_mae": 486.4939783704751,
+            "alight_mae": 359.4362348877828,
+            "board_rmse": 1457.553487659138,
+            "alight_rmse": 951.5890410350158,
+            "raw_mae": 422.96510662912897,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 369.15180989018194,
+            "board_mae": 415.67884885999894,
+            "alight_mae": 322.62477092036494,
+            "board_rmse": 1359.6552598762207,
+            "alight_rmse": 887.1771195471679,
+            "raw_mae": 369.15180989018194,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 486.1599008772108,
+            "board_mae": 480.4179469920971,
+            "alight_mae": 491.9018547623246,
+            "board_rmse": 1116.5856023576287,
+            "alight_rmse": 1135.820929609615,
+            "raw_mae": 486.1599008772108,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 738.6674755944146,
+            "board_mae": 670.7519018385145,
+            "alight_mae": 806.5830493503147,
+            "board_rmse": 1987.2847908066374,
+            "alight_rmse": 1573.1776387842397,
+            "raw_mae": 738.6674755944146,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 98.57681849407174,
+            "board_mae": 96.41524240817243,
+            "alight_mae": 100.73839457997104,
+            "board_rmse": 358.7182343837257,
+            "alight_rmse": 285.28150911010266,
+            "raw_mae": 98.58535184916,
+            "negative_fraction": 0.0005847953216374269
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 459.92031048913293,
+            "board_mae": 531.2298829956272,
+            "alight_mae": 388.61073798263857,
+            "board_rmse": 1558.223048004365,
+            "alight_rmse": 999.8713016604623,
+            "raw_mae": 459.9203104891329,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 280.93576176961267,
+            "board_mae": 261.2884216308594,
+            "alight_mae": 300.5831019083659,
+            "board_rmse": 695.3408659512723,
+            "alight_rmse": 654.4498178435173,
+            "raw_mae": 280.9357617696126,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "93112cabba26866ef3cb9307840ec07fcbe3127d",
+        "git_dirty": false
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 218.22926330566406,
+      "last_validation_mae": 271.8409148931064,
+      "last50_best_improvement": 0.0
+    },
+    {
+      "variant": "batch8",
+      "seed": 892611,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/batch8_seed892611",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 892611,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 8,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0
+      },
+      "config_sha256": "6e605150f9c854e2e13c1dd605c2553580ce54190e95209b9b447f76263e9656",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1583,
+        "stopped_epoch": 1633,
+        "stop_reason": "early_stopping",
+        "optimizer": "adam",
+        "lr_reductions": 0,
+        "best_learning_rate": 0.003000000026077032,
+        "total_optimizer_steps": 71852,
+        "validation_mae": 270.41959920355407,
+        "seconds": 2058.361452643
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 270.41959920355407,
+          "board_mae": 297.9866628841508,
+          "alight_mae": 242.8525355229574,
+          "board_rmse": 1088.681988815918,
+          "alight_rmse": 731.111777611051,
+          "raw_mae": 270.422027800111,
+          "negative_fraction": 0.0003069367710251688
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 79.55663232393162,
+            "board_mae": 72.60252840117315,
+            "alight_mae": 86.5107362466901,
+            "board_rmse": 190.654038667754,
+            "alight_rmse": 183.578513840483,
+            "raw_mae": 79.55663232393162,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 72.23209691804553,
+            "board_mae": 63.56099398930868,
+            "alight_mae": 80.90319984678239,
+            "board_rmse": 187.44997988642277,
+            "alight_rmse": 184.5754253626496,
+            "raw_mae": 72.23209691804553,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 279.7045111797189,
+            "board_mae": 300.0850636651439,
+            "alight_mae": 259.32395869429394,
+            "board_rmse": 1097.1388264310672,
+            "alight_rmse": 750.344486500181,
+            "raw_mae": 279.7045111797189,
+            "negative_fraction": 0.0
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 387.92481306217337,
+            "board_mae": 434.7190041930587,
+            "alight_mae": 341.130621931288,
+            "board_rmse": 1305.8329721151142,
+            "alight_rmse": 936.2785442535968,
+            "raw_mae": 387.92481306217337,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 421.33004454472587,
+            "board_mae": 482.1303333979781,
+            "alight_mae": 360.5297556914736,
+            "board_rmse": 1457.3508017052939,
+            "alight_rmse": 957.2549839835984,
+            "raw_mae": 421.3353611700851,
+            "negative_fraction": 0.0008960573476702509
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 369.5792506924382,
+            "board_mae": 420.4984111715246,
+            "alight_mae": 318.6600902133518,
+            "board_rmse": 1391.6963206849387,
+            "alight_rmse": 867.7899999442543,
+            "raw_mae": 369.58840937879353,
+            "negative_fraction": 0.000925925925925926
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 484.98902101869936,
+            "board_mae": 487.1628002590603,
+            "alight_mae": 482.8152417783384,
+            "board_rmse": 1177.2013606223218,
+            "alight_rmse": 1103.3128787261576,
+            "raw_mae": 484.98902101869936,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 757.9677225748699,
+            "board_mae": 703.4906251695421,
+            "alight_mae": 812.4448199801975,
+            "board_rmse": 2014.496026694631,
+            "alight_rmse": 1592.9264428288168,
+            "raw_mae": 757.9677225748698,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 95.9658329134099,
+            "board_mae": 92.88923883298685,
+            "alight_mae": 99.04242699383295,
+            "board_rmse": 358.3799911646942,
+            "alight_rmse": 284.8549203300863,
+            "raw_mae": 95.9658329134099,
+            "negative_fraction": 0.0
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 459.9358452555121,
+            "board_mae": 528.4541318898866,
+            "alight_mae": 391.4175586211376,
+            "board_rmse": 1559.0368594462234,
+            "alight_rmse": 1004.9770321499857,
+            "raw_mae": 459.9414808449582,
+            "negative_fraction": 0.0007122507122507123
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 286.2955504523383,
+            "board_mae": 265.2185787624783,
+            "alight_mae": 307.37252214219836,
+            "board_rmse": 604.4980416628545,
+            "alight_rmse": 648.722973957479,
+            "raw_mae": 286.2955504523383,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "93112cabba26866ef3cb9307840ec07fcbe3127d",
+        "git_dirty": false
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 219.23788452148438,
+      "last_validation_mae": 270.88727938228766,
+      "last50_best_improvement": 0.0
+    },
+    {
+      "variant": "batch32",
+      "seed": 42,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/batch32_seed42",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 42,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 32,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0
+      },
+      "config_sha256": "1c7622dac1553fea8bd5f754da37b217105c54cd096aa1e78cc41f3ceace698e",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1689,
+        "stopped_epoch": 1739,
+        "stop_reason": "early_stopping",
+        "optimizer": "adam",
+        "lr_reductions": 0,
+        "best_learning_rate": 0.003000000026077032,
+        "total_optimizer_steps": 19129,
+        "validation_mae": 278.08899791673184,
+        "seconds": 660.8021990790003
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 278.08899791673184,
+          "board_mae": 303.9587604384103,
+          "alight_mae": 252.21923539505332,
+          "board_rmse": 1113.8251180660795,
+          "alight_rmse": 775.9464043888111,
+          "raw_mae": 278.0909675214465,
+          "negative_fraction": 0.0001534683855125844
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 81.9779742900616,
+            "board_mae": 76.3413203386423,
+            "alight_mae": 87.61462824148089,
+            "board_rmse": 192.3945701362279,
+            "alight_rmse": 180.90888176444633,
+            "raw_mae": 81.9779742900616,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 73.34421562391614,
+            "board_mae": 65.36090545805673,
+            "alight_mae": 81.32752578977555,
+            "board_rmse": 186.4151461449117,
+            "alight_rmse": 183.8348656174645,
+            "raw_mae": 73.34421562391614,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 291.16026909312893,
+            "board_mae": 311.62535697200394,
+            "alight_mae": 270.695181214254,
+            "board_rmse": 1139.7874638126652,
+            "alight_rmse": 794.1883174208053,
+            "raw_mae": 291.1717690432371,
+            "negative_fraction": 0.0008960573476702509
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 392.6061216319049,
+            "board_mae": 437.32298252670853,
+            "alight_mae": 347.8892607371012,
+            "board_rmse": 1343.484492264467,
+            "alight_rmse": 967.0896990531403,
+            "raw_mae": 392.6061216319049,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 434.70182251673873,
+            "board_mae": 491.77019300426633,
+            "alight_mae": 377.6334520292111,
+            "board_rmse": 1483.0629284961713,
+            "alight_rmse": 1027.4189636732324,
+            "raw_mae": 434.70182251673873,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 381.97482978679517,
+            "board_mae": 426.49659436543783,
+            "alight_mae": 337.4530652081525,
+            "board_rmse": 1412.1427283068829,
+            "alight_rmse": 943.1157797077122,
+            "raw_mae": 381.97482978679517,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 490.3151769991274,
+            "board_mae": 485.7652137191207,
+            "alight_mae": 494.8651402791341,
+            "board_rmse": 1202.2785253736768,
+            "alight_rmse": 1120.6016529302678,
+            "raw_mae": 490.3151769991274,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 647.9972114562988,
+            "board_mae": 652.6329879760742,
+            "alight_mae": 643.3614349365234,
+            "board_rmse": 2166.943090638251,
+            "alight_rmse": 1411.7752773249713,
+            "raw_mae": 647.9972114562988,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 96.95221731237501,
+            "board_mae": 94.34049038259607,
+            "alight_mae": 99.56394424215395,
+            "board_rmse": 357.8788953412443,
+            "alight_rmse": 284.05926247680384,
+            "raw_mae": 96.95596992767345,
+            "negative_fraction": 0.00029239766081871346
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 477.9603857898984,
+            "board_mae": 541.8897708990635,
+            "alight_mae": 414.03100068073326,
+            "board_rmse": 1596.1999112680644,
+            "alight_rmse": 1082.566027297205,
+            "raw_mae": 477.9603857898984,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 252.84961318969727,
+            "board_mae": 219.56265258789062,
+            "alight_mae": 286.1365737915039,
+            "board_rmse": 530.3818387570388,
+            "alight_rmse": 611.2667519206834,
+            "raw_mae": 252.84961318969727,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "93112cabba26866ef3cb9307840ec07fcbe3127d",
+        "git_dirty": false
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 224.308837890625,
+      "last_validation_mae": 278.44722650142955,
+      "last50_best_improvement": 0.0
+    },
+    {
+      "variant": "batch32",
+      "seed": 907394,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/batch32_seed907394",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 907394,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 32,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0
+      },
+      "config_sha256": "a44bf6474b3d4201608e855f44ba85a4ab1e3dc404a81e8c7fbf55695af536d4",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 2000,
+        "stopped_epoch": 2000,
+        "stop_reason": "maximum_epochs",
+        "optimizer": "adam",
+        "lr_reductions": 0,
+        "best_learning_rate": 0.003000000026077032,
+        "total_optimizer_steps": 22000,
+        "validation_mae": 273.9421990850061,
+        "seconds": 772.5332905590003
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 273.9421990850061,
+          "board_mae": 300.55470004880846,
+          "alight_mae": 247.32969812120376,
+          "board_rmse": 1099.5924242542594,
+          "alight_rmse": 757.2259724018503,
+          "raw_mae": 273.947265883177,
+          "negative_fraction": 0.0003069367710251688
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 79.80879678179286,
+            "board_mae": 74.5365811795744,
+            "alight_mae": 85.08101238401133,
+            "board_rmse": 192.852975994703,
+            "alight_rmse": 181.38056517229143,
+            "raw_mae": 79.80879678179286,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 73.74970013754708,
+            "board_mae": 66.61329284546868,
+            "alight_mae": 80.8861074296255,
+            "board_rmse": 188.7602816364257,
+            "alight_rmse": 185.01686128057005,
+            "raw_mae": 73.74970013754708,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 286.9319932076239,
+            "board_mae": 308.6023257334173,
+            "alight_mae": 265.2616606818305,
+            "board_rmse": 1118.5052383401544,
+            "alight_rmse": 773.3707715654418,
+            "raw_mae": 286.96157677113797,
+            "negative_fraction": 0.0017921146953405018
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 386.94296797646416,
+            "board_mae": 429.29998137156167,
+            "alight_mae": 344.58595458136665,
+            "board_rmse": 1308.2867344135386,
+            "alight_rmse": 951.383741582931,
+            "raw_mae": 386.94296797646416,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 429.97898403974415,
+            "board_mae": 488.3824535629655,
+            "alight_mae": 371.5755145165228,
+            "board_rmse": 1485.8975419274743,
+            "alight_rmse": 1004.5216993997027,
+            "raw_mae": 429.97898403974415,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 373.7314798778958,
+            "board_mae": 421.3022297753228,
+            "alight_mae": 326.1607299804688,
+            "board_rmse": 1391.8978116119786,
+            "alight_rmse": 909.750491932196,
+            "raw_mae": 373.73147987789577,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 481.29220097153274,
+            "board_mae": 487.11765550684044,
+            "alight_mae": 475.46674643622504,
+            "board_rmse": 1183.8887290897353,
+            "alight_rmse": 1091.501440645553,
+            "raw_mae": 481.29220097153274,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 680.8602364857991,
+            "board_mae": 650.5136536492241,
+            "alight_mae": 711.2068193223741,
+            "board_rmse": 2111.270043738362,
+            "alight_rmse": 1443.4698335388641,
+            "raw_mae": 680.8602364857992,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 96.53355046824404,
+            "board_mae": 94.42347077152185,
+            "alight_mae": 98.64363016496625,
+            "board_rmse": 358.94603551986665,
+            "alight_rmse": 284.6174760229552,
+            "raw_mae": 96.54320405212759,
+            "negative_fraction": 0.0005847953216374269
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 468.72208003101184,
+            "board_mae": 533.4424866217154,
+            "alight_mae": 404.0016734403083,
+            "board_rmse": 1574.3215469457793,
+            "alight_rmse": 1052.360475736192,
+            "raw_mae": 468.72208003101184,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 283.9150551689996,
+            "board_mae": 248.43744235568576,
+            "alight_mae": 319.39266798231336,
+            "board_rmse": 647.0028773430527,
+            "alight_rmse": 688.6138807124366,
+            "raw_mae": 283.9150551689996,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "93112cabba26866ef3cb9307840ec07fcbe3127d",
+        "git_dirty": false
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 227.78907775878906,
+      "last_validation_mae": 273.9421990850061,
+      "last50_best_improvement": 0.3701086123345476
+    },
+    {
+      "variant": "batch32",
+      "seed": 892611,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/batch32_seed892611",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 892611,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 32,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0
+      },
+      "config_sha256": "87d081d2e9f0b717afc1b6db4a794a43baef0c10da2b3dd181b754aa69cbf61a",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1986,
+        "stopped_epoch": 2000,
+        "stop_reason": "maximum_epochs",
+        "optimizer": "adam",
+        "lr_reductions": 0,
+        "best_learning_rate": 0.003000000026077032,
+        "total_optimizer_steps": 22000,
+        "validation_mae": 275.8732862088342,
+        "seconds": 764.3653971000003
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 275.8732862088342,
+          "board_mae": 302.470071181847,
+          "alight_mae": 249.2765012358214,
+          "board_rmse": 1104.5901387924316,
+          "alight_rmse": 766.486265354287,
+          "raw_mae": 275.8732862088342,
+          "negative_fraction": 0.0
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 80.58717440618835,
+            "board_mae": 74.9386132780369,
+            "alight_mae": 86.23573553433982,
+            "board_rmse": 191.69780609215442,
+            "alight_rmse": 182.08679033097218,
+            "raw_mae": 80.58717440618837,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 72.6585272910103,
+            "board_mae": 65.02279909830244,
+            "alight_mae": 80.29425548371815,
+            "board_rmse": 186.5363140682125,
+            "alight_rmse": 184.20338178073806,
+            "raw_mae": 72.6585272910103,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 288.661723152711,
+            "board_mae": 308.588952215769,
+            "alight_mae": 268.73449408965297,
+            "board_rmse": 1127.6687244591253,
+            "alight_rmse": 788.8180019644462,
+            "raw_mae": 288.661723152711,
+            "negative_fraction": 0.0
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 392.00739642955637,
+            "board_mae": 433.8411407611988,
+            "alight_mae": 350.17365209791393,
+            "board_rmse": 1325.7706670314838,
+            "alight_rmse": 973.5196059469638,
+            "raw_mae": 392.00739642955637,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 432.8193959335273,
+            "board_mae": 491.4020061287829,
+            "alight_mae": 374.23678573827164,
+            "board_rmse": 1472.4902947428018,
+            "alight_rmse": 1012.6957225782373,
+            "raw_mae": 432.81939593352723,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 375.809568283293,
+            "board_mae": 426.2797855341876,
+            "alight_mae": 325.3393510323984,
+            "board_rmse": 1406.6781453009135,
+            "alight_rmse": 910.059242520992,
+            "raw_mae": 375.809568283293,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 487.296258714464,
+            "board_mae": 491.3540145026313,
+            "alight_mae": 483.23850292629663,
+            "board_rmse": 1219.1146234193936,
+            "alight_rmse": 1093.461229276435,
+            "raw_mae": 487.296258714464,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 672.5065064960056,
+            "board_mae": 691.9852030012343,
+            "alight_mae": 653.0278099907769,
+            "board_rmse": 2171.670344222989,
+            "alight_rmse": 1412.399120595167,
+            "raw_mae": 672.5065064960056,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 96.14413570256261,
+            "board_mae": 93.59991475796839,
+            "alight_mae": 98.68835664715684,
+            "board_rmse": 357.70496035570443,
+            "alight_rmse": 284.8014411792673,
+            "raw_mae": 96.14413570256261,
+            "negative_fraction": 0.0
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 473.5399644361262,
+            "board_mae": 538.26094559319,
+            "alight_mae": 408.8189832790625,
+            "board_rmse": 1579.9633954369046,
+            "alight_rmse": 1068.4257172564546,
+            "raw_mae": 473.53996443612624,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 266.9706272549099,
+            "board_mae": 230.6279356214735,
+            "alight_mae": 303.3133188883464,
+            "board_rmse": 585.0764607164289,
+            "alight_rmse": 650.8912605452715,
+            "raw_mae": 266.9706272549099,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "93112cabba26866ef3cb9307840ec07fcbe3127d",
+        "git_dirty": false
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 226.34783935546875,
+      "last_validation_mae": 275.9427359598118,
+      "last50_best_improvement": 0.15545349453327617
+    },
+    {
+      "variant": "adam_lr001",
+      "seed": 42,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/adam_lr001_seed42",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 42,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 8,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.001,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0
+      },
+      "config_sha256": "5f1c345c4747ce2cd4499b59c6b8d9a4a25ff60c57961f22cb2636fc2e9f744e",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 917,
+        "stopped_epoch": 967,
+        "stop_reason": "early_stopping",
+        "optimizer": "adam",
+        "lr_reductions": 0,
+        "best_learning_rate": 0.0010000000474974513,
+        "total_optimizer_steps": 42548,
+        "validation_mae": 299.24076290786303,
+        "seconds": 1212.876693919001
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 299.24076290786303,
+          "board_mae": 314.58596157427576,
+          "alight_mae": 283.8955642414503,
+          "board_rmse": 1190.3157594634731,
+          "alight_rmse": 863.9561247962761,
+          "raw_mae": 299.24083464653523,
+          "negative_fraction": 0.0001534683855125844
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 83.93374892033128,
+            "board_mae": 74.07902775357701,
+            "alight_mae": 93.78847008708557,
+            "board_rmse": 190.99985356923506,
+            "alight_rmse": 186.43232995594258,
+            "raw_mae": 83.9337489203313,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 76.36692992846172,
+            "board_mae": 66.52608263681806,
+            "alight_mae": 86.20777722010537,
+            "board_rmse": 187.01774303263622,
+            "alight_rmse": 186.14153554406812,
+            "raw_mae": 76.36692992846172,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 316.5519325348639,
+            "board_mae": 326.1195350667482,
+            "alight_mae": 306.98433000297956,
+            "board_rmse": 1191.5889880430364,
+            "alight_rmse": 884.3591052683934,
+            "raw_mae": 316.55235139614365,
+            "negative_fraction": 0.0008960573476702509
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 443.57376130068747,
+            "board_mae": 473.2922323792069,
+            "alight_mae": 413.855290222168,
+            "board_rmse": 1514.4035041924612,
+            "alight_rmse": 1121.7591406634174,
+            "raw_mae": 443.5737613006874,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 464.95789206241625,
+            "board_mae": 506.3611369867906,
+            "alight_mae": 423.55464713804184,
+            "board_rmse": 1583.8340104314882,
+            "alight_rmse": 1130.3114972825474,
+            "raw_mae": 464.9578920624162,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 396.2780143419901,
+            "board_mae": 425.8403688572071,
+            "alight_mae": 366.71565982677316,
+            "board_rmse": 1457.8125789826474,
+            "alight_rmse": 1023.9395804720583,
+            "raw_mae": 396.2780143419902,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 397.41371981302893,
+            "board_mae": 391.13792574847184,
+            "alight_mae": 403.6895138775861,
+            "board_rmse": 882.7289086480666,
+            "alight_rmse": 849.5774437890058,
+            "raw_mae": 397.413719813029,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 659.9457238515218,
+            "board_mae": 667.7853711446127,
+            "alight_mae": 652.106076558431,
+            "board_rmse": 2331.069214436161,
+            "alight_rmse": 1559.2624350854874,
+            "raw_mae": 659.9457238515218,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 99.86849641744156,
+            "board_mae": 94.928807471649,
+            "alight_mae": 104.80818536323413,
+            "board_rmse": 358.8201144931477,
+            "alight_rmse": 285.601356882311,
+            "raw_mae": 99.86863309849075,
+            "negative_fraction": 0.00029239766081871346
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 530.7691839739807,
+            "board_mae": 573.3267048295068,
+            "alight_mae": 488.2116631184548,
+            "board_rmse": 1731.7050500801188,
+            "alight_rmse": 1241.759919298449,
+            "raw_mae": 530.7691839739807,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 230.64653396606445,
+            "board_mae": 187.72643280029297,
+            "alight_mae": 273.56663513183594,
+            "board_rmse": 450.5346913165912,
+            "alight_rmse": 563.5690192885132,
+            "raw_mae": 230.64653396606445,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "93112cabba26866ef3cb9307840ec07fcbe3127d",
+        "git_dirty": false
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 241.46253967285156,
+      "last_validation_mae": 301.2494572895008,
+      "last50_best_improvement": 0.0
+    },
+    {
+      "variant": "adam_lr001",
+      "seed": 907394,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/adam_lr001_seed907394",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 907394,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 8,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.001,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0
+      },
+      "config_sha256": "59a97e7ef952493bb243745d5d361979e5a18d5d30d987d84556ef78f9e84b50",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1541,
+        "stopped_epoch": 1591,
+        "stop_reason": "early_stopping",
+        "optimizer": "adam",
+        "lr_reductions": 0,
+        "best_learning_rate": 0.0010000000474974513,
+        "total_optimizer_steps": 70004,
+        "validation_mae": 283.84476590083375,
+        "seconds": 2005.857903420001
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 283.84476590083375,
+          "board_mae": 310.64587463346123,
+          "alight_mae": 257.0436571682063,
+          "board_rmse": 1134.151162000735,
+          "alight_rmse": 799.834015306962,
+          "raw_mae": 283.85948437807235,
+          "negative_fraction": 0.0003069367710251688
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 83.36971698781495,
+            "board_mae": 78.06172623514702,
+            "alight_mae": 88.67770774048289,
+            "board_rmse": 193.36244888006635,
+            "alight_rmse": 183.2789458559331,
+            "raw_mae": 83.36971698781495,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 75.00312020286681,
+            "board_mae": 68.41595460498144,
+            "alight_mae": 81.59028580075218,
+            "board_rmse": 187.69809967698907,
+            "alight_rmse": 181.9265035557565,
+            "raw_mae": 75.00312020286681,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 296.87115103369547,
+            "board_mae": 320.17942401585185,
+            "alight_mae": 273.56287805153903,
+            "board_rmse": 1152.5278975338567,
+            "alight_rmse": 811.7550901866347,
+            "raw_mae": 296.9570879491854,
+            "negative_fraction": 0.0017921146953405018
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 401.0537310105783,
+            "board_mae": 445.8652918003224,
+            "alight_mae": 356.2421702208342,
+            "board_rmse": 1378.444765651741,
+            "alight_rmse": 997.8121430697827,
+            "raw_mae": 401.0537310105783,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 445.431243725575,
+            "board_mae": 503.9792958194637,
+            "alight_mae": 386.8831916316863,
+            "board_rmse": 1514.8720985409166,
+            "alight_rmse": 1064.6481307982847,
+            "raw_mae": 445.431243725575,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 388.2789289297881,
+            "board_mae": 432.21546658409966,
+            "alight_mae": 344.34239127547653,
+            "board_rmse": 1430.0743452842987,
+            "alight_rmse": 972.7955110923056,
+            "raw_mae": 388.2789289297881,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 474.98130925496423,
+            "board_mae": 465.2667421411585,
+            "alight_mae": 484.6958763687699,
+            "board_rmse": 1118.7559842436845,
+            "alight_rmse": 1078.0228587650488,
+            "raw_mae": 474.9813092549642,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 648.7964647081163,
+            "board_mae": 692.2552854749891,
+            "alight_mae": 605.3376439412435,
+            "board_rmse": 2260.148763189337,
+            "alight_rmse": 1411.855528315892,
+            "raw_mae": 648.7964647081163,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 98.62107417681065,
+            "board_mae": 96.33383976451138,
+            "alight_mae": 100.90830858910991,
+            "board_rmse": 358.8573957508528,
+            "alight_rmse": 284.63212376014525,
+            "raw_mae": 98.64911674923367,
+            "negative_fraction": 0.0005847953216374269
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 490.09403382407294,
+            "board_mae": 555.8996275252426,
+            "alight_mae": 424.28844012290324,
+            "board_rmse": 1631.4656567162024,
+            "alight_rmse": 1124.530269009542,
+            "raw_mae": 490.09403382407294,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 280.88162273830835,
+            "board_mae": 231.16184573703342,
+            "alight_mae": 330.6013997395833,
+            "board_rmse": 597.5839350729358,
+            "alight_rmse": 702.1419391830566,
+            "raw_mae": 280.88162273830835,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "93112cabba26866ef3cb9307840ec07fcbe3127d",
+        "git_dirty": false
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 234.65869140625,
+      "last_validation_mae": 285.7577382840577,
+      "last50_best_improvement": 0.0
+    },
+    {
+      "variant": "adam_lr001",
+      "seed": 892611,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/adam_lr001_seed892611",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 892611,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 8,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.001,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0
+      },
+      "config_sha256": "ca1a29bd0dc422f0028fb579b03dea4db08bcd0d0c782c1d433c28cdb4503eb3",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 2000,
+        "stopped_epoch": 2000,
+        "stop_reason": "maximum_epochs",
+        "optimizer": "adam",
+        "lr_reductions": 0,
+        "best_learning_rate": 0.0010000000474974513,
+        "total_optimizer_steps": 88000,
+        "validation_mae": 280.8181116986377,
+        "seconds": 2544.794062042998
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 280.8181116986377,
+          "board_mae": 307.06247156949917,
+          "alight_mae": 254.57375182777625,
+          "board_rmse": 1118.9435061677693,
+          "alight_rmse": 792.7267627343153,
+          "raw_mae": 280.8181141308978,
+          "negative_fraction": 0.0001534683855125844
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 82.47143265508836,
+            "board_mae": 76.7197980436373,
+            "alight_mae": 88.22306726653943,
+            "board_rmse": 193.4079083318856,
+            "alight_rmse": 183.9181181172989,
+            "raw_mae": 82.47144685634896,
+            "negative_fraction": 0.0008960573476702509
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 71.67834243320283,
+            "board_mae": 64.7074074366736,
+            "alight_mae": 78.64927742973207,
+            "board_rmse": 187.63323120507604,
+            "alight_rmse": 181.8726358302636,
+            "raw_mae": 71.67834243320283,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 293.2395754561202,
+            "board_mae": 316.17097035274713,
+            "alight_mae": 270.3081805594933,
+            "board_rmse": 1141.8224347552293,
+            "alight_rmse": 803.2915554823796,
+            "raw_mae": 293.23957545612024,
+            "negative_fraction": 0.0
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 399.5032421112061,
+            "board_mae": 442.1488294672083,
+            "alight_mae": 356.85765475520384,
+            "board_rmse": 1349.2886237121736,
+            "alight_rmse": 994.4462842775052,
+            "raw_mae": 399.5032421112061,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 443.19790855188955,
+            "board_mae": 500.0266786254008,
+            "alight_mae": 386.36913847837826,
+            "board_rmse": 1505.7994378155138,
+            "alight_rmse": 1060.966197548212,
+            "raw_mae": 443.1979085518895,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 381.66036498105086,
+            "board_mae": 427.38647347203005,
+            "alight_mae": 335.9342564900716,
+            "board_rmse": 1404.1436399739569,
+            "alight_rmse": 952.2262003336557,
+            "raw_mae": 381.66036498105086,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 484.5427769201773,
+            "board_mae": 481.95768123202856,
+            "alight_mae": 487.1278726083261,
+            "board_rmse": 1167.3548723631723,
+            "alight_rmse": 1092.8904513403643,
+            "raw_mae": 484.54277692017735,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 636.4402641720242,
+            "board_mae": 682.6534055074056,
+            "alight_mae": 590.2271228366428,
+            "board_rmse": 2223.4867313843365,
+            "alight_rmse": 1386.0924676746147,
+            "raw_mae": 636.4402641720242,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 96.21636459004809,
+            "board_mae": 94.01931753437421,
+            "alight_mae": 98.41341164572196,
+            "board_rmse": 358.47331373421963,
+            "alight_rmse": 284.25099608997925,
+            "raw_mae": 96.21636922414366,
+            "negative_fraction": 0.00029239766081871346
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 485.40972553427065,
+            "board_mae": 549.0355808877538,
+            "alight_mae": 421.7838701807875,
+            "board_rmse": 1604.7854071278289,
+            "alight_rmse": 1112.2012513571046,
+            "raw_mae": 485.40972553427065,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 281.8680640326606,
+            "board_mae": 247.2973861694336,
+            "alight_mae": 316.4387418958876,
+            "board_rmse": 643.4591090669206,
+            "alight_rmse": 703.0785553963196,
+            "raw_mae": 281.8680640326606,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "93112cabba26866ef3cb9307840ec07fcbe3127d",
+        "git_dirty": false
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 234.00291442871094,
+      "last_validation_mae": 280.8181116986377,
+      "last50_best_improvement": 0.3508982031970618
+    },
+    {
+      "variant": "rmsprop_lr003",
+      "seed": 42,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/rmsprop_lr003_seed42",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 42,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 8,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0,
+        "optimizer": "rmsprop",
+        "rmsprop": {
+          "rho": 0.9,
+          "momentum": 0.0,
+          "epsilon": 1e-07,
+          "centered": false,
+          "weight_decay": null,
+          "learning_rate": 0.003
+        }
+      },
+      "config_sha256": "bd0a2e3d38c1b2ad7e7ca1ef5bd6a2af696aa90c8e1f94541b0104582f34636b",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 558,
+        "stopped_epoch": 608,
+        "stop_reason": "early_stopping",
+        "optimizer": "rmsprop",
+        "lr_reductions": 0,
+        "best_learning_rate": 0.003000000026077032,
+        "total_optimizer_steps": 26752,
+        "validation_mae": 282.9518693156307,
+        "seconds": 736.4320668149994
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 282.9518693156307,
+          "board_mae": 311.65983809098975,
+          "alight_mae": 254.24390054027165,
+          "board_rmse": 1128.2320626522746,
+          "alight_rmse": 791.4613667401923,
+          "raw_mae": 282.9518693156307,
+          "negative_fraction": 0.0
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 84.60820846566696,
+            "board_mae": 77.31890288887271,
+            "alight_mae": 91.89751404246121,
+            "board_rmse": 192.3223977792115,
+            "alight_rmse": 183.34175407048687,
+            "raw_mae": 84.60820846566696,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 74.58681428621685,
+            "board_mae": 66.51273219547575,
+            "alight_mae": 82.66089637695796,
+            "board_rmse": 186.92509444390916,
+            "alight_rmse": 184.88706871240117,
+            "raw_mae": 74.58681428621686,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 293.78788067277617,
+            "board_mae": 321.25550564215604,
+            "alight_mae": 266.32025570339624,
+            "board_rmse": 1141.1086300209445,
+            "alight_rmse": 793.9045923381063,
+            "raw_mae": 293.78788067277617,
+            "negative_fraction": 0.0
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 398.5179295151322,
+            "board_mae": 446.7831371024803,
+            "alight_mae": 350.2527219277841,
+            "board_rmse": 1365.5479309255509,
+            "alight_rmse": 992.6959296825449,
+            "raw_mae": 398.5179295151322,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 446.8640248425118,
+            "board_mae": 509.1047151353624,
+            "alight_mae": 384.6233345496612,
+            "board_rmse": 1524.5499184371797,
+            "alight_rmse": 1069.684771772604,
+            "raw_mae": 446.8640248425118,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 386.24187090838393,
+            "board_mae": 433.5509082087764,
+            "alight_mae": 338.93283360799154,
+            "board_rmse": 1413.1742497268606,
+            "alight_rmse": 945.305435533156,
+            "raw_mae": 386.241870908384,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 470.85124923564774,
+            "board_mae": 460.0264602237278,
+            "alight_mae": 481.67603824756765,
+            "board_rmse": 1084.4447418490115,
+            "alight_rmse": 1091.0404338938988,
+            "raw_mae": 470.8512492356477,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 624.991044362386,
+            "board_mae": 685.89576043023,
+            "alight_mae": 564.0863282945421,
+            "board_rmse": 2255.807974193477,
+            "alight_rmse": 1365.2611616856375,
+            "raw_mae": 624.9910443623861,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 98.53338944226155,
+            "board_mae": 95.28524215759938,
+            "alight_mae": 101.78153672692372,
+            "board_rmse": 359.2304668701835,
+            "alight_rmse": 286.0754221367066,
+            "raw_mae": 98.53338944226155,
+            "negative_fraction": 0.0
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 488.7665377043591,
+            "board_mae": 559.9932981529128,
+            "alight_mae": 417.53977725580546,
+            "board_rmse": 1623.6734788473293,
+            "alight_rmse": 1109.8915095331965,
+            "raw_mae": 488.7665377043591,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 279.72786839803064,
+            "board_mae": 232.80091179741754,
+            "alight_mae": 326.6548249986437,
+            "board_rmse": 599.5389437877423,
+            "alight_rmse": 717.3012648348347,
+            "raw_mae": 279.7278683980306,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "93112cabba26866ef3cb9307840ec07fcbe3127d",
+        "git_dirty": false
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 236.48948669433594,
+      "last_validation_mae": 283.2038440447486,
+      "last50_best_improvement": 0.0
+    },
+    {
+      "variant": "rmsprop_lr003",
+      "seed": 907394,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/rmsprop_lr003_seed907394",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 907394,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 8,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0,
+        "optimizer": "rmsprop",
+        "rmsprop": {
+          "rho": 0.9,
+          "momentum": 0.0,
+          "epsilon": 1e-07,
+          "centered": false,
+          "weight_decay": null,
+          "learning_rate": 0.003
+        }
+      },
+      "config_sha256": "62a68f4b8dcd38868a6f63750bdbeadd1cf3c6be8933c0dd56ae8d327c57a819",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 716,
+        "stopped_epoch": 766,
+        "stop_reason": "early_stopping",
+        "optimizer": "rmsprop",
+        "lr_reductions": 0,
+        "best_learning_rate": 0.003000000026077032,
+        "total_optimizer_steps": 33704,
+        "validation_mae": 281.40060052379937,
+        "seconds": 953.9129639710009
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 281.40060052379937,
+          "board_mae": 307.5537578478556,
+          "alight_mae": 255.24744319974315,
+          "board_rmse": 1124.003166129504,
+          "alight_rmse": 797.99625591194,
+          "raw_mae": 281.40060052379937,
+          "negative_fraction": 0.0
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 82.25976862616864,
+            "board_mae": 77.96165933916646,
+            "alight_mae": 86.55787791317081,
+            "board_rmse": 191.33685436459206,
+            "alight_rmse": 180.70074496588643,
+            "raw_mae": 82.25976862616864,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 73.88817095756531,
+            "board_mae": 67.05389603357466,
+            "alight_mae": 80.72244588155596,
+            "board_rmse": 187.73595339982919,
+            "alight_rmse": 183.83115292825187,
+            "raw_mae": 73.88817095756531,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 287.50010915469096,
+            "board_mae": 315.17222611280323,
+            "alight_mae": 259.8279921965787,
+            "board_rmse": 1126.754652896894,
+            "alight_rmse": 787.6632609014921,
+            "raw_mae": 287.50010915469096,
+            "negative_fraction": 0.0
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 393.5973861058553,
+            "board_mae": 434.75713475545246,
+            "alight_mae": 352.43763745625813,
+            "board_rmse": 1345.6778850345283,
+            "alight_rmse": 996.9758835640904,
+            "raw_mae": 393.5973861058553,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 446.7772000288878,
+            "board_mae": 499.39866438561444,
+            "alight_mae": 394.15573567216114,
+            "board_rmse": 1517.4091457100662,
+            "alight_rmse": 1074.4721941958765,
+            "raw_mae": 446.77720002888776,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 391.4689637572677,
+            "board_mae": 435.94993312976976,
+            "alight_mae": 346.9879943847656,
+            "board_rmse": 1431.6635321033978,
+            "alight_rmse": 974.0145336014303,
+            "raw_mae": 391.4689637572677,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 476.8965638125384,
+            "board_mae": 473.1827682918972,
+            "alight_mae": 480.6103593331796,
+            "board_rmse": 1150.1342878278952,
+            "alight_rmse": 1087.3857012845713,
+            "raw_mae": 476.89656381253843,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 636.7859225802952,
+            "board_mae": 709.7924652099609,
+            "alight_mae": 563.7793799506294,
+            "board_rmse": 2202.387488387188,
+            "alight_rmse": 1306.8492847197701,
+            "raw_mae": 636.7859225802952,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 97.97554387265478,
+            "board_mae": 96.18859258618271,
+            "alight_mae": 99.76249515912686,
+            "board_rmse": 358.6543714259941,
+            "alight_rmse": 284.4232045757183,
+            "raw_mae": 97.97554387265478,
+            "negative_fraction": 0.0
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 484.91031695227343,
+            "board_mae": 547.7540830764336,
+            "alight_mae": 422.0665508281132,
+            "board_rmse": 1613.8444349583062,
+            "alight_rmse": 1121.573875316346,
+            "raw_mae": 484.9103169522734,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 304.6619991726345,
+            "board_mae": 255.6063198513455,
+            "alight_mae": 353.7176784939236,
+            "board_rmse": 717.1667936573972,
+            "alight_rmse": 809.0658507445677,
+            "raw_mae": 304.6619991726345,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "93112cabba26866ef3cb9307840ec07fcbe3127d",
+        "git_dirty": false
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 226.85731506347656,
+      "last_validation_mae": 282.57028096976495,
+      "last50_best_improvement": 0.0
+    },
+    {
+      "variant": "rmsprop_lr003",
+      "seed": 892611,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/rmsprop_lr003_seed892611",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 892611,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 8,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0,
+        "optimizer": "rmsprop",
+        "rmsprop": {
+          "rho": 0.9,
+          "momentum": 0.0,
+          "epsilon": 1e-07,
+          "centered": false,
+          "weight_decay": null,
+          "learning_rate": 0.003
+        }
+      },
+      "config_sha256": "c7b5b81eafb918adeec8eb67348b13d53bac0ac0fb4bee72f26d66db8496228e",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1340,
+        "stopped_epoch": 1390,
+        "stop_reason": "early_stopping",
+        "optimizer": "rmsprop",
+        "lr_reductions": 0,
+        "best_learning_rate": 0.003000000026077032,
+        "total_optimizer_steps": 61160,
+        "validation_mae": 275.9860640107817,
+        "seconds": 1693.395172695
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 275.9860640107817,
+          "board_mae": 302.56104179918583,
+          "alight_mae": 249.41108622237758,
+          "board_rmse": 1098.7952580391102,
+          "alight_rmse": 765.3242133679292,
+          "raw_mae": 275.9860640107817,
+          "negative_fraction": 0.0
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 81.41868970727407,
+            "board_mae": 76.15838612108675,
+            "alight_mae": 86.6789932934614,
+            "board_rmse": 191.53485972926129,
+            "alight_rmse": 182.1941501193952,
+            "raw_mae": 81.41868970727408,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 75.00587393367101,
+            "board_mae": 68.75455630014814,
+            "alight_mae": 81.2571915671939,
+            "board_rmse": 189.29819501707524,
+            "alight_rmse": 183.22136875949025,
+            "raw_mae": 75.00587393367101,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 291.4498527297837,
+            "board_mae": 313.138965234107,
+            "alight_mae": 269.7607402254604,
+            "board_rmse": 1114.8923976750496,
+            "alight_rmse": 782.8040960641032,
+            "raw_mae": 291.4498527297837,
+            "negative_fraction": 0.0
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 387.8536930154871,
+            "board_mae": 429.30377277798124,
+            "alight_mae": 346.403613252993,
+            "board_rmse": 1299.9283485475244,
+            "alight_rmse": 955.93376902787,
+            "raw_mae": 387.8536930154871,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 431.60059120492696,
+            "board_mae": 488.0793245718898,
+            "alight_mae": 375.1218578379641,
+            "board_rmse": 1489.8610446555545,
+            "alight_rmse": 1029.6317437820107,
+            "raw_mae": 431.60059120492696,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 375.9719727480853,
+            "board_mae": 425.35436173898205,
+            "alight_mae": 326.58958375718856,
+            "board_rmse": 1394.6650988357171,
+            "alight_rmse": 908.6915903986145,
+            "raw_mae": 375.9719727480853,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 480.82561475259286,
+            "board_mae": 483.61990660208244,
+            "alight_mae": 478.0313229031033,
+            "board_rmse": 1180.8499332003926,
+            "alight_rmse": 1099.288650760627,
+            "raw_mae": 480.82561475259286,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 678.0381942325168,
+            "board_mae": 712.6923493279351,
+            "alight_mae": 643.3840391370985,
+            "board_rmse": 2209.848829715883,
+            "alight_rmse": 1422.7849804722703,
+            "raw_mae": 678.0381942325168,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 98.9119306949147,
+            "board_mae": 97.05753473315323,
+            "alight_mae": 100.76632665667617,
+            "board_rmse": 359.20120314255246,
+            "alight_rmse": 285.0025229926202,
+            "raw_mae": 98.9119306949147,
+            "negative_fraction": 0.0
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 470.71670947251494,
+            "board_mae": 534.3349273958777,
+            "alight_mae": 407.09849154915224,
+            "board_rmse": 1571.4403634128723,
+            "alight_rmse": 1065.7850926889603,
+            "raw_mae": 470.716709472515,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 277.94894833034937,
+            "board_mae": 250.54664018419055,
+            "alight_mae": 305.35125647650824,
+            "board_rmse": 638.8307090145842,
+            "alight_rmse": 651.1936040576993,
+            "raw_mae": 277.94894833034937,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "2a25127b08c8177a1932d6766cf9d91001c442ce",
+        "git_dirty": false
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 224.61541748046875,
+      "last_validation_mae": 276.85678695915226,
+      "last50_best_improvement": 0.0
+    },
+    {
+      "variant": "rmsprop_lr001",
+      "seed": 42,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/rmsprop_lr001_seed42",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 42,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 8,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0,
+        "optimizer": "rmsprop",
+        "rmsprop": {
+          "rho": 0.9,
+          "momentum": 0.0,
+          "epsilon": 1e-07,
+          "centered": false,
+          "weight_decay": null,
+          "learning_rate": 0.001
+        }
+      },
+      "config_sha256": "0182446f2bd71ec759b04b4ab01992582463c7f4260b36418697fd02cd567c21",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 814,
+        "stopped_epoch": 864,
+        "stop_reason": "early_stopping",
+        "optimizer": "rmsprop",
+        "lr_reductions": 0,
+        "best_learning_rate": 0.0010000000474974513,
+        "total_optimizer_steps": 38016,
+        "validation_mae": 293.2138799218915,
+        "seconds": 998.6455052599995
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 293.2138799218915,
+          "board_mae": 312.6390340850718,
+          "alight_mae": 273.7887257587112,
+          "board_rmse": 1168.203807713752,
+          "alight_rmse": 853.7446429017004,
+          "raw_mae": 293.22727429493574,
+          "negative_fraction": 0.0003069367710251688
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 85.8001852958433,
+            "board_mae": 76.642884298892,
+            "alight_mae": 94.95748629279461,
+            "board_rmse": 191.30293917372666,
+            "alight_rmse": 183.7973886404966,
+            "raw_mae": 85.8001852958433,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 77.70543498463101,
+            "board_mae": 69.09190802347092,
+            "alight_mae": 86.31896194579109,
+            "board_rmse": 184.90532089728433,
+            "alight_rmse": 182.55149007859671,
+            "raw_mae": 77.70543498463101,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 303.08846013263985,
+            "board_mae": 322.2887951430454,
+            "alight_mae": 283.8881251222344,
+            "board_rmse": 1160.2185289556107,
+            "alight_rmse": 836.5368158199668,
+            "raw_mae": 303.16666598815647,
+            "negative_fraction": 0.0017921146953405018
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 404.7185311917906,
+            "board_mae": 448.7152494783755,
+            "alight_mae": 360.72181290520564,
+            "board_rmse": 1414.0262446892364,
+            "alight_rmse": 1054.125919289695,
+            "raw_mae": 404.71853119179053,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 471.2844963894096,
+            "board_mae": 509.09763680734943,
+            "alight_mae": 433.4713559714697,
+            "board_rmse": 1595.9220762502946,
+            "alight_rmse": 1170.6645043325107,
+            "raw_mae": 471.2844963894095,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 402.9678918061433,
+            "board_mae": 434.75751522205496,
+            "alight_mae": 371.17826839023166,
+            "board_rmse": 1463.437663791822,
+            "alight_rmse": 1039.7718959140425,
+            "raw_mae": 402.9678918061433,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 387.87279863710756,
+            "board_mae": 383.66583096539534,
+            "alight_mae": 392.0797663088198,
+            "board_rmse": 874.3958877665308,
+            "alight_rmse": 817.6184452766514,
+            "raw_mae": 387.87279863710756,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 664.7414921654595,
+            "board_mae": 676.5064074198405,
+            "alight_mae": 652.9765769110786,
+            "board_rmse": 2391.3728765951273,
+            "alight_rmse": 1598.360063862704,
+            "raw_mae": 664.7414921654595,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 102.9946317092717,
+            "board_mae": 97.90086157280102,
+            "alight_mae": 108.08840184574238,
+            "board_rmse": 359.2860266993206,
+            "alight_rmse": 286.580363741213,
+            "raw_mae": 103.02015151475605,
+            "negative_fraction": 0.0005847953216374269
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 511.35430478506277,
+            "board_mae": 563.9693096818407,
+            "alight_mae": 458.7392998882848,
+            "board_rmse": 1693.2238651559335,
+            "alight_rmse": 1220.4087981870657,
+            "raw_mae": 511.35430478506277,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 409.6081962585449,
+            "board_mae": 318.9757715861003,
+            "alight_mae": 500.24062093098956,
+            "board_rmse": 902.7116336763598,
+            "alight_rmse": 1177.4148675783279,
+            "raw_mae": 409.6081962585449,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "2a25127b08c8177a1932d6766cf9d91001c442ce",
+        "git_dirty": true
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 243.6980438232422,
+      "last_validation_mae": 295.10161278747194,
+      "last50_best_improvement": 0.0
+    },
+    {
+      "variant": "rmsprop_lr001",
+      "seed": 907394,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/rmsprop_lr001_seed907394",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 907394,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 8,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0,
+        "optimizer": "rmsprop",
+        "rmsprop": {
+          "rho": 0.9,
+          "momentum": 0.0,
+          "epsilon": 1e-07,
+          "centered": false,
+          "weight_decay": null,
+          "learning_rate": 0.001
+        }
+      },
+      "config_sha256": "bfe08c989271f1a74d056c7a01b4714a7fe3b6156caab8c51026c57b6e32f22d",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1016,
+        "stopped_epoch": 1066,
+        "stop_reason": "early_stopping",
+        "optimizer": "rmsprop",
+        "lr_reductions": 0,
+        "best_learning_rate": 0.0010000000474974513,
+        "total_optimizer_steps": 46904,
+        "validation_mae": 296.3472540768617,
+        "seconds": 1272.7198537409968
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 296.3472540768617,
+          "board_mae": 314.19936122434723,
+          "alight_mae": 278.4951469293762,
+          "board_rmse": 1171.556585143343,
+          "alight_rmse": 854.5042692322025,
+          "raw_mae": 296.3501882689946,
+          "negative_fraction": 0.0001534683855125844
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 87.73208820008036,
+            "board_mae": 78.5185251475235,
+            "alight_mae": 96.9456512526372,
+            "board_rmse": 194.47604425043488,
+            "alight_rmse": 187.25405148144608,
+            "raw_mae": 87.73208820008036,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 77.7733753295172,
+            "board_mae": 68.02464215717619,
+            "alight_mae": 87.52210850185818,
+            "board_rmse": 188.93531886294036,
+            "alight_rmse": 187.1179991051567,
+            "raw_mae": 77.77337532951718,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 307.3341784216597,
+            "board_mae": 325.28178478825475,
+            "alight_mae": 289.3865720550647,
+            "board_rmse": 1178.920154438079,
+            "alight_rmse": 856.8370903682787,
+            "raw_mae": 307.3513103176616,
+            "negative_fraction": 0.0008960573476702509
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 412.77182076772056,
+            "board_mae": 447.6299779821325,
+            "alight_mae": 377.91366355330854,
+            "board_rmse": 1416.7848448183101,
+            "alight_rmse": 1058.3139090725235,
+            "raw_mae": 412.77182076772056,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 469.50622169091287,
+            "board_mae": 509.1167789753193,
+            "alight_mae": 429.8956644065064,
+            "board_rmse": 1583.9461853632,
+            "alight_rmse": 1144.4134122792059,
+            "raw_mae": 469.5062216909128,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 409.20989059872096,
+            "board_mae": 441.20217684993037,
+            "alight_mae": 377.21760434751155,
+            "board_rmse": 1473.9900226438695,
+            "alight_rmse": 1050.9443976675318,
+            "raw_mae": 409.20989059872096,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 434.3515866244281,
+            "board_mae": 429.99954329596625,
+            "alight_mae": 438.7036299528899,
+            "board_rmse": 1014.0421129398894,
+            "alight_rmse": 952.9690937793125,
+            "raw_mae": 434.3515866244281,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 670.7400203280979,
+            "board_mae": 668.4579281277126,
+            "alight_mae": 673.022112528483,
+            "board_rmse": 2348.160005299676,
+            "alight_rmse": 1606.5089901656656,
+            "raw_mae": 670.7400203280979,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 101.90441621967227,
+            "board_mae": 97.32965680590847,
+            "alight_mae": 106.47917563343606,
+            "board_rmse": 359.75708205820735,
+            "alight_rmse": 286.07413819550277,
+            "raw_mae": 101.9100066278413,
+            "negative_fraction": 0.00029239766081871346
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 517.7293373247837,
+            "board_mae": 565.8528759282539,
+            "alight_mae": 469.6057987213135,
+            "board_rmse": 1694.7370652815703,
+            "alight_rmse": 1217.9368381458598,
+            "raw_mae": 517.7293373247837,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 298.19559563530817,
+            "board_mae": 238.787474738227,
+            "alight_mae": 357.60371653238934,
+            "board_rmse": 652.1123849435706,
+            "alight_rmse": 809.224262890541,
+            "raw_mae": 298.19559563530817,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "2a25127b08c8177a1932d6766cf9d91001c442ce",
+        "git_dirty": true
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 238.93214416503906,
+      "last_validation_mae": 301.6495989717319,
+      "last50_best_improvement": 0.0
+    },
+    {
+      "variant": "rmsprop_lr001",
+      "seed": 892611,
+      "reused": false,
+      "run": "outputs/learning-tuning-2026-11-10-retry1/rmsprop_lr001_seed892611",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 892611,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 8,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-10",
+          "reviewer": "사용자",
+          "evidence": "그럼 추천 순서대로 진행해줄래?"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0,
+        "optimizer": "rmsprop",
+        "rmsprop": {
+          "rho": 0.9,
+          "momentum": 0.0,
+          "epsilon": 1e-07,
+          "centered": false,
+          "weight_decay": null,
+          "learning_rate": 0.001
+        }
+      },
+      "config_sha256": "89226abf38bb268b1cbff3b0bbf698196e966f2ace1d814d5cc0285be8e67799",
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 749,
+        "stopped_epoch": 799,
+        "stop_reason": "early_stopping",
+        "optimizer": "rmsprop",
+        "lr_reductions": 0,
+        "best_learning_rate": 0.0010000000474974513,
+        "total_optimizer_steps": 35156,
+        "validation_mae": 303.76986632923763,
+        "seconds": 950.8388586140027
+      },
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 303.76986632923763,
+          "board_mae": 314.5481202996092,
+          "alight_mae": 292.99161235886606,
+          "board_rmse": 1176.2599646400104,
+          "alight_rmse": 878.7370486231918,
+          "raw_mae": 303.76986632923763,
+          "negative_fraction": 0.0
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 97.7656790962356,
+            "board_mae": 84.36006433903957,
+            "alight_mae": 111.17129385343162,
+            "board_rmse": 197.3104338242169,
+            "alight_rmse": 203.54516507082477,
+            "raw_mae": 97.7656790962356,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 82.77562982317002,
+            "board_mae": 70.58342096540663,
+            "alight_mae": 94.9678386809334,
+            "board_rmse": 188.464869491846,
+            "alight_rmse": 194.7942966767412,
+            "raw_mae": 82.77562982317001,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 310.8822848002116,
+            "board_mae": 322.66040665274454,
+            "alight_mae": 299.1041629476787,
+            "board_rmse": 1167.855062368932,
+            "alight_rmse": 869.3025003927804,
+            "raw_mae": 310.8822848002116,
+            "negative_fraction": 0.0
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 423.9586741094236,
+            "board_mae": 450.5507620988069,
+            "alight_mae": 397.3665861200403,
+            "board_rmse": 1428.9436947415181,
+            "alight_rmse": 1099.2295332355484,
+            "raw_mae": 423.9586741094236,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 477.1160360630268,
+            "board_mae": 505.63021860156863,
+            "alight_mae": 448.60185352448497,
+            "board_rmse": 1592.9622654351376,
+            "alight_rmse": 1167.1069138786515,
+            "raw_mae": 477.1160360630268,
+            "negative_fraction": 0.0
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 416.23946495056157,
+            "board_mae": 438.2726582279912,
+            "alight_mae": 394.2062716731319,
+            "board_rmse": 1483.5507967254125,
+            "alight_rmse": 1088.0533747818422,
+            "raw_mae": 416.2394649505615,
+            "negative_fraction": 0.0
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 391.9616133371989,
+            "board_mae": 397.4671683134856,
+            "alight_mae": 386.4560583609122,
+            "board_rmse": 943.8760353621363,
+            "alight_rmse": 844.599847598898,
+            "raw_mae": 391.9616133371989,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 741.4147902594673,
+            "board_mae": 767.8844214545356,
+            "alight_mae": 714.9451590643989,
+            "board_rmse": 2405.4308923528124,
+            "alight_rmse": 1570.44508545186,
+            "raw_mae": 741.4147902594673,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 106.99104294470179,
+            "board_mae": 100.11747968573319,
+            "alight_mae": 113.86460620367039,
+            "board_rmse": 360.3305655195617,
+            "alight_rmse": 290.7361762102248,
+            "raw_mae": 106.99104294470179,
+            "negative_fraction": 0.0
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 530.318509922408,
+            "board_mae": 563.8058304039502,
+            "alight_mae": 496.8311894408658,
+            "board_rmse": 1703.2909981576443,
+            "alight_rmse": 1261.249345704176,
+            "raw_mae": 530.318509922408,
+            "negative_fraction": 0.0
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 360.1684816148546,
+            "board_mae": 292.50700124104816,
+            "alight_mae": 427.829961988661,
+            "board_rmse": 818.2848735761381,
+            "alight_rmse": 953.605682109615,
+            "raw_mae": 360.1684816148546,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "devices": [
+          {
+            "name": "/physical_device:CPU:0",
+            "type": "CPU"
+          },
+          {
+            "name": "/physical_device:GPU:0",
+            "type": "GPU"
+          }
+        ],
+        "packages": {
+          "tensorflow": "2.21.0",
+          "keras": "3.15.1",
+          "scikit-learn": "1.7.2",
+          "pandas": "2.3.3",
+          "numpy": "2.5.4"
+        },
+        "git_commit": "2a25127b08c8177a1932d6766cf9d91001c442ce",
+        "git_dirty": true
+      },
+      "reload_verified": true,
+      "lr_events": [],
+      "last_train_mae": 255.92764282226562,
+      "last_validation_mae": 309.4940858469776,
+      "last50_best_improvement": 0.0
+    }
+  ],
+  "stages": [
+    {
+      "stage": "1_schedule",
+      "candidates": [
+        "baseline",
+        "plateau"
+      ],
+      "summary": {
+        "baseline": {
+          "mean_mae": 273.85023334010725,
+          "sample_std": 1.75680930028446
+        },
+        "plateau": {
+          "mean_mae": 277.82057623339256,
+          "sample_std": 1.7045599459317609
+        }
+      },
+      "winner": "baseline"
+    },
+    {
+      "stage": "2_batch",
+      "candidates": [
+        "baseline",
+        "batch8",
+        "batch32"
+      ],
+      "summary": {
+        "baseline": {
+          "mean_mae": 273.85023334010725,
+          "sample_std": 1.75680930028446
+        },
+        "batch8": {
+          "mean_mae": 270.45657526436867,
+          "sample_std": 1.2112419386030504
+        },
+        "batch32": {
+          "mean_mae": 275.9681610701907,
+          "sample_std": 2.0750267630053685
+        }
+      },
+      "winner": "batch8"
+    },
+    {
+      "stage": "3_optimizer",
+      "candidates": [
+        "batch8",
+        "adam_lr001",
+        "rmsprop_lr003",
+        "rmsprop_lr001"
+      ],
+      "summary": {
+        "batch8": {
+          "mean_mae": 270.45657526436867,
+          "sample_std": 1.2112419386030504
+        },
+        "adam_lr001": {
+          "mean_mae": 287.9678801691115,
+          "sample_std": 9.879198998205743
+        },
+        "rmsprop_lr003": {
+          "mean_mae": 280.1128446167373,
+          "sample_std": 3.6570954791193975
+        },
+        "rmsprop_lr001": {
+          "mean_mae": 297.7770001093303,
+          "sample_std": 5.421286060155736
+        }
+      },
+      "winner": "batch8"
+    }
+  ],
+  "final_test_evaluated": false,
+  "baseline_prefix_audit": {
+    "epochs": 5,
+    "passed": true,
+    "run": "outputs/learning-tuning-2026-11-10-retry1/baseline_prefix_audit",
+    "not_used_for_selection": true
+  },
+  "winner": "batch8",
+  "finished_utc": "2026-11-10T11:32:52.788370+00:00"
+}
