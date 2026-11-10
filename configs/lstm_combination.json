@@ -1,0 +1,13 @@
+{
+  "experiment": "EXP-012",
+  "approval": {"date":"2026-11-10","reviewer":"사용자","evidence":"LSTM 3층+배치8만 우선 진행 제안에 동의 후 지금 시작, 완료 후 비교·기록·커밋 요청"},
+  "seeds": [42, 907394, 892611],
+  "baseline_results": "reports/metrics/learning_tuning.json",
+  "depth_results": "reports/metrics/capacity_round2.json",
+  "layers": 3,
+  "batch_size": 8,
+  "loss": "mean_absolute_error",
+  "final_test_evaluated": false,
+  "new_supplement_used": false,
+  "deferred": ["MSE", "Huber", "new_event_inputs"]
+}
