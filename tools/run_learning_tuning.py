@@ -37,6 +37,7 @@ def main():
     sources=dict(joined_sha256=sha256(args.source),kbo_sha256=sha256(args.kbo_source),
                  holidays_sha256=sha256(ROOT/'data/reference/holidays_2024_2025.json'))
     state=dict(status='preflight',started_utc=datetime.now(timezone.utc).isoformat(),manifest=manifest,
+        output=str(out.relative_to(ROOT)),
         manifest_sha256=sha256(manifest_path),sources=sources,
         code_sha256={str(p.relative_to(ROOT)):sha256(p) for p in (ROOT/'src').glob('*.py')},
         runner_sha256=sha256(Path(__file__)),results=[],stages=[],final_test_evaluated=False)

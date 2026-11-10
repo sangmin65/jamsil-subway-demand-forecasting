@@ -1,0 +1,27 @@
+{
+  "experiment": "EXP-011",
+  "interrupted_output": "outputs/learning-tuning-2026-11-10",
+  "trial": "plateau_seed42",
+  "completed_epochs": 804,
+  "partial_used_for_selection": false,
+  "process_exit": 1,
+  "observation": "Training stopped at epoch805 start; WSL returned Wsl/CallMsi/Install/ERROR_NOT_FOUND; no Python training exception",
+  "windows_installer": {
+    "product": "Windows Subsystem for Linux",
+    "version": "3.0.5.0",
+    "start_kst": "2026-11-10T13:31:04+09:00",
+    "completed_kst": "2026-11-10T13:32:08+09:00",
+    "status": 0,
+    "event_ids": [
+      1040,
+      1033,
+      11707,
+      1042
+    ]
+  },
+  "cause_assessment": "WSL installation coincides with external process termination; WSL works after installation",
+  "recovered_kernel": "6.18.58.1-microsoft-standard-WSL2",
+  "action": "Preserve interrupted folder, rerun audit and every new trial from initialization",
+  "restart_output": "outputs/learning-tuning-2026-11-10-retry1",
+  "final_test_evaluated": false
+}

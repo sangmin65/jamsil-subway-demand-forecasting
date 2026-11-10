@@ -239,7 +239,10 @@ DEC-033과 `configs/learning_tuning.json`에 따라 LSTM 1층의 학습률 스�
 
 ```powershell
 ./tools/run_wsl_python.ps1 -m unittest discover -s tests -v
-./tools/run_wsl_python.ps1 tools/run_learning_tuning.py --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv' --kbo-source '../인공지능공학 과제용/KBO원천데이터_정리.csv' --output outputs/learning-tuning-2026-11-10
+./tools/run_wsl_python.ps1 tools/run_learning_tuning.py --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv' --kbo-source '../인공지능공학 과제용/KBO원천데이터_정리.csv' --output outputs/learning-tuning-2026-11-10-retry1
+./outputs/report-env/Scripts/python.exe tools/summarize_learning_tuning.py
 ```
 
 기존 기준의 첫5에포크 재현 감사와 RMSprop 순전파 확인 후 실행합니다. 신규18회·기준3개 재사용으로 총21개 고유 결과이며, 모든 모델 복원 확인 뒤 `reports/metrics/learning_tuning.json`을 생성합니다. 상태/단계별 선택/실패는 출력의 status.json, 학습률 사용값·다음값·갱신수는 각 learning_curve.json에 기록됩니다. 모델을 이어 학습하지 않으며 매 조건을 새로 초기화합니다. 감사5회는 설정 선택에 사용하지 않습니다. 자동 커밋·최종 평가·새 데이터 결합은 하지 않습니다.
+
+최초 `outputs/learning-tuning-2026-11-10` 실행은 Windows의 WSL3.0.5 업데이트 설치 시점에804회에서 중단됐습니다. 중단 상태와 부분 모델을 보존하고 retry1에서 처음부터 시작합니다. 설치 완료 후 WSL 실행을 확인했으며 수동 재설치나 데이터 삭제는 하지 않았습니다. 상세는 `reports/metrics/learning_tuning_interruption.json`에 기록했습니다. 위 명령을 재실행할 때는 이미 존재하는 출력 폴더를 덮어쓰지 않도록 새로운 이름을 지정하세요.
