@@ -1,0 +1,112 @@
+{
+  "captured_at": "2026-11-10 18:58 KST",
+  "status": "running",
+  "current": "rmsprop_lr003_seed907394",
+  "completed": 16,
+  "total_unique": 21,
+  "new_total": 18,
+  "stages": [
+    {
+      "stage": "1_schedule",
+      "candidates": [
+        "baseline",
+        "plateau"
+      ],
+      "summary": {
+        "baseline": {
+          "mean_mae": 273.85023334010725,
+          "sample_std": 1.75680930028446
+        },
+        "plateau": {
+          "mean_mae": 277.82057623339256,
+          "sample_std": 1.7045599459317609
+        }
+      },
+      "winner": "baseline"
+    },
+    {
+      "stage": "2_batch",
+      "candidates": [
+        "baseline",
+        "batch8",
+        "batch32"
+      ],
+      "summary": {
+        "baseline": {
+          "mean_mae": 273.85023334010725,
+          "sample_std": 1.75680930028446
+        },
+        "batch8": {
+          "mean_mae": 270.45657526436867,
+          "sample_std": 1.2112419386030504
+        },
+        "batch32": {
+          "mean_mae": 275.9681610701907,
+          "sample_std": 2.0750267630053685
+        }
+      },
+      "winner": "batch8"
+    }
+  ],
+  "completed_conditions": {
+    "baseline": {
+      "completed_seeds": 3,
+      "mean_mae": 273.85023334010725,
+      "seeds": [
+        42,
+        907394,
+        892611
+      ],
+      "complete": true
+    },
+    "plateau": {
+      "completed_seeds": 3,
+      "mean_mae": 277.82057623339256,
+      "seeds": [
+        42,
+        907394,
+        892611
+      ],
+      "complete": true
+    },
+    "batch8": {
+      "completed_seeds": 3,
+      "mean_mae": 270.45657526436867,
+      "seeds": [
+        42,
+        907394,
+        892611
+      ],
+      "complete": true
+    },
+    "batch32": {
+      "completed_seeds": 3,
+      "mean_mae": 275.9681610701907,
+      "seeds": [
+        42,
+        907394,
+        892611
+      ],
+      "complete": true
+    },
+    "adam_lr001": {
+      "completed_seeds": 3,
+      "mean_mae": 287.9678801691115,
+      "seeds": [
+        42,
+        907394,
+        892611
+      ],
+      "complete": true
+    },
+    "rmsprop_lr003": {
+      "completed_seeds": 1,
+      "mean_mae": 282.9518693156307,
+      "seeds": [
+        42
+      ],
+      "complete": false
+    }
+  },
+  "final_test_evaluated": false
+}
