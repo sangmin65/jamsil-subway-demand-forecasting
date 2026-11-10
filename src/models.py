@@ -69,5 +69,12 @@ def build_neural(name, window, context_size, config):
         x = keras.layers.Dropout(rate, seed=config["seed"], name="head_dropout")(x)
     output = keras.layers.Dense(36, activation="linear", kernel_initializer="glorot_uniform", bias_initializer="zeros")(x)
     model = keras.Model(model_input, output, name=name)
-    model.compile(optimizer=keras.optimizers.Adam(**config["adam"]), loss="mean_absolute_error", jit_compile=False)
+    optimizer_name = config.get("optimizer", "adam")
+    if optimizer_name == "adam":
+        optimizer = keras.optimizers.Adam(**config["adam"])
+    elif optimizer_name == "rmsprop":
+        optimizer = keras.optimizers.RMSprop(**config["rmsprop"])
+    else:
+        raise ValueError(f"Unsupported optimizer: {optimizer_name}")
+    model.compile(optimizer=optimizer, loss="mean_absolute_error", jit_compile=False)
     return model

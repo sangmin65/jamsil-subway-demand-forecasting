@@ -62,6 +62,15 @@ def train_neural(model, train, validation, name, config, out):
     x_train, x_val = inputs(train, name), inputs(validation, name)
     settings = config["training"]
     tracker = StopTracker(settings["patience"], settings["min_delta"])
+    schedule = config.get("lr_plateau")
+    reducer = None
+    if schedule is not None:
+        if not (0 < schedule["patience"] < settings["patience"] and
+                0 < schedule["factor"] < 1 and schedule["min_lr"] > 0 and schedule["min_delta"] >= 0):
+            raise ValueError("Invalid plateau schedule or patience must be below early stopping patience")
+        reducer = keras.callbacks.ReduceLROnPlateau(monitor="val_clipped_mae", mode="min", **schedule)
+        reducer.set_model(model)
+        reducer.on_train_begin()
 
     class RecordValidation(keras.callbacks.Callback):
         def __init__(self):
@@ -78,7 +87,14 @@ def train_neural(model, train, validation, name, config, out):
             improved, stop = tracker.observe(scored["mae"], epoch + 1)
             if improved:
                 self.model.save_weights(out / "best.weights.h5")
-            self.rows.append({"epoch": epoch+1, "train_mae": float(logs["loss"]), **scored})
+            rate = float(self.model.optimizer.learning_rate.numpy())
+            if reducer is not None:
+                reducer.on_epoch_end(epoch, {"val_clipped_mae": scored["mae"]})
+            next_rate = float(self.model.optimizer.learning_rate.numpy())
+            self.rows.append({"epoch": epoch+1, "train_mae": float(logs["loss"]), **scored,
+                              "learning_rate": rate, "next_learning_rate": next_rate,
+                              "lr_reduced": next_rate < rate,
+                              "optimizer_steps": int(self.model.optimizer.iterations.numpy())})
             save_json(out / "learning_curve.json", self.rows)
             if stop:
                 self.reason = "early_stopping"
@@ -91,7 +107,11 @@ def train_neural(model, train, validation, name, config, out):
     model.save(out / "model.keras")
     return predict_neural(model, x_val, settings["batch_size"]), {
         "best_epoch": tracker.best_epoch, "stopped_epoch": len(callback.rows), "stop_reason": callback.reason,
-        "parameters": model.count_params()}
+        "parameters": model.count_params(),
+        "optimizer": config.get("optimizer", "adam"),
+        "lr_reductions": sum(row["lr_reduced"] for row in callback.rows),
+        "best_learning_rate": callback.rows[tracker.best_epoch-1]["learning_rate"],
+        "total_optimizer_steps": callback.rows[-1]["optimizer_steps"]}
 
 
 def main():

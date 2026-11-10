@@ -232,3 +232,14 @@ DEC-032와 `configs/capacity_round2.json`에 따라 기존 기준/더 넓은 구
 ```
 
 사전 순전파 검사6개 및 이전 중간 확장 모델 복원6개 후 MLP→CNN→LSTM 순서로 진행합니다. 기준5개 재사용·신규22회 학습, 비교27개 모두 복원 검증한 뒤 `reports/metrics/capacity_round2.json`을 생성합니다. 출력 status.json·조건별 로그·모델·예측·학습곡선을 보존하며 실패하면 중단합니다. 요약기는 완료 상태만 받아 EXP-010 보고서·요약 JSON·그림을 생성합니다. 보고서용 matplotlib 환경은 EXP-009 절을 참고하세요. 자동 커밋·최종 평가·다른 튜닝 실행은 하지 않습니다.
+
+## 학습 방법 순차 비교 (EXP-011)
+
+DEC-033과 `configs/learning_tuning.json`에 따라 LSTM 1층의 학습률 스케줄→배치→옵티마이저를 비교합니다. 앞 단계의 세 시드 평균 최선 조건을 다음 단계로 전달합니다. 기존 EXP-006·008·010의 기준 모델/공유 결과가 필요하며, 출력은 새 디렉터리여야 합니다.
+
+```powershell
+./tools/run_wsl_python.ps1 -m unittest discover -s tests -v
+./tools/run_wsl_python.ps1 tools/run_learning_tuning.py --source '../인공지능공학 과제용/종합운동장역_2024-2025_모델입력_경기결합.csv' --kbo-source '../인공지능공학 과제용/KBO원천데이터_정리.csv' --output outputs/learning-tuning-2026-11-10
+```
+
+기존 기준의 첫5에포크 재현 감사와 RMSprop 순전파 확인 후 실행합니다. 신규18회·기준3개 재사용으로 총21개 고유 결과이며, 모든 모델 복원 확인 뒤 `reports/metrics/learning_tuning.json`을 생성합니다. 상태/단계별 선택/실패는 출력의 status.json, 학습률 사용값·다음값·갱신수는 각 learning_curve.json에 기록됩니다. 모델을 이어 학습하지 않으며 매 조건을 새로 초기화합니다. 감사5회는 설정 선택에 사용하지 않습니다. 자동 커밋·최종 평가·새 데이터 결합은 하지 않습니다.
