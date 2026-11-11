@@ -61,7 +61,7 @@ def main():
     def checkpoint():save(out/'status.json',state)
     checkpoint()
     try:
-        verify(rf_run,a.source,out/'rf_verify.log')
+        command([sys.executable,'tools/summarize_first_run.py','--run',str(rf_run),'--source',a.source,'--verify-partial','--model','rf','--window','3'],out/'rf_verify.log')
         for rate in [0.,.1,.2]:
             state['current']=f'dropout{rate}';checkpoint()
             cfg=copy.deepcopy(bc);run=base

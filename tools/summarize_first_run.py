@@ -18,7 +18,11 @@ def main():
     p.add_argument("--run", type=Path, required=True)
     p.add_argument("--source", type=Path, required=True)
     p.add_argument("--verify-partial", action="store_true", help="Verify completed conditions only; do not publish final reports")
+    p.add_argument("--model", choices=["rf", "mlp", "lstm", "cnn"])
+    p.add_argument("--window", type=int)
     args = p.parse_args()
+    if (args.model is not None or args.window is not None) and not args.verify_partial:
+        p.error("Condition filters require --verify-partial")
     report = read_json(args.run / "report.json")
     if not args.verify_partial:
         assert len(report["conditions"]) == 9 and report["final_test_evaluated"] is False
@@ -30,6 +34,10 @@ def main():
     rows = []
     for condition in report["conditions"]:
         model, window = condition["model"], condition["window"]
+        if args.model is not None and model != args.model:
+            continue
+        if args.window is not None and window != args.window:
+            continue
         out = args.run / f"{model}_{window}d"
         with np.load(out / "validation_predictions.npz") as saved:
             truth, pred, raw, dates = [saved[k] for k in ("truth", "prediction", "raw", "dates")]
@@ -67,6 +75,7 @@ def main():
         rows.append(row)
         print(f"Verified {model} {window}d MAE={scored['mae']:.3f}", flush=True)
     if args.verify_partial:
+        assert rows, "No matching conditions were verified"
         print(f"Verified {len(rows)} completed conditions; final report not generated")
         return
     rows.sort(key=lambda r: r["mae"])
