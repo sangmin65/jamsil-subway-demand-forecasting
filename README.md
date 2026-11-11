@@ -4,6 +4,8 @@
 
 ## 목표와 상태
 
+- 2026-11-11 [후속 신뢰성·조건별 검증](reports/experiments/ANALYSIS-007_robustness.md) 및 [EXP-016 시간순 검증](reports/experiments/EXP-016_temporal-validation.md) 완료: 상반기 결합 개선5.32명의 7일 블록95% 구간은 -5.29~14.89명으로0포함. 2024년3구간184일 결합264.75/RF270.69명이나 결합 우위는1/3구간. 누수·정렬 검사9개 및 모델복원 통과. 하반기결과·최종구성 보존, 기간별 우위를 일반화하지 않음.
+
 - 2026-11-11 상반기 후속 탐색: [오차유형·결합사례·예측비용](reports/experiments/ANALYSIS-006_cases-cost.md) 정리, [EXP-015 시간대별RF](reports/experiments/EXP-015_hourly-rf.md) MAE304.78로 기존RF255.87보다 악화해 보류 권고. 하반기평가·최종구성 변경 없음.
 
 - **2026-11-11 [하반기 최종 평가 완료](reports/experiments/FINAL-001_frozen-evaluation.md):** 평가 전에 고정한 시드42 RF·LSTM50:50 MAE **241.04명**, RF단독 **246.98명** 대비2.41% 개선. 제외6일을 뺀178일 평가, 재학습 없음. 승하차MAE·각 월MAE는 개선했지만 고수요·피크 및RMSE는 RF보다 악화. 아래 미실행 표시는 해당 실험 당시 상태이며 현재 기준은 FINAL-001이다.
