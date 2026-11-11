@@ -7,7 +7,7 @@ from src.experiment import ROOT
 class DropoutTests(unittest.TestCase):
     def test_same_initial_weights_and_inference_but_stochastic_training(self):
         from tensorflow import keras
-        for name,window,file in [('mlp',3,'epoch1000_mlp3.json'),('cnn',7,'cnn_daily.json')]:
+        for name,window,file in [('mlp',3,'epoch1000_mlp3.json'),('cnn',7,'cnn_daily.json'),('lstm',14,'initial.json')]:
             cfg=read_json(ROOT/'configs'/file)
             base=build_neural(name,window,51,cfg)
             weights=[v.numpy().copy() for v in base.trainable_weights]
