@@ -1,0 +1,94 @@
+{
+  "new_training": false,
+  "final_test_evaluated": false,
+  "mode": "training=False; clipped MAE for both sets; best validation checkpoints",
+  "rows": [
+    {
+      "dropout": 0.0,
+      "best_epoch": 1710,
+      "metrics": {
+        "train": {
+          "days": 352,
+          "hourly_records": 6336,
+          "mae": 215.46442409988606,
+          "board_mae": 242.50941019287012,
+          "alight_mae": 188.41943800690197,
+          "board_rmse": 961.5875696789809,
+          "alight_rmse": 637.4501808066185,
+          "raw_mae": 215.52466995060217,
+          "negative_fraction": 0.0007102272727272727
+        },
+        "validation": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 269.26424472371514,
+          "board_mae": 299.14773665212135,
+          "alight_mae": 239.38075279530898,
+          "board_rmse": 1078.3957999290728,
+          "alight_rmse": 720.0618706492317,
+          "raw_mae": 269.29332625902526,
+          "negative_fraction": 0.0006138735420503376
+        }
+      },
+      "model_sha256": "1c9e76e9f6feab4e2d67df34c4f7a05d7373c28d020b618551dce744a6e9ad92"
+    },
+    {
+      "dropout": 0.1,
+      "best_epoch": 1148,
+      "metrics": {
+        "train": {
+          "days": 352,
+          "hourly_records": 6336,
+          "mae": 233.9355002465573,
+          "board_mae": 260.23789465758534,
+          "alight_mae": 207.63310583552928,
+          "board_rmse": 1012.0790664794553,
+          "alight_rmse": 695.2344786103307,
+          "raw_mae": 233.93550024655732,
+          "negative_fraction": 0.0
+        },
+        "validation": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 280.0928676176686,
+          "board_mae": 307.58884675112,
+          "alight_mae": 252.59688848421717,
+          "board_rmse": 1116.0884268396244,
+          "alight_rmse": 787.3044232619332,
+          "raw_mae": 280.09286761766856,
+          "negative_fraction": 0.0
+        }
+      },
+      "model_sha256": "d75b8a123ea402c265c8e2b0b4ede0b254516b231c1edd28536130e54119a5bf"
+    },
+    {
+      "dropout": 0.2,
+      "best_epoch": 1148,
+      "metrics": {
+        "train": {
+          "days": 352,
+          "hourly_records": 6336,
+          "mae": 238.8257925525458,
+          "board_mae": 264.2251829504967,
+          "alight_mae": 213.42640215459497,
+          "board_rmse": 1023.1908369248148,
+          "alight_rmse": 706.2809721196438,
+          "raw_mae": 238.8257925525458,
+          "negative_fraction": 0.0
+        },
+        "validation": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 283.3425094383198,
+          "board_mae": 309.3193340746445,
+          "alight_mae": 257.3656848019951,
+          "board_rmse": 1125.4304402443736,
+          "alight_rmse": 803.4706985750165,
+          "raw_mae": 283.3425094383198,
+          "negative_fraction": 0.0
+        }
+      },
+      "model_sha256": "5f158a6d7d5267ba9a9a8b5b1f5f0945c8e645107b511325a9b2914d4a09514a"
+    }
+  ]
+}

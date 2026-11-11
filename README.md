@@ -4,6 +4,8 @@
 
 ## 목표와 상태
 
+- 2026-11-11 [Dropout 전후 곡선 진단](reports/experiments/ANALYSIS-004_dropout-curves.md): Dropout0은 후반 검증 정체로 강한 지속 악화 증거는 약함. 동일조건 최선 모델 재추론에서 Dropout은 학습/검증 격차를 줄였으나 두 오차 모두 악화. 과적합 부재를 확정하지 않고 기존0·최선가중치 복원 유지 권고.
+
 - 2026-11-11 [50:50 동일3시드 비교](reports/experiments/ANALYSIS-003_ensemble-seeds.md) 완료: 평균MAE250.60±0.55, 같은3시드 RF255.73±0.89 대비2.01% 개선(3/3). 고수요·피크 및4~6월은 RF보다 악화. 기존 예측 재사용, 최종 평가 미실행.
 
 - 2026-11-11 [RF·LSTM 50:50 예측 평균](reports/experiments/ANALYSIS-002_ensemble.md): 시드42 전체MAE250.55로 RF255.87 대비2.08% 개선. 고수요·피크 및4~6월은 RF보다 악화해 장단점 병기. 동일3시드 확인을 후속 추천하며 아직 미실행.
