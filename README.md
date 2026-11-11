@@ -4,6 +4,8 @@
 
 ## 목표와 상태
 
+- 2026-11-11 [RF·LSTM 50:50 예측 평균](reports/experiments/ANALYSIS-002_ensemble.md): 시드42 전체MAE250.55로 RF255.87 대비2.08% 개선. 고수요·피크 및4~6월은 RF보다 악화해 장단점 병기. 동일3시드 확인을 후속 추천하며 아직 미실행.
+
 - 2026-11-11 [피크·고수요 분석](reports/experiments/ANALYSIS-001_peak-demand.md) 완료: 시드42 RF·기존 LSTM·배치8 비교. 고수요 오차가 집중되고 최신 LSTM도 피크 과소예측이 남아 손실 함수 비교를 후속으로 추천했습니다. 새 학습·결합·최종 평가는 미실행입니다.
 - 2026-11-11 [EXP-012](reports/experiments/EXP-012_lstm-combination.md) 완료: LSTM3층·배치8 평균 MAE271.78로 기존1층·배치8의270.46보다 악화(개선0/3시드).
 
