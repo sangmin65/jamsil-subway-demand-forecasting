@@ -1,0 +1,51 @@
+{
+  "evaluation": "FINAL-001",
+  "approval": {
+    "date": "2026-11-11",
+    "evidence": "기존 시드42 RF·LSTM50:50 구성 확정, RF 단독과 하반기 최종 평가·기록·커밋 요청"
+  },
+  "seed": 42,
+  "weights": {
+    "RF": 0.5,
+    "LSTM": 0.5
+  },
+  "test_start": "2025-07-01",
+  "test_end": "2025-12-31",
+  "expected_days": 178,
+  "excluded_dates": [
+    "2025-09-25",
+    "2025-09-26",
+    "2025-09-27",
+    "2025-09-28",
+    "2025-09-30",
+    "2025-10-01"
+  ],
+  "refit": false,
+  "negative_policy": "clip each model before averaging, no rounding",
+  "high_demand_thresholds_from_validation": {
+    "board": 1049.3,
+    "alight": 1425.6
+  },
+  "models": {
+    "RF": {
+      "run": "outputs/first-run-2026-11-03",
+      "subdirectory": "rf_3d",
+      "artifact": "model.joblib",
+      "sha256": {
+        "outputs/first-run-2026-11-03/rf_3d/model.joblib": "e4fd36551cd64783f5c23a8615fc51c4d945d7da28dfec6a85d5ca99d6ec1683",
+        "outputs/first-run-2026-11-03/config.json": "26c783a29be835d25789ca69c76add65fb4b0ae034acbf725194dab9f2edae8d",
+        "outputs/first-run-2026-11-03/preprocessor.json": "5e8d9d185a753030004b0f7df0c580d8c831e86d60a461ecab91254a28c54175"
+      }
+    },
+    "LSTM": {
+      "run": "outputs/loss-comparison-2026-11-11/mae",
+      "subdirectory": "lstm_14d",
+      "artifact": "model.keras",
+      "sha256": {
+        "outputs/loss-comparison-2026-11-11/mae/lstm_14d/model.keras": "1c9e76e9f6feab4e2d67df34c4f7a05d7373c28d020b618551dce744a6e9ad92",
+        "outputs/loss-comparison-2026-11-11/mae/config.json": "f11007f9caabc0d8819975f2318a257f11826efabcd7f9816381cda839ec96cd",
+        "outputs/loss-comparison-2026-11-11/mae/preprocessor.json": "56fcf0e1852157e7df1f661c8f622a749c00348a3f4c5748554c2ca462d90f99"
+      }
+    }
+  }
+}
