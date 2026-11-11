@@ -76,5 +76,19 @@ def build_neural(name, window, context_size, config):
         optimizer = keras.optimizers.RMSprop(**config["rmsprop"])
     else:
         raise ValueError(f"Unsupported optimizer: {optimizer_name}")
-    model.compile(optimizer=optimizer, loss="mean_absolute_error", jit_compile=False)
+    loss_name = config.get("loss", "mean_absolute_error")
+    if loss_name == "huber":
+        import math
+        delta = float(config["huber_delta"])
+        if not math.isfinite(delta) or delta <= 0:
+            raise ValueError("Huber delta must be finite and positive")
+        from .losses import ConfiguredHuber
+        loss = ConfiguredHuber(delta=delta)
+    elif loss_name in ("mean_absolute_error", "mean_squared_error"):
+        loss = loss_name
+    else:
+        raise ValueError(f"Unsupported loss: {loss_name}")
+    # Preserve the historical MAE path; non-MAE losses require an independent MAE metric.
+    metrics = [] if loss_name == "mean_absolute_error" else [keras.metrics.MeanAbsoluteError(name="train_mae")]
+    model.compile(optimizer=optimizer, loss=loss, metrics=metrics, jit_compile=False)
     return model

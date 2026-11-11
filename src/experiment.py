@@ -91,7 +91,8 @@ def train_neural(model, train, validation, name, config, out):
             if reducer is not None:
                 reducer.on_epoch_end(epoch, {"val_clipped_mae": scored["mae"]})
             next_rate = float(self.model.optimizer.learning_rate.numpy())
-            self.rows.append({"epoch": epoch+1, "train_mae": float(logs["loss"]), **scored,
+            train_mae = logs["loss"] if config.get("loss", "mean_absolute_error") == "mean_absolute_error" else logs["train_mae"]
+            self.rows.append({"epoch": epoch+1, "train_loss": float(logs["loss"]), "train_mae": float(train_mae), **scored,
                               "learning_rate": rate, "next_learning_rate": next_rate,
                               "lr_reduced": next_rate < rate,
                               "optimizer_steps": int(self.model.optimizer.iterations.numpy())})
@@ -109,6 +110,8 @@ def train_neural(model, train, validation, name, config, out):
         "best_epoch": tracker.best_epoch, "stopped_epoch": len(callback.rows), "stop_reason": callback.reason,
         "parameters": model.count_params(),
         "optimizer": config.get("optimizer", "adam"),
+        "loss": config.get("loss", "mean_absolute_error"),
+        "huber_delta": config.get("huber_delta"),
         "lr_reductions": sum(row["lr_reduced"] for row in callback.rows),
         "best_learning_rate": callback.rows[tracker.best_epoch-1]["learning_rate"],
         "total_optimizer_steps": callback.rows[-1]["optimizer_steps"]}
