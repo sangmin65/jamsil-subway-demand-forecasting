@@ -1,0 +1,951 @@
+{
+  "status": "completed",
+  "started_utc": "2026-11-11T01:08:40.437560+00:00",
+  "sources": {
+    "joined_sha256": "97ff11187e84af09e6ca6e58ad38c4f58b1311a93424f99264960cee6577ad51",
+    "kbo_sha256": "38cdb2d11d2af6eddcf31995c2f12f10efe0baec03a9e871b800a12a7df81660",
+    "holidays_sha256": "2c2d01262a756f172096579ec5057d9765e0cd5415bd2a7e1dc8920a0dd86c14"
+  },
+  "code_sha256": {
+    "src/audit_crawl_archive.py": "d8ad49396d2164f4245feb9f8d762394d56eb07f5f0dd49e8ec6162bb3fbf7ec",
+    "src/baselines.py": "a9215fb60097149495d70b9a5f138866e465b4c4fdd04f12d2238da9ade4f35e",
+    "src/dataset.py": "b407a3a7b9400a0e0a253f5f79f91abe6a1d93bb8003b74b0d474fb613d719c4",
+    "src/evaluation.py": "d8ed97aaf94ea93114e87453964e5ec22cf6da3e0808548940bd5b171e246034",
+    "src/experiment.py": "b24b069ec3ae80305c97aca8e50f2d71f2ca6d4008846d4392b493f3769615ca",
+    "src/extract_source_urls.py": "12de99de91098c7d6b82bf4c4f55e5dbfa964bd29e232df0af56d04715cdf093",
+    "src/losses.py": "b7201ca25604bb11510aec62ebc5f3f05bdd705cf8e97e7e49da68c35c97ed52",
+    "src/models.py": "fba870939cf30b0819b60d0baec14a36303471de37542b522108383589795cfb",
+    "src/review_split.py": "74c478a8f171b3f075726d12cc035d07d7f29019412c1322e2eced1fcea64e19",
+    "src/summarize_note_status.py": "0a5187a812907f7abf24e1b52de545f7b24829f7f66745c3900cf8fa15036e96",
+    "src/__init__.py": "91ec51f1f0441db68d75775e850f186a0b1d539a3304c60c52a22ee8f0e7423e"
+  },
+  "huber_delta": 800.0,
+  "delta_reference": {
+    "period": "2024-01-15/2024-12-31",
+    "days": 352,
+    "method": "7-day naive absolute residual q90 rounded to nearest 100 people",
+    "quantile90": 784.0
+  },
+  "previous_mae": 269.26424472371514,
+  "results": [
+    {
+      "variant": "mae",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 42,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 8,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-11",
+          "reviewer": "사용자",
+          "evidence": "LSTM 1층·배치8 MAE/Huber/MSE 시드42 비교, delta 추천값 위임, 결과 비교·커밋"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0,
+        "loss": "mean_absolute_error"
+      },
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 1710,
+        "stopped_epoch": 1760,
+        "stop_reason": "early_stopping",
+        "optimizer": "adam",
+        "loss": "mean_absolute_error",
+        "huber_delta": null,
+        "lr_reductions": 0,
+        "best_learning_rate": 0.003000000026077032,
+        "total_optimizer_steps": 77440,
+        "validation_mae": 269.26424472371514,
+        "seconds": 2322.9975972539996
+      },
+      "run": "outputs/loss-comparison-2026-11-11/mae",
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 269.26424472371514,
+          "board_mae": 299.14773665212135,
+          "alight_mae": 239.38075279530898,
+          "board_rmse": 1078.3957999290728,
+          "alight_rmse": 720.0618706492317,
+          "raw_mae": 269.29332625902526,
+          "negative_fraction": 0.0006138735420503376
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 84.44182217078398,
+            "board_mae": 78.25562033943805,
+            "alight_mae": 90.62802400212989,
+            "board_rmse": 192.85986547659303,
+            "alight_rmse": 184.4796336671275,
+            "raw_mae": 84.44182217078396,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 75.4043133675106,
+            "board_mae": 67.17190825749957,
+            "alight_mae": 83.63671847752163,
+            "board_rmse": 188.2507917664454,
+            "alight_rmse": 189.80813621169966,
+            "raw_mae": 75.4043133675106,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 276.1534787130185,
+            "board_mae": 296.57149095774554,
+            "alight_mae": 255.73546646829146,
+            "board_rmse": 1094.3295879393088,
+            "alight_rmse": 746.1078783239861,
+            "raw_mae": 276.28330531000665,
+            "negative_fraction": 0.0017921146953405018
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 387.00439777374265,
+            "board_mae": 439.27335575245047,
+            "alight_mae": 334.7354397950349,
+            "board_rmse": 1301.3150477646034,
+            "alight_rmse": 914.5534457746911,
+            "raw_mae": 387.00439777374265,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 418.7776932084005,
+            "board_mae": 482.51859266356325,
+            "alight_mae": 355.0367937532377,
+            "board_rmse": 1443.5325725954317,
+            "alight_rmse": 944.6570038325676,
+            "raw_mae": 418.7911070179341,
+            "negative_fraction": 0.0008960573476702509
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 361.82709235438597,
+            "board_mae": 416.96698024891043,
+            "alight_mae": 306.68720445986145,
+            "board_rmse": 1364.0881653253514,
+            "alight_rmse": 851.8576496992315,
+            "raw_mae": 361.85453586401763,
+            "negative_fraction": 0.000925925925925926
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 485.0103642852218,
+            "board_mae": 487.41660541958277,
+            "alight_mae": 482.6041231508608,
+            "board_rmse": 1143.8724600373614,
+            "alight_rmse": 1119.2315437188868,
+            "raw_mae": 485.0103642852218,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 770.7269509633383,
+            "board_mae": 698.9978557162815,
+            "alight_mae": 842.456046210395,
+            "board_rmse": 1920.5761654648945,
+            "alight_rmse": 1618.8876065280488,
+            "raw_mae": 770.7269509633383,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 98.64859944421646,
+            "board_mae": 96.44194043310065,
+            "alight_mae": 100.85525845533226,
+            "board_rmse": 358.5911435625848,
+            "alight_rmse": 285.9945402875003,
+            "raw_mae": 98.65485278179771,
+            "negative_fraction": 0.0005847953216374269
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 454.0828006505287,
+            "board_mae": 526.9867616691481,
+            "alight_mae": 381.17883963190934,
+            "board_rmse": 1545.7713191707992,
+            "alight_rmse": 984.4720760393919,
+            "raw_mae": 454.1426684815659,
+            "negative_fraction": 0.0007122507122507123
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 265.96376037597656,
+            "board_mae": 255.2910944620768,
+            "alight_mae": 276.6364262898763,
+            "board_rmse": 602.2351413822165,
+            "alight_rmse": 585.559408105061,
+            "raw_mae": 265.96376037597656,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "diagnostics": {
+        "board": {
+          "peak_mae": 2690.56005859375,
+          "peak_bias": -2573.66943359375,
+          "peak_within_hour": 0.7237569060773481,
+          "high": {
+            "0.8": {
+              "threshold": 793.0,
+              "n": 654,
+              "mae": 1138.46630859375,
+              "normal_mae": 88.35110473632812,
+              "shortage": 1029.451416015625,
+              "miss_rate": 0.3837920489296636
+            },
+            "0.9": {
+              "threshold": 1049.300048828125,
+              "n": 326,
+              "mae": 2120.37548828125,
+              "normal_mae": 96.65104675292969,
+              "shortage": 1941.3006591796875,
+              "miss_rate": 0.49079754601226994
+            },
+            "0.95": {
+              "threshold": 1734.75,
+              "n": 163,
+              "mae": 3775.96484375,
+              "normal_mae": 116.03913879394531,
+              "shortage": 3526.32666015625,
+              "miss_rate": 0.6012269938650306
+            }
+          }
+        },
+        "alight": {
+          "peak_mae": 1449.5562744140625,
+          "peak_bias": -1364.8983154296875,
+          "peak_within_hour": 0.7569060773480663,
+          "high": {
+            "0.8": {
+              "threshold": 844.0,
+              "n": 653,
+              "mae": 859.5011596679688,
+              "normal_mae": 83.93407440185547,
+              "shortage": 754.7781372070312,
+              "miss_rate": 0.20520673813169985
+            },
+            "0.9": {
+              "threshold": 1425.5999755859375,
+              "n": 326,
+              "mae": 1435.235595703125,
+              "normal_mae": 106.41734313964844,
+              "shortage": 1365.992919921875,
+              "miss_rate": 0.3282208588957055
+            },
+            "0.95": {
+              "threshold": 2972.449951171875,
+              "n": 163,
+              "mae": 2225.00390625,
+              "normal_mae": 134.80674743652344,
+              "shortage": 2173.09765625,
+              "miss_rate": 0.3987730061349693
+            }
+          }
+        }
+      },
+      "reload_verified": true
+    },
+    {
+      "variant": "huber",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 42,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 8,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-11",
+          "reviewer": "사용자",
+          "evidence": "LSTM 1층·배치8 MAE/Huber/MSE 시드42 비교, delta 추천값 위임, 결과 비교·커밋"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0,
+        "loss": "huber",
+        "huber_delta": 800.0
+      },
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 907,
+        "stopped_epoch": 957,
+        "stop_reason": "early_stopping",
+        "optimizer": "adam",
+        "loss": "huber",
+        "huber_delta": 800.0,
+        "lr_reductions": 0,
+        "best_learning_rate": 0.003000000026077032,
+        "total_optimizer_steps": 42108,
+        "validation_mae": 288.759633504737,
+        "seconds": 1250.22603505
+      },
+      "run": "outputs/loss-comparison-2026-11-11/huber",
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 288.759633504737,
+          "board_mae": 315.6657804727115,
+          "alight_mae": 261.8534865367625,
+          "board_rmse": 1080.7453898183257,
+          "alight_rmse": 692.8477064965442,
+          "raw_mae": 288.9695000570197,
+          "negative_fraction": 0.0029158993247391037
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 104.36240695625224,
+            "board_mae": 95.32704226175944,
+            "alight_mae": 113.39777165074503,
+            "board_rmse": 192.31657312632052,
+            "alight_rmse": 191.37123786982207,
+            "raw_mae": 104.36240695625223,
+            "negative_fraction": 0.0
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 92.44250587433103,
+            "board_mae": 85.5052389265999,
+            "alight_mae": 99.37977282206218,
+            "board_rmse": 188.78463896436992,
+            "alight_rmse": 193.76609373627954,
+            "raw_mae": 92.44250587433103,
+            "negative_fraction": 0.0
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 292.8261405464569,
+            "board_mae": 317.37960515483735,
+            "alight_mae": 268.2726759380764,
+            "board_rmse": 1110.6278627514632,
+            "alight_rmse": 693.2786047518638,
+            "raw_mae": 293.1760605355745,
+            "negative_fraction": 0.0062724014336917565
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 390.8530697080824,
+            "board_mae": 439.7582912586353,
+            "alight_mae": 341.94784815752945,
+            "board_rmse": 1290.3367637139706,
+            "alight_rmse": 840.4001924916796,
+            "raw_mae": 390.8530697080824,
+            "negative_fraction": 0.0
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 425.60309012773644,
+            "board_mae": 487.26571514700476,
+            "alight_mae": 363.9404651084681,
+            "board_rmse": 1411.6300206215776,
+            "alight_rmse": 893.259352287281,
+            "raw_mae": 426.0741375385647,
+            "negative_fraction": 0.007168458781362007
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 414.83235473632817,
+            "board_mae": 454.9822532795094,
+            "alight_mae": 374.6824561931469,
+            "board_rmse": 1405.991740608041,
+            "alight_rmse": 892.1349162233107,
+            "raw_mae": 415.2502166218228,
+            "negative_fraction": 0.003703703703703704
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 543.7370899694937,
+            "board_mae": 538.337439360442,
+            "alight_mae": 549.1367405785454,
+            "board_rmse": 1235.874859415724,
+            "alight_rmse": 1180.6282857066567,
+            "raw_mae": 543.7370899694937,
+            "negative_fraction": 0.0
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 884.5990634891723,
+            "board_mae": 811.36581047376,
+            "alight_mae": 957.8323165045845,
+            "board_rmse": 2202.6992025840345,
+            "alight_rmse": 1752.6093665800947,
+            "raw_mae": 887.1719820631874,
+            "negative_fraction": 0.027777777777777776
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 114.2099013242108,
+            "board_mae": 110.96708561244763,
+            "alight_mae": 117.45271703597398,
+            "board_rmse": 357.4960768906508,
+            "alight_rmse": 283.22888581372524,
+            "raw_mae": 114.31297910004331,
+            "negative_fraction": 0.0017543859649122807
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 473.6316451214657,
+            "board_mae": 541.9975088586834,
+            "alight_mae": 405.265781384248,
+            "board_rmse": 1538.9849486737799,
+            "alight_rmse": 928.5788652493841,
+            "raw_mae": 473.96011356614594,
+            "negative_fraction": 0.004273504273504274
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 325.26311577690973,
+            "board_mae": 276.4369947645399,
+            "alight_mae": 374.08923678927954,
+            "board_rmse": 715.0962682395739,
+            "alight_rmse": 758.2763229060323,
+            "raw_mae": 325.26311577690973,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "diagnostics": {
+        "board": {
+          "peak_mae": 2662.77880859375,
+          "peak_bias": -2578.0546875,
+          "peak_within_hour": 0.7348066298342542,
+          "high": {
+            "0.8": {
+              "threshold": 793.0,
+              "n": 654,
+              "mae": 1120.2872314453125,
+              "normal_mae": 113.58345031738281,
+              "shortage": 1010.2996826171875,
+              "miss_rate": 0.3669724770642202
+            },
+            "0.9": {
+              "threshold": 1049.300048828125,
+              "n": 326,
+              "mae": 2071.414794921875,
+              "normal_mae": 120.44947814941406,
+              "shortage": 1904.7012939453125,
+              "miss_rate": 0.46319018404907975
+            },
+            "0.95": {
+              "threshold": 1734.75,
+              "n": 163,
+              "mae": 3689.61474609375,
+              "normal_mae": 137.97476196289062,
+              "shortage": 3470.50537109375,
+              "miss_rate": 0.49693251533742333
+            }
+          }
+        },
+        "alight": {
+          "peak_mae": 1378.025146484375,
+          "peak_bias": -1209.1187744140625,
+          "peak_within_hour": 0.7237569060773481,
+          "high": {
+            "0.8": {
+              "threshold": 844.0,
+              "n": 653,
+              "mae": 851.5455322265625,
+              "normal_mae": 114.03434753417969,
+              "shortage": 683.6284790039062,
+              "miss_rate": 0.16232771822358347
+            },
+            "0.9": {
+              "threshold": 1425.5999755859375,
+              "n": 326,
+              "mae": 1373.7685546875,
+              "normal_mae": 138.22308349609375,
+              "shortage": 1253.3057861328125,
+              "miss_rate": 0.27607361963190186
+            },
+            "0.95": {
+              "threshold": 2972.449951171875,
+              "n": 163,
+              "mae": 2098.95166015625,
+              "normal_mae": 165.10162353515625,
+              "shortage": 1997.26611328125,
+              "miss_rate": 0.3558282208588957
+            }
+          }
+        }
+      },
+      "reload_verified": true
+    },
+    {
+      "variant": "mse",
+      "config": {
+        "schema_version": 1,
+        "team_review": {
+          "approved": true,
+          "reviewer": "팀 확인 완료를 사용자에게 전달받음",
+          "reviewed_at": "2026-11-03",
+          "evidence": "팀 확인 완료, 실행해줘"
+        },
+        "seed": 42,
+        "windows": [
+          14
+        ],
+        "models": [
+          "lstm"
+        ],
+        "excluded_test_dates": [
+          "2025-09-25",
+          "2025-09-26",
+          "2025-09-27",
+          "2025-09-28",
+          "2025-09-30",
+          "2025-10-01"
+        ],
+        "training": {
+          "epochs": 2000,
+          "batch_size": 8,
+          "patience": 50,
+          "min_delta": 0.0,
+          "shuffle": true
+        },
+        "adam": {
+          "learning_rate": 0.003,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "epsilon": 1e-07,
+          "amsgrad": false,
+          "weight_decay": null
+        },
+        "mlp": {
+          "hidden_units": [
+            64,
+            32
+          ]
+        },
+        "lstm": {
+          "units": 32,
+          "dense_units": 32
+        },
+        "rf": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_leaf": 3,
+          "min_samples_split": 2,
+          "criterion": "squared_error",
+          "max_features": 1.0,
+          "bootstrap": true,
+          "max_samples": null,
+          "max_leaf_nodes": null,
+          "min_impurity_decrease": 0.0,
+          "ccp_alpha": 0.0,
+          "warm_start": false,
+          "oob_score": false,
+          "n_jobs": 1
+        },
+        "followup_approval": {
+          "date": "2026-11-11",
+          "reviewer": "사용자",
+          "evidence": "LSTM 1층·배치8 MAE/Huber/MSE 시드42 비교, delta 추천값 위임, 결과 비교·커밋"
+        },
+        "require_gpu": true,
+        "head_dropout": 0.0,
+        "loss": "mean_squared_error"
+      },
+      "condition": {
+        "model": "lstm",
+        "window": 14,
+        "counts": {
+          "train": 352,
+          "validation": 181,
+          "test": 178
+        },
+        "context_features": 51,
+        "parameters": 8356,
+        "weight_devices": [
+          "/job:localhost/replica:0/task:0/device:GPU:0"
+        ],
+        "best_epoch": 495,
+        "stopped_epoch": 545,
+        "stop_reason": "early_stopping",
+        "optimizer": "adam",
+        "loss": "mean_squared_error",
+        "huber_delta": null,
+        "lr_reductions": 0,
+        "best_learning_rate": 0.003000000026077032,
+        "total_optimizer_steps": 23980,
+        "validation_mae": 346.5814412492707,
+        "seconds": 689.2330472029998
+      },
+      "run": "outputs/loss-comparison-2026-11-11/mse",
+      "metrics": {
+        "overall": {
+          "days": 181,
+          "hourly_records": 3258,
+          "mae": 346.5814412492707,
+          "board_mae": 376.97238567418447,
+          "alight_mae": 316.190496824357,
+          "board_rmse": 1064.1908555734633,
+          "alight_rmse": 736.4188700416453,
+          "raw_mae": 348.74363251161253,
+          "negative_fraction": 0.013351749539594844
+        },
+        "month": {
+          "2025-01": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 144.85349932537284,
+            "board_mae": 144.5218541169252,
+            "alight_mae": 145.18514453382048,
+            "board_rmse": 249.4106643013906,
+            "alight_rmse": 232.92104992277996,
+            "raw_mae": 147.01690807778348,
+            "negative_fraction": 0.012544802867383513
+          },
+          "2025-02": {
+            "days": 28,
+            "hourly_records": 504,
+            "mae": 131.78275666113882,
+            "board_mae": 132.76602916774294,
+            "alight_mae": 130.79948415453472,
+            "board_rmse": 237.64864172912965,
+            "alight_rmse": 218.75447579054827,
+            "raw_mae": 132.3780269249091,
+            "negative_fraction": 0.005952380952380952
+          },
+          "2025-03": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 362.2903893626292,
+            "board_mae": 385.5282025115037,
+            "alight_mae": 339.0525762137546,
+            "board_rmse": 1127.0328601107383,
+            "alight_rmse": 782.7148217319211,
+            "raw_mae": 368.32707792584614,
+            "negative_fraction": 0.035842293906810034
+          },
+          "2025-04": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 475.7341358864749,
+            "board_mae": 527.645812813441,
+            "alight_mae": 423.8224589595088,
+            "board_rmse": 1300.2628222839692,
+            "alight_rmse": 882.7636976360318,
+            "raw_mae": 476.9649847083622,
+            "negative_fraction": 0.008333333333333333
+          },
+          "2025-05": {
+            "days": 31,
+            "hourly_records": 558,
+            "mae": 483.5896185598066,
+            "board_mae": 542.491194075581,
+            "alight_mae": 424.68804304403216,
+            "board_rmse": 1387.0429313792383,
+            "alight_rmse": 939.8572367135313,
+            "raw_mae": 485.03784411611525,
+            "negative_fraction": 0.008960573476702509
+          },
+          "2025-06": {
+            "days": 30,
+            "hourly_records": 540,
+            "mae": 468.55202927766027,
+            "board_mae": 514.5466611367685,
+            "alight_mae": 422.557397418552,
+            "board_rmse": 1313.2128188282343,
+            "alight_rmse": 919.8467419454482,
+            "raw_mae": 469.8408818580486,
+            "negative_fraction": 0.007407407407407408
+          }
+        },
+        "note_status": {
+          "explicit_cancellation": {
+            "days": 6,
+            "hourly_records": 108,
+            "mae": 568.0146487553915,
+            "board_mae": 594.546261716772,
+            "alight_mae": 541.4830357940109,
+            "board_rmse": 1271.8830923632695,
+            "alight_rmse": 1120.5712543633174,
+            "raw_mae": 569.0981612117203,
+            "negative_fraction": 0.009259259259259259
+          },
+          "explicit_cancellation + no_special_note": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 857.2909348805745,
+            "board_mae": 861.3638114929199,
+            "alight_mae": 853.2180582682291,
+            "board_rmse": 2131.9052262611353,
+            "alight_rmse": 1599.7625589367728,
+            "raw_mae": 857.2909348805746,
+            "negative_fraction": 0.0
+          },
+          "no_record_unknown": {
+            "days": 95,
+            "hourly_records": 1710,
+            "mae": 153.53945962378853,
+            "board_mae": 156.62258131378576,
+            "alight_mae": 150.4563379337913,
+            "board_rmse": 381.67671735899825,
+            "alight_rmse": 303.0216795009061,
+            "raw_mae": 156.8931931198689,
+            "negative_fraction": 0.02046783625730994
+          },
+          "no_special_note": {
+            "days": 78,
+            "hourly_records": 1404,
+            "mae": 557.117298065767,
+            "board_mae": 621.9264632738553,
+            "alight_mae": 492.30813285767863,
+            "board_rmse": 1501.934879182743,
+            "alight_rmse": 1002.6094864054202,
+            "raw_mae": 557.9666680865138,
+            "negative_fraction": 0.005341880341880342
+          },
+          "other_note_unknown": {
+            "days": 1,
+            "hourly_records": 18,
+            "mae": 424.46412531534827,
+            "board_mae": 413.95106506347656,
+            "alight_mae": 434.97718556722003,
+            "board_rmse": 969.2134639150565,
+            "alight_rmse": 966.733743432522,
+            "raw_mae": 424.4641253153483,
+            "negative_fraction": 0.0
+          }
+        }
+      },
+      "diagnostics": {
+        "board": {
+          "peak_mae": 2502.908935546875,
+          "peak_bias": -2419.46728515625,
+          "peak_within_hour": 0.7071823204419889,
+          "high": {
+            "0.8": {
+              "threshold": 793.0,
+              "n": 654,
+              "mae": 1122.4925537109375,
+              "normal_mae": 189.73345947265625,
+              "shortage": 925.6400146484375,
+              "miss_rate": 0.3440366972477064
+            },
+            "0.9": {
+              "threshold": 1049.300048828125,
+              "n": 326,
+              "mae": 1951.8599853515625,
+              "normal_mae": 201.86553955078125,
+              "shortage": 1727.7001953125,
+              "miss_rate": 0.3987730061349693
+            },
+            "0.95": {
+              "threshold": 1734.75,
+              "n": 163,
+              "mae": 3355.42724609375,
+              "normal_mae": 220.1103057861328,
+              "shortage": 3135.40185546875,
+              "miss_rate": 0.38650306748466257
+            }
+          }
+        },
+        "alight": {
+          "peak_mae": 1397.16259765625,
+          "peak_bias": -1226.6201171875,
+          "peak_within_hour": 0.6906077348066298,
+          "high": {
+            "0.8": {
+              "threshold": 844.0,
+              "n": 653,
+              "mae": 916.0465087890625,
+              "normal_mae": 165.82351684570312,
+              "shortage": 706.5390625,
+              "miss_rate": 0.15926493108728942
+            },
+            "0.9": {
+              "threshold": 1425.5999755859375,
+              "n": 326,
+              "mae": 1441.4356689453125,
+              "normal_mae": 191.07797241210938,
+              "shortage": 1288.052490234375,
+              "miss_rate": 0.2852760736196319
+            },
+            "0.95": {
+              "threshold": 2972.449951171875,
+              "n": 163,
+              "mae": 2176.541259765625,
+              "normal_mae": 218.2140350341797,
+              "shortage": 2094.404052734375,
+              "miss_rate": 0.26380368098159507
+            }
+          }
+        }
+      },
+      "reload_verified": true
+    }
+  ],
+  "final_test_evaluated": false,
+  "finished_utc": "2026-11-11T02:25:00.638733+00:00",
+  "winner": "mae"
+}
