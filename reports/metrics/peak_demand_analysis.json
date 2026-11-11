@@ -1,0 +1,734 @@
+{
+  "seed": 42,
+  "period": [
+    "2025-01-01",
+    "2025-06-30"
+  ],
+  "days": 181,
+  "observations": 6516,
+  "final_test_evaluated": false,
+  "new_training": false,
+  "sources": {
+    "outputs\\team-handoff-2026-11-10\\validation_predictions.json": "8a5e50185c7ac6ec20a0ffb144ac5c285195e630afdbe1c6b78d3eaec966af92",
+    "outputs\\learning-tuning-2026-11-10-retry1\\batch8_seed42\\lstm_14d\\validation_predictions.npz": "b3f08f98fe8ef76fd02a39434295f8f02b805a214f55627a6e18c0a288226302"
+  },
+  "rules": {
+    "high_demand": "validation direction-specific linear quantile; >= threshold, include ties; descriptive only",
+    "quantiles": [
+      0.8,
+      0.9,
+      0.95
+    ],
+    "peak_tie": "earliest hour",
+    "near_peak": "hours >=95% daily maximum; count contiguous peak regions",
+    "weak_peak": "daily maximum <=1.5*daily mean; heuristic sensitivity flag",
+    "selection_metric": "unchanged: overall validation MAE"
+  },
+  "models": {
+    "RF": {
+      "overall": {
+        "n": 6516,
+        "mae": 255.8696692127675,
+        "bias": -35.00276716790916,
+        "under_fraction": 0.39717618170656843,
+        "shortage": 145.43621819033834
+      },
+      "monthly": {
+        "1": {
+          "n": 1116,
+          "mae": 111.8035033595323,
+          "bias": 48.21254821388409,
+          "under_fraction": 0.235663082437276,
+          "shortage": 31.795477572824105
+        },
+        "2": {
+          "n": 1008,
+          "mae": 105.6951011087821,
+          "bias": 39.49167205640606,
+          "under_fraction": 0.3115079365079365,
+          "shortage": 33.10171452618802
+        },
+        "3": {
+          "n": 1116,
+          "mae": 263.78243002068257,
+          "bias": -98.50267892195914,
+          "under_fraction": 0.44175627240143367,
+          "shortage": 181.14255447132084
+        },
+        "4": {
+          "n": 1080,
+          "mae": 355.81156807976777,
+          "bias": -65.17656996410494,
+          "under_fraction": 0.45185185185185184,
+          "shortage": 210.49406902193635
+        },
+        "5": {
+          "n": 1116,
+          "mae": 378.88565560026683,
+          "bias": -75.93859688464465,
+          "under_fraction": 0.478494623655914,
+          "shortage": 227.41212624245574
+        },
+        "6": {
+          "n": 1080,
+          "mae": 309.6660331892353,
+          "bias": -52.4293340224489,
+          "under_fraction": 0.45925925925925926,
+          "shortage": 181.0476836058421
+        }
+      },
+      "directions": {
+        "board": {
+          "all": {
+            "n": 3258,
+            "mae": 309.42640295403606,
+            "bias": -34.166414397364186,
+            "under_fraction": 0.3710865561694291,
+            "shortage": 171.79640867570012
+          },
+          "peak": {
+            "total_mae": 2202.0120235002382,
+            "total_bias": -614.9954591525554,
+            "size_mae": 1673.7459678333269,
+            "size_bias": -1299.2520312144577,
+            "at_actual_peak_mae": 2111.2140798923774,
+            "at_actual_peak_bias": -2027.3249145686511,
+            "timing_absolute_hours": 1.729281767955801,
+            "within_one_hour": 0.7624309392265194,
+            "aligned_peak_days": 138,
+            "aligned_at_peak_mae": 2409.7342096395582,
+            "actual_tie_days": 0,
+            "predicted_tie_days": 0,
+            "multi_near_peak_days": 4,
+            "weak_peak_days": 0
+          },
+          "high_demand": {
+            "0.8": {
+              "high": {
+                "n": 654,
+                "mae": 990.6062777694066,
+                "bias": -607.2944729614146,
+                "under_fraction": 0.7767584097859327,
+                "shortage": 798.9503753654105,
+                "threshold": 793.0,
+                "miss_rate": 0.345565749235474,
+                "false_positive_count": 197,
+                "false_positive_rate": 0.07565284178187404,
+                "total_absolute_error_share": 0.642643879245281
+              },
+              "normal": {
+                "n": 2604,
+                "mae": 138.34666480916192,
+                "bias": 109.77588602540425,
+                "under_fraction": 0.2692012288786482,
+                "shortage": 14.285389391878832
+              }
+            },
+            "0.9": {
+              "high": {
+                "n": 326,
+                "mae": 1780.258841261081,
+                "bias": -1213.3896202804724,
+                "under_fraction": 0.8374233128834356,
+                "shortage": 1496.824230770777,
+                "threshold": 1049.3000000000002,
+                "miss_rate": 0.4662576687116564,
+                "false_positive_count": 115,
+                "false_positive_rate": 0.03922237380627558,
+                "total_absolute_error_share": 0.5756947946443808
+              },
+              "normal": {
+                "n": 2932,
+                "mae": 145.8890991040713,
+                "bias": 96.94776197299508,
+                "under_fraction": 0.31923601637107774,
+                "shortage": 24.47066856553812
+              }
+            },
+            "0.95": {
+              "high": {
+                "n": 163,
+                "mae": 3023.3247586182497,
+                "bias": -2321.52631880223,
+                "under_fraction": 0.8159509202453987,
+                "shortage": 2672.42553871024,
+                "threshold": 1734.7499999999982,
+                "miss_rate": 0.3496932515337423,
+                "false_positive_count": 65,
+                "false_positive_rate": 0.0210016155088853,
+                "total_absolute_error_share": 0.4888368718402431
+              },
+              "normal": {
+                "n": 3095,
+                "mae": 166.49734577365905,
+                "bias": 86.29874373445912,
+                "under_fraction": 0.3476575121163166,
+                "shortage": 40.09930101959996
+              }
+            }
+          }
+        },
+        "alight": {
+          "all": {
+            "n": 3258,
+            "mae": 202.312935471499,
+            "bias": -35.839119938454125,
+            "under_fraction": 0.42326580724370777,
+            "shortage": 119.07602770497655
+          },
+          "peak": {
+            "total_mae": 2450.9072122387206,
+            "total_bias": -645.1041588921743,
+            "size_mae": 978.0672343162373,
+            "size_bias": -540.5009635103177,
+            "at_actual_peak_mae": 949.4589477836848,
+            "at_actual_peak_bias": -721.3290849586032,
+            "timing_absolute_hours": 1.4972375690607735,
+            "within_one_hour": 0.7845303867403315,
+            "aligned_peak_days": 142,
+            "aligned_at_peak_mae": 1055.0973073280488,
+            "actual_tie_days": 1,
+            "predicted_tie_days": 0,
+            "multi_near_peak_days": 7,
+            "weak_peak_days": 4
+          },
+          "high_demand": {
+            "0.8": {
+              "high": {
+                "n": 653,
+                "mae": 618.6692456428436,
+                "bias": -365.00361497422915,
+                "under_fraction": 0.6768759571209801,
+                "shortage": 491.8364303085365,
+                "threshold": 844.0,
+                "miss_rate": 0.1669218989280245,
+                "false_positive_count": 137,
+                "false_positive_rate": 0.05259117082533589,
+                "total_absolute_error_share": 0.6129103812191167
+              },
+              "normal": {
+                "n": 2605,
+                "mae": 97.94415599284719,
+                "bias": 46.67313160026416,
+                "under_fraction": 0.3596928982725528,
+                "shortage": 25.635512196291504
+              }
+            },
+            "0.9": {
+              "high": {
+                "n": 326,
+                "mae": 962.8813164826487,
+                "bias": -767.472109660399,
+                "under_fraction": 0.8098159509202454,
+                "shortage": 865.1767130715239,
+                "threshold": 1425.6000000000004,
+                "miss_rate": 0.3282208588957055,
+                "false_positive_count": 44,
+                "false_positive_rate": 0.015006821282401092,
+                "total_absolute_error_share": 0.47622876985179324
+              },
+              "normal": {
+                "n": 2932,
+                "mae": 117.74769256234666,
+                "bias": 45.508886422171415,
+                "under_fraction": 0.38028649386084584,
+                "shortage": 36.11940307008762
+              }
+            },
+            "0.95": {
+              "high": {
+                "n": 163,
+                "mae": 1322.1035652815256,
+                "bias": -1135.6929633161612,
+                "under_fraction": 0.7914110429447853,
+                "shortage": 1228.8982642988437,
+                "threshold": 2972.4499999999844,
+                "miss_rate": 0.049079754601226995,
+                "false_positive_count": 17,
+                "false_positive_rate": 0.005492730210016155,
+                "total_absolute_error_share": 0.32694774721077313
+              },
+              "normal": {
+                "n": 3095,
+                "mae": 143.33850165597906,
+                "bias": 22.085331263667456,
+                "under_fraction": 0.40387722132471726,
+                "shortage": 60.62658519615579
+              }
+            }
+          }
+        }
+      }
+    },
+    "LSTM_b16": {
+      "overall": {
+        "n": 6516,
+        "mae": 275.65140211223604,
+        "bias": -154.44482049655153,
+        "under_fraction": 0.5581645181092695,
+        "shortage": 215.04811130439379
+      },
+      "monthly": {
+        "1": {
+          "n": 1116,
+          "mae": 81.94411509865928,
+          "bias": -13.397108341203369,
+          "under_fraction": 0.4596774193548387,
+          "shortage": 47.67061171993132
+        },
+        "2": {
+          "n": 1008,
+          "mae": 74.58596356709798,
+          "bias": -26.701776928371853,
+          "under_fraction": 0.5347222222222222,
+          "shortage": 50.64387024773492
+        },
+        "3": {
+          "n": 1116,
+          "mae": 290.9075780444675,
+          "bias": -223.84573377588742,
+          "under_fraction": 0.6200716845878136,
+          "shortage": 257.3766559101775
+        },
+        "4": {
+          "n": 1080,
+          "mae": 386.67380563241466,
+          "bias": -229.49483495641638,
+          "under_fraction": 0.5851851851851851,
+          "shortage": 308.08432029441553
+        },
+        "5": {
+          "n": 1116,
+          "mae": 429.97148705896086,
+          "bias": -248.7057442682191,
+          "under_fraction": 0.5582437275985663,
+          "shortage": 339.33861566358996
+        },
+        "6": {
+          "n": 1080,
+          "mae": 377.22546823996083,
+          "bias": -175.25371764147724,
+          "under_fraction": 0.5907407407407408,
+          "shortage": 276.23959294071904
+        }
+      },
+      "directions": {
+        "board": {
+          "all": {
+            "n": 3258,
+            "mae": 301.2692218005401,
+            "bias": -172.19968593215708,
+            "under_fraction": 0.5402087170042971,
+            "shortage": 236.7344538663486
+          },
+          "peak": {
+            "total_mae": 3536.936642683672,
+            "total_bias": -3099.5943467788275,
+            "size_mae": 2340.017829347052,
+            "size_bias": -2096.5663158775033,
+            "at_actual_peak_mae": 2777.2375603775954,
+            "at_actual_peak_bias": -2679.290176054391,
+            "timing_absolute_hours": 1.8895027624309393,
+            "within_one_hour": 0.7016574585635359,
+            "aligned_peak_days": 127,
+            "aligned_at_peak_mae": 2467.4612707904002,
+            "actual_tie_days": 0,
+            "predicted_tie_days": 0,
+            "multi_near_peak_days": 4,
+            "weak_peak_days": 0
+          },
+          "high_demand": {
+            "0.8": {
+              "high": {
+                "n": 654,
+                "mae": 1161.3386927380109,
+                "bias": -980.2674421257929,
+                "under_fraction": 0.77217125382263,
+                "shortage": 1070.803067431902,
+                "threshold": 793.0,
+                "miss_rate": 0.40672782874617736,
+                "false_positive_count": 96,
+                "false_positive_rate": 0.03686635944700461,
+                "total_absolute_error_share": 0.773803693820879
+              },
+              "normal": {
+                "n": 2604,
+                "mae": 85.2609906203919,
+                "bias": 30.748206752419655,
+                "under_fraction": 0.48195084485407064,
+                "shortage": 27.25639193398612
+              }
+            },
+            "0.9": {
+              "high": {
+                "n": 326,
+                "mae": 2167.5722881387346,
+                "bias": -1874.0238629206558,
+                "under_fraction": 0.8159509202453987,
+                "shortage": 2020.7980755296953,
+                "threshold": 1049.3000000000002,
+                "miss_rate": 0.5122699386503068,
+                "false_positive_count": 74,
+                "false_positive_rate": 0.0252387448840382,
+                "total_absolute_error_share": 0.7199218328558169
+              },
+              "normal": {
+                "n": 2932,
+                "mae": 93.76076353783498,
+                "bias": 17.02087399221215,
+                "under_fraction": 0.509549795361528,
+                "shortage": 38.36994477281141
+              }
+            },
+            "0.95": {
+              "high": {
+                "n": 163,
+                "mae": 3887.2442046557467,
+                "bias": -3455.1348356469275,
+                "under_fraction": 0.9202453987730062,
+                "shortage": 3671.189520151337,
+                "threshold": 1734.7499999999982,
+                "miss_rate": 0.6073619631901841,
+                "false_positive_count": 31,
+                "false_positive_rate": 0.010016155088852988,
+                "total_absolute_error_share": 0.6455406326902624
+              },
+              "normal": {
+                "n": 3095,
+                "mae": 112.4117348197974,
+                "bias": 0.6980295455513555,
+                "under_fraction": 0.5201938610662359,
+                "shortage": 55.85685263712302
+              }
+            }
+          }
+        },
+        "alight": {
+          "all": {
+            "n": 3258,
+            "mae": 250.033582423932,
+            "bias": -136.68995506094598,
+            "under_fraction": 0.5761203192142419,
+            "shortage": 193.36176874243898
+          },
+          "peak": {
+            "total_mae": 3256.756915898613,
+            "total_bias": -2460.4191910970276,
+            "size_mae": 1596.60685839574,
+            "size_bias": -1328.2745455747151,
+            "at_actual_peak_mae": 1588.2728708172372,
+            "at_actual_peak_bias": -1502.0247076045084,
+            "timing_absolute_hours": 1.4475138121546962,
+            "within_one_hour": 0.7513812154696132,
+            "aligned_peak_days": 136,
+            "aligned_at_peak_mae": 1610.783634410185,
+            "actual_tie_days": 1,
+            "predicted_tie_days": 0,
+            "multi_near_peak_days": 7,
+            "weak_peak_days": 4
+          },
+          "high_demand": {
+            "0.8": {
+              "high": {
+                "n": 653,
+                "mae": 919.2444304017889,
+                "bias": -714.5965752126978,
+                "under_fraction": 0.7457886676875957,
+                "shortage": 816.9205028072433,
+                "threshold": 844.0,
+                "miss_rate": 0.22358346094946402,
+                "false_positive_count": 76,
+                "false_positive_rate": 0.029174664107485603,
+                "total_absolute_error_share": 0.7368765994486404
+              },
+              "normal": {
+                "n": 2605,
+                "mae": 82.28130460069184,
+                "bias": 8.17492899244898,
+                "under_fraction": 0.5335892514395394,
+                "shortage": 37.05318780412143
+              }
+            },
+            "0.9": {
+              "high": {
+                "n": 326,
+                "mae": 1543.2385823536504,
+                "bias": -1413.031500178612,
+                "under_fraction": 0.8650306748466258,
+                "shortage": 1478.1350412661313,
+                "threshold": 1425.6000000000004,
+                "miss_rate": 0.3619631901840491,
+                "false_positive_count": 52,
+                "false_positive_rate": 0.017735334242837655,
+                "total_absolute_error_share": 0.617591413408724
+              },
+              "normal": {
+                "n": 2932,
+                "mae": 106.24612335944079,
+                "bias": 5.2225086867890615,
+                "under_fraction": 0.5439972714870396,
+                "shortage": 50.51180733632586
+              }
+            },
+            "0.95": {
+              "high": {
+                "n": 163,
+                "mae": 2442.710174654159,
+                "bias": -2332.591198786636,
+                "under_fraction": 0.8773006134969326,
+                "shortage": 2387.6506867203975,
+                "threshold": 2972.4499999999844,
+                "miss_rate": 0.44171779141104295,
+                "false_positive_count": 11,
+                "false_positive_rate": 0.003554119547657512,
+                "total_absolute_error_share": 0.4887762807911776
+              },
+              "normal": {
+                "n": 3095,
+                "mae": 134.55497675881824,
+                "bias": -21.04152122337329,
+                "under_fraction": 0.5602584814216478,
+                "shortage": 77.79824899109578
+              }
+            }
+          }
+        }
+      }
+    },
+    "LSTM_b8": {
+      "overall": {
+        "n": 6516,
+        "mae": 269.2642447237152,
+        "bias": -135.26367650008626,
+        "under_fraction": 0.5151933701657458,
+        "shortage": 202.26396061190073
+      },
+      "monthly": {
+        "1": {
+          "n": 1116,
+          "mae": 84.44182217078396,
+          "bias": -3.667913138652788,
+          "under_fraction": 0.3978494623655914,
+          "shortage": 44.05486765471838
+        },
+        "2": {
+          "n": 1008,
+          "mae": 75.4043133675106,
+          "bias": -21.907546081240216,
+          "under_fraction": 0.5,
+          "shortage": 48.655929724375405
+        },
+        "3": {
+          "n": 1116,
+          "mae": 276.1534787130185,
+          "bias": -214.7106116185479,
+          "under_fraction": 0.5842293906810035,
+          "shortage": 245.4320451657832
+        },
+        "4": {
+          "n": 1080,
+          "mae": 387.00439777374265,
+          "bias": -194.6657355767709,
+          "under_fraction": 0.55,
+          "shortage": 290.8350666752568
+        },
+        "5": {
+          "n": 1116,
+          "mae": 418.7776932084005,
+          "bias": -214.33511130698693,
+          "under_fraction": 0.5367383512544803,
+          "shortage": 316.5564022576937
+        },
+        "6": {
+          "n": 1080,
+          "mae": 361.82709235438597,
+          "bias": -153.84064569826478,
+          "under_fraction": 0.5222222222222223,
+          "shortage": 257.8338690263254
+        }
+      },
+      "directions": {
+        "board": {
+          "all": {
+            "n": 3258,
+            "mae": 299.14773665212135,
+            "bias": -153.5698836735233,
+            "under_fraction": 0.4932473910374463,
+            "shortage": 226.35881016282232
+          },
+          "peak": {
+            "total_mae": 3257.93068165542,
+            "total_bias": -2764.2579061234196,
+            "size_mae": 2254.3254534473735,
+            "size_bias": -1980.9171360079097,
+            "at_actual_peak_mae": 2690.5599639165466,
+            "at_actual_peak_bias": -2573.6695358476586,
+            "timing_absolute_hours": 1.7900552486187846,
+            "within_one_hour": 0.7237569060773481,
+            "aligned_peak_days": 131,
+            "aligned_at_peak_mae": 2627.4689890155355,
+            "actual_tie_days": 0,
+            "predicted_tie_days": 0,
+            "multi_near_peak_days": 4,
+            "weak_peak_days": 0
+          },
+          "high_demand": {
+            "0.8": {
+              "high": {
+                "n": 654,
+                "mae": 1138.4664156721274,
+                "bias": -920.436395521193,
+                "under_fraction": 0.7385321100917431,
+                "shortage": 1029.4514055966602,
+                "threshold": 793.0,
+                "miss_rate": 0.3837920489296636,
+                "false_positive_count": 106,
+                "false_positive_rate": 0.040706605222734255,
+                "total_absolute_error_share": 0.7639433778952432
+              },
+              "normal": {
+                "n": 2604,
+                "mae": 88.35110989364061,
+                "bias": 39.03023105319561,
+                "under_fraction": 0.43164362519201227,
+                "shortage": 24.660439420222502
+              }
+            },
+            "0.9": {
+              "high": {
+                "n": 326,
+                "mae": 2120.375617536299,
+                "bias": -1762.225369950745,
+                "under_fraction": 0.7791411042944786,
+                "shortage": 1941.300493743522,
+                "threshold": 1049.3000000000002,
+                "miss_rate": 0.49079754601226994,
+                "false_positive_count": 87,
+                "false_positive_rate": 0.029672578444747612,
+                "total_absolute_error_share": 0.7092406192911999
+              },
+              "normal": {
+                "n": 2932,
+                "mae": 96.65104866840993,
+                "bias": 25.29153806125646,
+                "under_fraction": 0.4614597544338336,
+                "shortage": 35.679755303576734
+              }
+            },
+            "0.95": {
+              "high": {
+                "n": 163,
+                "mae": 3775.96444131114,
+                "bias": -3276.688652272605,
+                "under_fraction": 0.8957055214723927,
+                "shortage": 3526.3265467918723,
+                "threshold": 1734.7499999999982,
+                "miss_rate": 0.6012269938650306,
+                "false_positive_count": 40,
+                "false_positive_rate": 0.012924071082390954,
+                "total_absolute_error_share": 0.6315077707526073
+              },
+              "normal": {
+                "n": 3095,
+                "mae": 116.03913475893233,
+                "bias": 10.911007855281307,
+                "under_fraction": 0.4720516962843296,
+                "shortage": 52.56406345182551
+              }
+            }
+          }
+        },
+        "alight": {
+          "all": {
+            "n": 3258,
+            "mae": 239.38075279530898,
+            "bias": -116.95746932664922,
+            "under_fraction": 0.5371393492940454,
+            "shortage": 178.1691110609791
+          },
+          "peak": {
+            "total_mae": 3012.6103990670726,
+            "total_bias": -2105.234447879686,
+            "size_mae": 1461.6064196844786,
+            "size_bias": -1166.6691368482388,
+            "at_actual_peak_mae": 1449.556390498883,
+            "at_actual_peak_bias": -1364.8982962929742,
+            "timing_absolute_hours": 1.419889502762431,
+            "within_one_hour": 0.7569060773480663,
+            "aligned_peak_days": 137,
+            "aligned_at_peak_mae": 1495.3095669711593,
+            "actual_tie_days": 1,
+            "predicted_tie_days": 0,
+            "multi_near_peak_days": 7,
+            "weak_peak_days": 4
+          },
+          "high_demand": {
+            "0.8": {
+              "high": {
+                "n": 653,
+                "mae": 859.5010973943503,
+                "bias": -650.0551145357889,
+                "under_fraction": 0.7274119448698315,
+                "shortage": 754.7781059650696,
+                "threshold": 844.0,
+                "miss_rate": 0.20520673813169985,
+                "false_positive_count": 80,
+                "false_positive_rate": 0.030710172744721688,
+                "total_absolute_error_share": 0.7196466505989845
+              },
+              "normal": {
+                "n": 2605,
+                "mae": 83.93407908199845,
+                "bias": 16.675068992570814,
+                "under_fraction": 0.4894433781190019,
+                "shortage": 33.62950504471382
+              }
+            },
+            "0.9": {
+              "high": {
+                "n": 326,
+                "mae": 1435.2356580956582,
+                "bias": -1296.750092348438,
+                "under_fraction": 0.8619631901840491,
+                "shortage": 1365.992875222048,
+                "threshold": 1425.6000000000004,
+                "miss_rate": 0.3282208588957055,
+                "false_positive_count": 52,
+                "false_positive_rate": 0.017735334242837655,
+                "total_absolute_error_share": 0.5999299001790561
+              },
+              "normal": {
+                "n": 2932,
+                "mae": 106.41734927282815,
+                "bias": 14.220018771953505,
+                "under_fraction": 0.5010231923601637,
+                "shortage": 46.09866525043732
+              }
+            },
+            "0.95": {
+              "high": {
+                "n": 163,
+                "mae": 2225.003767235879,
+                "bias": -2121.1913690859556,
+                "under_fraction": 0.8773006134969326,
+                "shortage": 2173.097568160917,
+                "threshold": 2972.4499999999844,
+                "miss_rate": 0.3987730061349693,
+                "false_positive_count": 13,
+                "false_positive_rate": 0.00420032310177706,
+                "total_absolute_error_share": 0.46502686873979454
+              },
+              "normal": {
+                "n": 3095,
+                "mae": 134.8067458958541,
+                "bias": -11.403309177774606,
+                "under_fraction": 0.5192245557350565,
+                "shortage": 73.10502753681436
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
